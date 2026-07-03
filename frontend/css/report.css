@@ -1,0 +1,255 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* ═══════════════════════════════════════════════════════════════
+   frontend/css/report.css
+   Clean presentation layer for data/raw/ipcc_reference.html
+   Overrides the inline debug <style> blocks left in the file's
+   <head> (red/blue borders, ::before debug labels, grey boxes).
+   Content and markup are untouched — this is styling only.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ---- 1. Kill the debug scaffolding ---------------------------- */
+
+div {
+    border: none !important;
+    margin: 0 !important;
+}
+
+header::before,
+div.col-lg-10.col-12.offset-lg-0::before,
+.box-container::before,
+#chapter-button-content::before,
+#chapter-authors::before,
+#chapter-figures::before,
+#chapter-citation::before,
+#references::before,
+#executive-summary::before,
+#frequently-asked-questions::before {
+    content: none !important;
+    display: none !important;
+}
+
+.box-container {
+    background: none !important;
+    border: none !important;
+    margin: 0 !important;
+}
+
+p {
+    background: #f3f3f3 !important;
+    padding: 0 !important;
+    margin: 0 0 1em !important;
+}
+
+.h1-container,
+.h2-container,
+.h3-container {
+    background: #ffffff !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* ---- 2. Base typography & page layout -------------------------- */
+
+body {
+    font-family: 'Jost', sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
+    color: #1c2b24;
+    background: #fafaf7;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 6rem;
+}
+
+/* ---- 3. Header ---------------------------------------------------- */
+
+header {
+    border-bottom: 3px solid #1b4332;
+    padding-bottom: 1.25rem;
+    margin-bottom: 2.5rem !important;
+}
+
+header .home-title,
+header h1 {
+    font-family: 'Jost', sans-serif;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #1b4332;
+    letter-spacing: -0.01em;
+    margin: 0 !important;
+}
+
+/* ---- 4. Section hierarchy (h1/h2/h3 containers) -------------------- */
+
+.h1-container {
+    margin-top: 4rem !important;
+    padding-top: 2rem !important;
+    border-top: 1px solid #d8d3c4 !important;
+}
+
+.h1-container>h1,
+h1.LR-text-heading {
+    font-family: 'Jost', sans-serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: #1b4332;
+    margin: 0 0 1.5rem !important;
+}
+
+.h2-container {
+    margin-top: 2.75rem !important;
+}
+
+h2.LR-1-1-Title {
+    font-family: 'Jost', sans-serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #245c40;
+    margin: 0 0 1rem !important;
+    padding-bottom: 0.4rem;
+    border-bottom: 2px solid #cfe3d6;
+}
+
+.h3-container {
+    margin-top: 2rem !important;
+}
+
+h3.LR-1-1-1,
+h3.LR-1-2-1 {
+    font-family: 'Jost', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #33513f;
+    margin: 0 0 0.75rem !important;
+}
+
+.arrow-up,
+.arrow-down {
+    display: none;
+}
+
+/* ---- 5. Body paragraphs -------------------------------------------- */
+
+p.Body {
+    margin-bottom: 1.1em !important;
+    text-align: justify;
+}
+
+/* ---- 6. Key-findings callout box (was pink/grey) -------------------- */
+
+p.LR-salmon-grey-box {
+    background: #eedddd !important;
+    border-left: 4px solid #1b4332;
+    padding: 1rem 1.25rem !important;
+    margin: 1.5rem 0 !important;
+    font-weight: 500;
+    border-radius: 0 6px 6px 0;
+}
+
+p.Box {
+    background: #f6f4ec !important;
+    padding: 0.85rem 1.1rem !important;
+    margin: 0.75rem 0 !important;
+    border-radius: 6px;
+}
+
+/* ---- 7. Figures, captions & tables ---------------------------------- */
+
+.figure-cont {
+    background: #ffffdd !important;
+    border: 1px solid #e3e0d4;
+    border-radius: 8px;
+    padding: 1.25rem !important;
+    margin: 2rem 0 !important;
+    text-align: center;
+}
+
+.figure-cont img {
+    width: 100% !important;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto 0.75rem !important;
+    border-radius: 4px;
+}
+
+img {
+    width: auto !important;
+    max-width: 100%;
+    margin: 0.5rem 0 !important;
+}
+
+p.Caption {
+    background: #eeeeff !important;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: #4a4a42;
+    text-align: left;
+    padding: 0 !important;
+}
+
+/* ---- 8. Author list, citation & footnote-style bits ----------------- */
+
+#chapter-authors {
+    font-size: 0.9rem;
+    color: #4a4a42;
+    margin-bottom: 2rem !important;
+}
+
+#chapter-citation {
+    background: #f6f4ec;
+    border-radius: 6px;
+    padding: 1rem 1.25rem;
+    font-size: 0.9rem;
+    margin: 2rem 0 !important;
+}
+
+.footnote a {
+    color: #1b4332;
+    text-decoration: none;
+    font-size: 0.72em;
+    vertical-align: super;
+}
+
+.footnote a:hover {
+    text-decoration: underline;
+}
+
+.CharOverride-4,
+.CharOverride-21,
+.CharOverride-31 {
+    font-style: italic;
+    color: #2f6b4f;
+}
+
+.refs {
+    font-size: 0.82em;
+    color: #6b6b60;
+}
+
+/* ---- 9. Links ------------------------------------------------------- */
+
+a {
+    color: #1b6b46;
+}
+
+a.section-link {
+    text-decoration: underline dotted;
+}
+
+/* ---- 10. Figure listing / thumbnail grid (top of doc) --------------- */
+
+.figure-listing {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 1.5rem 0 !important;
+}
+
+.figure-listing h3 {
+    font-size: 0.82rem;
+    color: #4a4a42;
+    margin: 0 0 0.35rem !important;
+}

@@ -1,0 +1,35 @@
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# ChromaDB (generated, can be rebuilt by running ingest.py)
+data/chroma/
+
+# Environment variables (never commit secrets)
+.env
+
+# OS junk
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor folders
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Node (if you ever move to React)
+node_modules/
+# ChromaDB
+scripts/tunnel-url.txt
+**/chroma/
+# Tour seen flag is localStorage so nothing to ignore there
