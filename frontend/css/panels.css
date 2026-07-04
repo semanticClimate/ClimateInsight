@@ -1,0 +1,386 @@
+/* ── Source panel (right) ────────────────────────────────────── */
+.source-panel {
+    width: 320px;
+    min-width: 320px;
+    border-left: 1px solid #E5E7EB;
+    background: var(--panel-bg);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.source-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 16px 12px;
+    border-bottom: 1px solid var(--panel-border);
+    background: var(--panel-header-bg);
+    flex-shrink: 0;
+}
+
+.source-header-icon {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.source-header-icon svg {
+    color: var(--green);
+}
+
+.source-header-title {
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: var(--text);
+    text-transform: uppercase;
+}
+
+.source-reset-btn {
+    font-size: 0.75rem;
+    border: 1px solid #D1D5DB;
+    border-radius: 6px;
+    padding: 5px 11px;
+    color: var(--text-mid);
+    background: white;
+    font-weight: 500;
+    transition: border-color 0.12s;
+}
+
+.source-reset-btn:hover {
+    border-color: #9CA3AF;
+}
+
+/* Iframe wrapper */
+.source-iframe-wrap {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+}
+
+.source-iframe-wrap iframe {
+    width: 100%;
+    flex: 1;
+    border: none;
+    background: white;
+    display: block;
+}
+
+/* Source default (shown when no iframe or as fallback) */
+.source-default {
+    padding: 16px;
+}
+
+.source-cover {
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    margin-bottom: 16px;
+    height: 160px;
+    background: var(--blue);
+    display: flex;
+    position: relative;
+}
+
+.cover-stripe {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 8px;
+}
+
+.s1 {
+    left: 0;
+    background: #1B4F9B;
+}
+
+.s2 {
+    left: 8px;
+    background: var(--orange);
+}
+
+.s3 {
+    left: 16px;
+    background: var(--red);
+}
+
+.cover-text {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 0 28px;
+}
+
+.cover-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    line-height: 1.4;
+}
+
+.cover-main {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1;
+    margin: 4px 0;
+}
+
+.source-default-body {
+    font-size: 0.83rem;
+    color: var(--text-mid);
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+.source-link {
+    display: inline-block;
+    font-size: 0.8rem;
+    color: var(--blue-mid);
+    border: 1px solid #BFDBFE;
+    border-radius: 6px;
+    padding: 5px 12px;
+    transition: background 0.12s;
+}
+
+.source-link:hover {
+    background: var(--blue-light);
+}
+
+/* Passage overlay */
+.source-passage {
+    position: absolute;
+    inset: 0;
+    background: var(--panel-bg);
+    padding: 16px;
+    overflow-y: auto;
+    z-index: 10;
+}
+
+.source-passage[hidden] {
+    display: none;
+}
+
+.passage-section-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--green);
+    background: var(--green-light);
+    border-radius: 4px;
+    padding: 3px 8px;
+    display: inline-block;
+    margin-bottom: 8px;
+}
+
+.passage-title {
+    font-weight: 600;
+    font-size: 0.88rem;
+    color: var(--text);
+    margin-bottom: 10px;
+}
+
+.passage-text {
+    font-size: 0.82rem;
+    line-height: 1.75;
+    color: var(--text-mid);
+    border-left: 3px solid var(--orange);
+    padding-left: 12px;
+    margin-bottom: 14px;
+}
+
+.passage-back-btn {
+    font-size: 0.78rem;
+    color: var(--blue-mid);
+    padding: 5px 0;
+    transition: color 0.12s;
+}
+
+.passage-back-btn:hover {
+    color: var(--blue);
+}
+
+/* How citations work explainer */
+.source-explainer {
+    border-top: 1px solid var(--panel-border);
+    padding: 14px 16px;
+    flex-shrink: 0;
+    background: var(--panel-bg);
+}
+
+.source-explainer-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+}
+
+.source-explainer-icon {
+    width: 22px;
+    height: 22px;
+    background: #EDE9FE;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+}
+
+.source-explainer-title {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: var(--text);
+    text-transform: uppercase;
+}
+
+.source-explainer-body {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+.cite-demo {
+    display: inline-flex;
+    align-items: center;
+    background: #DBEAFE;
+    border: 1px solid #93C5FD;
+    color: var(--blue);
+    padding: 1px 6px;
+    border-radius: 5px;
+    font-size: 0.72rem;
+    font-weight: 600;
+}
+
+/* ── Modal Overlay & Card ── */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transition: opacity 0.2s ease;
+}
+
+.modal-overlay[hidden] {
+    display: none;
+}
+
+.modal-card {
+    background: var(--bg-white);
+    border-radius: var(--radius-lg);
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-header {
+    padding: 16px 20px;
+    border-bottom: 1px solid #E5E7EB;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.modal-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--text);
+}
+
+.modal-close {
+    font-size: 1.5rem;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: color 0.12s;
+    line-height: 1;
+}
+
+.modal-close:hover {
+    color: var(--text);
+}
+
+.modal-body {
+    padding: 20px;
+    background: #0F172A;
+    color: #E2E8F0;
+    font-family: monospace;
+    font-size: 0.8rem;
+    max-height: 350px;
+    overflow-y: auto;
+    text-align: left;
+}
+
+.logs-console {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.log-line {
+    line-height: 1.5;
+    display: flex;
+    gap: 8px;
+}
+
+.log-time {
+    color: #64748B;
+}
+
+.log-method {
+    color: #38BDF8;
+    font-weight: 600;
+}
+
+.log-status {
+    padding: 1px 5px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+}
+
+.log-status.status-200 {
+    background: #064E3B;
+    color: #34D399;
+}
+
+.log-status.status-failed {
+    background: #7F1D1D;
+    color: #F87171;
+}
+
+/* ── Toast Notification ── */
+.toast {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1E293B;
+    color: white;
+    padding: 10px 20px;
+    border-radius: var(--radius);
+    font-size: 0.85rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 2000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.toast.show {
+    opacity: 1;
+}

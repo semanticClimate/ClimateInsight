@@ -1,0 +1,294 @@
+/* ── Sidebar ────────────────────────────────────────────────── */
+.sidebar {
+    width: var(--sidebar-w);
+    min-width: var(--sidebar-w);
+    background: var(--sidebar-bg);
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    padding: 20px 16px 20px;
+    transition: width 0.25s ease, min-width 0.25s ease, padding 0.25s ease;
+    overflow: hidden;
+}
+
+.sidebar.collapsed {
+    width: 0;
+    min-width: 0;
+    padding: 0;
+}
+
+/* Logo area */
+.sidebar-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 28px;
+    white-space: nowrap;
+}
+
+.sidebar-logo img {
+    max-height: 40px;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.logo-mark {
+    width: 38px;
+    height: 38px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* Cloud icon via CSS */
+.logo-mark::before {
+    content: '☁';
+    font-size: 1.2rem;
+    color: white;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+.logo-primary {
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 0.82rem;
+    color: #FFFFFF;
+    letter-spacing: -0.01em;
+}
+
+.logo-primary span {
+    color: #7DD3FC;
+}
+
+.logo-secondary {
+    font-size: 0.62rem;
+    color: rgba(255, 255, 255, 0.55);
+    letter-spacing: 0.01em;
+}
+
+/* Hide old logo bars */
+.logo-bar {
+    display: none;
+}
+
+/* LANGUAGE label */
+.sidebar-lang-label {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: #cddef7;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+select.sidebar-lang-select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: var(--radius-sm);
+    padding: 8px 12px;
+    color: #1B4F9B;
+    font-weight: bold;
+    font-size: 0.85rem;
+    font-family: var(--font-body);
+    margin-bottom: 20px;
+    cursor: pointer;
+    width: 100%;
+    outline: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6' fill='none'%3E%3Cpath d='M1 1L5 5L9 1' stroke='white' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    background-size: 10px;
+    padding-right: 32px;
+    white-space: nowrap;
+}
+
+select.sidebar-lang-select:hover {
+    background-color: rgba(255, 255, 255, 0.18);
+}
+
+select.sidebar-lang-select option {
+    background: #cddef7;
+    color: #1B4F9B;
+}
+
+/* New conversation button */
+.btn-new-chat {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: #1B4F9B;
+    border-radius: var(--radius-sm);
+    padding: 10px 14px;
+    font-size: 0.84rem;
+    font-weight: bold;
+    white-space: nowrap;
+    transition: background 0.15s;
+    margin-bottom: 24px;
+    width: 100%;
+}
+
+.btn-new-chat:hover {
+    background: rgba(255, 255, 255, 0.22);
+}
+
+.btn-new-chat-icon {
+    font-size: 1.1rem;
+    line-height: 1;
+    font-weight: 400;
+}
+
+/* Section label */
+.sidebar-section-label {
+    font-size: 0.75rem;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    color: #1B4F9B;
+    margin-bottom: 10px;
+    white-space: nowrap;
+    text-transform: uppercase;
+}
+
+/* Conversation list */
+.conversation-list {
+    flex: 1;
+    overflow-y: auto;
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+
+.empty-convos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.empty-convos-icon {
+    width: 56px;
+    height: 48px;
+    opacity: 0.3;
+}
+
+.empty-convos p {
+    font-size: 0.78rem;
+    color: #1B4F9B;
+    line-height: 1.5;
+}
+
+.convo-item {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 8px 10px;
+    border-radius: var(--radius-sm);
+    font-size: 0.82rem;
+    color: #1B4F9B;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: background 0.12s;
+}
+
+.convo-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.convo-item.active {
+    background: rgba(255, 255, 255, 0.18);
+    color: #1B4F9B;
+}
+
+/* Sidebar actions */
+.sidebar-actions {
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    padding-top: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-bottom: 16px;
+}
+
+.sidebar-action {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 10px;
+    border-radius: var(--radius-sm);
+    font-size: 0.82rem;
+    font-weight: bold;
+    color: #1B4F9B;
+    white-space: nowrap;
+    transition: background 0.12s, color 0.12s;
+}
+
+.sidebar-action:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #1B4F9B;
+}
+
+.sidebar-action svg {
+    flex-shrink: 0;
+    opacity: 0.8;
+}
+
+/* Footer badges */
+.sidebar-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    padding-top: 14px;
+}
+
+.sidebar-footer-label {
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.35);
+    margin-bottom: 8px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.sidebar-badges {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.badge {
+    font-family: var(--font-body);
+    font-size: 0.68rem;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 4px;
+    letter-spacing: 0.03em;
+}
+
+.badge-un {
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+}
+
+.badge-ipcc {
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+}
+
+.badge-ar6 {
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+}
