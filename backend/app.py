@@ -10,7 +10,7 @@ import uuid
 import re
 import os
 
-from db import query_chunks
+from vectorstore import query_chunks
 from llm import ask_ollama
 from sessions import get_history, add_to_history
 
