@@ -1,6 +1,6 @@
 /* api.js — all backend calls in one place */
 
-const API_BASE = "https://regarding-cups-horses-therapy.trycloudflare.com/api";
+const API_BASE = "https://acne-town-medications-broadcast.trycloudflare.com/api";
 
 const apiLogs = [];
 
