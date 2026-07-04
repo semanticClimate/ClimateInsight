@@ -26,7 +26,7 @@ pip install -r requirements.txt
 ### 2. Ingest the IPCC data into ChromaDB
 Make sure `data/raw/ipcc_reference.html` exists next to the `backend/` folder, then:
 ```powershell
-python ingest.py
+python -m ingest.ingest
 ```
 This takes a few minutes the first time (downloading the embedding model).
 After that it's instant — ChromaDB caches everything.
