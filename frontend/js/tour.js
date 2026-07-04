@@ -49,15 +49,17 @@ const Tour = (() => {
             position: "right",
         },
         {
-            selector: ".suggested-questions",
+            selector: ".chat-panel",
             title: "Suggested Questions",
             body: "Not sure where to start? Click any of these pre-written questions and the bot will answer instantly.",
+            altBody: "Look at you — already a pro! These suggested questions are here if you ever need a nudge, but clearly you didn't.",
             position: "top",
         },
         {
             selector: ".input-bar",
             title: "Ask a Question",
             body: "Type your question here and press Enter (or click the send button). Use Shift+Enter to add a new line without sending.",
+            altBody: "You've already cracked the code on this one. 🎉 Questions in, answers out — you're a natural. Nothing more to see here!",
             position: "top",
         },
         {
@@ -263,9 +265,15 @@ const Tour = (() => {
     }
 
     // ── Tooltip ────────────────────────────────────────────────────────────────
+    // Returns true if the user has already sent at least one chat message.
+    function _hasChat() {
+        const msgs = document.querySelectorAll("#messages .msg.user");
+        return msgs.length > 0;
+    }
+
     function populateTooltip(step, index) {
         ttTitle.textContent = step.title;
-        ttBody.textContent = step.body;
+        ttBody.textContent = (step.altBody && _hasChat()) ? step.altBody : step.body;
         ttStep.textContent = `${index + 1} of ${STEPS.length}`;
 
         ttPrev.style.visibility = index === 0 ? "hidden" : "visible";
