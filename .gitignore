@@ -10,8 +10,7 @@ __pycache__/
 *.pyd
 
 # ChromaDB (generated, can be rebuilt by running ingest.py)
-data/chroma/
-
+backend/chroma_db/
 # Environment variables (never commit secrets)
 .env
 
