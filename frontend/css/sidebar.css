@@ -293,6 +293,26 @@ select.sidebar-lang-select option {
     color: white;
 }
 
+/* ═══════════════════════════════════════════════════════════════
+   SIDEBAR BACKDROP OVERLAY (for mobile/tablet when open)
+   ═══════════════════════════════════════════════════════════════ */
+
+.sidebar-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 99;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+}
+
+.sidebar-overlay.visible {
+    opacity: 1;
+    pointer-events: all;
+}
 
 /* ═══════════════════════════════════════════════════════════════
    RESPONSIVE DESIGN
@@ -392,18 +412,27 @@ select.sidebar-lang-select option {
         left: 0;
         top: 0;
         bottom: 0;
-        z-index: 100;
+        z-index: 101;
         width: 240px;
         min-width: 240px;
         padding: 16px 12px 20px;
         height: 100vh;
         overflow-y: auto;
+        /* Collapsed by default on mobile */
+        transform: translateX(-100%);
+        transition: transform 0.3s ease, width 0.25s ease, min-width 0.25s ease, padding 0.25s ease;
+    }
+
+    /* When sidebar is opened on mobile */
+    .sidebar.open {
+        transform: translateX(0);
     }
 
     .sidebar.collapsed {
         width: 0;
         min-width: 0;
         padding: 0;
+        transform: translateX(-100%);
     }
 
     .sidebar-logo {
@@ -517,6 +546,11 @@ select.sidebar-lang-select option {
         font-size: 0.6rem;
         padding: 2px 6px;
     }
+
+    /* Overlay on mobile */
+    .sidebar-overlay {
+        display: block;
+    }
 }
 
 /* ── Small Mobile (up to 480px) ───────────────────────────────── */
@@ -526,18 +560,27 @@ select.sidebar-lang-select option {
         left: 0;
         top: 0;
         bottom: 0;
-        z-index: 100;
+        z-index: 101;
         width: 220px;
         min-width: 220px;
         padding: 12px 10px 16px;
         height: 100vh;
         overflow-y: auto;
+        /* Collapsed by default on small mobile */
+        transform: translateX(-100%);
+        transition: transform 0.3s ease, width 0.25s ease, min-width 0.25s ease, padding 0.25s ease;
+    }
+
+    /* When sidebar is opened on small mobile */
+    .sidebar.open {
+        transform: translateX(0);
     }
 
     .sidebar.collapsed {
         width: 0;
         min-width: 0;
         padding: 0;
+        transform: translateX(-100%);
     }
 
     .sidebar-logo {
@@ -651,5 +694,10 @@ select.sidebar-lang-select option {
     .badge {
         font-size: 0.56rem;
         padding: 1px 5px;
+    }
+
+    /* Overlay on small mobile */
+    .sidebar-overlay {
+        display: block;
     }
 }

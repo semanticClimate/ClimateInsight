@@ -50,8 +50,12 @@ class SidebarController {
     this.isMobileView = window.innerWidth <= 1024;
 
     if (wasMobileView && !this.isMobileView) {
+      // Switching to desktop: clear mobile transform state
+      this.sidebar.classList.remove('open');
       this.open();
     } else if (!wasMobileView && this.isMobileView) {
+      // Switching to mobile: clear desktop collapsed state
+      this.sidebar.classList.remove('collapsed');
       this.close();
     }
   }
@@ -77,10 +81,17 @@ class SidebarController {
 
   close() {
     this.isOpen = false;
-    this.sidebar.classList.remove('open');
-    this.sidebar.classList.add('collapsed');
     this.overlay.classList.remove('visible');
     document.body.style.overflow = '';
+
+    if (this.isMobileView) {
+      // Mobile uses transform — just remove 'open', don't touch 'collapsed'
+      this.sidebar.classList.remove('open');
+    } else {
+      // Desktop uses width — 'collapsed' collapses the sidebar
+      this.sidebar.classList.remove('open');
+      this.sidebar.classList.add('collapsed');
+    }
   }
 
   addConversation(question) {
