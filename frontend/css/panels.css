@@ -384,3 +384,286 @@
 .toast.show {
     opacity: 1;
 }
+
+
+/* ═══════════════════════════════════════════════════════════════
+   RESPONSIVE DESIGN
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Tablet (768px - 1024px) ──────────────────────────────────── */
+@media (max-width: 1024px) {
+    .source-panel {
+        width: 280px;
+        min-width: 280px;
+    }
+
+    .source-header {
+        padding: 12px 14px 10px;
+    }
+
+    .source-header-title {
+        font-size: 0.75rem;
+    }
+
+    .source-reset-btn {
+        font-size: 0.7rem;
+        padding: 4px 10px;
+    }
+
+    .source-default {
+        padding: 14px;
+    }
+
+    .source-cover {
+        height: 140px;
+        margin-bottom: 14px;
+    }
+
+    .cover-label {
+        font-size: 0.68rem;
+    }
+
+    .cover-main {
+        font-size: 2.6rem;
+    }
+
+    .source-default-body {
+        font-size: 0.8rem;
+        margin-bottom: 10px;
+    }
+
+    .source-link {
+        font-size: 0.75rem;
+        padding: 4px 10px;
+    }
+
+    .source-explainer {
+        padding: 12px 14px;
+    }
+
+    .source-explainer-title {
+        font-size: 0.68rem;
+    }
+
+    .source-explainer-body {
+        font-size: 0.75rem;
+    }
+
+    .modal-card {
+        width: 85%;
+        max-width: 450px;
+    }
+
+    .modal-header {
+        padding: 14px 18px;
+    }
+
+    .modal-title {
+        font-size: 1rem;
+    }
+
+    .modal-body {
+        padding: 16px;
+        font-size: 0.75rem;
+        max-height: 300px;
+    }
+
+    .toast {
+        bottom: 20px;
+        font-size: 0.8rem;
+        padding: 8px 16px;
+    }
+}
+
+/* ── Mobile (up to 767px) ──────────────────────────────────────── */
+@media (max-width: 767px) {
+    .source-panel {
+        display: none;
+    }
+
+    .source-header {
+        padding: 10px 12px 8px;
+    }
+
+    .source-header-title {
+        font-size: 0.7rem;
+    }
+
+    .source-reset-btn {
+        font-size: 0.65rem;
+        padding: 3px 8px;
+    }
+
+    .source-default {
+        padding: 12px;
+    }
+
+    .source-cover {
+        height: 120px;
+        margin-bottom: 12px;
+    }
+
+    .cover-label {
+        font-size: 0.65rem;
+    }
+
+    .cover-main {
+        font-size: 2.2rem;
+    }
+
+    .source-default-body {
+        font-size: 0.75rem;
+        margin-bottom: 8px;
+    }
+
+    .source-link {
+        font-size: 0.7rem;
+        padding: 3px 8px;
+    }
+
+    .passage-section-label {
+        font-size: 0.65rem;
+        padding: 2px 6px;
+    }
+
+    .passage-title {
+        font-size: 0.8rem;
+        margin-bottom: 8px;
+    }
+
+    .passage-text {
+        font-size: 0.78rem;
+        padding-left: 10px;
+        margin-bottom: 12px;
+    }
+
+    .passage-back-btn {
+        font-size: 0.75rem;
+    }
+
+    .source-explainer {
+        padding: 10px 12px;
+    }
+
+    .source-explainer-icon {
+        width: 20px;
+        height: 20px;
+        font-size: 0.7rem;
+    }
+
+    .source-explainer-title {
+        font-size: 0.65rem;
+    }
+
+    .source-explainer-body {
+        font-size: 0.72rem;
+    }
+
+    .cite-demo {
+        font-size: 0.68rem;
+        padding: 1px 5px;
+    }
+
+    .modal-overlay {
+        padding: 16px;
+    }
+
+    .modal-card {
+        width: 100%;
+        max-width: 100%;
+        border-radius: var(--radius-lg);
+    }
+
+    .modal-header {
+        padding: 12px 16px;
+    }
+
+    .modal-title {
+        font-size: 0.95rem;
+    }
+
+    .modal-close {
+        font-size: 1.3rem;
+    }
+
+    .modal-body {
+        padding: 14px;
+        font-size: 0.7rem;
+        max-height: 250px;
+    }
+
+    .log-line {
+        gap: 6px;
+        font-size: 0.7rem;
+    }
+
+    .log-status {
+        font-size: 0.65rem;
+        padding: 1px 4px;
+    }
+
+    .toast {
+        bottom: 16px;
+        font-size: 0.75rem;
+        padding: 8px 14px;
+        width: 85%;
+        max-width: calc(100% - 32px);
+    }
+}
+
+/* ── Small Mobile (up to 480px) ───────────────────────────────── */
+@media (max-width: 480px) {
+    .source-panel {
+        display: none;
+    }
+
+    .modal-overlay {
+        padding: 12px;
+    }
+
+    .modal-card {
+        width: 100%;
+        border-radius: var(--radius);
+    }
+
+    .modal-header {
+        padding: 10px 14px;
+    }
+
+    .modal-title {
+        font-size: 0.85rem;
+    }
+
+    .modal-close {
+        font-size: 1.2rem;
+    }
+
+    .modal-body {
+        padding: 12px;
+        font-size: 0.65rem;
+        max-height: 200px;
+    }
+
+    .log-time {
+        font-size: 0.6rem;
+    }
+
+    .log-method {
+        font-size: 0.6rem;
+    }
+
+    .log-status {
+        font-size: 0.6rem;
+        padding: 0px 3px;
+    }
+
+    .toast {
+        bottom: 12px;
+        font-size: 0.7rem;
+        padding: 6px 12px;
+        width: 90%;
+        max-width: calc(100% - 24px);
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}

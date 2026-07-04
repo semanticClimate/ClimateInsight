@@ -108,3 +108,123 @@
         transform: translateY(-5px);
     }
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   RESPONSIVE DESIGN
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Tablet (768px - 1024px) ──────────────────────────────────── */
+@media (max-width: 1024px) {
+    .messages {
+        padding: 16px 20px;
+        gap: 12px;
+    }
+
+    .msg {
+        max-width: 80%;
+        font-size: 0.88rem;
+    }
+
+    .msg.user,
+    .msg.assistant {
+        padding: 10px 14px;
+    }
+
+    .cite-chip {
+        font-size: 0.7rem;
+        padding: 2px 8px;
+    }
+}
+
+/* ── Mobile (up to 767px) ──────────────────────────────────────── */
+@media (max-width: 767px) {
+    .messages {
+        padding: 12px 16px;
+        gap: 10px;
+    }
+
+    .msg {
+        max-width: 88%;
+        font-size: 0.85rem;
+        line-height: 1.5;
+    }
+
+    .msg.user {
+        padding: 9px 12px;
+        border-radius: var(--radius) var(--radius) 3px var(--radius);
+    }
+
+    .msg.assistant {
+        padding: 11px 12px;
+        border-radius: var(--radius) var(--radius) var(--radius) 3px;
+    }
+
+    .msg.error {
+        padding: 9px 12px;
+    }
+
+    .msg-citations {
+        gap: 4px;
+        margin-top: 8px;
+    }
+
+    .cite-chip {
+        font-size: 0.68rem;
+        padding: 1px 7px;
+    }
+
+    .typing-indicator {
+        padding: 11px 12px;
+    }
+
+    .typing-indicator span {
+        width: 6px;
+        height: 6px;
+    }
+}
+
+/* ── Small Mobile (up to 480px) ───────────────────────────────── */
+@media (max-width: 480px) {
+    .messages {
+        padding: 10px 12px;
+        gap: 8px;
+    }
+
+    .msg {
+        max-width: 92%;
+        font-size: 0.8rem;
+        line-height: 1.45;
+    }
+
+    .msg.user {
+        padding: 8px 11px;
+    }
+
+    .msg.assistant {
+        padding: 10px 11px;
+    }
+
+    .msg.error {
+        padding: 8px 11px;
+        font-size: 0.78rem;
+    }
+
+    .msg-citations {
+        gap: 3px;
+        margin-top: 6px;
+    }
+
+    .cite-chip {
+        font-size: 0.65rem;
+        padding: 1px 6px;
+    }
+
+    .typing-indicator {
+        padding: 10px 11px;
+    }
+
+    .typing-indicator span {
+        width: 5px;
+        height: 5px;
+    }
+}

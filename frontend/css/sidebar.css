@@ -292,3 +292,364 @@ select.sidebar-lang-select option {
     background: rgba(255, 255, 255, 0.15);
     color: white;
 }
+
+
+/* ═══════════════════════════════════════════════════════════════
+   RESPONSIVE DESIGN
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Tablet (768px - 1024px) ──────────────────────────────────── */
+@media (max-width: 1024px) {
+    .sidebar {
+        width: 220px;
+        min-width: 220px;
+        padding: 16px 12px;
+    }
+
+    .sidebar-logo {
+        margin-bottom: 24px;
+        gap: 8px;
+    }
+
+    .sidebar-logo img {
+        max-height: 36px;
+    }
+
+    .logo-mark {
+        width: 34px;
+        height: 34px;
+    }
+
+    .logo-mark::before {
+        font-size: 1rem;
+    }
+
+    .logo-primary {
+        font-size: 0.78rem;
+    }
+
+    .logo-secondary {
+        font-size: 0.58rem;
+    }
+
+    .sidebar-lang-label {
+        font-size: 0.62rem;
+        margin-bottom: 4px;
+    }
+
+    select.sidebar-lang-select {
+        font-size: 0.8rem;
+        padding: 6px 10px;
+        margin-bottom: 16px;
+    }
+
+    .btn-new-chat {
+        padding: 8px 12px;
+        font-size: 0.78rem;
+        margin-bottom: 20px;
+    }
+
+    .btn-new-chat-icon {
+        font-size: 1rem;
+    }
+
+    .sidebar-section-label {
+        font-size: 0.7rem;
+        margin-bottom: 8px;
+    }
+
+    .convo-item {
+        padding: 7px 8px;
+        font-size: 0.78rem;
+    }
+
+    .sidebar-action {
+        padding: 7px 8px;
+        font-size: 0.78rem;
+        gap: 8px;
+    }
+
+    .sidebar-action svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .sidebar-footer-label {
+        font-size: 0.58rem;
+        margin-bottom: 6px;
+    }
+
+    .badge {
+        font-size: 0.62rem;
+        padding: 2px 6px;
+    }
+}
+
+/* ── Mobile (up to 767px) ──────────────────────────────────────── */
+@media (max-width: 767px) {
+    .sidebar {
+        position: fixed;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        z-index: 100;
+        width: 240px;
+        min-width: 240px;
+        padding: 16px 12px 20px;
+        height: 100vh;
+        overflow-y: auto;
+    }
+
+    .sidebar.collapsed {
+        width: 0;
+        min-width: 0;
+        padding: 0;
+    }
+
+    .sidebar-logo {
+        margin-bottom: 20px;
+        gap: 8px;
+    }
+
+    .sidebar-logo img {
+        max-height: 32px;
+    }
+
+    .logo-mark {
+        width: 32px;
+        height: 32px;
+    }
+
+    .logo-mark::before {
+        font-size: 1rem;
+    }
+
+    .logo-primary {
+        font-size: 0.76rem;
+    }
+
+    .logo-secondary {
+        font-size: 0.56rem;
+    }
+
+    .sidebar-lang-label {
+        font-size: 0.6rem;
+        margin-bottom: 4px;
+    }
+
+    select.sidebar-lang-select {
+        font-size: 0.78rem;
+        padding: 6px 10px;
+        margin-bottom: 14px;
+    }
+
+    .btn-new-chat {
+        padding: 8px 12px;
+        font-size: 0.76rem;
+        margin-bottom: 16px;
+    }
+
+    .btn-new-chat-icon {
+        font-size: 1rem;
+    }
+
+    .sidebar-section-label {
+        font-size: 0.68rem;
+        margin-bottom: 8px;
+    }
+
+    .conversation-list {
+        margin-bottom: 12px;
+    }
+
+    .empty-convos {
+        padding: 16px 0;
+        gap: 6px;
+    }
+
+    .empty-convos-icon {
+        width: 48px;
+        height: 40px;
+    }
+
+    .empty-convos p {
+        font-size: 0.74rem;
+    }
+
+    .convo-item {
+        padding: 6px 8px;
+        font-size: 0.76rem;
+        border-radius: 6px;
+    }
+
+    .sidebar-actions {
+        padding-top: 10px;
+        margin-bottom: 12px;
+        gap: 1px;
+    }
+
+    .sidebar-action {
+        padding: 7px 8px;
+        font-size: 0.76rem;
+        gap: 8px;
+        border-radius: 6px;
+    }
+
+    .sidebar-action svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .sidebar-footer {
+        padding-top: 10px;
+    }
+
+    .sidebar-footer-label {
+        font-size: 0.56rem;
+        margin-bottom: 6px;
+    }
+
+    .sidebar-badges {
+        gap: 4px;
+    }
+
+    .badge {
+        font-size: 0.6rem;
+        padding: 2px 6px;
+    }
+}
+
+/* ── Small Mobile (up to 480px) ───────────────────────────────── */
+@media (max-width: 480px) {
+    .sidebar {
+        position: fixed;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        z-index: 100;
+        width: 220px;
+        min-width: 220px;
+        padding: 12px 10px 16px;
+        height: 100vh;
+        overflow-y: auto;
+    }
+
+    .sidebar.collapsed {
+        width: 0;
+        min-width: 0;
+        padding: 0;
+    }
+
+    .sidebar-logo {
+        margin-bottom: 16px;
+        gap: 6px;
+    }
+
+    .sidebar-logo img {
+        max-height: 28px;
+    }
+
+    .logo-mark {
+        width: 30px;
+        height: 30px;
+    }
+
+    .logo-mark::before {
+        font-size: 0.9rem;
+    }
+
+    .logo-primary {
+        font-size: 0.72rem;
+    }
+
+    .logo-secondary {
+        font-size: 0.52rem;
+    }
+
+    .sidebar-lang-label {
+        font-size: 0.55rem;
+        margin-bottom: 3px;
+    }
+
+    select.sidebar-lang-select {
+        font-size: 0.75rem;
+        padding: 5px 8px;
+        margin-bottom: 12px;
+    }
+
+    .btn-new-chat {
+        padding: 7px 10px;
+        font-size: 0.72rem;
+        margin-bottom: 12px;
+        gap: 6px;
+    }
+
+    .btn-new-chat-icon {
+        font-size: 0.95rem;
+    }
+
+    .sidebar-section-label {
+        font-size: 0.64rem;
+        margin-bottom: 6px;
+    }
+
+    .conversation-list {
+        margin-bottom: 10px;
+    }
+
+    .empty-convos {
+        padding: 12px 0;
+        gap: 5px;
+    }
+
+    .empty-convos-icon {
+        width: 40px;
+        height: 35px;
+    }
+
+    .empty-convos p {
+        font-size: 0.7rem;
+    }
+
+    .convo-item {
+        padding: 5px 7px;
+        font-size: 0.72rem;
+        border-radius: 5px;
+    }
+
+    .sidebar-actions {
+        padding-top: 8px;
+        margin-bottom: 10px;
+        gap: 1px;
+    }
+
+    .sidebar-action {
+        padding: 6px 7px;
+        font-size: 0.72rem;
+        gap: 6px;
+        border-radius: 5px;
+    }
+
+    .sidebar-action svg {
+        width: 14px;
+        height: 14px;
+    }
+
+    .sidebar-footer {
+        padding-top: 8px;
+    }
+
+    .sidebar-footer-label {
+        font-size: 0.52rem;
+        margin-bottom: 4px;
+    }
+
+    .sidebar-badges {
+        gap: 3px;
+    }
+
+    .badge {
+        font-size: 0.56rem;
+        padding: 1px 5px;
+    }
+}
