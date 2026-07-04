@@ -35,7 +35,7 @@ const Chat = (() => {
       sessionId = data.session_id;
       typing.remove();
       appendMessage("assistant", data.answer, data.citations || []);
-      Sidebar.addConversation(question);
+      window.sidebarController?.addConversation(question);
     } catch (err) {
       typing.remove();
       appendError(err.message || "Could not reach the backend.");

@@ -25,7 +25,7 @@ const Tour = (() => {
             position: "right",
             before: () => {
                 const sb = document.getElementById("sidebar");
-                if (sb && sb.classList.contains("collapsed")) Sidebar.toggle();
+                if (sb && sb.classList.contains("collapsed")) window.sidebarController?.toggle();
             },
         },
         {

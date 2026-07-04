@@ -24,9 +24,7 @@ class SidebarController {
   }
 
   _init() {
-    if (this.toggleBtn) {
-      this.toggleBtn.addEventListener('click', () => this.toggle());
-    }
+    // Note: the toggle button click is wired in main.js via window.sidebarController.toggle()
 
     this.overlay.addEventListener('click', () => this.close());
 
