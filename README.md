@@ -150,9 +150,8 @@ To share or test the application externally, the project features a Cloudflare Q
    - Request temporary public URLs from Cloudflare for both port `3000` (frontend) and `5000` (backend).
    - Automatically patch `frontend/js/api.js` with the active backend tunnel URL.
    - Output both URLs to the terminal.
-5. **Paste the generated backend URL** into `scripts/tunnel-url.txt`.
-6. **Open the frontend URL** in your browser to access the chatbot interface.
-7. When finished, press `Ctrl+C` in the script terminal to gracefully shut down the tunnels and automatically restore `api.js` settings back to `localhost`.
+5. **Open the frontend URL** in your browser to access the chatbot interface.
+6. When finished, press `Ctrl+C` in the script terminal to gracefully shut down the tunnels and automatically restore `api.js` settings back to `localhost`.
 
 ---
 
