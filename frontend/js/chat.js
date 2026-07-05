@@ -2,7 +2,6 @@
 
 const Chat = (() => {
   let sessionId = null;
-  let lastChunks = [];
 
   // ── DOM refs ──────────────────────────────────────────────────────────────
   const messagesEl = () => document.getElementById("messages");
@@ -58,13 +57,18 @@ const Chat = (() => {
     if (citations.length > 0) {
       const row = document.createElement("div");
       row.className = "msg-citations";
+
       citations.forEach(c => {
         const chip = document.createElement("button");
         chip.className = "cite-chip";
         chip.textContent = c.section;
-        chip.addEventListener("click", () => showPassage(c.section, text));
+
+        // Each chip carries the verbatim chunk text from the backend.
+        // showPassage() no longer touches the LLM answer at all.
+        chip.addEventListener("click", () => showPassage(c));
         row.appendChild(chip);
       });
+
       el.appendChild(row);
     }
 
@@ -90,28 +94,34 @@ const Chat = (() => {
   }
 
   // ── Source panel ──────────────────────────────────────────────────────────
-  function showPassage(section, answerText) {
-    // Show passage overlay on top of the iframe
+  /**
+   * Show the verbatim chunk that the LLM cited.
+   * @param {Object} citation  - { section, title, text } from the API
+   */
+  function showPassage(citation) {
     const passageEl = sourcePassageEl();
     passageEl.hidden = false;
 
-    passageSectionEl().textContent = section;
-    passageTitleEl().textContent = `Section ${section}`;
+    passageSectionEl().textContent = citation.section;
 
-    const sectionPattern = new RegExp(
-      `([^.!?]*\\[${section.replace(".", "\\.")}\\][^.!?]*[.!?])`, "i"
-    );
-    const match = answerText.match(sectionPattern);
-    passageTextEl().textContent = match
-      ? match[1].trim()
-      : `This answer references section ${section} of the IPCC AR6 Synthesis Report.`;
+    // Show the section title if we have one, otherwise fall back gracefully
+    passageTitleEl().textContent = citation.title
+      ? `${citation.section} — ${citation.title}`
+      : `Section ${citation.section}`;
 
-    // Also try to scroll the iframe to the relevant anchor if available
+    // Display the exact chunk text retrieved from the vector store.
+    // If for some reason it's missing, say so honestly rather than
+    // showing a sentence extracted from the LLM's paraphrase.
+    passageTextEl().textContent = citation.text
+      ? citation.text
+      : "Source passage not available for this citation.";
+
+    // Try to scroll the iframe to the relevant anchor if available
     try {
       const iframe = sourceIframeEl();
       if (iframe && iframe.contentWindow) {
         const anchor = iframe.contentDocument
-          ? iframe.contentDocument.getElementById(section)
+          ? iframe.contentDocument.getElementById(citation.section)
           : null;
         if (anchor) anchor.scrollIntoView({ behavior: "smooth" });
       }
@@ -121,7 +131,6 @@ const Chat = (() => {
   function resetPassage() {
     const passageEl = sourcePassageEl();
     if (passageEl) passageEl.hidden = true;
-    // source-default is just a compatibility shim; iframe is always visible
     const def = sourceDefaultEl();
     if (def) def.hidden = true;
   }
