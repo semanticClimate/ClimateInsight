@@ -29,7 +29,8 @@ def answer_question(question, session_id):
 
     answer = ask_ollama(prompt)
 
-    citations = extract_citations(answer)
+    # Pass chunks so each citation can carry its verbatim source text
+    citations = extract_citations(answer, chunks)
 
     return {
         "answer": answer,
