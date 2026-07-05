@@ -49,7 +49,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ── Sidebar toggle ────────────────────────────────────────────────────────
   if (toggleSidebarBtn) {
-    toggleSidebarBtn.addEventListener("click", () => Sidebar.toggle());
+    toggleSidebarBtn.addEventListener("click", () => {
+      if (window.sidebarController) window.sidebarController.toggle();
+    });
   }
 
   // ── Clear / download chat ────────────────────────────────────────────────
