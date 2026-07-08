@@ -2,6 +2,10 @@
 parser.py
 ----------
 Extract logical sections from the IPCC HTML document.
+
+Groups all paragraphs under a heading into one Section,
+then lets the chunker split if needed.
+Preserves paragraph-level html_id for citation linking.
 """
 
 import re
@@ -11,9 +15,32 @@ from bs4 import BeautifulSoup
 
 from .models import Section
 
+SKIP_CLASSES = {"footnote", "Footnote", "foot-note", "reference", "caption", "CharOverride"}
+MIN_PARAGRAPH_LENGTH = 40
+
+
+def _is_noise(tag) -> bool:
+    """Return True for footnotes, figure captions, and HTML artefacts we don't want indexed."""
+    tag_classes = set(tag.get("class") or [])
+    if tag_classes & SKIP_CLASSES:
+        return True
+    text = tag.get_text(separator=" ", strip=True)
+    # Footnote-style: starts with a number followed by "See" or short reference
+    if re.match(r"^\d{1,3}\s+(See|Based on|Ibid)", text):
+        return True
+    return False
+
+
+def _section_id_from_heading(text: str) -> tuple[str, str]:
+    """Parse a heading into (section_id, title). Works for numeric and non-numeric headings."""
+    match = re.match(r"^(\d[\d\.]*)\s*[\.\:]?\s*(.*)", text)
+    if match:
+        return match.group(1).rstrip("."), match.group(2).strip()
+    slug = re.sub(r"[^a-z0-9]+", "-", text[:60].lower()).strip("-")
+    return slug or "intro", text[:80]
+
 
 def parse_html(path: Path) -> list[Section]:
-
     print(f"Parsing {path}...")
 
     soup = BeautifulSoup(
@@ -21,55 +48,61 @@ def parse_html(path: Path) -> list[Section]:
         "html.parser",
     )
 
-    records = []
+    records: list[Section] = []
 
-    current_section = ""
+    current_section = "intro"
     current_title = ""
-    heading_paragraph_index = 0   # counts paragraphs under the current heading
+    # Accumulate (text, html_id) pairs for the current heading
+    current_paragraphs: list[tuple[str, str]] = []
 
-    for tag in soup.find_all(["h1", "h2", "h3", "h4", "p", "li"]):
-
-        text = tag.get_text(separator=" ", strip=True)
-
-        if not text or len(text) < 20:
-            continue
-
-        if tag.name in ("h1", "h2", "h3", "h4"):
-
-            match = re.match(r"^(\d[\d\.]*)[\s\.\:]*(.*)", text)
-
-            if match:
-                current_section = match.group(1).rstrip(".")
-                current_title = match.group(2).strip()
-            else:
-                # Non-numeric heading — derive a slug from the title text
-                # so every heading gets its own namespace.
-                slug = re.sub(r"[^a-z0-9]+", "-", text[:60].lower()).strip("-")
-                current_section = slug if slug else "intro"
-                current_title = text[:80]
-
-            heading_paragraph_index = 0   # reset counter for new section
-            continue
-
-        # Give each paragraph a unique section ID:
-        # "<section>.<paragraph_index>" so chunks under the same heading
-        # are distinguishable and the LLM can cite them individually.
-        paragraph_section = (
-            f"{current_section}.{heading_paragraph_index}"
-            if current_section
-            else f"p{heading_paragraph_index}"
-        )
-
+    def flush():
+        """Bundle accumulated paragraphs into one Section and append to records."""
+        if not current_paragraphs:
+            return
+        combined_text = "\n\n".join(t for t, _ in current_paragraphs)
+        # Use the id of the first paragraph as the anchor for citations
+        first_html_id = current_paragraphs[0][1]
         records.append(
             Section(
-                text=text,
-                section=paragraph_section,
+                text=combined_text,
+                section=current_section,
                 section_title=current_title,
+                html_id=first_html_id,           # e.g. "2.1_p4" — for scroll-to linking
             )
         )
 
-        heading_paragraph_index += 1
+    for tag in soup.find_all(["h1", "h2", "h3", "h4", "p", "li"]):
+
+        if tag.name in ("h1", "h2", "h3", "h4"):
+            # New heading → flush whatever was accumulating
+            flush()
+            current_paragraphs = []
+
+            heading_text = tag.get_text(separator=" ", strip=True)
+            if not heading_text:
+                continue
+            current_section, current_title = _section_id_from_heading(heading_text)
+            continue
+
+        # --- paragraph / list item ---
+
+        if _is_noise(tag):
+            continue
+
+        text = tag.get_text(separator=" ", strip=True)
+
+        # Strip residual HTML tags that crept into the text
+        text = re.sub(r"<[^>]+>", " ", text)
+        text = re.sub(r"\s{2,}", " ", text).strip()
+
+        if len(text) < MIN_PARAGRAPH_LENGTH:
+            continue
+
+        html_id = tag.get("id", "")
+        current_paragraphs.append((text, html_id))
+
+    # Don't forget the last section
+    flush()
 
     print(f"Extracted {len(records)} sections.")
-
     return records

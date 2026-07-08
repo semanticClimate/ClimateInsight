@@ -58,4 +58,14 @@ def chunk_records(
 
     print(f"Created {len(chunks)} chunks.")
 
+    with open("chunks.txt", "w", encoding="utf-8") as f:
+        for chunk in chunks:
+            f.write("=" * 80 + "\n")
+            f.write(f"{chunk.chunk_id}\n")
+            f.write(f"Section: {chunk.section}\n")
+            f.write(f"Title: {chunk.section_title}\n")
+            f.write("=" * 80 + "\n")
+            f.write(chunk.text)
+            f.write("\n\n")
+
     return chunks
