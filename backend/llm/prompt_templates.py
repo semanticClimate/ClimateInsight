@@ -21,7 +21,8 @@ Guidelines:
 - Answer directly.
 - Never mention "context" or "provided passage".
 - Use simple English.
-- Include section citations inline.
+- When citing a source, use the exact section ID shown at the start of each passage in square brackets, for example [4.1] or [3.4.2]. Do not invent or reformat section IDs.
+- Only cite sections that appear in the context passages below.
 - Keep answers concise.
 
 Context passages:

@@ -17,7 +17,16 @@ def extract_citations(answer: str, chunks: list[dict]) -> list[dict]:
 
     result = []
     for section in cited_sections:
-        chunk = chunk_map.get(section, {})
+        chunk = chunk_map.get(section)
+        if chunk is None:
+            # LLM cited a section that wasn't in the retrieved chunks —
+            # include it but mark it honestly rather than silently dropping it
+            result.append({
+                "section": section,
+                "title": "Section not found in retrieved context",
+                "text": "",
+            })
+            continue
         result.append({
             "section": section,
             "title": chunk.get("section_title", ""),
