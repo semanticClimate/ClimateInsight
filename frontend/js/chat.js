@@ -2,6 +2,10 @@
 
 const Chat = (() => {
   let sessionId = null;
+  let sessionRegistered = false;
+
+  // In-memory store: sessionId -> array of { role, text, citations }
+  const conversationStore = {};
 
   // ── DOM refs ──────────────────────────────────────────────────────────────
   const messagesEl = () => document.getElementById("messages");
@@ -32,9 +36,25 @@ const Chat = (() => {
     try {
       const data = await Api.chat(question, sessionId);
       sessionId = data.session_id;
+
+      // Initialise store for this session if first message
+      if (!conversationStore[sessionId]) {
+        conversationStore[sessionId] = [];
+      }
+
+      // Store both turns
+      conversationStore[sessionId].push({ role: "user", text: question, citations: [] });
+      conversationStore[sessionId].push({ role: "assistant", text: data.answer, citations: data.citations || [] });
+
       typing.remove();
       appendMessage("assistant", data.answer, data.citations || []);
-      window.sidebarController?.addConversation(question);
+
+      // Only add to sidebar once per session
+      if (!sessionRegistered) {
+        window.sidebarController?.addConversation(question, sessionId);
+        sessionRegistered = true;
+      }
+
     } catch (err) {
       typing.remove();
       appendError(err.message || "Could not reach the backend.");
@@ -42,6 +62,26 @@ const Chat = (() => {
 
     sendBtnEl().disabled = false;
     inputEl().focus();
+  }
+
+  // ── Restore a previous conversation from the sidebar ──────────────────────
+  function restore(storedSessionId) {
+    const messages = conversationStore[storedSessionId];
+    if (!messages) return;
+
+    // Switch active session
+    sessionId = storedSessionId;
+    sessionRegistered = true;
+
+    // Clear current view
+    messagesEl().innerHTML = "";
+    resetPassage();
+
+    const welcome = welcomeEl();
+    if (welcome) welcome.style.display = "none";
+
+    // Re-render all messages
+    messages.forEach(m => appendMessage(m.role, m.text, m.citations));
   }
 
   // ── DOM builders ──────────────────────────────────────────────────────────
@@ -62,9 +102,6 @@ const Chat = (() => {
         const chip = document.createElement("button");
         chip.className = "cite-chip";
         chip.textContent = c.section;
-
-        // Each chip carries the verbatim chunk text from the backend.
-        // showPassage() no longer touches the LLM answer at all.
         chip.addEventListener("click", () => showPassage(c));
         row.appendChild(chip);
       });
@@ -94,29 +131,20 @@ const Chat = (() => {
   }
 
   // ── Source panel ──────────────────────────────────────────────────────────
-  /**
-   * Show the verbatim chunk that the LLM cited.
-   * @param {Object} citation  - { section, title, text } from the API
-   */
   function showPassage(citation) {
     const passageEl = sourcePassageEl();
     passageEl.hidden = false;
 
     passageSectionEl().textContent = citation.section;
 
-    // Show the section title if we have one, otherwise fall back gracefully
     passageTitleEl().textContent = citation.title
       ? `${citation.section} — ${citation.title}`
       : `Section ${citation.section}`;
 
-    // Display the exact chunk text retrieved from the vector store.
-    // If for some reason it's missing, say so honestly rather than
-    // showing a sentence extracted from the LLM's paraphrase.
     passageTextEl().textContent = citation.text
       ? citation.text
       : "Source passage not available for this citation.";
 
-    // Try to scroll the iframe to the relevant anchor if available
     try {
       const iframe = sourceIframeEl();
       if (iframe && iframe.contentWindow) {
@@ -135,10 +163,11 @@ const Chat = (() => {
     if (def) def.hidden = true;
   }
 
-  // ── Clear ─────────────────────────────────────────────────────────────────
+  // ── Clear (new chat) ───────────────────────────────────────────────────────
   async function clear() {
     await Api.clearSession(sessionId);
     sessionId = null;
+    sessionRegistered = false;
     messagesEl().innerHTML = "";
     resetPassage();
 
@@ -163,5 +192,5 @@ const Chat = (() => {
     a.click();
   }
 
-  return { send, clear, download, resetPassage };
+  return { send, clear, download, resetPassage, restore };
 })();
