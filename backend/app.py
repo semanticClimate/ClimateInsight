@@ -3,8 +3,18 @@ from flask_cors import CORS
 
 import os
 import re
+import sys
 import uuid
 import requests as http_requests
+
+# tomllib is stdlib in Python 3.11+; fall back to tomli for older versions
+if sys.version_info >= (3, 11):
+    import tomllib
+else:
+    try:
+        import tomli as tomllib
+    except ImportError:
+        tomllib = None
 
 from retrieval import answer_question
 from sessions import (
@@ -22,6 +32,26 @@ from services import (
 app = Flask(__name__)
 
 CORS(app)
+
+# -------------------------
+# Config
+# -------------------------
+
+_CONFIG_PATH = os.path.abspath(
+    os.path.join(os.path.dirname(__file__), "..", "config.toml")
+)
+
+@app.get("/api/config")
+def get_config():
+    """Reads config.toml from the project root and returns it as JSON."""
+    if tomllib is None:
+        return jsonify({"error": "tomllib/tomli not available"}), 500
+    try:
+        with open(_CONFIG_PATH, "rb") as f:
+            data = tomllib.load(f)
+        return jsonify(data)
+    except FileNotFoundError:
+        return jsonify({"error": "config.toml not found"}), 404
 
 # -------------------------
 # Health

@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IPCC AR6 Chatbot</title>
+  <title>ClimateInsight Chatbot v0.1.0</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="stylesheet" href="css/tour.css" />
   <link rel="stylesheet" href="css/chat.css">
@@ -27,10 +27,12 @@
   <aside class="sidebar" id="sidebar">
 
     <div class="sidebar-logo">
-      <img src="images/semanticClimateLogo.png" alt="semanticClimate Logo" />
+      <a href="https://semanticclimate.github.io/p/en/" target="_blank">
+        <img src="images/semanticClimateLogo.png" alt="semanticClimate Logo"
+          title="Click here to visit the semanticClimate website" />
+      </a>
     </div>
 
-    <div class="sidebar-lang-label">LANGUAGE</div>
     <select class="sidebar-lang-select" id="lang-select">
       <option value="en">🇬🇧 English </option>
       <option value="fr">🇫🇷 French</option>
@@ -47,15 +49,7 @@
     <div class="sidebar-section-label">CONVERSATIONS</div>
     <div class="conversation-list" id="conversation-list">
       <div class="empty-convos">
-        <svg class="empty-convos-icon" viewBox="0 0 56 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="2" y="2" width="36" height="28" rx="6" fill="white" fill-opacity="0.2" stroke="white"
-            stroke-opacity="0.4" stroke-width="2" />
-          <rect x="18" y="18" width="36" height="28" rx="6" fill="white" fill-opacity="0.15" stroke="white"
-            stroke-opacity="0.3" stroke-width="2" />
-          <circle cx="12" cy="16" r="2" fill="white" fill-opacity="0.5" />
-          <circle cx="20" cy="16" r="2" fill="white" fill-opacity="0.5" />
-          <circle cx="28" cy="16" r="2" fill="white" fill-opacity="0.5" />
-        </svg>
+
         <p>No chats yet.<br>Start a new conversation<br>to explore!</p>
       </div>
     </div>
@@ -96,8 +90,9 @@
       </button>
 
       <div class="topbar-title">
-        <img src="images/ipcc_logo.png" alt="IPCC" class="topbar-logo-img" />
-        <span class="topbar-brand-name">chatbot</span>
+        <!-- <img src="images/ipcc_logo.png" alt="IPCC" class="topbar-logo-img" /> -->
+        <span class="topbar-brand-name">ClimateInsight Chatbot</span><span class="topbar-version"
+          id="app-version-badge"></span>
       </div>
 
       <div class="topbar-right">
@@ -122,6 +117,14 @@
               <circle cx="12" cy="12" r="10" />
               <path d="M9.5 9a2.5 2.5 0 1 1 5 0c0 2-2.5 2.5-2.5 4" />
               <circle cx="12" cy="17" r="0.5" fill="currentColor" stroke="none" />
+            </svg>
+          </button>
+          <button class="topbar-icon-btn" id="btn-about" title="About">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10" />
+              <line x1="12" y1="16" x2="12" y2="12" />
+              <line x1="12" y1="8" x2="12.01" y2="8" />
             </svg>
           </button>
         </div>
@@ -222,7 +225,9 @@
             </svg>
           </button>
         </div>
-        <p class="input-hint">Enter ↵ to send &nbsp;·&nbsp; Shift+Enter for new line &nbsp;·&nbsp; Export anytime</p>
+        <p class="input-hint">Enter ↵ to send &nbsp;·&nbsp; Shift+Enter for new line
+          <!-- &nbsp;·&nbsp; Export anytime -->
+        </p>
 
       </main>
 
@@ -289,20 +294,65 @@
     </div>
   </div>
 
+  <!-- ── About Modal ── -->
+  <div class="modal-overlay" id="about-modal" hidden>
+    <div class="modal-card about-modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title">AMI Says Hello!</h3>
+        <button class="modal-close" id="btn-close-about">&times;</button>
+      </div>
+      <div class="modal-body about-modal-body">
+        <div class="about-content">
+          <div class="about-mascot-container">
+            <img src="images/ami_plush.png" alt="AMI Plush" class="about-mascot-img" />
+          </div>
+          <div class="about-text-container">
+            <p><strong>Hi! I'm AMI, the mascot of semanticClimate. 👋</strong></p>
+            <p>Welcome to <strong>ClimateInsight</strong>, a chatbot based on the IPCC AR6 reports. I'm here to help you
+              explore climate science by answering your questions using information grounded in the report. Feel free to
+              ask me anything about climate change, impacts, mitigation, adaptation, or the IPCC findings!</p>
+            <p class="about-help-hint">
+              <span class="increase-help">
+                <svg width="25" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M9.5 9a2.5 2.5 0 1 1 5 0c0 2-2.5 2.5-2.5 4" />
+                  <circle cx="12" cy="17" r="0.5" fill="currentColor" stroke="none" />
+                </svg>
+              </span> Click the Help icon at the top right to learn how to use the chatbot!
+            </p>
+          </div>
+        </div>
+        <div class="about-footer">
+          <button class="about-close-btn" id="btn-close-about-footer">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- ── Toast Notification ── -->
   <div class="toast" id="toast-notification">Language changed successfully</div>
 
   <script src="js/api.js"></script>
+  <script src="js/config.js"></script>
   <script>
     // Set the IPCC reference iframe src from the already-injected API_BASE
     // so it works both locally (localhost:5000) and through Cloudflare tunnels.
     document.getElementById("source-iframe").src =
       API_BASE.replace(/\/api$/, "") + "/ipcc-reference";
+
+    // Inject version badge once config.toml has been fetched from the backend
+    window.APP_CONFIG_READY.then((cfg) => {
+      const badge = document.getElementById("app-version-badge");
+      const version = cfg?.app?.version;
+      if (badge && version) badge.textContent = "v" + version;
+    });
   </script>
   <script src="js/chat.js"></script>
   <script src="js/sidebar.js"></script>
   <script src="js/main.js"></script>
   <script src="js/tour.js"></script>
+  <script src="js/about.js"></script>
 </body>
 
 </html>

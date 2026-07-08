@@ -30,7 +30,7 @@
 }
 
 .source-header-title {
-    font-size: 0.78rem;
+    font-size: 0.83rem;
     font-weight: 700;
     letter-spacing: 0.05em;
     color: var(--text);
@@ -38,7 +38,7 @@
 }
 
 .source-reset-btn {
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     border: 1px solid #D1D5DB;
     border-radius: 6px;
     padding: 5px 11px;
@@ -119,7 +119,7 @@
 }
 
 .cover-label {
-    font-size: 0.72rem;
+    font-size: 0.77rem;
     font-weight: 700;
     letter-spacing: 0.12em;
     opacity: 0.75;
@@ -128,14 +128,14 @@
 
 .cover-main {
     font-family: var(--font-display);
-    font-size: 3rem;
+    font-size: 3.05rem;
     font-weight: 800;
     line-height: 1;
     margin: 4px 0;
 }
 
 .source-default-body {
-    font-size: 0.83rem;
+    font-size: 0.88rem;
     color: var(--text-mid);
     line-height: 1.6;
     margin-bottom: 12px;
@@ -143,7 +143,7 @@
 
 .source-link {
     display: inline-block;
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     color: var(--blue-mid);
     border: 1px solid #BFDBFE;
     border-radius: 6px;
@@ -170,7 +170,7 @@
 }
 
 .passage-section-label {
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 0.08em;
     color: var(--green);
@@ -183,13 +183,13 @@
 
 .passage-title {
     font-weight: 600;
-    font-size: 0.88rem;
+    font-size: 0.93rem;
     color: var(--text);
     margin-bottom: 10px;
 }
 
 .passage-text {
-    font-size: 0.82rem;
+    font-size: 0.87rem;
     line-height: 1.75;
     color: var(--text-mid);
     border-left: 3px solid var(--orange);
@@ -198,7 +198,7 @@
 }
 
 .passage-back-btn {
-    font-size: 0.78rem;
+    font-size: 0.83rem;
     color: var(--blue-mid);
     padding: 5px 0;
     transition: color 0.12s;
@@ -231,11 +231,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.75rem;
+    font-size: 0.8rem;
 }
 
 .source-explainer-title {
-    font-size: 0.72rem;
+    font-size: 0.77rem;
     font-weight: 700;
     letter-spacing: 0.06em;
     color: var(--text);
@@ -243,7 +243,7 @@
 }
 
 .source-explainer-body {
-    font-size: 0.78rem;
+    font-size: 0.83rem;
     color: var(--text-muted);
     line-height: 1.6;
 }
@@ -256,7 +256,7 @@
     color: var(--blue);
     padding: 1px 6px;
     border-radius: 5px;
-    font-size: 0.72rem;
+    font-size: 0.77rem;
     font-weight: 600;
 }
 
@@ -299,12 +299,12 @@
 .modal-title {
     font-family: var(--font-display);
     font-weight: 700;
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     color: var(--text);
 }
 
 .modal-close {
-    font-size: 1.5rem;
+    font-size: 1.55rem;
     color: var(--text-muted);
     cursor: pointer;
     transition: color 0.12s;
@@ -320,7 +320,7 @@
     background: #0F172A;
     color: #E2E8F0;
     font-family: monospace;
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     max-height: 350px;
     overflow-y: auto;
     text-align: left;
@@ -350,7 +350,7 @@
 .log-status {
     padding: 1px 5px;
     border-radius: 4px;
-    font-size: 0.75rem;
+    font-size: 0.8rem;
 }
 
 .log-status.status-200 {
@@ -373,7 +373,7 @@
     color: white;
     padding: 10px 20px;
     border-radius: var(--radius);
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     z-index: 2000;
     opacity: 0;
@@ -402,11 +402,11 @@
     }
 
     .source-header-title {
-        font-size: 0.75rem;
+        font-size: 0.8rem;
     }
 
     .source-reset-btn {
-        font-size: 0.7rem;
+        font-size: 0.75rem;
         padding: 4px 10px;
     }
 
@@ -420,20 +420,20 @@
     }
 
     .cover-label {
-        font-size: 0.68rem;
+        font-size: 0.73rem;
     }
 
     .cover-main {
-        font-size: 2.6rem;
+        font-size: 2.65rem;
     }
 
     .source-default-body {
-        font-size: 0.8rem;
+        font-size: 0.85rem;
         margin-bottom: 10px;
     }
 
     .source-link {
-        font-size: 0.75rem;
+        font-size: 0.8rem;
         padding: 4px 10px;
     }
 
@@ -442,11 +442,11 @@
     }
 
     .source-explainer-title {
-        font-size: 0.68rem;
+        font-size: 0.73rem;
     }
 
     .source-explainer-body {
-        font-size: 0.75rem;
+        font-size: 0.8rem;
     }
 
     .modal-card {
@@ -459,18 +459,18 @@
     }
 
     .modal-title {
-        font-size: 1rem;
+        font-size: 1.05rem;
     }
 
     .modal-body {
         padding: 16px;
-        font-size: 0.75rem;
+        font-size: 0.8rem;
         max-height: 300px;
     }
 
     .toast {
         bottom: 20px;
-        font-size: 0.8rem;
+        font-size: 0.85rem;
         padding: 8px 16px;
     }
 }
@@ -486,11 +486,11 @@
     }
 
     .source-header-title {
-        font-size: 0.7rem;
+        font-size: 0.75rem;
     }
 
     .source-reset-btn {
-        font-size: 0.65rem;
+        font-size: 0.7rem;
         padding: 3px 8px;
     }
 
@@ -504,41 +504,41 @@
     }
 
     .cover-label {
-        font-size: 0.65rem;
+        font-size: 0.7rem;
     }
 
     .cover-main {
-        font-size: 2.2rem;
+        font-size: 2.25rem;
     }
 
     .source-default-body {
-        font-size: 0.75rem;
-        margin-bottom: 8px;
-    }
-
-    .source-link {
-        font-size: 0.7rem;
-        padding: 3px 8px;
-    }
-
-    .passage-section-label {
-        font-size: 0.65rem;
-        padding: 2px 6px;
-    }
-
-    .passage-title {
         font-size: 0.8rem;
         margin-bottom: 8px;
     }
 
+    .source-link {
+        font-size: 0.75rem;
+        padding: 3px 8px;
+    }
+
+    .passage-section-label {
+        font-size: 0.7rem;
+        padding: 2px 6px;
+    }
+
+    .passage-title {
+        font-size: 0.85rem;
+        margin-bottom: 8px;
+    }
+
     .passage-text {
-        font-size: 0.78rem;
+        font-size: 0.83rem;
         padding-left: 10px;
         margin-bottom: 12px;
     }
 
     .passage-back-btn {
-        font-size: 0.75rem;
+        font-size: 0.8rem;
     }
 
     .source-explainer {
@@ -548,19 +548,19 @@
     .source-explainer-icon {
         width: 20px;
         height: 20px;
-        font-size: 0.7rem;
+        font-size: 0.75rem;
     }
 
     .source-explainer-title {
-        font-size: 0.65rem;
+        font-size: 0.7rem;
     }
 
     .source-explainer-body {
-        font-size: 0.72rem;
+        font-size: 0.77rem;
     }
 
     .cite-demo {
-        font-size: 0.68rem;
+        font-size: 0.73rem;
         padding: 1px 5px;
     }
 
@@ -579,32 +579,32 @@
     }
 
     .modal-title {
-        font-size: 0.95rem;
+        font-size: 1.0rem;
     }
 
     .modal-close {
-        font-size: 1.3rem;
+        font-size: 1.35rem;
     }
 
     .modal-body {
         padding: 14px;
-        font-size: 0.7rem;
+        font-size: 0.75rem;
         max-height: 250px;
     }
 
     .log-line {
         gap: 6px;
-        font-size: 0.7rem;
+        font-size: 0.75rem;
     }
 
     .log-status {
-        font-size: 0.65rem;
+        font-size: 0.7rem;
         padding: 1px 4px;
     }
 
     .toast {
         bottom: 16px;
-        font-size: 0.75rem;
+        font-size: 0.8rem;
         padding: 8px 14px;
         width: 85%;
         max-width: calc(100% - 32px);
@@ -631,39 +631,181 @@
     }
 
     .modal-title {
-        font-size: 0.85rem;
+        font-size: 0.9rem;
     }
 
     .modal-close {
-        font-size: 1.2rem;
+        font-size: 1.25rem;
     }
 
     .modal-body {
         padding: 12px;
-        font-size: 0.65rem;
+        font-size: 0.7rem;
         max-height: 200px;
     }
 
     .log-time {
-        font-size: 0.6rem;
+        font-size: 0.65rem;
     }
 
     .log-method {
-        font-size: 0.6rem;
+        font-size: 0.65rem;
     }
 
     .log-status {
-        font-size: 0.6rem;
+        font-size: 0.65rem;
         padding: 0px 3px;
     }
 
     .toast {
         bottom: 12px;
-        font-size: 0.7rem;
+        font-size: 0.75rem;
         padding: 6px 12px;
         width: 90%;
         max-width: calc(100% - 24px);
         left: 50%;
         transform: translateX(-50%);
+    }
+}
+
+/* ── About Modal Custom Styles ── */
+.about-modal-card {
+    background: rgba(255, 255, 255, 0.8) !important;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    max-width: 550px;
+    animation: aboutModalScale 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes aboutModalScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.about-modal-body {
+    background: transparent !important;
+    color: var(--text) !important;
+    font-family: inherit !important;
+    font-size: 0.95rem !important;
+    padding: 24px !important;
+    max-height: none !important;
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.about-mascot-container {
+    flex: 0 0 130px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-mascot-img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    transform: rotate(-5deg);
+    transition: transform 0.3s ease;
+}
+
+.about-mascot-img:hover {
+    transform: rotate(0deg) scale(1.05);
+}
+
+.about-text-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    line-height: 1.55;
+}
+
+.about-text-container p {
+    margin: 0 !important;
+}
+
+.about-footer {
+    display: flex;
+    justify-content: flex-end;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    padding-top: 16px;
+}
+
+.about-close-btn {
+    background: var(--blue-mid);
+    color: white;
+    font-weight: 600;
+    padding: 8px 20px;
+    border-radius: var(--radius-sm);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background 0.15s, transform 0.1s;
+}
+
+.about-close-btn:hover {
+    background: var(--blue);
+}
+
+.about-close-btn:active {
+    transform: scale(0.97);
+}
+
+.about-help-hint {
+    margin-top: 8px !important;
+    padding: 8px 12px;
+    background: rgba(27, 79, 155, 0.08);
+    border-radius: var(--radius-sm);
+    font-size: 0.88rem;
+    color: var(--blue);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-left: 3px solid var(--blue-mid);
+}
+
+.about-help-hint .increase-help {
+    font-size: 1.1rem;
+    font-weight: bold;
+    display: inline-block;
+    animation: increaseSize 1.5s infinite ease-in-out;
+}
+
+@keyframes increaseSize {
+
+    0%,
+    100% {
+        /* Default size */
+        transform: scale(1);
+    }
+
+    50% {
+        /* Subtle growth (4% larger) then shrinks back */
+        transform: scale(1.15);
+    }
+}
+
+@media (max-width: 520px) {
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 16px;
+    }
+
+    .about-mascot-container {
+        flex: 0 0 100px;
+        width: 100px;
     }
 }

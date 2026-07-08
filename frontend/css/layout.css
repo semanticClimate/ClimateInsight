@@ -45,12 +45,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    /* gap: 8px; */
     text-align: center;
     font-family: var(--font-display);
     font-weight: 800;
-    font-size: 1.15rem;
-    letter-spacing: 0.1em;
+    font-size: 1.2rem;
+    letter-spacing: 0.5em;
     color: var(--text);
 }
 
@@ -61,18 +61,22 @@
 }
 
 .topbar-brand-name {
-    font-family: "Archivo Narrow";
+    font-family: "Jost";
     font-weight: 800;
-    text-transform: uppercase;
     font-size: 2.13rem;
     transform: scaleX(0.89);
-    color: #0079a8;
     letter-spacing: 0.05em;
+    /* Adding text color */
+    background: linear-gradient(135deg, #38bdf8, #0ea5e9, #0369a1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
 }
 
 .topbar-accent-e {
     display: inline-block;
-    background: linear-gradient(135deg, #DC2626 33%, #F59E0B 33% 66%, #1B4F9B 66%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -80,6 +84,18 @@
 
 .topbar-title-accent {
     color: var(--text);
+}
+
+.topbar-version {
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: #64748B;
+    margin-top: 0.7rem;
+    align-self: center;
+    /* Prevent gradient from parent bleeding in */
+    -webkit-text-fill-color: #64748B;
 }
 
 .topbar-right {
@@ -104,7 +120,7 @@
 }
 
 .status-label {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     font-weight: 500;
     color: #212731;
 }
@@ -228,14 +244,14 @@
 .welcome-hero-text h1 {
     font-family: var(--font-display);
     font-weight: 800;
-    font-size: 1.55rem;
+    font-size: 1.6rem;
     color: var(--text);
     margin-bottom: 6px;
     letter-spacing: -0.01em;
 }
 
 .welcome-hero-text p {
-    font-size: 0.95rem;
+    font-size: 1.0rem;
     color: var(--text-mid);
     line-height: 1.55;
 }
@@ -251,7 +267,7 @@
     border: 1px solid #BFDBFE;
     border-radius: var(--radius);
     padding: 14px 18px;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     color: var(--text-mid);
     width: 100%;
     line-height: 1.6;
@@ -271,7 +287,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.72rem;
+    font-size: 0.77rem;
     font-weight: 700;
     margin-top: 1px;
 }
@@ -286,13 +302,13 @@
     color: var(--blue);
     padding: 1px 7px;
     border-radius: 6px;
-    font-size: 0.78rem;
+    font-size: 0.83rem;
     font-weight: 600;
 }
 
 /* Start exploring label */
 .divider-label {
-    font-size: 0.95rem;
+    font-size: 1.0rem;
     font-weight: 700;
     color: var(--blue-mid);
     display: flex;
@@ -303,7 +319,7 @@
 }
 
 .divider-label::before {
-    font-size: 1rem;
+    font-size: 1.05rem;
 }
 
 /* Suggested questions grid */
@@ -318,8 +334,8 @@
     background: var(--bg-white);
     border: 1.5px solid #E5E7EB;
     border-radius: var(--radius);
-    padding: 14px 16px;
-    font-size: 0.88rem;
+    padding: 14px 10px;
+    font-size: 0.93rem;
     color: var(--text-mid);
     text-align: left;
     display: flex;
@@ -351,7 +367,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     flex-shrink: 0;
 }
 
@@ -393,7 +409,7 @@
     border: 1.5px solid #E5E7EB;
     border-radius: var(--radius);
     padding: 11px 48px 11px 14px;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     resize: none;
     outline: none;
     background: var(--bg-white);
@@ -442,7 +458,7 @@
     background: var(--blue);
     color: white;
     display: flex;
-    font-size: 1rem;
+    font-size: 1.05rem;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
@@ -460,7 +476,7 @@
 
 .input-hint {
     text-align: center;
-    font-size: 0.73rem;
+    font-size: 0.78rem;
     color: #406ab1;
     padding: 4px 24px 10px;
     flex-shrink: 0;
@@ -534,7 +550,7 @@
     }
 
     .topbar-title {
-        font-size: 1rem;
+        font-size: 1.05rem;
         gap: 6px;
     }
 
@@ -553,11 +569,11 @@
     }
 
     .welcome-hero-text h1 {
-        font-size: 1.35rem;
+        font-size: 1.4rem;
     }
 
     .welcome-hero-text p {
-        font-size: 0.9rem;
+        font-size: 0.95rem;
     }
 
     .hero-globe {
@@ -576,7 +592,7 @@
 
     .info-chip {
         padding: 12px 14px;
-        font-size: 0.85rem;
+        font-size: 0.9rem;
     }
 
     .suggested-questions {
@@ -585,7 +601,7 @@
 
     .sq-btn {
         padding: 12px 14px;
-        font-size: 0.82rem;
+        font-size: 0.87rem;
     }
 
     .input-bar {
@@ -595,7 +611,7 @@
 
     .input-field {
         padding: 10px 40px 10px 12px;
-        font-size: 0.85rem;
+        font-size: 0.9rem;
     }
 
     .input-actions {
@@ -606,11 +622,11 @@
     .send-btn {
         width: 36px;
         height: 36px;
-        font-size: 0.9rem;
+        font-size: 0.95rem;
     }
 
     .input-hint {
-        font-size: 0.7rem;
+        font-size: 0.75rem;
         padding: 3px 16px 8px;
     }
 }
@@ -638,7 +654,7 @@
     }
 
     .topbar-title {
-        font-size: 0.9rem;
+        font-size: 0.95rem;
         gap: 4px;
     }
 
@@ -656,7 +672,7 @@
     }
 
     .status-label {
-        font-size: 0.75rem;
+        font-size: 0.8rem;
     }
 
     .welcome {
@@ -675,12 +691,12 @@
     }
 
     .welcome-hero-text h1 {
-        font-size: 1.2rem;
+        font-size: 1.25rem;
         margin-bottom: 4px;
     }
 
     .welcome-hero-text p {
-        font-size: 0.85rem;
+        font-size: 0.9rem;
         line-height: 1.4;
     }
 
@@ -701,18 +717,18 @@
 
     .info-chip {
         padding: 10px 12px;
-        font-size: 0.8rem;
+        font-size: 0.85rem;
         gap: 10px;
     }
 
     .info-chip-icon {
         width: 20px;
         height: 20px;
-        font-size: 0.65rem;
+        font-size: 0.7rem;
     }
 
     .divider-label {
-        font-size: 0.9rem;
+        font-size: 0.95rem;
     }
 
     .suggested-questions {
@@ -722,7 +738,7 @@
 
     .sq-btn {
         padding: 11px 12px;
-        font-size: 0.8rem;
+        font-size: 0.85rem;
         gap: 8px;
     }
 
@@ -733,7 +749,7 @@
     .sq-icon {
         width: 28px;
         height: 28px;
-        font-size: 1rem;
+        font-size: 1.05rem;
     }
 
     .input-bar {
@@ -743,12 +759,12 @@
 
     .input-field {
         padding: 9px 36px 9px 10px;
-        font-size: 0.8rem;
+        font-size: 0.85rem;
         max-height: 100px;
     }
 
     .input-field::placeholder {
-        font-size: 0.8rem;
+        font-size: 0.85rem;
     }
 
     .input-actions {
@@ -765,11 +781,11 @@
     .send-btn {
         width: 32px;
         height: 32px;
-        font-size: 0.8rem;
+        font-size: 0.85rem;
     }
 
     .input-hint {
-        font-size: 0.65rem;
+        font-size: 0.7rem;
         padding: 2px 12px 6px;
     }
 }
@@ -798,7 +814,7 @@
     }
 
     .topbar-title {
-        font-size: 0.75rem;
+        font-size: 0.8rem;
         gap: 3px;
     }
 
@@ -809,7 +825,7 @@
     .topbar-icon-btn {
         width: 24px;
         height: 24px;
-        font-size: 0.85rem;
+        font-size: 0.9rem;
     }
 
     .status-dot {
@@ -818,7 +834,7 @@
     }
 
     .status-label {
-        font-size: 0.65rem;
+        font-size: 0.7rem;
     }
 
     .welcome {
@@ -834,12 +850,12 @@
     }
 
     .welcome-hero-text h1 {
-        font-size: 1rem;
+        font-size: 1.05rem;
         margin-bottom: 3px;
     }
 
     .welcome-hero-text p {
-        font-size: 0.75rem;
+        font-size: 0.8rem;
         line-height: 1.35;
     }
 
@@ -860,18 +876,18 @@
 
     .info-chip {
         padding: 8px 10px;
-        font-size: 0.75rem;
+        font-size: 0.8rem;
         gap: 8px;
     }
 
     .info-chip-icon {
         width: 18px;
         height: 18px;
-        font-size: 0.6rem;
+        font-size: 0.65rem;
     }
 
     .divider-label {
-        font-size: 0.8rem;
+        font-size: 0.85rem;
     }
 
     .suggested-questions {
@@ -880,14 +896,14 @@
 
     .sq-btn {
         padding: 9px 10px;
-        font-size: 0.75rem;
+        font-size: 0.8rem;
         gap: 6px;
     }
 
     .sq-icon {
         width: 26px;
         height: 26px;
-        font-size: 0.9rem;
+        font-size: 0.95rem;
     }
 
     .input-bar {
@@ -897,7 +913,7 @@
 
     .input-field {
         padding: 8px 32px 8px 9px;
-        font-size: 0.75rem;
+        font-size: 0.8rem;
         max-height: 80px;
     }
 
@@ -909,17 +925,17 @@
     .input-action-btn {
         width: 20px;
         height: 20px;
-        font-size: 0.65rem;
+        font-size: 0.7rem;
     }
 
     .send-btn {
         width: 28px;
         height: 28px;
-        font-size: 0.7rem;
+        font-size: 0.75rem;
     }
 
     .input-hint {
-        font-size: 0.6rem;
+        font-size: 0.65rem;
         padding: 2px 8px 4px;
     }
 

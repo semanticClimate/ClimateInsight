@@ -328,11 +328,7 @@ const Tour = (() => {
 
     // ── Auto-start for first-time visitors ────────────────────────────────────
     function maybeAutoStart() {
-        try {
-            if (!localStorage.getItem("ipcc_tour_seen")) {
-                setTimeout(start, 800);
-            }
-        } catch (_) { }
+        // Disabled: Auto-start is now handled by about.js to show the About modal instead.
     }
 
     return { start, end, maybeAutoStart };
