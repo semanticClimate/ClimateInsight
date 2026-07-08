@@ -1,227 +1,375 @@
-## ⚙️ Setup & Installation
+# ClimateInsight
 
-### 1. Create and Activate a Virtual Environment
+ClimateInsight is an AI-powered chatbot designed to make information from the Intergovernmental Panel on Climate Change (IPCC) more accessible through natural language conversations. Instead of manually searching through lengthy reports, users can ask questions in plain English and receive context-aware responses grounded in the indexed IPCC reference material.
 
-It is recommended to use a Python virtual environment to isolate project dependencies.
+The project was developed to demonstrate how Retrieval-Augmented Generation (RAG), semantic search, and locally hosted Large Language Models (LLMs) can be combined to create an interpretable, privacy-friendly question-answering system. Rather than relying on cloud-hosted AI services, ClimateInsight performs retrieval and inference locally using Ollama and ChromaDB, making it suitable for experimentation, education, and offline development.
 
-**Windows (PowerShell)**
+---
+
+# ⚙️ Setup & Installation
+
+## Prerequisites
+
+Before starting, ensure you have the following installed:
+
+- Python **3.10 or later**
+- Git
+- Ollama
+- (Optional) Cloudflared, if you plan to expose the application externally
+
+---
+
+## 1. Clone the Repository
+
+Clone the repository to your local machine.
+
+```bash
+git clone https://github.com/semanticClimate/ClimateInsight.git
+```
+
+---
+
+## 2. Navigate into the Project
+
+```bash
+cd ClimateInsight
+```
+
+Replace `ClimateInsight` with the repository name if different.
+
+---
+
+## 3. Create a Python Virtual Environment
+
+Creating a virtual environment keeps this project's Python packages isolated from packages installed globally on your computer. This prevents dependency conflicts between different Python projects and makes the project easier to reproduce across different machines.
+
+The virtual environment is created inside a folder named `.venv`.
+
+### Windows (PowerShell)
 
 ```powershell
 python -m venv .venv
-.\.venv\Scripts\Activate.ps1
 ```
 
-**macOS / Linux**
+### macOS / Linux
 
 ```bash
 python3 -m venv .venv
+```
+
+---
+
+## 4. Activate the Virtual Environment
+
+After creating the virtual environment, activate it before installing any dependencies.
+
+When activated, all Python packages installed using `pip` will be placed inside `.venv` rather than your global Python installation.
+
+### Windows (PowerShell)
+
+```powershell
+.\.venv\Scripts\Activate.ps1
+```
+
+### macOS / Linux
+
+```bash
 source .venv/bin/activate
 ```
 
+Once activated, your terminal should display something similar to:
+
+```text
+(.venv)
+```
+
+at the beginning of the command prompt.
+
 ---
 
-### 2. Install Dependencies
+## 5. Install Project Dependencies
 
-Ensure you have **Python 3.10+** installed.
+Once the virtual environment is active, install all required Python libraries.
 
-**Windows (PowerShell)**
+These dependencies include:
+
+- Flask
+- ChromaDB
+- Sentence Transformers
+- LangChain components
+- Ollama integration
+- Other libraries required by the chatbot
+
+### Windows (PowerShell)
 
 ```powershell
 pip install -r requirements.txt
 ```
 
-**macOS / Linux**
+### macOS / Linux
 
 ```bash
 pip install -r requirements.txt
 ```
 
+Installing packages while the virtual environment is active ensures that they are stored inside `.venv` instead of your system-wide Python installation.
+
 ---
 
-### 3. Set Up the Local LLM (Ollama)
+## 6. Install and Configure Ollama
 
-The chatbot relies on a locally hosted Ollama server for inference.
+ClimateInsight uses a locally hosted Large Language Model (LLM) through Ollama for response generation.
 
-1. Download and install **Ollama** from https://ollama.com/.
-2. Start the Ollama server.
+### Download Ollama
 
-**Windows (PowerShell)**
+Download and install Ollama from:
+
+https://ollama.com/
+
+---
+
+### Start the Ollama Server
+
+#### Windows (PowerShell)
 
 ```powershell
 ollama serve
 ```
 
-**macOS / Linux**
+#### macOS / Linux
 
 ```bash
 ollama serve
 ```
 
-3. Pull the required model.
+Keep this terminal running while using the chatbot.
 
-**Windows (PowerShell)**
+---
+
+### Download the Required Model
+
+ClimateInsight expects the `llama3.2` model.
+
+#### Windows (PowerShell)
 
 ```powershell
 ollama pull llama3.2:latest
 ```
 
-**macOS / Linux**
+#### macOS / Linux
 
 ```bash
 ollama pull llama3.2:latest
 ```
 
+This only needs to be done once.
+
 ---
 
-### 4. Ingest IPCC Reference Data
+## 7. Prepare the IPCC Reference Data
 
-Ensure your target HTML document is placed at:
+Place the IPCC HTML reference document at:
 
 ```text
 data/raw/ipcc_reference.html
 ```
 
-Run the ingestion pipeline from the `backend/` directory to parse, chunk, embed, and index the document into ChromaDB.
+This document serves as the chatbot's knowledge base.
 
-**Windows (PowerShell)**
+---
+
+## 8. Build the Vector Database
+
+ClimateInsight uses a Retrieval-Augmented Generation (RAG) pipeline.
+
+During ingestion, the project will:
+
+- Parse the IPCC document
+- Clean the extracted text
+- Split the document into semantic chunks
+- Generate embeddings
+- Store the embeddings inside ChromaDB
+
+Run the ingestion pipeline from the `backend` directory.
+
+### Windows (PowerShell)
 
 ```powershell
 cd backend
 python -m ingest.ingest
 ```
 
-**macOS / Linux**
+### macOS /Linux
 
 ```bash
 cd backend
 python3 -m ingest.ingest
 ```
 
-> **Note:** During the first ingestion, the embedding model (`all-MiniLM-L6-v2`) will be downloaded automatically. This may take a few minutes.
+> **Note:** During the first ingestion, the embedding model (`all-MiniLM-L6-v2`) will automatically be downloaded. This may take several minutes depending on your internet connection.
 
 ---
 
 # 🚀 Running the Application
 
-There are two ways to run the project during development.
+There are two supported ways to run ClimateInsight during development.
 
-# Option A: Local Development (Localhost)
+---
 
-If you only need to run the application locally on your machine:
+# Option A — Local Development (Localhost)
 
-### 1. Start the Flask Backend
+Use this option if you only need to access the chatbot from your own computer.
 
-**Windows (PowerShell)**
+---
+
+## 1. Start the Backend
+
+Open a terminal.
+
+### Windows (PowerShell)
 
 ```powershell
 cd backend
 python app.py
 ```
 
-**macOS / Linux**
+### macOS / Linux
 
 ```bash
 cd backend
 python3 app.py
 ```
 
-The backend API will be be available at:
+The backend will run at:
 
-```
+```text
 http://localhost:5000
 ```
 
 ---
 
-### 2. Start the Frontend Server
+## 2. Configure the Frontend
 
-Serve the `frontend/` directory using Python's built-in HTTP server.
+Before starting the frontend, create a file named:
 
-**Windows (PowerShell)**
-
-```powershell
-cd frontend
-python -m http.server 3000
+```text
+frontend/tunnel-base.txt
 ```
 
-**macOS / Linux**
-
-```bash
-cd frontend
-python3 -m http.server 3000
-```
-
-Open your browser and navigate to:
-
-```
-http://localhost:3000
-```
-
-Before using the application locally, create a file named `tunnel-base.txt` directly inside the `frontend/` directory (alongside `index.html`) with the following contents:
+The file should contain exactly:
 
 ```text
 https://localhost:5000
 ```
 
-This file tells the frontend to communicate with the locally running backend instead of using a Cloudflare Tunnel.
+The frontend reads this file to determine which backend endpoint it should communicate with.
+
+For local development, this should point to the localhost backend.
 
 ---
 
-### 2. Start the Frontend Server
+## 3. Start the Frontend
 
-Serve the `frontend/` directory using Python's built-in HTTP server.
+Open a second terminal.
 
-**Windows (PowerShell)**
+### Windows (PowerShell)
 
 ```powershell
 cd frontend
 python -m http.server 3000
 ```
 
-**macOS / Linux**
+### macOS / Linux
 
 ```bash
 cd frontend
 python3 -m http.server 3000
 ```
 
-Open your browser and navigate to:
+Open your browser and visit:
 
-```
+```text
 http://localhost:3000
 ```
 
 ---
 
-## Option B: Development with External Access (Cloudflare Tunnels)
+# Option B — External Development (Cloudflare Tunnel)
 
-To share or test the application externally, the project includes a Cloudflare Quick Tunnel utility. This is the **only supported method** for external access during development.
+If you want to share the chatbot with others or access it from another device without deploying it to a server, ClimateInsight includes support for Cloudflare Quick Tunnels.
 
-1. Install the `cloudflared` CLI and ensure it is available in your system `PATH`.
+This is the recommended method for external development and testing.
 
-2. Start both services locally:
-   - Backend on `localhost:5000`
-   - Frontend on `localhost:3000`
+---
 
-3. Run the tunnel injection script from the project root.
+## 1. Install Cloudflared
 
-**Windows (PowerShell)**
+Install the Cloudflare CLI and ensure it is available from your system `PATH`.
+
+---
+
+## 2. Start the Backend
+
+Run the backend as described in Option A.
+
+---
+
+## 3. Start the Frontend
+
+Run the frontend as described in Option A.
+
+---
+
+## 4. Launch the Tunnel Utility
+
+From the project root:
+
+### Windows (PowerShell)
 
 ```powershell
 python scripts/inject-tunnel.py
 ```
 
-**macOS / Linux**
+### macOS / Linux
 
 ```bash
 python3 scripts/inject-tunnel.py
 ```
 
-4. The script will automatically:
-   - Request temporary public URLs from Cloudflare for ports `3000` and `5000`.
-   - Patch `frontend/js/api.js` with the active backend tunnel URL.
-   - Display both public URLs in the terminal.
+---
 
-5. Open the generated **frontend URL** in your browser.
+## 5. What the Script Does
 
-6. When finished, press **Ctrl+C** to gracefully terminate the tunnels. The script will automatically restore `frontend/js/api.js` to use `localhost`.
+The tunnel utility automatically:
+
+- Creates temporary Cloudflare Quick Tunnels
+- Generates a public URL for the frontend
+- Generates a public URL for the backend
+- Updates the frontend configuration with the active backend tunnel
+- Displays both URLs in the terminal
+
+No manual editing of configuration files is required.
+
+---
+
+## 6. Open the Application
+
+Open the generated frontend URL in your browser.
+
+The frontend will automatically communicate with the backend through the generated Cloudflare tunnel.
+
+---
+
+## 7. Closing the Tunnels
+
+When finished, press:
+
+```text
+Ctrl + C
+```
+
+The tunnel utility will:
+
+- Close both Cloudflare tunnels
+- Restore the frontend configuration back to localhost
+- Clean up temporary configuration changes
