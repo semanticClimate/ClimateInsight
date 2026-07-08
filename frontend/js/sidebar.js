@@ -11,7 +11,7 @@ class SidebarController {
     this.overlay = this._createOverlay();
     this.isOpen = false;
     this.isMobileView = window.innerWidth <= 1024;
-    this.conversations = []; // [{ id, label }]
+    this.conversations = []; // [{ id, label, sessionId }]
 
     this._init();
   }
@@ -24,8 +24,6 @@ class SidebarController {
   }
 
   _init() {
-    // Note: the toggle button click is wired in main.js via window.sidebarController.toggle()
-
     this.overlay.addEventListener('click', () => this.close());
 
     document.querySelectorAll('.sidebar-action').forEach(action => {
@@ -48,11 +46,9 @@ class SidebarController {
     this.isMobileView = window.innerWidth <= 1024;
 
     if (wasMobileView && !this.isMobileView) {
-      // Switching to desktop: clear mobile transform state
       this.sidebar.classList.remove('open');
       this.open();
     } else if (!wasMobileView && this.isMobileView) {
-      // Switching to mobile: clear desktop collapsed state
       this.sidebar.classList.remove('collapsed');
       this.close();
     }
@@ -83,19 +79,19 @@ class SidebarController {
     document.body.style.overflow = '';
 
     if (this.isMobileView) {
-      // Mobile uses transform — just remove 'open', don't touch 'collapsed'
       this.sidebar.classList.remove('open');
     } else {
-      // Desktop uses width — 'collapsed' collapses the sidebar
       this.sidebar.classList.remove('open');
       this.sidebar.classList.add('collapsed');
     }
   }
 
-  addConversation(question) {
+  // Called from chat.js on the first message of a new session.
+  // sessionId links this sidebar entry to the in-memory conversation store.
+  addConversation(question, sessionId) {
     const label = question.length > 36 ? question.slice(0, 36) + '…' : question;
     const id = Date.now();
-    this.conversations.unshift({ id, label });
+    this.conversations.unshift({ id, label, sessionId });
 
     const list = document.getElementById('conversation-list');
     const emptyEl = list.querySelector('.empty-convos');
@@ -107,13 +103,31 @@ class SidebarController {
     btn.className = 'convo-item active';
     btn.textContent = label;
     btn.title = question;
+
     btn.addEventListener('click', () => {
+      // Mark as active in sidebar
       list.querySelectorAll('.convo-item').forEach(el => el.classList.remove('active'));
       btn.classList.add('active');
+
+      // Restore the conversation messages in the chat panel
+      Chat.restore(sessionId);
+
       if (this.isMobileView) this.close();
     });
 
     list.prepend(btn);
+  }
+
+  // Update the label of the most recent conversation item.
+  // Useful if you want to rename a "New Chat" placeholder once
+  // the first question is asked (future enhancement).
+  updateLatestLabel(question) {
+    const list = document.getElementById('conversation-list');
+    const first = list.querySelector('.convo-item');
+    if (!first) return;
+    const label = question.length > 36 ? question.slice(0, 36) + '…' : question;
+    first.textContent = label;
+    first.title = question;
   }
 
   getState() {
