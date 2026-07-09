@@ -48,6 +48,17 @@ def parse_html(path: Path) -> list[Section]:
         "html.parser",
     )
 
+    # ── KEY FIX: remove the entire footnotes block before walking the tree ──
+    # The HTML wraps all footnotes in <div class="_idFootnotes">.
+    # Without this, every footnote <p> inherits the last real section heading
+    # (4.9), causing the "[4.9] flooding" bug.
+    for footnotes_div in soup.find_all("div", class_="_idFootnotes"):
+        footnotes_div.decompose()
+
+    # Also strip figure captions — they pollute retrieval without adding meaning
+    for caption in soup.find_all(class_="Caption"):
+        caption.decompose()
+
     records: list[Section] = []
 
     current_section = "intro"
@@ -67,7 +78,7 @@ def parse_html(path: Path) -> list[Section]:
                 text=combined_text,
                 section=current_section,
                 section_title=current_title,
-                html_id=first_html_id,           # e.g. "2.1_p4" — for scroll-to linking
+                html_id=first_html_id,
             )
         )
 
