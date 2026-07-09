@@ -266,20 +266,456 @@
         "urban green infrastructure": "Green infrastructure",
         "blue infrastructure": "Blue-green infrastructure",
         "urban greening": "Green infrastructure",
+        // Climate variability & Earth system
+        "el niño": "El Niño–Southern Oscillation",
+        "el nino": "El Niño–Southern Oscillation",
+        "la niña": "El Niño–Southern Oscillation",
+        "la nina": "El Niño–Southern Oscillation",
+        "enso": "El Niño–Southern Oscillation",
+        "southern oscillation": "El Niño–Southern Oscillation",
+        "enso-neutral": "El Niño–Southern Oscillation",
+        "pacific decadal oscillation": "Pacific decadal oscillation",
+        "pdo": "Pacific decadal oscillation",
+        "atlantic multidecadal oscillation": "Atlantic Multidecadal Oscillation",
+        "amo": "Atlantic Multidecadal Oscillation",
+        "indian ocean dipole": "Indian Ocean Dipole",
+        "iod": "Indian Ocean Dipole",
+        "polar vortex": "Polar vortex",
+        "jet stream": "Jet stream",
+        "hadley cell": "Hadley cell",
+        "walker circulation": "Walker circulation",
+        "monsoon": "Monsoon",
+        "asian monsoon": "Monsoon",
+        "atmospheric river": "Atmospheric river",
+        "blocking high": "Atmospheric blocking",
+        "atmospheric blocking": "Atmospheric blocking",
+
+        // Greenhouse gases & chemistry
+        "co2": "Carbon dioxide",
+        "carbon dioxide": "Carbon dioxide",
+        "water vapour": "Water vapor",
+        "water vapor": "Water vapor",
+        "black carbon": "Black carbon",
+        "organic carbon aerosol": "Organic carbon",
+        "sulfate aerosol": "Sulfate aerosol",
+        "methane hydrate": "Methane clathrate",
+        "methane hydrates": "Methane clathrate",
+
+        // Climate feedbacks
+        "ice-albedo feedback": "Ice–albedo feedback",
+        "water vapour feedback": "Water vapor feedback",
+        "water vapor feedback": "Water vapor feedback",
+        "cloud feedback": "Cloud feedback",
+        "permafrost thaw": "Permafrost",
+        "permafrost carbon": "Permafrost carbon feedback",
+        "carbon-climate feedback": "Carbon cycle feedback",
+        "carbon cycle feedback": "Carbon cycle feedback",
+
+        // Oceans & cryosphere
+        "thermohaline circulation": "Thermohaline circulation",
+        "marine ice sheet instability": "Marine ice sheet instability",
+        "marine ice cliff instability": "Marine ice cliff instability",
+        "ice shelf": "Ice shelf",
+        "sea ice": "Sea ice",
+        "antarctic ice sheet": "Antarctic ice sheet",
+        "west antarctic ice sheet": "West Antarctic Ice Sheet",
+        "east antarctic ice sheet": "East Antarctic Ice Sheet",
+        "glacial lake outburst flood": "Glacial lake outburst flood",
+        "glof": "Glacial lake outburst flood",
+        "ocean circulation": "Ocean circulation",
+        "ocean deoxygenation": "Ocean deoxygenation",
+        "ocean stratification": "Ocean stratification",
+
+        // Hazards
+        "flash drought": "Flash drought",
+        "megadrought": "Megadrought",
+        "dust storm": "Dust storm",
+        "dust bowl": "Dust Bowl",
+        "river flooding": "River flood",
+        "coastal flooding": "Coastal flood",
+        "flash flood": "Flash flood",
+        "heat stress": "Heat stress",
+        "humid heat": "Wet-bulb temperature",
+        "wet bulb temperature": "Wet-bulb temperature",
+        "wet-bulb temperature": "Wet-bulb temperature",
+        "fire danger": "Wildfire",
+        "fire regime": "Fire regime",
+
+        // Mitigation & carbon
+        "negative emissions technologies": "Negative emissions",
+        "net-negative emissions": "Negative emissions",
+        "residual emissions": "Residual emissions",
+        "abatement": "Emission reduction",
+        "emissions intensity": "Emissions intensity",
+        "lifecycle emissions": "Life-cycle greenhouse gas emissions",
+        "scope 1 emissions": "Scope 1 emissions",
+        "scope 2 emissions": "Scope 2 emissions",
+        "scope 3 emissions": "Scope 3 emissions",
+        "embodied carbon": "Embodied carbon",
+        "blue carbon": "Blue carbon",
+        "soil carbon sequestration": "Soil carbon",
+        "enhanced weathering": "Enhanced weathering",
+        "biochar": "Biochar",
+        "mineralization": "Carbon mineralization",
+
+        // Energy transition
+        "renewables": "Renewable energy",
+        "grid flexibility": "Grid flexibility",
+        "energy storage": "Energy storage",
+        "smart grid": "Smart grid",
+        "distributed energy": "Distributed generation",
+        "microgrid": "Microgrid",
+        "clean energy": "Clean energy",
+        "low-carbon electricity": "Low-carbon energy",
+        "zero-carbon energy": "Zero-carbon energy",
+
+        // Socioeconomic scenarios
+        "shared socioeconomic pathways": "Shared Socioeconomic Pathways",
+        "representative concentration pathways": "Representative Concentration Pathway",
+        "ssp1": "Shared Socioeconomic Pathways",
+        "ssp2": "Shared Socioeconomic Pathways",
+        "ssp3": "Shared Socioeconomic Pathways",
+        "ssp4": "Shared Socioeconomic Pathways",
+        "ssp5": "Shared Socioeconomic Pathways",
+        "rcp2.6": "Representative Concentration Pathway",
+        "rcp4.5": "Representative Concentration Pathway",
+        "rcp6.0": "Representative Concentration Pathway",
+        "rcp8.5": "Representative Concentration Pathway",
+
+        // Adaptation & resilience
+        "adaptive management": "Adaptive management",
+        "transformative adaptation": "Climate change adaptation",
+        "risk management": "Risk management",
+        "climate-proofing": "Climate resilience",
+        "disaster resilience": "Disaster resilience",
+        "residual risk": "Residual risk",
+
+        // Ecosystems
+        "ecosystem restoration": "Ecosystem restoration",
+        "rewilding": "Rewilding",
+        "forest degradation": "Forest degradation",
+        "primary forest": "Primary forest",
+        "old-growth forest": "Old-growth forest",
+        "kelp forest": "Kelp forest",
+        "seagrass": "Seagrass",
+        "salt marsh": "Salt marsh",
+
+        // Human impacts
+        "food systems": "Food system",
+        "water resources": "Water resources",
+        "human health": "Human health",
+        "livelihoods": "Livelihood",
+        "climate-sensitive diseases": "Climate-sensitive disease",
+        "vector expansion": "Vector-borne disease",
+
+        // IPCC terminology
+        "very high confidence": "Confidence",
+        "high confidence": "Confidence",
+        "medium confidence": "Confidence",
+        "low confidence": "Confidence",
+        "very likely": "Likelihood",
+        "likely": "Likelihood",
+        "unlikely": "Likelihood",
+        "virtually certain": "Likelihood",
+        "extremely likely": "Likelihood",
+        // Atmospheric science
+        "boundary layer": "Atmospheric boundary layer",
+        "planetary boundary layer": "Atmospheric boundary layer",
+        "troposphere": "Troposphere",
+        "stratosphere": "Stratosphere",
+        "mesosphere": "Mesosphere",
+        "thermosphere": "Thermosphere",
+        "lapse rate": "Lapse rate",
+        "environmental lapse rate": "Environmental lapse rate",
+        "adiabatic lapse rate": "Adiabatic lapse rate",
+        "inversion": "Temperature inversion",
+        "temperature inversion": "Temperature inversion",
+        "convection": "Atmospheric convection",
+        "deep convection": "Atmospheric convection",
+        "subsidence": "Atmospheric subsidence",
+        "humidity": "Humidity",
+        "relative humidity": "Relative humidity",
+        "specific humidity": "Specific humidity",
+        "dew point": "Dew point",
+        "cloud condensation nuclei": "Cloud condensation nuclei",
+        "ccn": "Cloud condensation nuclei",
+        "cloud microphysics": "Cloud microphysics",
+        "cirrus cloud": "Cirrus cloud",
+        "cumulus cloud": "Cumulus cloud",
+        "stratus cloud": "Stratus cloud",
+
+        // Radiation
+        "shortwave radiation": "Shortwave radiation",
+        "longwave radiation": "Longwave radiation",
+        "incoming solar radiation": "Solar irradiance",
+        "solar irradiance": "Solar irradiance",
+        "solar constant": "Solar constant",
+        "infrared radiation": "Infrared radiation",
+        "outgoing longwave radiation": "Outgoing longwave radiation",
+        "earth's energy balance": "Earth's energy budget",
+        "energy budget": "Earth's energy budget",
+
+        // Ocean
+        "mixed layer": "Ocean mixed layer",
+        "mixed layer depth": "Mixed layer depth",
+        "upwelling": "Upwelling",
+        "downwelling": "Downwelling",
+        "coastal upwelling": "Upwelling",
+        "ocean currents": "Ocean circulation",
+        "salinity": "Salinity",
+        "ocean salinity": "Salinity",
+        "thermocline": "Thermocline",
+        "halocline": "Halocline",
+        "pycnocline": "Pycnocline",
+        "sea surface salinity": "Sea surface salinity",
+        "sea surface height": "Sea surface height",
+        "sea surface anomalies": "Sea surface height anomaly",
+
+        // Ice & snow
+        "snow albedo": "Snow albedo",
+        "snowpack": "Snowpack",
+        "snow melt": "Snowmelt",
+        "snowmelt": "Snowmelt",
+        "ice melt": "Ice melt",
+        "ice loss": "Ice mass loss",
+        "glacial mass balance": "Glacier mass balance",
+        "mass balance": "Glacier mass balance",
+        "ice core": "Ice core",
+        "firn": "Firn",
+        "ground ice": "Ground ice",
+
+        // Carbon cycle
+        "carbon stock": "Carbon stock",
+        "carbon stocks": "Carbon stock",
+        "carbon pool": "Carbon pool",
+        "carbon pools": "Carbon pool",
+        "carbon flux": "Carbon flux",
+        "carbon source": "Carbon source",
+        "terrestrial carbon": "Terrestrial carbon",
+        "ocean carbon": "Ocean carbon",
+        "blue carbon ecosystems": "Blue carbon",
+        "forest carbon": "Forest carbon",
+        "soil respiration": "Soil respiration",
+        "net ecosystem exchange": "Net ecosystem exchange",
+        "nee": "Net ecosystem exchange",
+        "net ecosystem productivity": "Net ecosystem productivity",
+        "nep": "Net ecosystem productivity",
+        "net primary productivity": "Net primary productivity",
+        "npp": "Net primary productivity",
+        "gross primary productivity": "Gross primary productivity",
+        "gpp": "Gross primary productivity",
+
+        // Climate metrics
+        "warming rate": "Rate of global warming",
+        "temperature anomaly": "Temperature anomaly",
+        "surface air temperature": "Surface air temperature",
+        "global average temperature": "Global mean surface temperature",
+        "climatology": "Climatology",
+        "baseline period": "Climate reference period",
+        "reference period": "Climate reference period",
+        "historical baseline": "Climate reference period",
+        "climate normal": "Climate normal",
+
+        // Modelling
+        "earth system model": "Earth system model",
+        "esm": "Earth system model",
+        "general circulation model": "General circulation model",
+        "gcm": "General circulation model",
+        "global climate model": "General circulation model",
+        "regional climate model": "Regional climate model",
+        "rcm": "Regional climate model",
+        "ensemble": "Ensemble simulation",
+        "ensemble mean": "Ensemble simulation",
+        "hindcast": "Hindcast",
+        "reanalysis": "Atmospheric reanalysis",
+        "bias correction": "Bias correction",
+        "parameterization": "Parameterization",
+        "downscaling": "Climate downscaling",
+        "statistical downscaling": "Climate downscaling",
+        "dynamical downscaling": "Climate downscaling",
+
+        // Extremes
+        "return period": "Return period",
+        "return level": "Return level",
+        "1-in-100 year flood": "Return period",
+        "100-year flood": "Return period",
+        "extreme precipitation": "Extreme precipitation",
+        "extreme rainfall": "Extreme precipitation",
+        "extreme heat": "Heat wave",
+        "cold extremes": "Cold wave",
+        "record-breaking heat": "Heat wave",
+
+        // Hydrology
+        "runoff": "Runoff",
+        "streamflow": "Streamflow",
+        "river discharge": "River discharge",
+        "watershed": "Watershed",
+        "catchment": "Drainage basin",
+        "drainage basin": "Drainage basin",
+        "groundwater": "Groundwater",
+        "aquifer": "Aquifer",
+        "water table": "Water table",
+        "surface water": "Surface water",
+        "hydrological cycle": "Hydrological cycle",
+
+        // Agriculture
+        "crop yield": "Crop yield",
+        "crop productivity": "Crop productivity",
+        "irrigation": "Irrigation",
+        "rainfed agriculture": "Rainfed agriculture",
+        "precision agriculture": "Precision agriculture",
+        "livestock": "Livestock",
+        "pasture": "Pasture",
+        "rangeland": "Rangeland",
+
+        // Forestry
+        "forest management": "Forest management",
+        "forest restoration": "Forest restoration",
+        "forest resilience": "Forest resilience",
+        "forest cover": "Forest cover",
+        "tree cover": "Tree cover",
+        "canopy": "Forest canopy",
+
+        // Economics
+        "mitigation cost": "Mitigation cost",
+        "social cost of carbon": "Social cost of carbon",
+        "scc": "Social cost of carbon",
+        "cost-benefit analysis": "Cost-benefit analysis",
+        "discount rate": "Discount rate",
+        "externality": "Externality",
+        "co-benefits": "Co-benefits",
+        "trade-offs": "Trade-offs",
+
+        // Adaptation
+        "adaptation pathway": "Adaptation pathway",
+        "adaptation planning": "Adaptation planning",
+        "adaptation options": "Adaptation options",
+        "adaptive governance": "Adaptive governance",
+        "community resilience": "Community resilience",
+        "resilient infrastructure": "Climate-resilient infrastructure",
+
+        // Risk
+        "hazard": "Hazard",
+        "exposure": "Exposure",
+        "risk assessment": "Risk assessment",
+        "risk reduction": "Risk reduction",
+        "risk communication": "Risk communication",
+        "multi-hazard": "Multi-hazard risk",
+        "cascading risk": "Cascading risk",
+
+        // Biodiversity
+        "ecosystem function": "Ecosystem function",
+        "ecosystem integrity": "Ecosystem integrity",
+        "ecosystem degradation": "Ecosystem degradation",
+        "species richness": "Species richness",
+        "ecosystem connectivity": "Habitat connectivity",
+        "habitat fragmentation": "Habitat fragmentation",
+        "invasive species": "Invasive species",
+        "keystone species": "Keystone species",
+        "endemic species": "Endemic species",
+        "pollinators": "Pollinator",
+
+        // Coastal
+        "coastal erosion": "Coastal erosion",
+        "shoreline retreat": "Coastal erosion",
+        "saltwater intrusion": "Saltwater intrusion",
+        "sea wall": "Sea wall",
+        "living shoreline": "Living shoreline",
+        "coastal adaptation": "Coastal adaptation",
+
+        // Health
+        "heat mortality": "Heat-related mortality",
+        "heat illness": "Heat-related illness",
+        "air pollution": "Air pollution",
+        "respiratory disease": "Respiratory disease",
+        "malnutrition": "Malnutrition",
+        "water-borne disease": "Water-borne disease",
+        "vector expansion": "Disease vector expansion",
+
+        // Renewable energy
+        "hydropower": "Hydropower",
+        "geothermal energy": "Geothermal energy",
+        "tidal energy": "Tidal energy",
+        "wave energy": "Wave energy",
+        "offshore wind": "Offshore wind power",
+        "onshore wind": "Onshore wind power",
+        "floating solar": "Floating solar",
+        "concentrated solar power": "Concentrated solar power",
+        "csp": "Concentrated solar power",
+
+        // Industry
+        "industrial emissions": "Industrial greenhouse gas emissions",
+        "cement emissions": "Cement industry emissions",
+        "steel emissions": "Steel industry emissions",
+        "aviation emissions": "Aviation emissions",
+        "shipping emissions": "Shipping emissions",
+        "hard-to-abate sectors": "Hard-to-abate sectors",
+
+        // Transport
+        "active transport": "Active transport",
+        "public transit": "Public transport",
+        "mode shift": "Transport mode shift",
+
+        // Buildings
+        "net zero building": "Net-zero energy building",
+        "green building": "Green building",
+        "passive house": "Passive house",
+        "building retrofit": "Building retrofit",
+
+        // Circular economy
+        "circular economy": "Circular economy",
+        "resource efficiency": "Resource efficiency",
+        "material efficiency": "Material efficiency",
+        "recycling": "Recycling",
+        "reuse": "Reuse",
+        "waste reduction": "Waste reduction",
+
+        // Policy
+        "adaptation fund": "Adaptation Fund",
+        "green climate fund": "Green Climate Fund",
+        "gcf": "Green Climate Fund",
+        "global stocktake": "Global Stocktake",
+        "gst": "Global Stocktake",
+        "article 6": "Article 6 of the Paris Agreement",
+        "article 6.2": "Article 6 of the Paris Agreement",
+        "article 6.4": "Article 6 of the Paris Agreement",
+        "long-term strategy": "Long-term low greenhouse gas emission development strategy",
+        "lt-leds": "Long-term low greenhouse gas emission development strategy",
+
+        // Observation
+        "remote sensing": "Remote sensing",
+        "satellite observations": "Satellite observations",
+        "earth observation": "Earth observation",
+        "weather station": "Meteorological station",
+        "buoy": "Ocean buoy",
+        "radiosonde": "Radiosonde",
+
+        // Common IPCC wording
+        "best estimate": "Best estimate",
+        "confidence interval": "Confidence interval",
+        "scenario": "Climate scenario",
+        "pathway": "Climate pathway",
+        "projection": "Climate projection",
+        "observation": "Climate observation",
+        "forcing agent": "Climate forcing",
+        "detection": "Detection of climate change",
+        "fingerprinting": "Climate change detection and attribution",
+        "signal-to-noise ratio": "Signal-to-noise ratio"
     };
 
     /* ── 2. INJECT CSS ────────────────────────────────────────────────── */
     const CSS = `
     .cw-term {
-      color: #1a6b3c;
-      text-decoration: underline dotted #1a6b3c;
+      color: #1B4F9B;
+      text-decoration: underline dotted #1B4F9B;
       cursor: pointer;
       border-radius: 2px;
+      font-weight: bold;
       transition: background 0.15s;
     }
     .cw-term:hover {
       background: #e8f5ee;
-      text-decoration: underline solid #1a6b3c;
+      text-decoration: underline solid #1B4F9B;
     }
 
     /* Tooltip */
@@ -289,7 +725,7 @@
       z-index: 99997;
       background: #fff;
       border: 1px solid #c8e6d5;
-      border-left: 4px solid #1a6b3c;
+      border-left: 4px solid #1B4F9B;
       border-radius: 7px;
       padding: 10px 14px;
       max-width: 320px;
@@ -303,7 +739,7 @@
     #cw-tooltip .cw-tt-title {
       font-weight: 700;
       font-size: 13.5px;
-      color: #1a6b3c;
+      color: #1B4F9B;
       margin-bottom: 5px;
     }
     #cw-tooltip .cw-tt-body {
@@ -349,7 +785,7 @@
       align-items: center;
       gap: 12px;
       padding: 14px 18px;
-      background: #1a6b3c;
+      background: #1B4F9B;
       color: #fff;
       flex-shrink: 0;
     }
@@ -414,7 +850,7 @@
       color: #999;
     }
     #cw-modal-footer a {
-      color: #1a6b3c;
+      color: #1B4F9B;
       text-decoration: none;
       font-weight: 500;
     }
@@ -425,7 +861,7 @@
     .cw-spinner {
       width: 20px; height: 20px;
       border: 2px solid #ddd;
-      border-top-color: #1a6b3c;
+      border-top-color: #1B4F9B;
       border-radius: 50%;
       animation: cw-spin 0.7s linear infinite;
     }
