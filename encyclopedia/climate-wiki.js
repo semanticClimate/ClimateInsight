@@ -204,7 +204,8 @@
       background: #fff;
       border-radius: 12px;
       width: min(800px, 93vw);
-      max-height: 85vh;
+      height: 95vh;
+      max-height: 95vh;
       display: flex;
       flex-direction: column;
       box-shadow: 0 10px 50px rgba(0,0,0,0.28);
