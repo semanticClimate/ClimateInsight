@@ -7,6 +7,10 @@ def extract_citations(answer: str, chunks: list[dict]) -> list[dict]:
     the verbatim chunk text that corresponds to each cited section.
 
     Returns a deduplicated list preserving citation order.
+    Only includes citations whose section ID was actually in the
+    retrieved chunks — ghost citations (hallucinated section IDs)
+    are silently dropped.
+
     Each entry: {"section": str, "title": str, "text": str}
     """
 
@@ -20,12 +24,7 @@ def extract_citations(answer: str, chunks: list[dict]) -> list[dict]:
         chunk = chunk_map.get(section)
         if chunk is None:
             # LLM cited a section that wasn't in the retrieved chunks —
-            # include it but mark it honestly rather than silently dropping it
-            result.append({
-                "section": section,
-                "title": "Section not found in retrieved context",
-                "text": "",
-            })
+            # drop it entirely so no ghost chips appear in the UI
             continue
         result.append({
             "section": section,
