@@ -133,6 +133,7 @@
         "methane": "Methane",
         "bioenergy": "Bioenergy",
         "hydrogen": "Hydrogen",
+        "glacier": "Glacier",
         // ── NEW TERMS TO ADD ─────────────────────────────────────────────
 
         // Acronyms & organisations
@@ -700,7 +701,196 @@
         "forcing agent": "Climate forcing",
         "detection": "Detection of climate change",
         "fingerprinting": "Climate change detection and attribution",
-        "signal-to-noise ratio": "Signal-to-noise ratio"
+        "signal-to-noise ratio": "Signal-to-noise ratio",
+
+        // Greenhouse gases
+        "ghg": "Greenhouse gas",
+        "ghgs": "Greenhouse gas",
+        "greenhouse gas": "Greenhouse gas",
+        "greenhouse gases": "Greenhouse gas",
+
+        "co₂": "Carbon dioxide",
+        "co2": "Carbon dioxide",
+        "carbon dioxide": "Carbon dioxide",
+
+        "ch₄": "Methane",
+        "ch4": "Methane",
+        "methane gas": "Methane",
+
+        "n₂o": "Nitrous oxide",
+        "nitrous oxide": "Nitrous oxide",
+
+        "no": "Nitric oxide",
+        "nitric oxide": "Nitric oxide",
+
+        "no₂": "Nitrogen dioxide",
+        "no2": "Nitrogen dioxide",
+        "nitrogen dioxide": "Nitrogen dioxide",
+
+        "nox": "Nitrogen oxides",
+        "nitrogen oxides": "Nitrogen oxides",
+
+        "so₂": "Sulfur dioxide",
+        "so2": "Sulfur dioxide",
+        "sulfur dioxide": "Sulfur dioxide",
+        "sulphur dioxide": "Sulfur dioxide",
+
+        "sox": "Sulfur oxides",
+        "sulfur oxides": "Sulfur oxides",
+        "sulphur oxides": "Sulfur oxides",
+
+        "co": "Carbon monoxide",
+        "carbon monoxide": "Carbon monoxide",
+
+        "o₃": "Ozone",
+        "ozone": "Ozone",
+
+        "nh₃": "Ammonia",
+        "nh3": "Ammonia",
+        "ammonia": "Ammonia",
+
+        "voc": "Volatile organic compound",
+        "vocs": "Volatile organic compound",
+        "volatile organic compounds": "Volatile organic compound",
+
+        "nmvoc": "Non-methane volatile organic compound",
+        "nmvocs": "Non-methane volatile organic compound",
+
+        "halocarbons": "Halocarbon",
+        "halocarbon": "Halocarbon",
+
+        "cfc": "Chlorofluorocarbon",
+        "cfcs": "Chlorofluorocarbon",
+        "chlorofluorocarbons": "Chlorofluorocarbon",
+
+        "hcfc": "Hydrochlorofluorocarbon",
+        "hcfcs": "Hydrochlorofluorocarbon",
+        "hydrochlorofluorocarbons": "Hydrochlorofluorocarbon",
+
+        "hfc": "Hydrofluorocarbon",
+        "hydrofluorocarbons": "Hydrofluorocarbon",
+
+        "pfc": "Perfluorocarbon",
+        "perfluorocarbons": "Perfluorocarbon",
+
+        "sf6": "Sulfur hexafluoride",
+        "sulfur hexafluoride": "Sulfur hexafluoride",
+
+        "nf3": "Nitrogen trifluoride",
+        "nitrogen trifluoride": "Nitrogen trifluoride",
+
+        // Aerosols & particles
+        "pm2.5": "PM2.5",
+        "pm10": "PM10",
+        "fine particulate matter": "PM2.5",
+        "particulate matter": "Particulate matter",
+
+        "brown carbon": "Brown carbon",
+        "secondary organic aerosol": "Secondary organic aerosol",
+        "primary aerosol": "Primary aerosol",
+        "secondary aerosol": "Secondary aerosol",
+
+        // Carbon accounting
+        "co2 equivalent": "Carbon dioxide equivalent",
+        "co₂ equivalent": "Carbon dioxide equivalent",
+        "co2e": "Carbon dioxide equivalent",
+        "co₂e": "Carbon dioxide equivalent",
+
+        "ghg emissions": "Greenhouse gas emissions",
+        "anthropogenic emissions": "Anthropogenic emissions",
+        "biogenic emissions": "Biogenic emissions",
+        "fugitive emissions": "Fugitive emissions",
+
+        "gross emissions": "Gross greenhouse gas emissions",
+        "net emissions": "Net greenhouse gas emissions",
+
+        "annual emissions": "Annual greenhouse gas emissions",
+        "historical emissions": "Historical greenhouse gas emissions",
+        "cumulative emissions": "Cumulative carbon emissions",
+        "consumption emissions": "Consumption-based emissions",
+        "production emissions": "Production-based emissions",
+        "territorial emissions": "Territorial emissions",
+
+        // Carbon accounting scopes
+        "scope 1": "Scope 1 emissions",
+        "scope 2": "Scope 2 emissions",
+        "scope 3": "Scope 3 emissions",
+
+        // Climate metrics
+        "gwp20": "Global warming potential",
+        "gwp100": "Global warming potential",
+        "global warming potential": "Global warming potential",
+
+        "global temperature potential": "Global temperature potential",
+        "gtp": "Global temperature potential",
+
+        "radiative efficiency": "Radiative efficiency",
+        "effective radiative forcing": "Effective radiative forcing",
+        "erf": "Effective radiative forcing",
+
+        // Emission sectors
+        "power sector": "Electricity sector",
+        "transport sector": "Transportation sector",
+        "industrial sector": "Industry",
+        "building sector": "Buildings",
+        "residential sector": "Residential buildings",
+        "commercial buildings": "Commercial buildings",
+
+        // Land-use abbreviations
+        "land use": "Land use",
+        "land-use": "Land use",
+        "land cover": "Land cover",
+        "land cover change": "Land-cover change",
+
+        // Climate targets
+        "1.5°c": "1.5 °C global warming",
+        "1.5 c": "1.5 °C global warming",
+        "2°c": "2 °C global warming",
+        "2 c": "2 °C global warming",
+
+        // Atmospheric measurements
+        "ppm": "Parts per million",
+        "ppb": "Parts per billion",
+        "ppt": "Parts per trillion",
+
+        "mixing ratio": "Atmospheric mixing ratio",
+        "atmospheric concentration": "Atmospheric concentration",
+
+        // Fossil fuels
+        "coal": "Coal",
+        "oil": "Petroleum",
+        "natural gas": "Natural gas",
+        "fossil fuels": "Fossil fuel",
+        "fossil fuel": "Fossil fuel",
+        "fossil fuel combustion": "Fossil fuel combustion",
+
+        // IPCC reporting
+        "inventory": "Greenhouse gas inventory",
+        "national inventory": "National greenhouse gas inventory",
+        "emission inventory": "Greenhouse gas inventory",
+        "inventory report": "National greenhouse gas inventory",
+
+        // Atmospheric lifetime
+        "atmospheric lifetime": "Atmospheric lifetime",
+        "residence time": "Atmospheric lifetime",
+
+        // Carbon capture
+        "ccs": "Carbon capture and storage",
+        "ccus": "Carbon capture, utilisation and storage",
+        "ccu": "Carbon capture and utilisation",
+        "carbon utilisation": "Carbon capture and utilisation",
+
+        // Misc.
+        "short-lived climate pollutants": "Short-lived climate pollutant",
+        "slcp": "Short-lived climate pollutant",
+        "slcps": "Short-lived climate pollutant",
+
+        "long-lived greenhouse gases": "Long-lived greenhouse gas",
+        "llghg": "Long-lived greenhouse gas",
+
+        "air pollutant": "Air pollution",
+        "criteria pollutants": "Criteria air pollutant",
+        "UN": "United Nations"
     };
 
     /* ── 2. INJECT CSS ────────────────────────────────────────────────── */
@@ -772,9 +962,9 @@
     #cw-modal {
       background: #fff;
       border-radius: 12px;
-      width: min(800px, 93vw);
-      height: 95vh;
-      max-height: 95vh;
+      width: min(1000px, 95vw);
+      height: 96vh;
+      max-height: 96vh;
       display: flex;
       flex-direction: column;
       box-shadow: 0 10px 50px rgba(0,0,0,0.28);
@@ -871,6 +1061,7 @@
     styleEl.textContent = CSS;
     document.head.appendChild(styleEl);
 
+
     /* ── 3. BUILD DOM ─────────────────────────────────────────────────── */
 
     // Tooltip
@@ -910,14 +1101,20 @@
     document.body.appendChild(overlay);
 
     /* ── 4. MODAL LOGIC ───────────────────────────────────────────────── */
-    const iframe = document.getElementById("cw-modal-iframe");
-    const loadingDiv = document.getElementById("cw-modal-loading");
+    const iframe = overlay.querySelector("#cw-modal-iframe");
+    const loadingDiv = overlay.querySelector("#cw-modal-loading");
 
     function openModal(wikiTitle, displayText) {
+        // If we are in the iframe, send message to parent window
+        if (window !== window.parent) {
+            window.parent.postMessage({ type: "OPEN_WIKI_MODAL", wikiTitle, displayText }, "*");
+            return;
+        }
+
         const mobileUrl = `https://en.m.wikipedia.org/wiki/${encodeURIComponent(wikiTitle)}`;
         const desktopUrl = `https://en.wikipedia.org/wiki/${encodeURIComponent(wikiTitle)}`;
-        document.getElementById("cw-modal-title").textContent = displayText;
-        document.getElementById("cw-modal-ext").href = desktopUrl;
+        overlay.querySelector("#cw-modal-title").textContent = displayText;
+        overlay.querySelector("#cw-modal-ext").href = desktopUrl;
         loadingDiv.style.display = "flex";
         iframe.src = "";
         iframe.onload = () => { loadingDiv.style.display = "none"; };
@@ -925,14 +1122,22 @@
         overlay.classList.add("cw-open");
     }
 
+    // Listen for modal requests from child iframe
+    window.addEventListener("message", (e) => {
+        if (e.data && e.data.type === "OPEN_WIKI_MODAL") {
+            openModal(e.data.wikiTitle, e.data.displayText);
+        }
+    });
+
     function closeModal() {
         overlay.classList.remove("cw-open");
         iframe.src = "";
         loadingDiv.style.display = "flex";
     }
 
-    document.getElementById("cw-modal-close").addEventListener("click", closeModal);
+    overlay.querySelector("#cw-modal-close").addEventListener("click", closeModal);
     overlay.addEventListener("click", (e) => { if (e.target === overlay) closeModal(); });
+    
     document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeModal(); });
 
     /* ── 5. WIKIPEDIA SUMMARY API + CACHE ────────────────────────────── */
@@ -959,10 +1164,52 @@
         const pad = 12;
         const tw = tooltip.offsetWidth || 320;
         const th = tooltip.offsetHeight || 80;
+
+        let minX = pad;
+        let maxX = window.innerWidth - pad;
+        let minY = pad;
+        let maxY = window.innerHeight - pad;
+
+        try {
+            const panel = window.parent.document.querySelector('.source-panel');
+            if (panel && window.frameElement) {
+                const panelRect = panel.getBoundingClientRect();
+                const iframeRect = window.frameElement.getBoundingClientRect();
+
+                // Convert panel bounds to iframe's coordinate system
+                const limitLeft = panelRect.left - iframeRect.left;
+                const limitRight = panelRect.right - iframeRect.left;
+                const limitTop = panelRect.top - iframeRect.top;
+                const limitBottom = panelRect.bottom - iframeRect.top;
+
+                // Ensure boundaries are constrained within the iframe's visible viewport
+                minX = Math.max(0, limitLeft) + pad;
+                maxX = Math.min(window.innerWidth, limitRight) - pad;
+                minY = Math.max(0, limitTop) + pad;
+                maxY = Math.min(window.innerHeight, limitBottom) - pad;
+            }
+        } catch (err) {
+            // Fallback to window dimensions if cross-origin blocked or missing
+        }
+
+        // Try placing to the right of the cursor
         let x = e.clientX + 16;
+        if (x + tw > maxX) {
+            x = e.clientX - tw - 8;
+        }
+
+        // Try placing below the cursor
         let y = e.clientY + 16;
-        if (x + tw > window.innerWidth - pad) x = e.clientX - tw - 8;
-        if (y + th > window.innerHeight - pad) y = e.clientY - th - 8;
+        if (y + th > maxY) {
+            y = e.clientY - th - 8;
+        }
+
+        // Final clamp to ensure the tooltip is entirely within bounds
+        if (x < minX) x = minX;
+        if (x + tw > maxX) x = maxX - tw;
+        if (y < minY) y = minY;
+        if (y + th > maxY) y = maxY - th;
+
         tooltip.style.left = x + "px";
         tooltip.style.top = y + "px";
     }

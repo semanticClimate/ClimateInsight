@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ClimateInsight Chatbot v0.1.0</title>
+  <title>ClimateInsight Chatbot</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="stylesheet" href="css/tour.css" />
   <link rel="stylesheet" href="css/chat.css">
@@ -71,7 +71,7 @@
         </svg>
         Download chat
       </button>
-      <button class="sidebar-action" id="btn-server-logs">
+      <button class="sidebar-action" id="btn-server-logs" title="Click here to view server logs">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <rect x="3" y="3" width="18" height="18" rx="2" />
           <line x1="9" y1="3" x2="9" y2="21" />
@@ -91,8 +91,7 @@
 
       <div class="topbar-title">
         <!-- <img src="images/ipcc_logo.png" alt="IPCC" class="topbar-logo-img" /> -->
-        <span class="topbar-brand-name">ClimateInsight Chatbot</span><span class="topbar-version"
-          id="app-version-badge"></span>
+        <span class="topbar-brand-name">ClimateInsight Chatbot</span>
       </div>
 
       <div class="topbar-right">
@@ -334,19 +333,17 @@
   <div class="toast" id="toast-notification">Language changed successfully</div>
 
   <script src="js/api.js"></script>
-  <script src="js/config.js"></script>
   <script>
     // Set the IPCC reference iframe src from the already-injected API_BASE
     // so it works both locally (localhost:5000) and through Cloudflare tunnels.
     document.getElementById("source-iframe").src =
       API_BASE.replace(/\/api$/, "") + "/ipcc-reference";
-
-    // Inject version badge once config.toml has been fetched from the backend
-    window.APP_CONFIG_READY.then((cfg) => {
-      const badge = document.getElementById("app-version-badge");
-      const version = cfg?.app?.version;
-      if (badge && version) badge.textContent = "v" + version;
-    });
+    
+    // Dynamically load the encyclopedia script into the parent window
+    // so it can render the external Wikipedia modal globally.
+    const wikiScript = document.createElement("script");
+    wikiScript.src = API_BASE.replace(/\/api$/, "") + "/climate-wiki-js";
+    document.body.appendChild(wikiScript);
   </script>
   <script src="js/chat.js"></script>
   <script src="js/sidebar.js"></script>
