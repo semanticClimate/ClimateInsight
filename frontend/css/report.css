@@ -61,6 +61,12 @@ body {
     max-width: 860px;
     margin: 0 auto;
     padding: 2.5rem 1.5rem 6rem;
+    position: relative;
+    overflow: visible;
+}
+
+html {
+    overflow: visible;
 }
 
 /* ---- 3. Header ---------------------------------------------------- */
@@ -252,4 +258,50 @@ a.section-link {
     font-size: 0.82rem;
     color: #4a4a42;
     margin: 0 0 0.35rem !important;
+}
+
+/* ---- 11. Tooltip & Definition Containment ----------------------- */
+/* Ensure tooltips stay visible and contained within the iframe window */
+.section-tooltip,
+.spm-tooltip {
+    position: absolute !important;
+    max-width: 250px;
+    max-height: 180px;
+    overflow-y: auto;
+    z-index: 9999;
+    background: #1c2b24;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    pointer-events: auto;
+    border: 1px solid #2d4a3d;
+}
+
+.footnote-tooltip-text {
+    display: inline-block;
+}
+
+/* Ensure tooltips display and stay scrollable within container */
+.section-tooltip.visible,
+.spm-tooltip.visible {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Prevent the parent container from cutting off the tooltip */
+body {
+    overflow: visible !important;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Tooltip parent container - allow overflow to show tooltip */
+div[id$="tooltip"],
+div[class*="tooltip"] {
+    position: absolute;
+    overflow: visible !important;
+    z-index: 9999;
 }
