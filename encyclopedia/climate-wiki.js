@@ -1298,7 +1298,10 @@
 
     /* ── 8. RUN ───────────────────────────────────────────────────────── */
     function run() {
-        walkNode(document.body);
+        // Only scan and highlight terms if we are inside the IPCC iframe
+        if (window !== window.parent) {
+            walkNode(document.body);
+        }
     }
 
     if (document.readyState === "loading") {
