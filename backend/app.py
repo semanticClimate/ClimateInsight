@@ -101,6 +101,26 @@ def ipcc_reference():
 
     return Response(html, mimetype="text/html")
 
+@app.get("/climate-wiki-js")
+def climate_wiki_js():
+    """Serves the climate-wiki.js script for the IPCC reference iframe."""
+    js_path = os.path.abspath(
+        os.path.join(
+            os.path.dirname(__file__),
+            "..",
+            "encyclopedia",
+            "climate-wiki.js",
+        )
+    )
+    
+    try:
+        return send_file(js_path, mimetype="application/javascript")
+    except FileNotFoundError:
+        return Response(
+            "console.error('climate-wiki.js not found');",
+            status=404,
+            mimetype="application/javascript"
+        )
 
 @app.get("/ipcc-image-proxy/<path:image_path>")
 def ipcc_image_proxy(image_path):
