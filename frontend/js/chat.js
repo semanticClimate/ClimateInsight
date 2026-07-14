@@ -3,6 +3,7 @@
 const Chat = (() => {
   let sessionId = null;
   let sessionRegistered = false;
+  let iframeLoaded = false; // ← tracks whether we've set the iframe src yet
 
   // In-memory store: sessionId -> array of { role, text, citations }
   const conversationStore = {};
@@ -37,19 +38,16 @@ const Chat = (() => {
       const data = await Api.chat(question, sessionId);
       sessionId = data.session_id;
 
-      // Initialise store for this session if first message
       if (!conversationStore[sessionId]) {
         conversationStore[sessionId] = [];
       }
 
-      // Store both turns
       conversationStore[sessionId].push({ role: "user", text: question, citations: [] });
       conversationStore[sessionId].push({ role: "assistant", text: data.answer, citations: data.citations || [] });
 
       typing.remove();
       appendMessage("assistant", data.answer, data.citations || []);
 
-      // Only add to sidebar once per session
       if (!sessionRegistered) {
         window.sidebarController?.addConversation(question, sessionId);
         sessionRegistered = true;
@@ -69,18 +67,15 @@ const Chat = (() => {
     const messages = conversationStore[storedSessionId];
     if (!messages) return;
 
-    // Switch active session
     sessionId = storedSessionId;
     sessionRegistered = true;
 
-    // Clear current view
     messagesEl().innerHTML = "";
     resetPassage();
 
     const welcome = welcomeEl();
     if (welcome) welcome.style.display = "none";
 
-    // Re-render all messages
     messages.forEach(m => appendMessage(m.role, m.text, m.citations));
   }
 
@@ -145,11 +140,32 @@ const Chat = (() => {
       ? citation.text
       : "Source passage not available for this citation.";
 
+    // ── Lazy-load the IPCC reference iframe on first citation click ──────────
+    // The iframe src is intentionally left empty on page load to avoid fetching
+    // 855KB of HTML before the user needs it. We set it here, once, then scroll.
+    const iframe = sourceIframeEl();
+    if (!iframe) return;
+
+    if (!iframeLoaded) {
+      const referenceUrl = window.IPCC_REFERENCE_URL;
+      if (referenceUrl) {
+        iframe.src = referenceUrl;
+        iframeLoaded = true;
+
+        // Wait for the iframe to load before trying to scroll to the anchor
+        iframe.addEventListener("load", () => scrollIframeToSection(iframe, citation.section), { once: true });
+        return; // scroll will happen in the load handler above
+      }
+    }
+
+    scrollIframeToSection(iframe, citation.section);
+  }
+
+  function scrollIframeToSection(iframe, sectionId) {
     try {
-      const iframe = sourceIframeEl();
-      if (iframe && iframe.contentWindow) {
+      if (iframe.contentWindow) {
         const anchor = iframe.contentDocument
-          ? iframe.contentDocument.getElementById(citation.section)
+          ? iframe.contentDocument.getElementById(sectionId)
           : null;
         if (anchor) anchor.scrollIntoView({ behavior: "smooth" });
       }
