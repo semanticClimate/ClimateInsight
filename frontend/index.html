@@ -248,7 +248,7 @@
         <div class="source-iframe-wrap">
           <!-- <iframe id="source-iframe" src="data/ipcc_ar6.pdf" title="IPCC AR6 Reference"
             sandbox="allow-same-origin allow-scripts"></iframe> -->
-          <iframe id="source-iframe" src="" data-lazy="true" title="IPCC AR6 Reference"></iframe>
+          <iframe id="source-iframe" src="" title="IPCC AR6 Reference"></iframe>
 
 
           <!-- Passage overlay -->
@@ -334,16 +334,16 @@
   <div class="toast" id="toast-notification">Language changed successfully</div>
 
   <script src="js/api.js"></script>
-<script>
-  // Store the iframe URL for chat.js to load lazily on first citation click
-  window.IPCC_REFERENCE_URL = API_BASE.replace(/\/api$/, "") + "/ipcc-reference";
+  <script>
+    // Store the iframe URL for chat.js to load lazily on first citation click
+    window.IPCC_REFERENCE_URL = API_BASE.replace(/\/api$/, "") + "/ipcc-reference";
 
-  // Load encyclopedia script without blocking render
-  const wikiScript = document.createElement("script");
-  wikiScript.src = API_BASE.replace(/\/api$/, "") + "/climate-wiki-js";
-  wikiScript.async = true;
-  document.body.appendChild(wikiScript);
-</script>
+    // Load encyclopedia script without blocking render
+    const wikiScript = document.createElement("script");
+    wikiScript.src = API_BASE.replace(/\/api$/, "") + "/climate-wiki-js";
+    wikiScript.async = true;
+    document.body.appendChild(wikiScript);
+  </script>
   <script src="js/chat.js"></script>
   <script src="js/sidebar.js"></script>
   <script src="js/main.js"></script>
