@@ -1,7 +1,6 @@
 /* api.js — all backend calls in one place */
 
 const API_BASE = "http://localhost:5000/api";
-
 const apiLogs = [];
 
 function logRequest(method, url, status) {
@@ -12,7 +11,7 @@ function logRequest(method, url, status) {
     status
   });
   if (apiLogs.length > 50) apiLogs.shift();
-  
+
   // Trigger update event
   document.dispatchEvent(new CustomEvent("api-log-updated"));
 }

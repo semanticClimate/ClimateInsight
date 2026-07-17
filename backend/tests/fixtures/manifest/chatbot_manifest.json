@@ -1,0 +1,48 @@
+{
+  "export_version": "1.0",
+  "corpus_dir": "/tmp/fixture_corpus",
+  "paper_count": 2,
+  "papers": [
+    {
+      "source_id": "europe_pmc_PMC_FIXTURE_XML",
+      "citation_label": "Fixture (2024). Fixture marine heatwave study",
+      "title": "Fixture marine heatwave study",
+      "abstract": "Abstract only text should not be used when body XML is present.",
+      "doi": "10.example/fixture-xml",
+      "pmcid": "PMC_FIXTURE_XML",
+      "pmid": "",
+      "publication_date": "2024-06-01",
+      "journal": "Fixture Journal",
+      "authors": ["Fixture A"],
+      "xml_path": "REPLACE_WITH_XML_PATH",
+      "pdf_path": "",
+      "metadata_path": ""
+    },
+    {
+      "source_id": "europe_pmc_PMC_FIXTURE_ABS",
+      "citation_label": "AbstractOnly (2023). Abstract-only fixture paper",
+      "title": "Abstract-only fixture paper",
+      "abstract": "This paper has no XML full text; the adapter must index this abstract for RAG.",
+      "doi": "10.example/fixture-abs",
+      "pmcid": "PMC_FIXTURE_ABS",
+      "pmid": "",
+      "publication_date": "2023-01-15",
+      "journal": "Fixture Journal",
+      "authors": ["AbstractOnly B"],
+      "xml_path": "",
+      "pdf_path": "",
+      "metadata_path": ""
+    }
+  ],
+  "chunking_hint": {
+    "primary_text_source": "xml_path",
+    "fallback_text_source": "abstract",
+    "metadata_fields_for_retrieval": [
+      "title",
+      "abstract",
+      "doi",
+      "pmcid",
+      "citation_label"
+    ]
+  }
+}
