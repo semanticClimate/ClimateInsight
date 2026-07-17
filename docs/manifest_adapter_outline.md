@@ -1,7 +1,7 @@
 # ClimateInsight — manifest ingest adapter (outline)
 
-**Date:** 2026-07-16 (system date)  
-**Status:** **P3 complete** — implemented 2026-07-16; 14/14 tests passing  
+**Date:** 2026-07-17 (system date; updated after live ingest)  
+**Status:** **P3 complete**; **P4 ingest complete** (314 chunks, 12 papers)  
 **Demo plan:** [semantic_corpus ocean heatwaves proposal](../../semantic_corpus/docs/demo/ocean_heatwaves_proposal.md) (sibling repo)
 
 ## Phase context
@@ -9,10 +9,12 @@
 | Phase | Scope | Status |
 |-------|--------|--------|
 | **P3** | Manifest → chunks → Chroma (`--manifest`) | ✅ Done (this repo) |
-| **P4** | Rehearsal + Cloudflare Quick Tunnel dry run | Next |
+| **P4** | Rehearsal + Cloudflare Quick Tunnel dry run | **In progress** — live ingest ✅; RAG + tunnel pending |
 | **P2** | Encyclopedia glue (semantic_corpus + encyclopedia) | Still pending (parallel) |
 
-**P3 done means:** adapter code + unit tests on the local filestore. It does **not** include ingesting the live ocean heatwaves export or a public tunnel demo — that is **P4**.
+**P3 done means:** adapter code + unit tests on the local filestore.
+
+**P4 progress (2026-07-17):** First live ingest of `ocean_heatwaves_2026` — 12 papers, 314 Chroma chunks via `tests/fixtures/ocean_heatwaves_2026/chatbot_manifest.json`. RAG smoke and Cloudflare tunnel still pending.
 
 ## Usage
 
@@ -44,9 +46,15 @@ python -m pytest tests/ -v
 
 Also: `ingest.py --manifest`, extended `Chunk` / Chroma metadata for citations.
 
-## Next (P4)
+## Fixture bundle (ocean heatwaves)
 
-1. Mark papers `include` in the ocean heatwaves review table; re-export a non-empty `chatbot_manifest.json`.
-2. Ingest that manifest into ClimateInsight ChromaDB.
+`backend/tests/fixtures/ocean_heatwaves_2026/` — 12 XML, 6 PDF, `chatbot_manifest.json`, review table.
+
+Session record: [semantic_corpus docs](../../semantic_corpus/docs/records/2026-07-17_ocean_heatwaves_ingest.md)
+
+## Next (P4 remainder)
+
+1. ~~Ingest manifest~~ ✅ — 314 chunks stored.
+2. Smoke RAG — retrieval + Ollama; verify citations on marine heatwave questions.
 3. Start backend + frontend; dry-run Cloudflare Quick Tunnels (`scripts/inject-tunnel.py`).
 4. Optional in parallel: **P2** encyclopedia glue + sample under the corpus.
