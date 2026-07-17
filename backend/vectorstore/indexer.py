@@ -51,6 +51,10 @@ def ingest_chunks(chunks: list[dict], batch_size: int = 64):
             {
                 "section": c.get("section", ""),
                 "section_title": c.get("section_title", ""),
+                "source_id": c.get("source_id", ""),
+                "citation_label": c.get("citation_label", ""),
+                "doi": c.get("doi", ""),
+                "pmcid": c.get("pmcid", ""),
             }
             for c in batch
         ]

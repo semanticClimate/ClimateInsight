@@ -4,7 +4,7 @@ models.py
 Dataclasses used throughout the ingestion pipeline.
 """
 
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 
 
 @dataclass(frozen=True)
@@ -30,3 +30,8 @@ class Chunk:
     section: str
     section_title: str
     html_id: str = ""
+    # Optional fields for semantic_corpus / manifest ingest
+    source_id: str = ""
+    citation_label: str = ""
+    doi: str = ""
+    pmcid: str = ""

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns:xlink="http://www.w3.org/1999/xlink">
+  <front>
+    <article-meta>
+      <title-group>
+        <article-title>Fixture marine heatwave study</article-title>
+      </title-group>
+      <abstract>
+        <p>Abstract only text should not be used when body XML is present.</p>
+      </abstract>
+    </article-meta>
+  </front>
+  <body>
+    <sec>
+      <title>Introduction</title>
+      <p>Marine heatwaves disrupt ocean circulation patterns in coastal regions.</p>
+      <p>The AMOC modulates regional heat content over decadal timescales.</p>
+    </sec>
+    <sec>
+      <title>Results</title>
+      <p>Observed warming exceeded historical baselines during the study period.</p>
+    </sec>
+  </body>
+</article>
