@@ -24,12 +24,20 @@ def extract_citations(answer: str, chunks: list[dict]) -> list[dict]:
         chunk = chunk_map.get(section)
         if chunk is None:
             # LLM cited a section that wasn't in the retrieved chunks —
-            # drop it entirely so no ghost chips appear in the UI
+            # drop it entirely so no ghost citations appear in the UI
             continue
-        result.append({
+        entry = {
             "section": section,
             "title": chunk.get("section_title", ""),
             "text": chunk.get("text", ""),
-        })
+        }
+        # Attach paper-level metadata when available (manifest-ingested papers)
+        if chunk.get("citation_label"):
+            entry["citation_label"] = chunk["citation_label"]
+        if chunk.get("doi"):
+            entry["doi"] = chunk["doi"]
+        if chunk.get("pmcid"):
+            entry["pmcid"] = chunk["pmcid"]
+        result.append(entry)
 
     return result

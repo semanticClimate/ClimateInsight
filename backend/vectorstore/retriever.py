@@ -44,6 +44,10 @@ def query_chunks(question: str, top_k: int = 5) -> list[dict]:
                 "text": doc,
                 "section": meta.get("section", ""),
                 "section_title": meta.get("section_title", ""),
+                "source_id": meta.get("source_id", ""),
+                "citation_label": meta.get("citation_label", ""),
+                "doi": meta.get("doi", ""),
+                "pmcid": meta.get("pmcid", ""),
                 "score": round(1 - dist, 4),
             }
         )
