@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns:xlink="http://www.w3.org/1999/xlink">
+  <front>
+    <article-meta>
+      <title-group>
+        <article-title>Second fixture paper on sea surface temperature</article-title>
+      </title-group>
+      <abstract>
+        <p>Abstract for the second fixture paper. Not used when XML body is present.</p>
+      </abstract>
+    </article-meta>
+  </front>
+  <body>
+    <sec>
+      <title>Methods</title>
+      <p>Sea surface temperature anomalies were measured using satellite data.</p>
+      <p>Statistical analysis applied linear regression to detrended time series.</p>
+    </sec>
+    <sec>
+      <title>Discussion</title>
+      <p>Elevated sea surface temperatures correlate strongly with marine heatwave events.</p>
+    </sec>
+  </body>
+</article>

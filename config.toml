@@ -1,0 +1,34 @@
+# ── ClimateInsight Project Configuration ────────────────────────────────────
+# This file is the canonical metadata source for the project.
+# Frontend consumers should mirror relevant fields in frontend/js/config.js.
+
+[app]
+name        = "ClimateInsight"
+full_name   = "ClimateInsight Chatbot"
+version     = "0.1.0"
+description = "A retrieval-augmented chatbot grounded in the IPCC AR6 Synthesis Report, built to make climate science accessible to everyone."
+license     = "MIT"
+
+[authors]
+  [[authors.person]]
+  name  = "Peter Murray-Rust"
+
+  [[authors.person]]
+  name  = "Aleena Harold Peter"
+
+[project]
+organization  = "semanticClimate"
+source_corpus = "IPCC AR6 Synthesis Report (2023)"
+language      = "en"
+status        = "development"          # development | beta | stable
+release_date  = "2026-07-08"
+
+[backend]
+framework     = "Flask"
+llm_provider  = "Google Gemini"
+vector_store  = "ChromaDB"
+embedding     = "sentence-transformers"
+
+[frontend]
+framework     = "Vanilla HTML/CSS/JS"
+fonts         = ["Jost"]

@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ClimateInsight Chatbot</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="css/tour.css" />
+  <link rel="stylesheet" href="css/chat.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/panels.css">
+  <!-- report.css is loaded only inside the iframe via the backend-served ipcc_reference.html,
+       NOT here — its global !important rules break the main app layout. -->
+  <!-- <link rel="stylesheet" href="css/report.css"> -->
+  <link rel="stylesheet" href="css/sidebar.css">
+  <link rel="stylesheet" href="css/tokens.css">
+  <!-- <link rel="stylesheet" href="css/main.css"> -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- ── Sidebar ── -->
+  <aside class="sidebar" id="sidebar">
+
+    <div class="sidebar-logo">
+      <a href="https://semanticclimate.github.io/p/en/" target="_blank">
+        <img src="images/semanticClimateLogo.png" alt="semanticClimate Logo"
+          title="Click here to visit the semanticClimate website" />
+      </a>
+    </div>
+
+    <select class="sidebar-lang-select" id="lang-select">
+      <option value="en">🇬🇧 English </option>
+      <option value="fr">🇫🇷 French</option>
+      <option value="hi">🇮🇳 Hindi</option>
+      <option value="pt">🇵🇹 Portuguese</option>
+      <option value="es">🇪🇸 Spanish</option>
+    </select>
+
+    <button class="btn-new-chat" id="btn-new-chat">
+      <span class="btn-new-chat-icon">+</span>
+      New Chat
+    </button>
+
+    <div class="sidebar-section-label">CONVERSATIONS</div>
+    <div class="conversation-list" id="conversation-list">
+      <div class="empty-convos">
+
+        <p>No chats yet.<br>Start a new conversation<br>to explore!</p>
+      </div>
+    </div>
+
+    <div class="sidebar-actions">
+      <button class="sidebar-action" id="btn-clear-chat">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="3 6 5 6 21 6" />
+          <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6" />
+          <path d="M10 11v6M14 11v6" />
+        </svg>
+        Clear chat
+      </button>
+      <button class="sidebar-action" id="btn-download-chat">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+          <polyline points="7 10 12 15 17 10" />
+          <line x1="12" y1="15" x2="12" y2="3" />
+        </svg>
+        Download chat
+      </button>
+      <button class="sidebar-action" id="btn-server-logs" title="Click here to view server logs">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="3" width="18" height="18" rx="2" />
+          <line x1="9" y1="3" x2="9" y2="21" />
+        </svg>
+        Server logs
+      </button>
+    </div>
+  </aside>
+
+  <!-- ── Main layout ── -->
+  <div class="layout" id="layout">
+
+    <header class="topbar">
+      <button class="topbar-toggle" id="btn-toggle-sidebar" title="Toggle sidebar">
+        <span></span><span></span><span></span>
+      </button>
+
+      <div class="topbar-title">
+        <!-- <img src="images/ipcc_logo.png" alt="IPCC" class="topbar-logo-img" /> -->
+        <span class="topbar-brand-name">ClimateInsight Chatbot</span>
+      </div>
+
+      <div class="topbar-right">
+
+        <div class="topbar-icons">
+          <!-- <button class="topbar-icon-btn" title="Settings">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="3" />
+              <path
+                d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
+            </svg>
+          </button>
+          <button class="topbar-icon-btn" title="Edit">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+              <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+            </svg>
+          </button> -->
+          <button class="topbar-icon-btn" title="Help">
+            <svg width="25" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M9.5 9a2.5 2.5 0 1 1 5 0c0 2-2.5 2.5-2.5 4" />
+              <circle cx="12" cy="17" r="0.5" fill="currentColor" stroke="none" />
+            </svg>
+          </button>
+          <button class="topbar-icon-btn" id="btn-about" title="About">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10" />
+              <line x1="12" y1="16" x2="12" y2="12" />
+              <line x1="12" y1="8" x2="12.01" y2="8" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <div class="columns">
+
+      <!-- Chat panel -->
+      <main class="chat-panel">
+
+        <div class="welcome" id="welcome-screen">
+
+          <!-- Hero banner -->
+          <div class="welcome-hero">
+            <div class="welcome-robot">
+              <!--AMI-->
+              <img src="images/ami_plush.png" alt="AMI the kangaroo" class="ami_img" />
+              <!-- CSS robot illustration -->
+              <!-- <svg class="robot-svg" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg"
+              <antenna -->
+              <!-- <line x1="45" y1="8" x2="45" y2="18" stroke="#60A5FA" stroke-width="2.5" stroke-linecap="round" />
+              <circle cx="45" cy="6" r="4" fill="#60A5FA" /> -->
+              <!-- head -->
+              <!-- <rect x="22" y="18" width="46" height="34" rx="10" fill="#1E40AF" />
+              <rect x="27" y="24" width="36" height="22" rx="6" fill="#1D4ED8" /> -->
+              <!-- eyes -->
+              <!-- <circle cx="36" cy="35" r="5" fill="#00D4C8" />
+              <circle cx="54" cy="35" r="5" fill="#00D4C8" /> -->
+              <!-- <circle cx="37" cy="34" r="2" fill="white" />
+              <circle cx="55" cy="34" r="2" fill="white" /> -->
+              <!-- mouth smile -->
+              <!-- <path d="M37 42 Q45 48 53 42" stroke="#93C5FD" stroke-width="2" stroke-linecap="round" fill="none" /> -->
+              <!-- body -->
+              <!-- <rect x="27" y="54" width="36" height="26" rx="8" fill="#1E40AF" /> -->
+              <!-- leaf emblem on body -->
+              <!-- <path d="M45 60 C42 63 40 68 45 70 C50 68 48 63 45 60Z" fill="#34D399" /> -->
+              <!-- arms -->
+              <!-- <rect x="10" y="56" width="16" height="10" rx="5" fill="#1E40AF" />
+              <rect x="64" y="56" width="16" height="10" rx="5" fill="#1E40AF" /> -->
+              <!-- hand wave right -->
+              <!-- <circle cx="79" cy="52" r="5" fill="#60A5FA" />
+              </svg>  -->
+            </div>
+            <div class="welcome-hero-text">
+              <!-- <h1>IPCC Chatbot</h1> -->
+              <p>Grounded answers from the<span><br>IPCC AR6 Report</span>.</p>
+            </div>
+            <img src="images/globe.png" alt="" class="hero-globe">
+          </div>
+
+          <!-- Info chip -->
+          <div class="info-chip">
+            <span class="info-chip-icon">i</span>
+            <span>
+              Every answer is grounded in the <span>IPCC AR6 Report</span> and includes
+              numbered citation chips. Click a citation chip
+              <span class="info-cite">[1]</span>&nbsp;<span class="info-cite">[2]</span>&nbsp;<span
+                class="info-cite">[3]</span>
+              to jump directly to the supporting source in the report.
+            </span>
+          </div>
+
+          <!-- Start exploring -->
+          <div class="divider-label">Give one of these a try</div>
+
+          <div class="suggested-questions">
+            <button class="sq-btn" data-q="What is global warming?">
+              What is global warming?
+            </button>
+            <button class="sq-btn" data-q="What is the Paris Agreement?">
+              What is the Paris Agreement?
+            </button>
+            <button class="sq-btn" data-q="What is a Shared Socioeconomic Pathway (SSP)?">
+              What is a Shared Socioeconomic Pathway (SSP)?
+            </button>
+            <button class="sq-btn" data-q="How do greenhouse gases warm the Earth?">
+
+              How do greenhouse gases warm the Earth?
+            </button>
+            <button class="sq-btn center-wide" data-q="Explain the carbon cycle.">
+              Explain the carbon cycle.
+            </button>
+          </div>
+
+        </div><!-- /welcome -->
+
+        <div class="messages" id="messages"></div>
+
+        <div class="input-bar">
+          <textarea id="question-input" class="input-field" placeholder="Ask anything about the IPCC AR6 Report..."
+            rows="1"></textarea>
+          <button class="send-btn" id="send-btn" title="Send">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <line x1="22" y1="2" x2="11" y2="13" />
+              <polygon points="22 2 15 22 11 13 2 9 22 2" />
+            </svg>
+          </button>
+        </div>
+        <p class="input-hint">Enter ↵ to send &nbsp;·&nbsp; Shift+Enter for new line
+          <!-- &nbsp;·&nbsp; Export anytime -->
+        </p>
+
+      </main>
+
+      <!-- Source / book panel -->
+      <aside class="source-panel" id="source-panel">
+
+        <div class="source-header">
+          <div class="source-header-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2">
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+            </svg>
+            <span class="source-header-title">Source Documents</span>
+          </div>
+          <button class="source-reset-btn" id="btn-reset-highlight">Reset highlight</button>
+        </div>
+
+        <!-- Document navigator -->
+        <div class="doc-navigator" id="doc-navigator">
+          <button class="doc-nav-arrow" id="doc-nav-prev" title="Previous document">&#8592;</button>
+          <div class="doc-nav-label" id="doc-nav-label">
+            <span class="doc-nav-index">1 / 13</span>
+            <span class="doc-nav-title">IPCC AR6 Report</span>
+          </div>
+          <button class="doc-nav-arrow" id="doc-nav-next" title="Next document">&#8594;</button>
+        </div>
+
+        <!-- Embedded IPCC reference document -->
+        <div class="source-iframe-wrap">
+          <iframe id="source-iframe" src="" title="IPCC AR6 Reference"></iframe>
+
+          <!-- Passage overlay -->
+          <div class="source-passage" id="source-passage" hidden>
+            <div class="passage-section-label" id="passage-section"></div>
+            <div class="passage-title" id="passage-title"></div>
+            <div class="passage-text" id="passage-text"></div>
+            <button class="passage-back-btn" id="btn-passage-back">&#8592; Back to report</button>
+          </div>
+        </div>
+
+        <div class="source-default" id="source-default" hidden></div>
+
+      </aside>
+    </div>
+  </div>
+
+  <!-- ── Server Logs Modal ── -->
+  <div class="modal-overlay" id="logs-modal" hidden>
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title">System Server Logs</h3>
+        <button class="modal-close" id="btn-close-logs">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="logs-console" id="logs-console">
+          <!-- Logs will be dynamically inserted here -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── About Modal ── -->
+  <div class="modal-overlay" id="about-modal" hidden>
+    <div class="modal-card about-modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title">AMI Says Hello!</h3>
+        <button class="modal-close" id="btn-close-about">&times;</button>
+      </div>
+      <div class="modal-body about-modal-body">
+        <div class="about-content">
+          <div class="about-mascot-container">
+            <img src="images/ami_plush.png" alt="AMI Plush" class="about-mascot-img" />
+          </div>
+          <div class="about-text-container">
+            <p><strong>Hi! I'm AMI, the mascot of semanticClimate. 👋</strong></p>
+            <p>Welcome to <strong>ClimateInsight</strong>, a chatbot based on the IPCC AR6 reports. I'm here to help you
+              explore climate science by answering your questions using information grounded in the report. Feel free to
+              ask me anything about climate change, impacts, mitigation, adaptation, or the IPCC findings!</p>
+            <p class="about-help-hint">
+              <span class="increase-help">
+                <svg width="25" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M9.5 9a2.5 2.5 0 1 1 5 0c0 2-2.5 2.5-2.5 4" />
+                  <circle cx="12" cy="17" r="0.5" fill="currentColor" stroke="none" />
+                </svg>
+              </span> Click the Help icon at the top right to learn how to use the chatbot!
+            </p>
+          </div>
+        </div>
+        <div class="about-footer">
+          <button class="about-close-btn" id="btn-close-about-footer">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Toast Notification ── -->
+  <div class="toast" id="toast-notification">Language changed successfully</div>
+
+  <script src="js/api.js"></script>
+  <script>
+    // Build the ordered document list for the navigator.
+    // Slot 0 is always the IPCC HTML report; slots 1-12 are the XML papers.
+    // The backend exposes pmcids via /api/sources (see note below), but we
+    // can also hardcode the known PMCIDs — change this list to match your
+    // actual data/raw/ocean_heatwaves_2026/ folder.
+    const _base = API_BASE.replace(/\/api$/, "");
+
+    window.SOURCE_DOCS = [
+      { type: "html", label: "IPCC AR6 Report", url: _base + "/ipcc-reference", pmcid: "" },
+      { type: "html", label: "PMC7653907 — Pacific Bluefin Tuna", url: _base + "/paper/7653907", pmcid: "7653907" },
+      { type: "html", label: "PMC8294506 — Ocean Heatwaves", url: _base + "/paper/8294506", pmcid: "8294506" },
+      { type: "html", label: "PMC9135278 — Marine Heatwave Impacts", url: _base + "/paper/9135278", pmcid: "9135278" },
+      { type: "html", label: "PMC9613989 — SST Anomalies", url: _base + "/paper/9613989", pmcid: "9613989" },
+      { type: "html", label: "PMC10011364 — Heatwave Frequency", url: _base + "/paper/10011364", pmcid: "10011364" },
+      { type: "html", label: "PMC10468509 — Coral Bleaching", url: _base + "/paper/10468509", pmcid: "10468509" },
+      { type: "html", label: "PMC10808424 — Deep Ocean Warming", url: _base + "/paper/10808424", pmcid: "10808424" },
+      { type: "html", label: "PMC11128013 — MHW Attribution", url: _base + "/paper/11128013", pmcid: "11128013" },
+      { type: "html", label: "PMC11427463 — Species Distribution", url: _base + "/paper/11427463", pmcid: "11427463" },
+      { type: "html", label: "PMC11580339 — Ecosystem Response", url: _base + "/paper/11580339", pmcid: "11580339" },
+      { type: "html", label: "PMC11733174 — Thermal Stress", url: _base + "/paper/11733174", pmcid: "11733174" },
+      { type: "html", label: "PMC12980662 — Future Projections", url: _base + "/paper/12980662", pmcid: "12980662" },
+    ];
+
+    // Eager-load the IPCC HTML into the iframe immediately (no lazy load)
+    document.getElementById("source-iframe").src = window.SOURCE_DOCS[0].url;
+
+    // Load encyclopedia script without blocking render
+    const wikiScript = document.createElement("script");
+    wikiScript.src = _base + "/climate-wiki-js";
+    wikiScript.async = true;
+    document.body.appendChild(wikiScript);
+  </script>
+  <script src="js/chat.js"></script>
+  <script src="js/sidebar.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/tour.js"></script>
+  <script src="js/about.js"></script>
+</body>
+
+</html>

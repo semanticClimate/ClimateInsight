@@ -1,0 +1,698 @@
+/* ── Sidebar ────────────────────────────────────────────────── */
+.sidebar {
+    width: var(--sidebar-w);
+    min-width: var(--sidebar-w);
+    background: var(--sidebar-bg);
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    padding: 20px 16px 20px;
+    transition: width 0.25s ease, min-width 0.25s ease, padding 0.25s ease;
+    overflow: hidden;
+}
+
+.sidebar.collapsed {
+    width: 0;
+    min-width: 0;
+    padding: 0;
+}
+
+/* Logo area */
+.sidebar-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 28px;
+    white-space: nowrap;
+}
+
+.sidebar-logo img {
+    max-height: 40px;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.logo-mark {
+    width: 38px;
+    height: 38px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* Cloud icon via CSS */
+.logo-mark::before {
+    content: '☁';
+    font-size: 1.25rem;
+    color: white;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+.logo-primary {
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 0.87rem;
+    color: #FFFFFF;
+    letter-spacing: -0.01em;
+}
+
+.logo-primary span {
+    color: #7DD3FC;
+}
+
+.logo-secondary {
+    font-size: 0.67rem;
+    color: rgba(255, 255, 255, 0.55);
+    letter-spacing: 0.01em;
+}
+
+/* Hide old logo bars */
+.logo-bar {
+    display: none;
+}
+
+select.sidebar-lang-select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: rgba(255, 255, 255, 0.25);
+    border: 1.5px solid rgba(27, 79, 155, 0.4);
+    border-radius: var(--radius-sm);
+    padding: 8px 12px;
+    color: #1B4F9B;
+    font-weight: bold;
+    font-size: 0.9rem;
+    font-family: var(--font-body);
+    margin-bottom: 20px;
+    cursor: pointer;
+    width: 100%;
+    outline: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6' fill='none'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%231B4F9B' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    background-size: 10px;
+    padding-right: 32px;
+    white-space: nowrap;
+    transition: background-color 0.15s, border-color 0.15s;
+}
+
+select.sidebar-lang-select:hover {
+    background-color: rgba(255, 255, 255, 0.35);
+    border-color: rgba(27, 79, 155, 0.65);
+}
+
+select.sidebar-lang-select option {
+    background: #cddef7;
+    color: #1B4F9B;
+}
+
+/* New conversation button */
+.btn-new-chat {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(230, 237, 255, 0.55);
+    border: 1.5px solid #91aedf;
+    color: #1B4F9B;
+    border-radius: var(--radius-sm);
+    padding: 10px 14px;
+    font-size: 0.89rem;
+    font-weight: bold;
+    white-space: nowrap;
+    transition: background 0.15s, border-color 0.15s;
+    margin-bottom: 24px;
+    width: 100%;
+}
+
+.btn-new-chat:hover {
+    background: rgba(219, 231, 255, 0.75);
+    border-color: #6d92d6;
+}
+
+.btn-new-chat-icon {
+    font-size: 1.15rem;
+    line-height: 1;
+    font-weight: 400;
+}
+
+/* Section label */
+.sidebar-section-label {
+    font-size: 0.8rem;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    color: #1B4F9B;
+    margin-bottom: 10px;
+    white-space: nowrap;
+    text-transform: uppercase;
+}
+
+/* Conversation list */
+.conversation-list {
+    flex: 1;
+    overflow-y: auto;
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+
+.empty-convos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.empty-convos-icon {
+    width: 56px;
+    height: 48px;
+    opacity: 0.3;
+}
+
+.empty-convos p {
+    font-size: 0.83rem;
+    color: #1B4F9B;
+    line-height: 1.5;
+}
+
+.convo-item {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 8px 10px;
+    border-radius: var(--radius-sm);
+    font-size: 0.87rem;
+    color: #1B4F9B;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: background 0.12s;
+}
+
+.convo-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.convo-item.active {
+    background: rgba(255, 255, 255, 0.18);
+    color: #1B4F9B;
+}
+
+/* Sidebar actions */
+.sidebar-actions {
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    padding-top: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-bottom: 16px;
+}
+
+.sidebar-action {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.25);
+    border: 1.5px solid rgba(27, 79, 155, 0.4);
+    color: #1B4F9B;
+    padding: 9px 10px;
+    border-radius: var(--radius-sm);
+    font-size: 0.87rem;
+    font-weight: bold;
+    margin-bottom: 12px;
+    white-space: nowrap;
+    transition: background 0.12s, color 0.12s;
+}
+
+.sidebar-action:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #1B4F9B;
+}
+
+.sidebar-action svg {
+    flex-shrink: 0;
+    opacity: 0.8;
+}
+
+/* Footer badges */
+.sidebar-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    padding-top: 14px;
+}
+
+.sidebar-footer-label {
+    font-size: 0.67rem;
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.35);
+    margin-bottom: 8px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.sidebar-badges {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.badge {
+    font-family: var(--font-body);
+    font-size: 0.73rem;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 4px;
+    letter-spacing: 0.03em;
+}
+
+.badge-un {
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+}
+
+.badge-ipcc {
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+}
+
+.badge-ar6 {
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SIDEBAR BACKDROP OVERLAY (for mobile/tablet when open)
+   ═══════════════════════════════════════════════════════════════ */
+
+.sidebar-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 99;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+}
+
+.sidebar-overlay.visible {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   RESPONSIVE DESIGN
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Tablet (768px - 1024px) ──────────────────────────────────── */
+@media (max-width: 1024px) {
+    .sidebar {
+        width: 220px;
+        min-width: 220px;
+        padding: 16px 12px;
+    }
+
+    .sidebar-logo {
+        margin-bottom: 24px;
+        gap: 8px;
+    }
+
+    .sidebar-logo img {
+        max-height: 36px;
+    }
+
+    .logo-mark {
+        width: 34px;
+        height: 34px;
+    }
+
+    .logo-mark::before {
+        font-size: 1.05rem;
+    }
+
+    .logo-primary {
+        font-size: 0.83rem;
+    }
+
+    .logo-secondary {
+        font-size: 0.63rem;
+    }
+
+    .sidebar-lang-label {
+        font-size: 0.67rem;
+        margin-bottom: 4px;
+    }
+
+    select.sidebar-lang-select {
+        font-size: 0.85rem;
+        padding: 6px 10px;
+        margin-bottom: 16px;
+    }
+
+    .btn-new-chat {
+        padding: 8px 12px;
+        font-size: 0.83rem;
+        margin-bottom: 20px;
+    }
+
+    .btn-new-chat-icon {
+        font-size: 1.05rem;
+    }
+
+    .sidebar-section-label {
+        font-size: 0.75rem;
+        margin-bottom: 8px;
+    }
+
+    .convo-item {
+        padding: 7px 8px;
+        font-size: 0.83rem;
+    }
+
+    .sidebar-action {
+        padding: 7px 8px;
+        font-size: 0.83rem;
+        gap: 8px;
+    }
+
+    .sidebar-action svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .sidebar-footer-label {
+        font-size: 0.63rem;
+        margin-bottom: 6px;
+    }
+
+    .badge {
+        font-size: 0.67rem;
+        padding: 2px 6px;
+    }
+}
+
+/* ── Mobile (up to 767px) ──────────────────────────────────────── */
+@media (max-width: 767px) {
+    .sidebar {
+        position: fixed;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        z-index: 101;
+        width: 240px;
+        min-width: 240px;
+        padding: 16px 12px 20px;
+        height: 100vh;
+        overflow-y: auto;
+        /* Collapsed by default on mobile */
+        transform: translateX(-100%);
+        transition: transform 0.3s ease, width 0.25s ease, min-width 0.25s ease, padding 0.25s ease;
+    }
+
+    /* When sidebar is opened on mobile */
+    .sidebar.open {
+        transform: translateX(0);
+    }
+
+    .sidebar.collapsed {
+        width: 0;
+        min-width: 0;
+        padding: 0;
+        transform: translateX(-100%);
+    }
+
+    .sidebar-logo {
+        margin-bottom: 20px;
+        gap: 8px;
+    }
+
+    .sidebar-logo img {
+        max-height: 32px;
+    }
+
+    .logo-mark {
+        width: 32px;
+        height: 32px;
+    }
+
+    .logo-mark::before {
+        font-size: 1.05rem;
+    }
+
+    .logo-primary {
+        font-size: 0.81rem;
+    }
+
+    .logo-secondary {
+        font-size: 0.61rem;
+    }
+
+    .sidebar-lang-label {
+        font-size: 0.65rem;
+        margin-bottom: 4px;
+    }
+
+    select.sidebar-lang-select {
+        font-size: 0.83rem;
+        padding: 6px 10px;
+        margin-bottom: 14px;
+    }
+
+    .btn-new-chat {
+        padding: 8px 12px;
+        font-size: 0.81rem;
+        margin-bottom: 16px;
+    }
+
+    .btn-new-chat-icon {
+        font-size: 1.05rem;
+    }
+
+    .sidebar-section-label {
+        font-size: 0.73rem;
+        margin-bottom: 8px;
+    }
+
+    .conversation-list {
+        margin-bottom: 12px;
+    }
+
+    .empty-convos {
+        padding: 16px 0;
+        gap: 6px;
+    }
+
+    .empty-convos-icon {
+        width: 48px;
+        height: 40px;
+    }
+
+    .empty-convos p {
+        font-size: 0.79rem;
+    }
+
+    .convo-item {
+        padding: 6px 8px;
+        font-size: 0.81rem;
+        border-radius: 6px;
+    }
+
+    .sidebar-actions {
+        padding-top: 10px;
+        margin-bottom: 12px;
+        gap: 1px;
+    }
+
+    .sidebar-action {
+        padding: 7px 8px;
+        font-size: 0.81rem;
+        gap: 8px;
+        border-radius: 6px;
+    }
+
+    .sidebar-action svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .sidebar-footer {
+        padding-top: 10px;
+    }
+
+    .sidebar-footer-label {
+        font-size: 0.61rem;
+        margin-bottom: 6px;
+    }
+
+    .sidebar-badges {
+        gap: 4px;
+    }
+
+    .badge {
+        font-size: 0.65rem;
+        padding: 2px 6px;
+    }
+
+    /* Overlay on mobile */
+    .sidebar-overlay {
+        display: block;
+    }
+}
+
+/* ── Small Mobile (up to 480px) ───────────────────────────────── */
+@media (max-width: 480px) {
+    .sidebar {
+        position: fixed;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        z-index: 101;
+        width: 220px;
+        min-width: 220px;
+        padding: 12px 10px 16px;
+        height: 100vh;
+        overflow-y: auto;
+        /* Collapsed by default on small mobile */
+        transform: translateX(-100%);
+        transition: transform 0.3s ease, width 0.25s ease, min-width 0.25s ease, padding 0.25s ease;
+    }
+
+    /* When sidebar is opened on small mobile */
+    .sidebar.open {
+        transform: translateX(0);
+    }
+
+    .sidebar.collapsed {
+        width: 0;
+        min-width: 0;
+        padding: 0;
+        transform: translateX(-100%);
+    }
+
+    .sidebar-logo {
+        margin-bottom: 16px;
+        gap: 6px;
+    }
+
+    .sidebar-logo img {
+        max-height: 28px;
+    }
+
+    .logo-mark {
+        width: 30px;
+        height: 30px;
+    }
+
+    .logo-mark::before {
+        font-size: 0.95rem;
+    }
+
+    .logo-primary {
+        font-size: 0.77rem;
+    }
+
+    .logo-secondary {
+        font-size: 0.57rem;
+    }
+
+    .sidebar-lang-label {
+        font-size: 0.6rem;
+        margin-bottom: 3px;
+    }
+
+    select.sidebar-lang-select {
+        font-size: 0.8rem;
+        padding: 5px 8px;
+        margin-bottom: 12px;
+    }
+
+    .btn-new-chat {
+        padding: 7px 10px;
+        font-size: 0.77rem;
+        margin-bottom: 12px;
+        gap: 6px;
+    }
+
+    .btn-new-chat-icon {
+        font-size: 1.0rem;
+    }
+
+    .sidebar-section-label {
+        font-size: 0.69rem;
+        margin-bottom: 6px;
+    }
+
+    .conversation-list {
+        margin-bottom: 10px;
+    }
+
+    .empty-convos {
+        padding: 12px 0;
+        gap: 5px;
+    }
+
+    .empty-convos-icon {
+        width: 40px;
+        height: 35px;
+    }
+
+    .empty-convos p {
+        font-size: 0.75rem;
+    }
+
+    .convo-item {
+        padding: 5px 7px;
+        font-size: 0.77rem;
+        border-radius: 5px;
+    }
+
+    .sidebar-actions {
+        padding-top: 8px;
+        margin-bottom: 10px;
+        gap: 1px;
+    }
+
+    .sidebar-action {
+        padding: 6px 7px;
+        font-size: 0.77rem;
+        gap: 6px;
+        border-radius: 5px;
+    }
+
+    .sidebar-action svg {
+        width: 14px;
+        height: 14px;
+    }
+
+    .sidebar-footer {
+        padding-top: 8px;
+    }
+
+    .sidebar-footer-label {
+        font-size: 0.57rem;
+        margin-bottom: 4px;
+    }
+
+    .sidebar-badges {
+        gap: 3px;
+    }
+
+    .badge {
+        font-size: 0.61rem;
+        padding: 1px 5px;
+    }
+
+    /* Overlay on small mobile */
+    .sidebar-overlay {
+        display: block;
+    }
+}

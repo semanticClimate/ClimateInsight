@@ -1,0 +1,35 @@
+# Web framework
+flask==3.0.3
+flask-cors==4.0.1
+
+# Vector store
+chromadb==0.4.24
+
+# Embeddings
+sentence-transformers==2.7.0
+torch==2.3.1
+
+# Parsing
+beautifulsoup4==4.12.3
+lxml==5.2.2
+
+# HTTP
+requests==2.32.3
+
+# Config
+python-dotenv==1.0.1
+
+# Numerics
+numpy==1.26.4
+scipy==1.13.1
+scikit-learn==1.5.1
+# PDF
+pdf2docx==0.5.8
+python-docx==1.1.2
+pymupdf==1.24.5
+
+# Session store
+redis==5.0.8
+
+# Async queue (optional)
+# celery==5.4.0

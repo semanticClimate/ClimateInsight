@@ -1,0 +1,714 @@
+/* tour.css — Guided onboarding tour styles */
+
+/* ── Overlay ──────────────────────────────────────────────────────────────── */
+#tour-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9000;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+
+    /* No background here — the spotlight's box-shadow handles all dimming */
+    background: transparent;
+}
+
+#tour-overlay.visible {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* ── Spotlight ────────────────────────────────────────────────────────────── */
+#tour-spotlight {
+    position: fixed;
+    border-radius: 10px;
+    pointer-events: none;
+    opacity: 0;
+    z-index: 9001;
+
+    /* The "hole" effect: transparent background + ring border + outer shadow */
+    background: transparent;
+    box-shadow:
+        0 0 0 4px rgba(0, 196, 180, 0.6),
+        /* teal ring around target */
+        0 0 0 9999px rgba(7, 14, 28, 0.80);
+    /* outer dim fills viewport */
+
+    transition:
+        top 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+        left 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+        width 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+        height 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+        opacity 0.2s ease;
+}
+
+#tour-spotlight.visible {
+    opacity: 1;
+}
+
+/* ── Tooltip ──────────────────────────────────────────────────────────────── */
+#tour-tooltip {
+    position: fixed;
+    z-index: 9100;
+    width: 300px;
+    background: #1E2D45;
+    border: 1px solid #2E4060;
+    border-radius: 12px;
+    padding: 18px 18px 14px;
+    z-index: 9200;
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.5),
+        0 0 0 1px rgba(0, 196, 180, 0.15);
+
+    opacity: 0;
+    transform: translateY(6px);
+    transition:
+        opacity 0.22s ease,
+        transform 0.22s ease;
+
+    pointer-events: all;
+}
+
+#tour-tooltip.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Arrow indicator based on side */
+#tour-tooltip::before {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #1E2D45;
+    border: 1px solid #2E4060;
+    transform: rotate(45deg);
+}
+
+#tour-tooltip[data-side="bottom"]::before {
+    top: -6px;
+    left: 50%;
+    margin-left: -5px;
+    border-right: none;
+    border-bottom: none;
+}
+
+#tour-tooltip[data-side="top"]::before {
+    bottom: -6px;
+    left: 50%;
+    margin-left: -5px;
+    border-left: none;
+    border-top: none;
+}
+
+#tour-tooltip[data-side="right"]::before {
+    left: -6px;
+    top: 50%;
+    margin-top: -5px;
+    border-right: none;
+    border-top: none;
+}
+
+#tour-tooltip[data-side="left"]::before {
+    right: -6px;
+    top: 50%;
+    margin-top: -5px;
+    border-left: none;
+    border-bottom: none;
+}
+
+/* Header row */
+.tt-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.tt-step {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: #00C4B4;
+    text-transform: uppercase;
+}
+
+.tt-skip {
+    font-size: 0.82rem;
+    color: #00C4B4;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: color 0.15s;
+}
+
+.tt-skip:hover {
+    color: #ffffff;
+}
+
+/* Content */
+.tt-title {
+    font-family: 'Jost', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: #ffffff;
+    margin-bottom: 7px;
+    line-height: 1.3;
+}
+
+.tt-body {
+    font-size: 0.82rem;
+    color: #ffffff;
+    line-height: 1.6;
+    margin-bottom: 14px;
+}
+
+/* Footer buttons */
+.tt-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.tt-btn {
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 6px;
+    border: 1px solid #2E4060;
+    background: transparent;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.tt-btn:hover {
+    background: #263855;
+    color: #E8EDF5;
+}
+
+.tt-btn.primary {
+    background: #00C4B4;
+    border-color: #00C4B4;
+    color: #0B1628;
+}
+
+.tt-btn.primary:hover {
+    background: #00B0A2;
+    border-color: #00B0A2;
+}
+
+/* Progress dots */
+.tt-footer::before {
+    display: none;
+    /* using text step counter instead */
+}
+
+/* ── Reduced motion ───────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+
+    #tour-spotlight,
+    #tour-tooltip {
+        transition: none;
+    }
+}
+
+/* ── Interactive steps (language picker + suggested questions) ────────────── */
+#tour-tooltip {
+    /* Allow taller content in interactive steps */
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.tt-body-text {
+    font-size: 0.82rem;
+    color: #ffffff;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.tt-interactive {
+    margin-top: 2px;
+}
+
+.tt-interactive-prompt {
+    font-size: 0.78rem;
+    color: #ffffff;
+    margin: 0 0 8px 0;
+    line-height: 1.5;
+}
+
+.tt-interactive-prompt em {
+    color: #00C4B4;
+}
+
+.tt-interactive-prompt strong {
+    color: #E8EDF5;
+}
+
+.tt-interactive-skip {
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 0.72rem;
+    cursor: pointer;
+    padding: 4px 0;
+    margin-top: 6px;
+    display: block;
+    transition: color 0.15s;
+}
+
+.tt-interactive-skip:hover {
+    color: #ffffff;
+}
+
+/* Language grid */
+.tt-lang-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 8px;
+}
+
+.tt-lang-btn {
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 5px 10px;
+    border-radius: 20px;
+    border: 1px solid #2E4060;
+    background: transparent;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.tt-lang-btn:hover {
+    background: #263855;
+    color: #E8EDF5;
+    border-color: #3E5578;
+}
+
+.tt-lang-btn.selected {
+    background: #00C4B4;
+    border-color: #00C4B4;
+    color: #0B1628;
+}
+
+.tt-lang-confirm {
+    font-size: 0.76rem;
+    color: #00C4B4;
+    margin: 4px 0 0 0;
+    line-height: 1.4;
+}
+
+/* Suggested questions list */
+.tt-sq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 8px;
+}
+
+.tt-sq-choice {
+    font-size: 0.76rem;
+    text-align: left;
+    padding: 7px 10px;
+    border-radius: 8px;
+    border: 1px solid #2E4060;
+    background: transparent;
+    color: #ffffff;
+    cursor: pointer;
+    line-height: 1.4;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.tt-sq-choice:hover {
+    background: #263855;
+    color: #E8EDF5;
+    border-color: #00C4B4;
+}
+
+.tt-voila {
+    color: #ffffff;
+    background: rgba(0, 196, 180, 0.08);
+    border: 1px solid rgba(0, 196, 180, 0.2);
+    border-radius: 8px;
+    padding: 8px 10px;
+    font-size: 0.78rem;
+}
+
+.tt-suggested-next {
+    margin-top: 10px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 7px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   RESPONSIVE DESIGN
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Tablet (768px - 1024px) ──────────────────────────────────── */
+@media (max-width: 1024px) {
+    #tour-spotlight {
+        border-radius: 8px;
+        box-shadow:
+            0 0 0 3px rgba(0, 196, 180, 0.5),
+            0 0 0 9999px rgba(7, 14, 28, 0.78);
+    }
+
+    #tour-tooltip {
+        width: 280px;
+        padding: 16px 16px 12px;
+        border-radius: 10px;
+    }
+
+    #tour-tooltip::before {
+        width: 9px;
+        height: 9px;
+    }
+
+    .tt-step {
+        font-size: 0.65rem;
+    }
+
+    .tt-skip {
+        font-size: 0.78rem;
+    }
+
+    .tt-title {
+        font-size: 0.9rem;
+        margin-bottom: 6px;
+    }
+
+    .tt-body {
+        font-size: 0.78rem;
+        margin-bottom: 12px;
+    }
+
+    .tt-btn {
+        font-size: 0.75rem;
+        padding: 5px 12px;
+    }
+
+    .tt-body-text {
+        font-size: 0.78rem;
+        margin-bottom: 8px;
+    }
+
+    .tt-interactive-prompt {
+        font-size: 0.75rem;
+        margin-bottom: 6px;
+    }
+
+    .tt-lang-grid {
+        gap: 5px;
+        margin-bottom: 6px;
+    }
+
+    .tt-lang-btn {
+        font-size: 0.72rem;
+        padding: 4px 9px;
+    }
+
+    .tt-lang-confirm {
+        font-size: 0.73rem;
+    }
+
+    .tt-sq-list {
+        gap: 4px;
+        margin-bottom: 6px;
+    }
+
+    .tt-sq-choice {
+        font-size: 0.73rem;
+        padding: 6px 9px;
+    }
+
+    .tt-voila {
+        font-size: 0.75rem;
+        padding: 6px 9px;
+    }
+
+    .tt-suggested-next {
+        margin-top: 8px;
+        font-size: 0.75rem;
+        padding: 6px 12px;
+    }
+}
+
+/* ── Mobile (up to 767px) ──────────────────────────────────────── */
+@media (max-width: 767px) {
+    #tour-spotlight {
+        border-radius: 6px;
+        box-shadow:
+            0 0 0 3px rgba(0, 196, 180, 0.45),
+            0 0 0 9999px rgba(7, 14, 28, 0.75);
+    }
+
+    #tour-tooltip {
+        width: 85vw;
+        max-width: 280px;
+        padding: 14px 14px 10px;
+        border-radius: 10px;
+        max-height: 70vh;
+    }
+
+    #tour-tooltip::before {
+        width: 8px;
+        height: 8px;
+    }
+
+    #tour-tooltip[data-side="bottom"]::before {
+        top: -5px;
+        margin-left: -4px;
+    }
+
+    #tour-tooltip[data-side="top"]::before {
+        bottom: -5px;
+        margin-left: -4px;
+    }
+
+    #tour-tooltip[data-side="right"]::before {
+        left: -5px;
+        margin-top: -4px;
+    }
+
+    #tour-tooltip[data-side="left"]::before {
+        right: -5px;
+        margin-top: -4px;
+    }
+
+    .tt-header {
+        margin-bottom: 8px;
+    }
+
+    .tt-step {
+        font-size: 0.62rem;
+    }
+
+    .tt-skip {
+        font-size: 0.75rem;
+    }
+
+    .tt-title {
+        font-size: 0.85rem;
+        margin-bottom: 5px;
+    }
+
+    .tt-body {
+        font-size: 0.75rem;
+        margin-bottom: 10px;
+    }
+
+    .tt-footer {
+        gap: 6px;
+    }
+
+    .tt-btn {
+        font-size: 0.72rem;
+        padding: 4px 10px;
+        border-radius: 5px;
+    }
+
+    .tt-body-text {
+        font-size: 0.75rem;
+        margin-bottom: 6px;
+    }
+
+    .tt-interactive {
+        margin-top: 1px;
+    }
+
+    .tt-interactive-prompt {
+        font-size: 0.72rem;
+        margin-bottom: 5px;
+    }
+
+    .tt-interactive-skip {
+        font-size: 0.68rem;
+        padding: 3px 0;
+        margin-top: 4px;
+    }
+
+    .tt-lang-grid {
+        gap: 4px;
+        margin-bottom: 5px;
+    }
+
+    .tt-lang-btn {
+        font-size: 0.7rem;
+        padding: 3px 8px;
+        border-radius: 16px;
+    }
+
+    .tt-lang-confirm {
+        font-size: 0.7rem;
+        margin: 3px 0 0 0;
+    }
+
+    .tt-sq-list {
+        gap: 3px;
+        margin-bottom: 5px;
+    }
+
+    .tt-sq-choice {
+        font-size: 0.7rem;
+        padding: 5px 8px;
+        border-radius: 6px;
+    }
+
+    .tt-voila {
+        font-size: 0.72rem;
+        padding: 6px 8px;
+    }
+
+    .tt-suggested-next {
+        margin-top: 6px;
+        font-size: 0.72rem;
+        padding: 5px 10px;
+    }
+}
+
+/* ── Small Mobile (up to 480px) ───────────────────────────────── */
+@media (max-width: 480px) {
+    #tour-spotlight {
+        border-radius: 4px;
+        box-shadow:
+            0 0 0 2px rgba(0, 196, 180, 0.4),
+            0 0 0 9999px rgba(7, 14, 28, 0.72);
+    }
+
+    #tour-tooltip {
+        width: calc(100vw - 24px);
+        max-width: 260px;
+        padding: 12px 12px 8px;
+        border-radius: 8px;
+        max-height: 65vh;
+    }
+
+    #tour-tooltip::before {
+        width: 7px;
+        height: 7px;
+    }
+
+    #tour-tooltip[data-side="bottom"]::before {
+        top: -4px;
+        margin-left: -3.5px;
+    }
+
+    #tour-tooltip[data-side="top"]::before {
+        bottom: -4px;
+        margin-left: -3.5px;
+    }
+
+    #tour-tooltip[data-side="right"]::before {
+        left: -4px;
+        margin-top: -3.5px;
+    }
+
+    #tour-tooltip[data-side="left"]::before {
+        right: -4px;
+        margin-top: -3.5px;
+    }
+
+    .tt-header {
+        margin-bottom: 6px;
+    }
+
+    .tt-step {
+        font-size: 0.58rem;
+    }
+
+    .tt-skip {
+        font-size: 0.7rem;
+    }
+
+    .tt-title {
+        font-size: 0.8rem;
+        margin-bottom: 4px;
+        line-height: 1.2;
+    }
+
+    .tt-body {
+        font-size: 0.72rem;
+        margin-bottom: 8px;
+        line-height: 1.5;
+    }
+
+    .tt-footer {
+        gap: 4px;
+        flex-wrap: wrap;
+    }
+
+    .tt-btn {
+        font-size: 0.68rem;
+        padding: 3px 8px;
+        border-radius: 4px;
+    }
+
+    .tt-body-text {
+        font-size: 0.72rem;
+        margin-bottom: 5px;
+    }
+
+    .tt-interactive {
+        margin-top: 0;
+    }
+
+    .tt-interactive-prompt {
+        font-size: 0.68rem;
+        margin-bottom: 4px;
+        line-height: 1.4;
+    }
+
+    .tt-interactive-skip {
+        font-size: 0.64rem;
+        padding: 2px 0;
+        margin-top: 2px;
+    }
+
+    .tt-lang-grid {
+        gap: 3px;
+        margin-bottom: 4px;
+    }
+
+    .tt-lang-btn {
+        font-size: 0.65rem;
+        padding: 2px 7px;
+        border-radius: 14px;
+    }
+
+    .tt-lang-confirm {
+        font-size: 0.66rem;
+        margin: 2px 0 0 0;
+    }
+
+    .tt-sq-list {
+        gap: 2px;
+        margin-bottom: 4px;
+    }
+
+    .tt-sq-choice {
+        font-size: 0.66rem;
+        padding: 4px 7px;
+        border-radius: 5px;
+        line-height: 1.3;
+    }
+
+    .tt-voila {
+        font-size: 0.68rem;
+        padding: 5px 7px;
+    }
+
+    .tt-suggested-next {
+        margin-top: 4px;
+        font-size: 0.68rem;
+        padding: 4px 8px;
+    }
+}
