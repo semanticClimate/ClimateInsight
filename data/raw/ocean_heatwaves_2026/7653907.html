@@ -1,177 +1,1208 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>7653907</title>
-  
-<style>
-  :root {
-    --blue:   #1B4F9B;
-    --green:  #16A34A;
-    --orange: #F59E0B;
-    --bg:     #F8FAFB;
-    --border: #D1E5D9;
-    --text:   #111827;
-    --muted:  #6B7280;
-    --font:   'Jost', 'Segoe UI', Arial, sans-serif;
-  }
+  <title>Drivers and impacts of the most extreme marine heatwaves events – Scientific Reports</title>
+  <style>
+    :root {
+      --blue: #1B4F9B;
+      --green: #16A34A;
+      --orange: #F59E0B;
+      --red: #DC2626;
+      --bg: #F8FAFB;
+      --border: #D1E5D9;
+      --text: #111827;
+      --muted: #6B7280;
+      --font: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    }
 
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-  body {
-    font-family: var(--font);
-    background: var(--bg);
-    color: var(--text);
-    font-size: 15px;
-    line-height: 1.75;
-    padding: 0 0 60px;
-  }
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      font-size: 15px;
+      line-height: 1.75;
+      padding: 0 0 60px;
+    }
 
-  /* ── Header banner ── */
-  .paper-header {
-    background: var(--blue);
-    color: #fff;
-    padding: 28px 32px 22px;
-    border-bottom: 4px solid var(--orange);
-  }
-  .paper-header .journal {
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    opacity: 0.75;
-    margin-bottom: 6px;
-  }
-  .paper-header h1 {
-    font-size: 1.25rem;
-    font-weight: 700;
-    line-height: 1.35;
-    margin-bottom: 10px;
-  }
-  .paper-header .authors {
-    font-size: 0.82rem;
-    opacity: 0.85;
-    margin-bottom: 8px;
-  }
-  .paper-meta {
-    display: flex;
-    gap: 14px;
-    flex-wrap: wrap;
-    margin-top: 10px;
-  }
-  .paper-meta a, .paper-meta span {
-    font-size: 0.78rem;
-    background: rgba(255,255,255,0.15);
-    border-radius: 4px;
-    padding: 3px 9px;
-    color: #fff;
-    text-decoration: none;
-    font-weight: 600;
-  }
-  .paper-meta a:hover { background: rgba(255,255,255,0.25); }
+    /* ── Header banner ── */
+    .paper-header {
+      background: linear-gradient(135deg, var(--blue) 0%, #0F3B7F 100%);
+      color: #fff;
+      padding: 32px 40px 28px;
+      border-bottom: 5px solid var(--orange);
+    }
 
-  /* ── Abstract box ── */
-  .abstract-box {
-    margin: 22px 32px;
-    background: #EEF6F1;
-    border-left: 4px solid var(--green);
-    border-radius: 6px;
-    padding: 16px 20px;
-  }
-  .abstract-box h2 {
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--green);
-    margin-bottom: 8px;
-  }
-  .abstract-box p {
-    font-size: 0.9rem;
-    color: #1F3A2A;
-    line-height: 1.7;
-  }
+    .paper-header .journal {
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      opacity: 0.8;
+      margin-bottom: 8px;
+    }
 
-  /* ── Body content ── */
-  .paper-body {
-    padding: 0 32px;
-  }
+    .paper-header .article-type {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      opacity: 0.85;
+      margin-bottom: 14px;
+      color: #FFA500;
+    }
 
-  /* ── Section headings ── */
-  .paper-body h2 {
-    font-size: 1.05rem;
-    font-weight: 700;
-    color: var(--blue);
-    margin: 28px 0 10px;
-    padding-bottom: 5px;
-    border-bottom: 2px solid var(--border);
-  }
-  .paper-body h3 {
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: #1F3A2A;
-    margin: 20px 0 8px;
-  }
-  .paper-body h4 {
-    font-size: 0.88rem;
-    font-weight: 600;
-    color: var(--muted);
-    margin: 14px 0 6px;
-  }
+    .paper-header h1 {
+      font-size: 1.65rem;
+      font-weight: 800;
+      line-height: 1.3;
+      margin-bottom: 12px;
+    }
 
-  /* ── Paragraphs ── */
-  .paper-body p {
-    margin-bottom: 14px;
-    font-size: 0.92rem;
-  }
+    .paper-header .authors {
+      font-size: 0.95rem;
+      opacity: 0.9;
+      margin-bottom: 12px;
+      line-height: 1.5;
+    }
 
-  /* ── Tables ── */
-  .paper-body table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 18px 0;
-    font-size: 0.85rem;
-  }
-  .paper-body th {
-    background: var(--blue);
-    color: #fff;
-    padding: 8px 12px;
-    text-align: left;
-    font-weight: 600;
-  }
-  .paper-body td {
-    padding: 7px 12px;
-    border-bottom: 1px solid var(--border);
-    vertical-align: top;
-  }
-  .paper-body tr:nth-child(even) td { background: #F0F7F4; }
+    .paper-meta {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
 
-  /* ── Section anchor highlight target ── */
-  :target {
-    background: #FFFBEB;
-    outline: 2px solid var(--orange);
-    border-radius: 4px;
-    padding: 4px 6px;
-  }
+    .paper-meta a,
+    .paper-meta span {
+      font-size: 0.8rem;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 4px;
+      padding: 4px 10px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+    }
 
-  /* ── Scrollbar ── */
-  ::-webkit-scrollbar { width: 5px; }
-  ::-webkit-scrollbar-track { background: transparent; }
-  ::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 4px; }
-</style>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;600;700&display=swap" rel="stylesheet">
+    .paper-meta a:hover {
+      background: rgba(255, 255, 255, 0.28);
+    }
 
+    /* ── Abstract box ── */
+    .abstract-section {
+      margin: 28px 40px;
+      background: #EEF6F1;
+      border-left: 5px solid var(--green);
+      border-radius: 8px;
+      padding: 20px 24px;
+    }
+
+    .abstract-section h2 {
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 12px;
+    }
+
+    .abstract-section p {
+      font-size: 0.95rem;
+      color: #1F3A2A;
+      line-height: 1.8;
+      margin-bottom: 8px;
+    }
+
+    /* ── Author affiliations ── */
+    .author-affiliations {
+      margin: 24px 40px;
+      background: #F3F4F6;
+      border-left: 5px solid var(--muted);
+      border-radius: 8px;
+      padding: 18px 22px;
+      font-size: 0.88rem;
+      color: #374151;
+      line-height: 1.7;
+    }
+
+    .author-affiliations strong {
+      font-weight: 700;
+      color: var(--blue);
+      display: block;
+      margin-top: 10px;
+      margin-bottom: 2px;
+    }
+
+    .author-affiliations strong:first-child {
+      margin-top: 0;
+    }
+
+    /* ── Metadata grid ── */
+    .article-metadata {
+      margin: 24px 40px;
+      padding: 20px;
+      background: #F9FAFB;
+      border-radius: 8px;
+      border: 1px solid #E5E7EB;
+      font-size: 0.88rem;
+      color: #4B5563;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 18px;
+    }
+
+    .article-metadata strong {
+      display: block;
+      font-weight: 700;
+      color: var(--blue);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 6px;
+    }
+
+    .article-metadata a {
+      color: var(--blue);
+      text-decoration: none;
+    }
+
+    .article-metadata a:hover {
+      text-decoration: underline;
+    }
+
+    /* ── Body ── */
+    .paper-body {
+      padding: 0 40px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .paper-body h2 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--blue);
+      margin: 36px 0 14px;
+      padding-bottom: 8px;
+      border-bottom: 3px solid var(--border);
+    }
+
+    .paper-body h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #1F3A2A;
+      margin: 24px 0 10px;
+    }
+
+    .paper-body h4 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--muted);
+      margin: 16px 0 8px;
+    }
+
+    .paper-body p {
+      margin-bottom: 16px;
+      font-size: 0.96rem;
+    }
+
+    .paper-body section {
+      margin-bottom: 28px;
+    }
+
+    /* ── Table ── */
+    .paper-body table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 24px 0;
+      font-size: 0.82rem;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .paper-body table th {
+      background: #1B4F9B;
+      color: #fff;
+      font-weight: 700;
+      padding: 10px 8px;
+      text-align: left;
+      border: none;
+      font-size: 0.78rem;
+    }
+
+    .paper-body table td {
+      padding: 9px 8px;
+      border-bottom: 1px solid #E5E7EB;
+      vertical-align: top;
+    }
+
+    .paper-body table tr:hover {
+      background: #F3F4F6;
+    }
+
+    .paper-body table tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* ── Figure placeholder ── */
+    .figure-ref {
+      margin: 20px 0;
+      padding: 16px;
+      background: #FFFBEB;
+      border-left: 5px solid var(--orange);
+      border-radius: 6px;
+      font-size: 0.93rem;
+      color: #78350F;
+      line-height: 1.7;
+    }
+
+    .figure-ref strong {
+      font-weight: 700;
+      color: var(--orange);
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .figure-ref p {
+      margin: 0;
+      color: #78350F;
+    }
+
+    /* ── Contribution box ── */
+    .contribution-box {
+      margin: 24px 0;
+      padding: 18px;
+      background: #F9FAFB;
+      border-radius: 8px;
+      border: 1px solid #E5E7EB;
+      font-size: 0.92rem;
+      line-height: 1.7;
+    }
+
+    .contribution-box strong {
+      display: block;
+      font-weight: 700;
+      color: var(--blue);
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
+    }
+
+    /* ── References ── */
+    .references-section {
+      margin-top: 40px;
+      padding-top: 28px;
+      border-top: 3px solid var(--border);
+    }
+
+    .references-section h2 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--blue);
+      margin: 0 0 20px 0;
+      padding-bottom: 8px;
+      border-bottom: 3px solid var(--border);
+    }
+
+    .reference-item {
+      margin-bottom: 12px;
+      padding-left: 28px;
+      text-indent: -28px;
+      font-size: 0.88rem;
+      line-height: 1.6;
+      color: #374151;
+    }
+
+    /* ── Scrollbar ── */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #CBD5E1;
+      border-radius: 4px;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .paper-body {
+        padding: 0 20px;
+      }
+
+      .paper-header {
+        padding: 20px 20px 16px;
+      }
+
+      .paper-header h1 {
+        font-size: 1.3rem;
+      }
+
+      .abstract-section,
+      .author-affiliations,
+      .article-metadata {
+        margin-left: 20px;
+        margin-right: 20px;
+      }
+
+      .article-metadata {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
+
 <body>
-<div class="paper-header">
-  <h1>7653907</h1>
-  <div class="paper-meta"><span>2020</span><a href="https://doi.org/10.1038/s41598-020-75445-3&lt;/p&gt;&lt;/td&gt;&lt;td&gt;&lt;p&gt;&lt;img" target="_blank">DOI: 10.1038/s41598-020-75445-3&lt;/p&gt;&lt;/td&gt;&lt;td&gt;&lt;p&gt;&lt;img</a><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7653907/" target="_blank">PMC7653907</a></div>
-</div>
 
-<div class="paper-body">
+  <!-- ══════════════════════════ HEADER ══════════════════════════ -->
+  <header class="paper-header">
+    <div class="journal">Scientific Reports · Nature Publishing Group</div>
+    <div class="article-type">Original Research Article</div>
+    <h1>Drivers and impacts of the most extreme marine heatwaves events</h1>
+    <div class="authors">
+      Alex Sen Gupta · Mads Thomsen · Jessica A. Benthuysen · Alistair J. Hobday · Eric Oliver ·
+      Lisa V. Alexander · Michael T. Burrows · Markus G. Donat · Ming Feng · Neil J. Holbrook ·
+      Sarah Perkins-Kirkpatrick · Pippa J. Moore · Regina R. Rodrigues · Hillary A. Scannell ·
+      Andréa S. Taschetto · Caroline C. Ummenhofer · Thomas Wernberg · Dan A. Smale
+    </div>
+    <div class="paper-meta">
+      <span>Sci Rep 10, 19359 (2020)</span>
+      <span>Published: 9 November 2020</span>
+      <a href="https://doi.org/10.1038/s41598-020-75445-3" target="_blank">DOI: 10.1038/s41598-020-75445-3</a>
+      <span>PMID: 33168858 · PMC7653907</span>
+    </div>
+  </header>
 
-</div>
+  <!-- ══════════════════════════ ABSTRACT ══════════════════════════ -->
+  <div class="abstract-section">
+    <h2>Abstract</h2>
+    <p>Prolonged high-temperature extreme events in the ocean, marine heatwaves, can have severe and long-lasting
+      impacts on marine ecosystems, fisheries and associated services. This study applies a marine heatwave framework to
+      analyse a global sea surface temperature product and identify the most extreme events, based on their intensity,
+      duration and spatial extent. Many of these events have yet to be described in terms of their physical attributes,
+      generation mechanisms, or ecological impacts. Our synthesis identifies commonalities between marine heatwave
+      characteristics and seasonality, links to the El Niño-Southern Oscillation, triggering processes and impacts on
+      ocean productivity. The most intense events preferentially occur in summer, when climatological oceanic mixed
+      layers are shallow and winds are weak, but at a time preceding climatological maximum sea surface temperatures.
+      Most subtropical extreme marine heatwaves were triggered by persistent atmospheric high-pressure systems and
+      anomalously weak wind speeds, associated with increased insolation, and reduced ocean heat losses. Furthermore,
+      the most extreme events tended to coincide with reduced chlorophyll-a concentration at low and mid-latitudes.
+      Understanding the importance of the oceanic background state, local and remote drivers and the ocean productivity
+      response from past events are critical steps toward improving predictions of future marine heatwaves and their
+      impacts.</p>
+    <p><em>Subject terms: Marine biology · Physical oceanography · Climate sciences</em></p>
+  </div>
+
+  <!-- ══════════════════════════ AFFILIATIONS ══════════════════════════ -->
+  <div class="author-affiliations">
+    <strong>Alex Sen Gupta &amp; Lisa V. Alexander &amp; Markus G. Donat &amp; Sarah Perkins-Kirkpatrick &amp; Andréa S.
+      Taschetto &amp; Caroline C. Ummenhofer</strong>
+    Climate Change Research Centre / ARC Centre of Excellence for Climate Extremes, University of New South Wales,
+    Sydney, Australia
+    <strong>Mads Thomsen</strong>
+    School of Biological Sciences, University of Canterbury, Christchurch, New Zealand
+    <strong>Jessica A. Benthuysen</strong>
+    Australian Institute of Marine Science, Indian Ocean Marine Research Centre, Crawley, WA, Australia
+    <strong>Alistair J. Hobday · Ming Feng</strong>
+    CSIRO Oceans and Atmosphere, Hobart / Crawley, WA, Australia
+    <strong>Eric Oliver</strong>
+    Department of Oceanography, Dalhousie University, Halifax, NS, Canada
+    <strong>Michael T. Burrows</strong>
+    Scottish Association for Marine Science, Scottish Marine Institute, Oban, UK
+    <strong>Neil J. Holbrook</strong>
+    Institute for Marine and Antarctic Studies / ARC Centre of Excellence for Climate Extremes, University of Tasmania,
+    Hobart, Australia
+    <strong>Pippa J. Moore</strong>
+    Institute of Biological, Environmental and Rural Sciences, Aberystwyth University, UK
+    <strong>Regina R. Rodrigues</strong>
+    Department of Oceanography, Federal University of Santa Catarina, Florianópolis, Brazil
+    <strong>Hillary A. Scannell</strong>
+    School of Oceanography, University of Washington, Seattle, WA, USA
+    <strong>Caroline C. Ummenhofer</strong>
+    Department of Physical Oceanography, Woods Hole Oceanographic Institution, Woods Hole, MA, USA
+    <strong>Thomas Wernberg · Dan A. Smale</strong>
+    UWA Oceans Institute &amp; School of Biological Sciences, University of Western Australia, Crawley, WA, Australia;
+    Marine Biological Association of the UK, Plymouth, UK
+  </div>
+
+  <!-- ══════════════════════════ METADATA ══════════════════════════ -->
+  <div class="article-metadata">
+    <div><strong>Journal</strong>Scientific Reports</div>
+    <div><strong>Volume / Page</strong>10 / 19359</div>
+    <div><strong>Published</strong>9 November 2020</div>
+    <div><strong>DOI</strong><a href="https://doi.org/10.1038/s41598-020-75445-3"
+        target="_blank">10.1038/s41598-020-75445-3</a></div>
+    <div><strong>PMID</strong>33168858</div>
+    <div><strong>PMC ID</strong>PMC7653907</div>
+    <div><strong>Data / Code</strong><a href="https://github.com/alexsengupta/ExtremeExtremes"
+        target="_blank">github.com/alexsengupta/ExtremeExtremes</a></div>
+    <div><strong>Received / Accepted</strong>Open Access · CC BY 4.0</div>
+  </div>
+
+  <!-- ══════════════════════════ BODY ══════════════════════════ -->
+  <main class="paper-body">
+
+    <!-- INTRODUCTION -->
+    <section>
+      <h2>Introduction</h2>
+      <p>Prolonged periods of anomalously warm ocean temperatures, marine heatwaves (MHWs), are a major threat to marine
+        ecosystems and their functioning, that have resulted in devastating and long-lasting impacts on marine systems
+        at scales from hundreds to thousands of kilometers. Although these extreme events are by definition rare, marine
+        heatwaves with notable ecological impacts have been occurring more frequently in recent years. Globally, over
+        the last century, the annual number of MHW days has increased by more than 50%, explained primarily by the
+        long-term warming of the upper ocean, although changes in variability are important in certain regions.
+        Moreover, future projections indicate order-of-magnitude increases in the number of MHW days by the end of the
+        century even under scenarios of strong greenhouse gas emissions mitigation. Hence there is a need to better
+        understand mechanisms responsible for MHW occurrence and their ecological impacts.</p>
+      <p>MHWs are a rapidly developing area of research. There is growing literature examining what constitutes a MHW,
+        the local processes that generate and maintain them, the large-scale climate drivers that remotely trigger or
+        modulate their likelihood, historical changes and trends in future projections, and their predictability.
+        Quantifying MHW characteristics enables relationships to be developed between events and their impacts on marine
+        species and ecosystems. The most advanced area of MHW research revolves around the dynamics, prediction and
+        impacts of the El Niño–Southern Oscillation (ENSO). ENSO events are often associated with extreme ocean
+        temperatures that would qualify them as MHWs, although this research is generally framed in terms of interannual
+        variability. Considerable progress has been made into understanding the underlying dynamics of ENSO, and
+        numerical models now operationally issue seasonal forecasts of ENSO state with considerable skill. Major ENSO
+        events have been linked to negative ecosystem impacts including mass coral bleaching events, distributional
+        shifts in tropical tuna and other fisheries disruptions.</p>
+      <p>In general, the proximate causes of MHWs can be classified into three categories: (i) changes in the transport
+        of heat by the ocean, such as boundary current intensification; (ii) persistent large-scale atmospheric synoptic
+        systems; and (iii) coupled air-sea feedback processes such as ENSO events. The objective of this study is to
+        identify and characterize the most extreme MHWs recorded over the satellite era using a standardized
+        methodology, in order to explore common mechanisms and processes for their occurrence. We build a comprehensive
+        database of extreme MHWs and perform a global analysis to determine if the events previously described in the
+        literature were in fact 'unprecedented', and identify a large number of unstudied, yet potentially high-impact,
+        MHWs.</p>
+    </section>
+
+    <!-- RESULTS -->
+    <section>
+      <h2>Results</h2>
+
+      <h3>The most intense and high-category MHW</h3>
+      <p>Based on the MHW categorization scheme (see "Methods"), every ¼-degree grid cell across the globe experienced
+        at least one MHW event exceeding strong—category 2—MHW conditions during the period from 1982 to 2017. Over 70%
+        of the ocean area experienced severe—category 3 or higher—conditions, and 10% extreme—category 4 or higher. As
+        event severity and category depend on both sea surface temperature (SST) and on local seasonally-varying SST
+        variability, regions with the highest recorded category MHW and highest intensity MHW (maximum SST anomalies) do
+        not typically align. Regions of very high severity, for example in the eastern tropical Pacific, the Ningaloo
+        Niño region and the south-central Pacific, indicate MHWs whose intensity was well above levels of background
+        variability.</p>
+
+      <div class="figure-ref">
+        <strong><!-- NO IMAGE EXTRACTED --> Figure 1 — Characteristics of MHW category and intensity</strong>
+        <p>(a) Maximum experienced category (1982–2017), (b) associated zonal average (red/black lines are zonal
+          medians/means), (f) associated area-weighted probability distributions. (d,e,g) as per (a,b,f) but for maximum
+          recorded intensity (maximum daily SSTA). (c) Year of maximum recorded category; (h) proportion of ocean by
+          month experiencing most intense MHW for northern (&gt; 5°N, black) and southern (&lt; −5°S, red) hemispheres.
+        </p>
+      </div>
+
+      <p>Over most of the ocean, maximum MHW intensities were between ~2.5 and ~3.7 °C (interquartile range). However,
+        larger maximum intensities were evident. Over 5% of the ocean, the maximum recorded daily SST anomalies (SSTA)
+        exceeded 5 °C. Regions of large maximum SSTA were often associated with areas of (i) strong meridional or zonal
+        mean-state SST gradients, in particular along the Kuroshio and Gulf Stream Extensions, Agulhas Retroflection and
+        Brazil-Malvinas confluence; and (ii) regions of strong poleward advection including the East Australian Current
+        Extension and Leeuwin Current regions.</p>
+      <p>In some regions, maximum intensity MHWs were clearly related to large-scale modes of climate variability. The
+        eastern tropical Pacific Ocean had high maximum SSTA exceeding 5 °C, associated with strong El Niño events and
+        the suppression of upwelling, changes in surface heat fluxes and modified ocean advection. The large maximum
+        intensity off the Angolan/Namibian coastal region was likely related to recurring Benguela Niño events in 1984,
+        1995 and 2010, and the 2011 maximum intensity off Western Australia was partly related to remote influences from
+        La Niña.</p>
+      <p>There was a notable seasonal difference with regard to the most intense and highest severity events. Globally,
+        the occurrence of maximum SSTA events peaked in the Southern Hemisphere summer: 39% of the ocean's surface
+        experienced its most intense MHW in austral summer (DJF), compared to 23% in austral winter (JJA). In the
+        Northern Hemisphere, 45% (9%) of the ocean experienced its maximum recorded intensity during summer (winter). In
+        the Southern Hemisphere, the asymmetry was even more pronounced, with 62% (7%) of the ocean area experiencing
+        events in summer (winter). Shallower oceanic mixed layer depths that typically occur during local summer were
+        identified as a major factor in this seasonal asymmetry—a given heat flux anomaly generates a larger surface
+        temperature change when distributed over a shallower mixed layer, resulting in the possibility of more intense
+        MHWs.</p>
+
+      <div class="figure-ref">
+        <strong><!-- NO IMAGE EXTRACTED --> Figure 2 — ENSO modulation of MHW severity</strong>
+        <p>(a) Proportion of ocean area (in a given month) experiencing its most severe (grey shaded) or intense (red
+          bars) MHWs. Shaded bands show |Niño3.4| &gt; [0.5, 1, 2] standard deviations. Niño3.4 index superimposed
+          (black lines). (b) Regions of most severe MHWs that occurred when Niño3.4 &gt; 1 (light red), Niño3.4 &gt; 2
+          (red), Niño3.4 &lt; −1 (light blue), Niño3.4 &lt; −2 (blue).</p>
+      </div>
+
+      <p>The highest category and most intense MHWs were strongly modulated by ENSO. During the three strongest El Niño
+        events in the 35-year satellite record, ocean areas experiencing their highest category MHW rose dramatically.
+        In particular, during the 2015/16 El Niño, in some months over 3 million km² of the ocean surface experienced
+        their highest ever category events—5× higher than the average monthly area. Although moderate El Niño conditions
+        persisted for about 19% of the record, over 34% of the ocean surface area experienced its most severe MHW during
+        El Niño periods. During La Niña periods, extreme MHWs were not suppressed globally; La Niña events were often
+        associated with increased ocean area experiencing its highest category event in the subtropical south Pacific,
+        Atlantic and Indian Oceans.</p>
+
+      <h3>Longest and maximum cumulative intensity MHW events</h3>
+      <p>For 80% of the ocean area, the longest recorded MHWs were between 40 and 160 days (10th–90th percentile).
+        Across some extended regions, maximum durations were much longer (e.g., &gt; 250 days over ~4% of the ocean),
+        with the longest MHWs linked to El Niño events. The unprecedented northeast Pacific MHW in 2014–16 (the Blob)
+        was an exceptionally long event, progressing from the subtropical open ocean in 2014, to the North American
+        coast in 2015 and then offshore again in 2016, facilitated by extra-tropical to tropical teleconnections.</p>
+
+      <div class="figure-ref">
+        <strong><!-- NO IMAGE EXTRACTED --> Figure 3 — Characteristics of MHW duration</strong>
+        <p>(a) Duration of longest recorded MHWs and associated zonal mean (black) and median (red). (b) Proportion of
+          ocean experiencing maximum MHW duration for all MHW categories (blue) and for strong or greater MHW categories
+          (red). (c) Central year of longest MHW. (d) Proportion of ocean experiencing its longest (red) and largest
+          cumulative intensity (dashed) MHW by month.</p>
+      </div>
+
+      <p>In addition to strong interannual variability, there was a multi-decadal increase in extreme MHW duration over
+        the course of the record. Sixty percent of the ocean area experienced its longest duration MHW since 2010 (i.e.,
+        over the last 20% of the satellite record). This is consistent with trends in MHWs more generally and the
+        long-term warming of the global oceans. The longest duration MHWs corresponded closely with MHWs with the
+        largest cumulative intensities. Cumulative intensity may be a more suitable metric to understand the impacts of
+        MHWs on marine populations particularly sensitive to accumulated stress—for example, cumulative intensity
+        metrics like degree heating weeks are useful indicators of coral bleaching and mortality.</p>
+
+      <h3>Largest MHW events</h3>
+      <p>The largest contiguous areas experiencing MHW conditions occurred during strong El Niño periods. In particular,
+        during the 2015/16 El Niño, the central tropical and eastern Pacific experienced MHW conditions over an area
+        exceeding 10% of the total ocean area for more than 200 days. The largest contiguous area experiencing MHW
+        conditions (20% of the ocean surface) occurred in March 2016, across the Indian and Pacific Oceans—an
+        unprecedented extent that persisted for a single day, associated with the merger of multiple co-occurring MHWs.
+        Overall, there was an upward multi-decadal trend in the spatial extent of the largest individual MHW events,
+        which persists even when El Niño periods are excluded.</p>
+
+      <div class="figure-ref">
+        <strong><!-- NO IMAGE EXTRACTED --> Figure 4 — Largest single contiguous MHW each day</strong>
+        <p>Black lines indicate the largest contiguous MHW (any category) each day. Red lines indicate contiguous MHW
+          that do not intersect the equatorial central or eastern Pacific (i.e., &gt; 170°E within 5° of the equator).
+        </p>
+      </div>
+
+      <h3>Most extreme extremes</h3>
+      <p>The 'most extreme extremes' represent the largest, longest and most intense events—defined where the largest
+        cumulative intensity and maximum severity events overlapped in time over extensive regions. Metrics associated
+        with the top 30 most extreme events are shown in Table 1.</p>
+
+      <div class="figure-ref">
+        <strong><!-- NO IMAGE EXTRACTED --> Figure 5 — Most extreme MHW events</strong>
+        <p>(a) Year of most severe MHW where it intersects in time with the MHW with the largest cumulative intensity.
+          Semi-contiguous regions where timing of most severe/largest cumulative intensity are similar have been
+          manually identified (black polygons; regions 1–62). (b) Normalized chlorophyll-a anomalies versus
+          climatological nitrate concentration for a subset of regions. (c) Associated normalized chlorophyll-a
+          anomalies by latitude.</p>
+      </div>
+
+      <h4>Table 1. Thirty most extreme MHWs (an expanded table showing all 62 regions is available as Table S1 in
+        Supplementary Information)</h4>
+      <table>
+        <thead>
+          <tr>
+            <th>Region</th>
+            <th>Max. intensity S&gt;2 °C·M km²</th>
+            <th>Max. intensity S&gt;1 °C·M km²</th>
+            <th>Max. area S&gt;2 M km²</th>
+            <th>Max. area S&gt;1 M km²</th>
+            <th>Duration IQR (days)</th>
+            <th>Duration median (days)</th>
+            <th>Core date range</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1*</td>
+            <td>62</td>
+            <td>38: 25/11/97</td>
+            <td>11.7: 7/11/97</td>
+            <td>26: 6/11/97</td>
+            <td>245–317</td>
+            <td>283</td>
+            <td>22/6/97–14/3/98</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>34</td>
+            <td>31.1: 22/12/82</td>
+            <td>10.3: 22/12/82</td>
+            <td>24.2: 8/2/83</td>
+            <td>75–96</td>
+            <td>85</td>
+            <td>13/12/82–2/3/83</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>41</td>
+            <td>29: 18/11/15</td>
+            <td>10.3: 24/11/15</td>
+            <td>46.7: 2/11/15</td>
+            <td>109–231</td>
+            <td>175</td>
+            <td>17/10/15–10/2/16</td>
+          </tr>
+          <tr>
+            <td>4*</td>
+            <td>37</td>
+            <td>27.9: 12/10/15</td>
+            <td>11.2: 12/10/15</td>
+            <td>46.7: 2/11/15</td>
+            <td>106–163</td>
+            <td>139</td>
+            <td>28/6/15–8/11/15</td>
+          </tr>
+          <tr>
+            <td>5*</td>
+            <td>13</td>
+            <td>14: 24/12/09</td>
+            <td>4: 9/12/09</td>
+            <td>8.7: 11/12/09</td>
+            <td>76–94</td>
+            <td>84</td>
+            <td>6/11/09–13/1/10 H</td>
+          </tr>
+          <tr>
+            <td>6*</td>
+            <td>38</td>
+            <td>10.5: 6/2/15</td>
+            <td>5: 6/2/15</td>
+            <td>31.1: 15/4/15</td>
+            <td>149–243</td>
+            <td>198</td>
+            <td>22/11/14–21/4/15 H</td>
+          </tr>
+          <tr>
+            <td>7*</td>
+            <td>25</td>
+            <td>10.4: 10/2/14</td>
+            <td>3.6: 10/2/14</td>
+            <td>7.8: 9/2/14</td>
+            <td>74–98</td>
+            <td>88</td>
+            <td>11/1/14–5/4/14</td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td>14</td>
+            <td>10: 21/1/11</td>
+            <td>2.8: 21/1/11</td>
+            <td>8.6: 24/1/11</td>
+            <td>50–71</td>
+            <td>62</td>
+            <td>12/12/10–27/2/11 H</td>
+          </tr>
+          <tr>
+            <td>9</td>
+            <td>46</td>
+            <td>10: 3/4/16</td>
+            <td>5: 3/4/16</td>
+            <td>60: 18/3/16</td>
+            <td>69–109</td>
+            <td>86</td>
+            <td>14/3/16–24/5/16</td>
+          </tr>
+          <tr>
+            <td>10</td>
+            <td>39</td>
+            <td>9.5: 14/9/15</td>
+            <td>4.4: 14/9/15</td>
+            <td>27.9: 17/10/15</td>
+            <td>75–146</td>
+            <td>90</td>
+            <td>18/8/15–22/11/15</td>
+          </tr>
+          <tr>
+            <td>11</td>
+            <td>33</td>
+            <td>8.4: 5/5/10</td>
+            <td>4: 5/5/10</td>
+            <td>24.4: 7/4/10</td>
+            <td>99–139</td>
+            <td>121</td>
+            <td>19/2/10–15/5/10</td>
+          </tr>
+          <tr>
+            <td>12</td>
+            <td>31</td>
+            <td>8.2: 9/9/16</td>
+            <td>2.7: 9/9/16</td>
+            <td>8.2: 9/9/16</td>
+            <td>147–273</td>
+            <td>195</td>
+            <td>22/8/16–18/9/16 H</td>
+          </tr>
+          <tr>
+            <td>13</td>
+            <td>21</td>
+            <td>8.2: 5/1/06</td>
+            <td>3.2: 5/1/06</td>
+            <td>9.7: 4/1/06</td>
+            <td>85–103</td>
+            <td>97</td>
+            <td>22/12/05–11/1/06</td>
+          </tr>
+          <tr>
+            <td>14*</td>
+            <td>17</td>
+            <td>7.8: 8/1/14</td>
+            <td>2.7: 8/1/14</td>
+            <td>10.5: 14/1/14</td>
+            <td>141–205</td>
+            <td>186</td>
+            <td>12/11/13–21/2/14 H</td>
+          </tr>
+          <tr>
+            <td>15</td>
+            <td>24</td>
+            <td>7.8: 24/12/09</td>
+            <td>3.2: 24/12/09</td>
+            <td>7.5: 10/1/10</td>
+            <td>112–158</td>
+            <td>142</td>
+            <td>11/12/09–26/1/10</td>
+          </tr>
+          <tr>
+            <td>16</td>
+            <td>5</td>
+            <td>7.6: 14/2/97</td>
+            <td>2.6: 14/2/97</td>
+            <td>7: 13/2/97</td>
+            <td>43–97</td>
+            <td>56</td>
+            <td>27/1/97–9/3/97 H</td>
+          </tr>
+          <tr>
+            <td>17</td>
+            <td>3</td>
+            <td>6.7: 30/5/97</td>
+            <td>1.8: 30/5/97</td>
+            <td>11.8: 30/5/97</td>
+            <td>87–111</td>
+            <td>96</td>
+            <td>5/5/97–12/6/97</td>
+          </tr>
+          <tr>
+            <td>18</td>
+            <td>55</td>
+            <td>6.5: 29/7/16</td>
+            <td>1.6: 29/7/16</td>
+            <td>8.2: 9/9/16</td>
+            <td>35–59</td>
+            <td>54</td>
+            <td>9/7/16–9/9/16</td>
+          </tr>
+          <tr>
+            <td>19</td>
+            <td>48</td>
+            <td>6.2: 19/1/15</td>
+            <td>2.3: 19/1/15</td>
+            <td>5.6: 19/1/15</td>
+            <td>75–122</td>
+            <td>92</td>
+            <td>10/1/15–6/3/15 H</td>
+          </tr>
+          <tr>
+            <td>20</td>
+            <td>42</td>
+            <td>6: 7/4/16</td>
+            <td>3.4: 7/4/16</td>
+            <td>62.3: 6/3/16</td>
+            <td>69–89</td>
+            <td>75</td>
+            <td>28/2/16–24/6/16</td>
+          </tr>
+          <tr>
+            <td>21</td>
+            <td>1</td>
+            <td>5.9: 1/3/83</td>
+            <td>2.1: 2/3/83</td>
+            <td>7.1: 20/2/83</td>
+            <td>51–99</td>
+            <td>68</td>
+            <td>16/1/83–18/5/83 H</td>
+          </tr>
+          <tr>
+            <td>22*</td>
+            <td>36</td>
+            <td>5.9: 21/9/14</td>
+            <td>3.2: 21/9/14</td>
+            <td>31.3: 19/9/14</td>
+            <td>82–111</td>
+            <td>100</td>
+            <td>5/8/14–4/11/14</td>
+          </tr>
+          <tr>
+            <td>23</td>
+            <td>18</td>
+            <td>5.8: 3/2/08</td>
+            <td>2.2: 3/3/08</td>
+            <td>6.2: 5/2/08</td>
+            <td>81–121</td>
+            <td>99</td>
+            <td>22/1/08–8/3/08</td>
+          </tr>
+          <tr>
+            <td>24</td>
+            <td>6</td>
+            <td>5.7: 29/4/98</td>
+            <td>2.6: 29/4/98</td>
+            <td>9: 28/4/98</td>
+            <td>75–139</td>
+            <td>113</td>
+            <td>8/4/98–14/5/98 H</td>
+          </tr>
+          <tr>
+            <td>25</td>
+            <td>54</td>
+            <td>5.6: 25/4/15</td>
+            <td>3.1: 25/4/15</td>
+            <td>40.8: 15/7/15</td>
+            <td>143–227</td>
+            <td>177</td>
+            <td>11/4/15–25/7/15</td>
+          </tr>
+          <tr>
+            <td>26</td>
+            <td>61</td>
+            <td>5.5: 31/12/99</td>
+            <td>1.8: 31/12/99</td>
+            <td>4.2: 16/1/00</td>
+            <td>54–76</td>
+            <td>63</td>
+            <td>14/12/99–2/2/00 H</td>
+          </tr>
+          <tr>
+            <td>27</td>
+            <td>15</td>
+            <td>5.1: 26/6/16</td>
+            <td>2.4: 26/6/16</td>
+            <td>12.2: 8/7/16</td>
+            <td>55–84</td>
+            <td>60</td>
+            <td>2/6/16–18/8/16</td>
+          </tr>
+          <tr>
+            <td>28</td>
+            <td>2</td>
+            <td>4.8: 18/1/02</td>
+            <td>1.6: 18/1/02</td>
+            <td>9.2: 30/12/01</td>
+            <td>71.5–95</td>
+            <td>82</td>
+            <td>6/12/01–23/1/02 H</td>
+          </tr>
+          <tr>
+            <td>29</td>
+            <td>53</td>
+            <td>4.5: 5/1/16</td>
+            <td>2.2: 5/1/16</td>
+            <td>8.9: 4/1/16</td>
+            <td>117–170</td>
+            <td>141</td>
+            <td>22/12/15–8/6/16</td>
+          </tr>
+          <tr>
+            <td>30*</td>
+            <td>27</td>
+            <td>4.3: 31/3/16</td>
+            <td>1.6: 31/3/16</td>
+            <td>60: 18/3/16</td>
+            <td>97–164</td>
+            <td>135</td>
+            <td>7/9/15–12/7/16</td>
+          </tr>
+        </tbody>
+      </table>
+      <p><em>Regions correspond to those shown in Fig. 5a. H/L/HL (in core date column) indicates MHWs whose build-up is
+          associated with a strong anomalous high/low/high–low dipole pressure system. Bold/underlined text in the
+          original denotes the most extreme five (ten) MHWs for each metric. * indicates a region also associated with
+          another listed region.</em></p>
+
+      <p>Many of the most extreme events were associated with El Niño periods. The most extreme event in terms of
+        spatial extent occurred during the 1997/98 El Niño in the eastern equatorial Pacific (region 62). The largest
+        contiguous area experiencing strong or greater MHW conditions covered almost 12 million km² in November 1997.
+        Other extreme events in the eastern tropical Pacific were associated with the 1982/83 and 2015/16 El Niño
+        events.</p>
+      <p>The analysis highlights the evolution of the extreme MHW that constituted the Blob in the Pacific. In late
+        2013, a strong and persistent high-pressure system caused this event to develop in region 17. In 2014–2016,
+        extreme MHW conditions shifted eastwards and southwards (regions 38, 43, 36, 37, 54), finally merging with the
+        2015/16 El Niño SST signature.</p>
+
+      <h3>Common MHW forcing mechanisms</h3>
+      <p>Persistent atmospheric high-pressure systems have been indicated as a primary driver for initiating a number of
+        prominent MHWs. By examining the atmospheric state prior to and during the identified extreme events, we found
+        that a large proportion of the most extreme extra-tropical MHW events were similarly associated with large,
+        persistent, high-pressure systems. These events, which occurred in the band of prevailing westerly winds,
+        generally formed on the equatorward flanks of high-pressure systems. The anomalous geostrophic winds oppose the
+        prevailing winds, reducing turbulent heat fluxes from the ocean, reducing vertical mixing, and inducing an
+        anomalous poleward Ekman flow that advects warmer water into the MHW region. Additionally, high-pressure systems
+        are associated with subsidence and reduced cloud cover, so increased insolation may also play a role in warming
+        the near-surface ocean.</p>
+
+      <div class="figure-ref">
+        <strong><!-- NO IMAGE EXTRACTED --> Figure 6 — Normalised anomalies for the 62 identified extreme MHW
+          regions</strong>
+        <p>Before (average of 6 to 3 weeks prior to event peak, top panels) and after (average of 3 to 6 weeks after
+          event peak, lower panels) the peak of the event. Large black circles indicate anomalies within the top decile;
+          large red circles indicate the most extreme anomaly for the same 4-week period across all years. Percentages
+          above each panel indicate the proportion of regions for which anomalies are &gt; 0.</p>
+      </div>
+
+      <p>At all latitudes, suppressed wind speeds were a common factor during the formation of a large fraction (82%) of
+        the identified MHWs. At the same time, a majority of these events (~60%) are associated with suppressed latent
+        and sensible heat losses, which are in turn modulated by wind speed. During the decay phase, turbulent heat
+        fluxes were clearly important: 79% (67%) of extreme MHWs were associated with enhanced latent (sensible) heat
+        losses after the peak of the event. Latent heat flux anomalies were typically 3× larger than sensible heat flux
+        anomalies and almost 2× larger than insolation anomalies, suggesting that latent heat fluxes were the most
+        prominent surface heat flux term in both the build-up and decay of many MHW events.</p>
+      <p>In contrast to higher latitude events, many tropical extreme MHWs were associated with low-pressure systems and
+        ENSO dynamics. For example, the 2011 Ningaloo Niño (region 16) involved a low-pressure system associated with
+        anomalous northerly winds along the west coast of Australia that weakened the normal seasonal slowdown of the
+        Leeuwin Current, maintaining anomalously strong southward transport of warm water.</p>
+
+      <h3>Surface chlorophyll relationship with MHWs</h3>
+      <p>Using the events identified in Tables 1 and S1, a majority (72%) of the events experienced anomalously low
+        chlorophyll-a during the extreme MHWs—a level of agreement unlikely by chance (p &lt; 0.01 based on a binomial
+        test). All the extreme tropical MHWs (between 20°N and 20°S) had suppressed chlorophyll-a levels. At higher
+        latitudes the response largely changes sign, with many of the extreme MHWs associated with elevated
+        chlorophyll-a levels.</p>
+      <p>Regions with low to medium climatological nutrient levels were frequently associated with suppressed primary
+        production, a suppression more pronounced than previously reported for coastal MHWs. By contrast, regions with
+        high climatological nitrate levels were typically associated with elevated chlorophyll-a at the peak of the MHW,
+        consistent with prior work in coastal regions.</p>
+    </section>
+
+    <!-- DISCUSSION -->
+    <section>
+      <h2>Discussion</h2>
+      <p>Using a consistent framework to identify and categorize MHWs, we identified the strongest, longest and most
+        extensive events from the satellite era between 1982 and 2017. Given the long-term warming of most of the ocean
+        over the last century, most events are likely to be the most extreme over a much longer timeframe. By combining
+        metrics, we provided a list of events that are both the most intense/high category and have the longest
+        duration/highest cumulative intensity.</p>
+      <p>We found that the intensity, duration and extent of extreme MHWs were strongly enhanced during El Niño periods,
+        both in the tropical Pacific and beyond. Interestingly, many extreme MHWs were also associated with the cold
+        phase of ENSO, as La Niña events were associated with enhanced SST in some regions. We also demonstrated that
+        MHW intensity has a distinct seasonality whereby maximum intensity MHWs tend to occur in the calendar summer of
+        each hemisphere. The main factor in this asymmetry is likely concurrent shallow mixed layers in local summer
+        that facilitate larger temperature increases for a given input of heat. Minimum mixed-layer depths and most
+        intense MHWs typically occur in the season prior to maximum climatological SST—a mismatch that may have
+        important implications for marine species whose ecological performance depends more on exceedance of absolute
+        rather than relative temperature thresholds.</p>
+      <p>Consistent with a few previously described MHW events, many of the extreme subtropical MHWs identified here
+        were associated with anomalous high-pressure systems during their build-up. Several processes are potentially
+        associated with high-pressure systems including subsidence that gives rise to adiabatic warming, reduced cloud
+        cover and increased insolation, and wind changes that can suppress turbulent heat losses from the ocean and
+        vertical mixing of cold deep water to the surface. Our analysis suggests that different combinations of these
+        mechanisms are important for different MHWs.</p>
+      <p>Globally, we showed that almost all of the most extreme MHWs were associated with suppressed wind speeds during
+        their build-up phase. In some, but not all, cases this was also related to suppressed turbulent heat losses (in
+        particular latent heat) from the ocean. Significantly, during the decay phase of a MHW, latent, and to a lesser
+        degree sensible, heat losses play a prominent role in cooling about 80% of the events.</p>
+      <p>Interestingly, a large majority of extreme MHWs were associated with increased downward longwave radiation both
+        in the build-up (&gt;90%) and the decay phase (&gt;82%) of the events. Part of this may relate to the fact that
+        extreme MHWs tended to cluster during El Niño periods and recent years when global downward longwave radiation
+        is elevated. However, the warmer SST associated with MHWs will also generate local responses in the boundary
+        layer that increase humidity, thereby generating a positive longwave feedback—i.e., the LW change is a response
+        rather than a driver of these large MHWs.</p>
+      <p>Understanding how MHWs affect ecosystems and the provision of ecological goods and services is critical for
+        improving predictions of MHW impacts in a future warmer ocean. We found that the majority of extreme MHWs are
+        associated with reduced chlorophyll-a concentrations, but the effect is dependent on latitude: strong
+        suppression at low and mid-latitudes but more frequent enhanced productivity at high latitudes. A likely
+        explanation is that enhanced stratification of oligotrophic tropical waters further suppresses nutrient supply
+        to the upper ocean, limiting phytoplankton growth. By comparison, at high latitudes—where phytoplankton are more
+        often light- than nutrient-limited—stratification reduces sinking and loss of phytoplankton out of the photic
+        zone, thereby facilitating more persistent blooms.</p>
+      <p>As MHWs continue to grow stronger, larger, more frequent and longer, understanding the linkages between their
+        occurrence and their ecological consequences, including primary productivity, will become increasingly
+        important.</p>
+    </section>
+
+    <!-- METHODS -->
+    <section>
+      <h2>Materials and Methods</h2>
+      <p>A MHW was defined to occur when the local SST exceeded the seasonally varying 90th percentile threshold (PC90)
+        for at least 5 days. If SST dropped below PC90 for &lt; 2 days and subsequently returned above the threshold,
+        the MHW was treated as a single event. A 30-year climatological period of 1983–2012 was used as the baseline to
+        estimate percentile thresholds and mean climatological SST. Code to calculate MHW characteristics is available
+        at <a href="https://github.com/ecjoliver/MHW_Drivers" target="_blank">github.com/ecjoliver/MHW_Drivers</a>.</p>
+      <p>SST data were taken from the NOAA 1/4° daily Optimum Interpolation Sea Surface Temperature v2.0, which
+        incorporates AVHRR satellite retrievals and ship observations referenced to buoy data. A severity index was
+        defined as:</p>
+      <p><em>S<sub>i,t</sub> = (SST<sub>i,t</sub> − μ<sub>i,d</sub>) / (PC90<sub>i,d</sub> − μ<sub>i,d</sub>)</em></p>
+      <p>where μ<sub>i,d</sub> is the long-term daily mean SST and PC90<sub>i,d</sub> is the 90th-percentile SST
+        threshold, both on the <em>d</em>th day of the year at location <em>i</em>. The percentile calculation used a
+        moving 11-day window and a 31-day smoothing filter was applied to remove high-frequency noise. MHWs are thereby
+        categorized as moderate (1 &lt; S ≤ 2), strong (2 &lt; S ≤ 3), severe (3 &lt; S ≤ 4) or extreme (S ≥ 4).</p>
+      <p>A semi-objective procedure was used to characterize the most extreme events. Grid cells where the most severe
+        recorded MHW day occurred during the largest cumulative intensity event were identified. Regions containing
+        large near-contiguous areas of the most severe/largest cumulative intensity MHW occurring at almost the same
+        time were manually selected. For each region, timeseries of (i) the proportion experiencing moderate or strong
+        category MHW, (ii) the largest contiguous area intersecting the region, (iii) the integrated intensity of that
+        area, and (iv) the number of cells experiencing their most severe recorded MHW were calculated. Start and end
+        dates were manually identified based on when most of these metrics were elevated.</p>
+      <p>Local atmospheric processes were examined using normalized anomalies of wind speed, zonal wind, mean sea-level
+        pressure, downward shortwave and longwave radiation, and latent and sensible heat fluxes from the ERA-Interim
+        dataset (shortwave from ERA5), averaged over 4-week periods before and after the event peak. Surface
+        chlorophyll-a was taken from the gridded 8-day GlobColor merged satellite product (SeaWIFS, MERIS, MODIS
+        sensors). Long-term mean nitrate levels were extracted from the World Ocean Atlas 2013 version 2.</p>
+    </section>
+
+    <!-- ACKNOWLEDGEMENTS + CONTRIBUTIONS -->
+    <div class="contribution-box">
+      <strong>Acknowledgements</strong>
+      Concepts and analyses were developed during three workshops organized by an international working group on marine
+      heatwaves (<a href="https://www.marineheatwaves.org" target="_blank">marineheatwaves.org</a>) funded by a
+      University of Western Australia Research Collaboration Award and a Natural Environment Research Council (UK)
+      International Opportunity Fund (NE/N00678X/1). D.A.S. is supported by a UKRI Future Leaders Fellowship
+      (MR/S032827/1). The Australian Research Council supported T.W. (FT110100174, DP170100023) and A.S.T.
+      (FT160100495). N.J.H. and L.V.A. are supported by the ARC Centre of Excellence for Climate Extremes (CE170100023).
+      E.C.J.O. was supported by NSERC Discovery Grant RGPIN-2018-05255 and MEOPAR project 1-02-02-059.1. All datasets
+      used in this work are freely available. Python and MATLAB codes are available at <a
+        href="https://github.com/alexsengupta/ExtremeExtremes"
+        target="_blank">github.com/alexsengupta/ExtremeExtremes</a>.
+    </div>
+
+    <div class="contribution-box">
+      <strong>Author Contributions</strong>
+      A.S.G. conducted the analysis and wrote the paper. M.T., J.B., A.H., E.O., L.A., M.B., M.D., M.F., N.H., S.P.K.,
+      P.M., R.R., H.S., A.S.T., C.U., T.W., and D.S. discussed the results and implications and commented on the
+      manuscript at all stages.
+    </div>
+
+    <div class="contribution-box">
+      <strong>Competing Interests</strong>
+      The authors declare no competing interests.
+    </div>
+
+    <!-- REFERENCES -->
+    <section class="references-section">
+      <h2>References</h2>
+      <div class="reference-item">1. Wernberg T, et al. Climate-driven regime shift of a temperate marine ecosystem.
+        <em>Science.</em> 2016;353:169–172. doi: 10.1126/science.aad8745</div>
+      <div class="reference-item">2. Oliver ECJ, et al. The unprecedented 2015/16 Tasman Sea marine heatwave. <em>Nat.
+          Commun.</em> 2017;8:16101. doi: 10.1038/ncomms16101</div>
+      <div class="reference-item">3. Di Lorenzo E, Mantua N. Multi-year persistence of the 2014/15 North Pacific marine
+        heatwave. <em>Nat. Clim. Change.</em> 2016;6:1042–1047. doi: 10.1038/nclimate3082</div>
+      <div class="reference-item">4. Hughes TP, et al. Global warming transforms coral reef assemblages.
+        <em>Nature.</em> 2018;556:492–496. doi: 10.1038/s41586-018-0041-2</div>
+      <div class="reference-item">5. Thomsen MS, et al. Local extinction of bull kelp (<em>Durvillaea</em> spp.) due to
+        a marine heatwave. <em>Front. Mar. Sci.</em> 6 (2019).</div>
+      <div class="reference-item">6. Smale DA, Wernberg T. Extreme climatic event drives range contraction of a
+        habitat-forming species. <em>Proc. R. Soc. B Biol. Sci.</em> 280 (2013).</div>
+      <div class="reference-item">7. Smale DA, et al. Marine heatwaves threaten global biodiversity and the provision of
+        ecosystem services. <em>Nat. Clim. Change.</em> 2019.</div>
+      <div class="reference-item">8. Benthuysen JA, Oliver ECJ, Feng M, Marshall AG. Extreme marine warming across
+        tropical Australia during austral summer 2015–2016. <em>J. Geophys. Res. Oceans.</em> 2018;123:1301–1326. doi:
+        10.1002/2017JC013326</div>
+      <div class="reference-item">9. Pears R, Stella J, Wachenfeld DR, Great Barrier Reef Marine Park Authority. 2016
+        coral bleaching event on the Great Barrier Reef (2017).</div>
+      <div class="reference-item">10. Eakin CM, et al. Unprecedented three years of global coral bleaching 2014–17.
+        <em>Bull. Am. Meteorol. Soc.</em> 99:S74–S75.</div>
+      <div class="reference-item">11. Oliver ECJ, et al. Longer and more frequent marine heatwaves over the past
+        century. <em>Nat. Commun.</em> 2018;9:1324. doi: 10.1038/s41467-018-03732-9</div>
+      <div class="reference-item">12. Oliver ECJ. Mean warming not variability drives marine heatwave trends. <em>Clim.
+          Dyn.</em> 2019. doi: 10.1007/s00382-019-04707-2</div>
+      <div class="reference-item">13. Frölicher TL, Fischer EM, Gruber N. Marine heatwaves under global warming.
+        <em>Nature.</em> 2018;560:360–364. doi: 10.1038/s41586-018-0383-9</div>
+      <div class="reference-item">14. Hobday AJ, et al. A hierarchical approach to defining marine heatwaves. <em>Prog.
+          Oceanogr.</em> 2016;141:227–238. doi: 10.1016/j.pocean.2015.12.014</div>
+      <div class="reference-item">15. Hobday A, et al. Categorizing and naming marine heatwaves. <em>Oceanography</em>
+        31 (2018).</div>
+      <div class="reference-item">16. Pearce A, Feng M. The 'Marine Heat Wave' Off Western Australia During the Summer
+        of 2010/11 (2011).</div>
+      <div class="reference-item">17. Lee T, et al. Record warming in the South Pacific and western Antarctica
+        associated with the strong central-Pacific El Niño in 2009–10. <em>Geophys. Res. Lett.</em> 2010;37:L19704.
+      </div>
+      <div class="reference-item">18. Bond NA, Cronin MF, Freeland H, Mantua N. Causes and impacts of the 2014 warm
+        anomaly in the NE Pacific. <em>Geophys. Res. Lett.</em> 2015;42:3414–3420. doi: 10.1002/2015GL063306</div>
+      <div class="reference-item">19. Holbrook NJ, et al. A global assessment of marine heatwaves and their drivers.
+        <em>Nat. Commun.</em> 2019;10:2624. doi: 10.1038/s41467-019-10206-z</div>
+      <div class="reference-item">20. Rodrigues RR, Taschetto AS, Gupta AS, Foltz GR. Common cause for severe droughts
+        in South America and marine heatwaves in the South Atlantic. <em>Nat. Geosci.</em> 2019;12:620. doi:
+        10.1038/s41561-019-0393-8</div>
+      <div class="reference-item">21. Scannell HA, et al. Frequency of marine heatwaves in the North Atlantic and North
+        Pacific since 1950. <em>Geophys. Res. Lett.</em> 2016;43. doi: 10.1002/2015GL067308</div>
+      <div class="reference-item">22. Holbrook NJ, et al. Keeping pace with marine heatwaves. <em>Nat. Rev. Earth
+          Environ.</em> 2020. doi: 10.1038/s43017-020-0068-4</div>
+      <div class="reference-item">23. Santoso A, et al. Dynamics and predictability of the El Niño-Southern Oscillation.
+        <em>Bull. Am. Meteorol. Soc.</em> 2018. doi: 10.1175/BAMS-D-18-0057.1</div>
+      <div class="reference-item">24. Lehodey P, et al. Nino Southern Oscillation and tuna in the western Pacific.
+        <em>Nature.</em> 1997;389:715–718. doi: 10.1038/39575</div>
+      <div class="reference-item">25. Barber RT, Chavez FP. Biological consequences of El Niño. <em>Science.</em>
+        1983;222:1203–1210.</div>
+      <div class="reference-item">26. Pearce AF, Feng M. The rise and fall of the "marine heat wave" off Western
+        Australia during the summer of 2010/2011. <em>J. Mar. Syst.</em> 2013;111–112:139–156. doi:
+        10.1016/j.jmarsys.2012.10.009</div>
+      <div class="reference-item">27. Manta G, et al. The 2017 record marine heatwave in the Southwestern Atlantic
+        Shelf. <em>Geophys. Res. Lett.</em> 2018;45:12449–12456. doi: 10.1029/2018GL081070</div>
+      <div class="reference-item">28. Olita A, et al. Effects of the 2003 European heatwave on the Central Mediterranean
+        Sea. <em>Ocean Sci.</em> 2007;3:273–289. doi: 10.5194/os-3-273-2007</div>
+      <div class="reference-item">29. Chen K, et al. The role of atmospheric forcing versus ocean advection during the
+        extreme warming of the Northeast U.S. continental shelf in 2012. <em>J. Geophys. Res. Oceans.</em>
+        2015;120:4324–4339. doi: 10.1002/2014JC010547</div>
+      <div class="reference-item">30. Rouault M, et al. Origin, development and demise of the 2010–2011 Benguela Niño.
+        <em>J. Mar. Syst.</em> 2018;188:39–48. doi: 10.1016/j.jmarsys.2017.07.007</div>
+      <div class="reference-item">31. Feng M, McPhaden MJ, Xie S-P, Hafner J. La Niña forces unprecedented Leeuwin
+        Current warming in 2011. <em>Sci. Rep.</em> 3 (2013).</div>
+      <div class="reference-item">32. Carton JA, Grodsky SA, Liu H. Variability of the oceanic mixed layer, 1960–2004.
+        <em>J. Clim.</em> 2008;21:1029–1047. doi: 10.1175/2007JCLI1798.1</div>
+      <div class="reference-item">33. Sen Gupta A, et al. Episodic and non-uniform shifts of thermal habitats in a
+        warming ocean. <em>Deep-Sea Res. Part II.</em> 113:59–72 (2015).</div>
+      <div class="reference-item">34. Feng M, et al. Freshening anomalies in the Indonesian throughflow and impacts on
+        the Leeuwin Current during 2010–2011. <em>Geophys. Res. Lett.</em> 2015;42:8555–8562. doi: 10.1002/2015GL065848
+      </div>
+      <div class="reference-item">35. Mumby PJ, et al. Remote sensing of coral reefs and their physical environment.
+        <em>Mar. Pollut. Bull.</em> 2004;48:219–228. doi: 10.1016/j.marpolbul.2003.10.031</div>
+      <div class="reference-item">36. Tourre YM, White WB. Evolution of the ENSO signal over the Indo-Pacific domain.
+        <em>J. Phys. Oceanogr.</em> 1997;27:683–696.</div>
+      <div class="reference-item">37. Hayashida H, Matear RJ, Strutton PG. Background nutrient concentration determines
+        phytoplankton bloom response to marine heatwaves. <em>Glob. Change Biol.</em> 2020;26:4800–4811. doi:
+        10.1111/gcb.15255</div>
+      <div class="reference-item">38. IPCC. Climate Change 2013: The Physical Science Basis. Working Group I
+        Contribution to the Fifth Assessment Report (2013).</div>
+      <div class="reference-item">39. Jacox MG, et al. Thermal displacement by marine heatwaves. <em>Nature.</em>
+        2020;584:82–86. doi: 10.1038/s41586-020-2534-z</div>
+      <div class="reference-item">40. Brierley AS, Kingsford MJ. Impacts of climate change on marine organisms and
+        ecosystems. <em>Curr. Biol.</em> 2009;19:R602–R614. doi: 10.1016/j.cub.2009.05.046</div>
+      <div class="reference-item">41. Vargas Zeppetello LR, Donohoe A, Battisti DS. Does surface temperature respond to
+        or determine downwelling longwave radiation? <em>Geophys. Res. Lett.</em></div>
+      <div class="reference-item">42. Penny SG, et al. Observational needs for improving ocean and coupled reanalysis.
+        <em>Front. Mar. Sci.</em> 6 (2019).</div>
+      <div class="reference-item">43. Blondeau-Patissier D, et al. A review of ocean color remote sensing methods and
+        statistical techniques for the detection, mapping and analysis of phytoplankton blooms. <em>Prog. Oceanogr.</em>
+        2014;123:123–144. doi: 10.1016/j.pocean.2013.12.008</div>
+      <div class="reference-item">44. Hecky RE, Kilham P. Nutrient limitation of phytoplankton in freshwater and marine
+        environments. <em>Limnol. Oceanogr.</em> 1988;33:796–822.</div>
+      <div class="reference-item">45. Falkowski PG. The role of phytoplankton photosynthesis in global biogeochemical
+        cycles. <em>Photosynth. Res.</em> 1994;39:235–258. doi: 10.1007/BF00014586</div>
+      <div class="reference-item">46. Montie S, et al. Extreme summer marine heatwaves increase chlorophyll a in the
+        Southern Ocean. <em>Antarct. Sci.</em> doi: 10.1017/S0954102020000401</div>
+      <div class="reference-item">47. Arrigo KR. Marine microorganisms and global nutrient cycles. <em>Nature.</em>
+        2005;437:349–355. doi: 10.1038/nature04159</div>
+      <div class="reference-item">48. Agboola JI, Adewolu MA, Lawson EO. Linking climate change and fisheries: The role
+        of phytoplankton. <em>J. Fish. Aquat. Sci.</em> 2011;6:225. doi: 10.3923/jfas.2011.225.235</div>
+      <div class="reference-item">49. Reynolds RW, et al. Daily high-resolution-blended analyses for sea surface
+        temperature. <em>J. Clim.</em> 2007;20:5473–5496. doi: 10.1175/2007JCLI1824.1</div>
+      <div class="reference-item">50. Lustenhouwer N, et al. Rapid evolution of phenology during range expansion with
+        recent climate change. <em>Glob. Change Biol.</em> 2018;24:e534–e544. doi: 10.1111/gcb.13947</div>
+      <div class="reference-item">51. Berrisford P, et al. The ERA-Interim Archive, Version 2.0. ECMWF (2011).</div>
+      <div class="reference-item">52. Hersbach H, et al. The ERA5 global reanalysis. <em>Q. J. R. Meteorol. Soc.</em>
+        doi: 10.1002/qj.3803 (2020).</div>
+      <div class="reference-item">53. Maritorena S, Siegel DA. Consistent merging of satellite ocean color data sets
+        using a bio-optical model. <em>Remote Sens. Environ.</em> 2005;94:429–440. doi: 10.1016/j.rse.2004.08.014</div>
+      <div class="reference-item">54. Garcia CAE, et al. Chlorophyll variability and eddies in the Brazil–Malvinas
+        confluence region. <em>Deep Sea Res. Part II.</em> 51:159–172 (2004).</div>
+    </section>
+
+  </main>
 </body>
+
 </html>

@@ -35,22 +35,22 @@
 
     <select class="sidebar-lang-select" id="lang-select">
       <option value="en">🇬🇧 English </option>
-      <option value="fr">🇫🇷 French</option>
-      <option value="hi">🇮🇳 Hindi</option>
-      <option value="pt">🇵🇹 Portuguese</option>
+      <option value="hi">🇮🇳 हिंदी</option>
       <option value="es">🇪🇸 Spanish</option>
+      <option value="pt">🇵🇹 Portuguese</option>
+      <option value="fr">🇫🇷 French</option>
+
     </select>
 
     <button class="btn-new-chat" id="btn-new-chat">
       <span class="btn-new-chat-icon">+</span>
-      New Chat
+      <span data-i18n="new_chat">New Chat</span>
     </button>
 
-    <div class="sidebar-section-label">CONVERSATIONS</div>
+    <div class="sidebar-section-label" data-i18n="conversations">CONVERSATIONS</div>
     <div class="conversation-list" id="conversation-list">
       <div class="empty-convos">
-
-        <p>No chats yet.<br>Start a new conversation<br>to explore!</p>
+        <p data-i18n="no_chats">No chats yet.<br>Start a new conversation<br>to explore!</p>
       </div>
     </div>
 
@@ -61,7 +61,7 @@
           <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6" />
           <path d="M10 11v6M14 11v6" />
         </svg>
-        Clear chat
+        <span data-i18n="clear_chat">Clear chat</span>
       </button>
       <button class="sidebar-action" id="btn-download-chat">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -69,14 +69,14 @@
           <polyline points="7 10 12 15 17 10" />
           <line x1="12" y1="15" x2="12" y2="3" />
         </svg>
-        Download chat
+        <span data-i18n="download_chat">Download chat</span>
       </button>
       <button class="sidebar-action" id="btn-server-logs" title="Click here to view server logs">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <rect x="3" y="3" width="18" height="18" rx="2" />
           <line x1="9" y1="3" x2="9" y2="21" />
         </svg>
-        Server logs
+        <span data-i18n="server_logs">Server logs</span>
       </button>
     </div>
   </aside>
@@ -110,7 +110,7 @@
               <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
             </svg>
           </button> -->
-          <button class="topbar-icon-btn" title="Help">
+          <button class="topbar-icon-btn" id="btn-help" title="Help">
             <svg width="25" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
               stroke-linecap="round" stroke-linejoin="round">
               <circle cx="12" cy="12" r="10" />
@@ -188,23 +188,23 @@
           </div>
 
           <!-- Start exploring -->
-          <div class="divider-label">Give one of these a try</div>
+          <div class="divider-label" data-i18n="divider_try">Give one of these a try</div>
 
           <div class="suggested-questions">
-            <button class="sq-btn" data-q="What is global warming?">
+            <button class="sq-btn" data-q="What is global warming?" data-i18n="sq_global_warming">
               What is global warming?
             </button>
-            <button class="sq-btn" data-q="What is the Paris Agreement?">
+            <button class="sq-btn" data-q="What is the Paris Agreement?" data-i18n="sq_paris">
               What is the Paris Agreement?
             </button>
-            <button class="sq-btn" data-q="What is a Shared Socioeconomic Pathway (SSP)?">
+            <button class="sq-btn" data-q="What is a Shared Socioeconomic Pathway (SSP)?" data-i18n="sq_ssp">
               What is a Shared Socioeconomic Pathway (SSP)?
             </button>
-            <button class="sq-btn" data-q="How do greenhouse gases warm the Earth?">
+            <button class="sq-btn" data-q="How do greenhouse gases warm the Earth?" data-i18n="sq_greenhouse">
 
               How do greenhouse gases warm the Earth?
             </button>
-            <button class="sq-btn center-wide" data-q="Explain the carbon cycle.">
+            <button class="sq-btn center-wide" data-q="Explain the carbon cycle." data-i18n="sq_carbon">
               Explain the carbon cycle.
             </button>
           </div>
@@ -214,8 +214,8 @@
         <div class="messages" id="messages"></div>
 
         <div class="input-bar">
-          <textarea id="question-input" class="input-field" placeholder="Ask anything about the IPCC AR6 Report..."
-            rows="1"></textarea>
+          <textarea id="question-input" class="input-field" data-i18n-placeholder="input_placeholder"
+            placeholder="Ask anything about the IPCC AR6 Report..." rows="1"></textarea>
           <button class="send-btn" id="send-btn" title="Send">
             <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
               stroke-linecap="round" stroke-linejoin="round">
@@ -239,9 +239,9 @@
               <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
               <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
             </svg>
-            <span class="source-header-title">Source Documents</span>
+            <span class="source-header-title" data-i18n="source_docs">Source Documents</span>
           </div>
-          <button class="source-reset-btn" id="btn-reset-highlight">Reset highlight</button>
+          <button class="source-reset-btn" id="btn-reset-highlight" data-i18n="reset_highlight">Reset highlight</button>
         </div>
 
         <!-- Document navigator -->
@@ -263,7 +263,8 @@
             <div class="passage-section-label" id="passage-section"></div>
             <div class="passage-title" id="passage-title"></div>
             <div class="passage-text" id="passage-text"></div>
-            <button class="passage-back-btn" id="btn-passage-back">&#8592; Back to report</button>
+            <button class="passage-back-btn" id="btn-passage-back" data-i18n="back_to_report">&#8592; Back to
+              report</button>
           </div>
         </div>
 
@@ -318,7 +319,7 @@
           </div>
         </div>
         <div class="about-footer">
-          <button class="about-close-btn" id="btn-close-about-footer">Close</button>
+          <button class="about-close-btn" id="btn-close-about-footer" data-i18n="about_close">Close</button>
         </div>
       </div>
     </div>
@@ -327,6 +328,7 @@
   <!-- ── Toast Notification ── -->
   <div class="toast" id="toast-notification">Language changed successfully</div>
 
+  <script src="js/i18n.js"></script>
   <script src="js/api.js"></script>
   <script>
     // Build the ordered document list for the navigator.

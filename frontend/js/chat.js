@@ -99,7 +99,9 @@ const Chat = (() => {
     sendBtnEl().disabled = true;
 
     try {
-      const data = await Api.chat(question, sessionId);
+      const langSelect = document.getElementById("lang-select");
+      const selectedLang = langSelect?.value || "en";
+      const data = await Api.chat(question, sessionId, selectedLang);
       sessionId = data.session_id;
 
       if (!conversationStore[sessionId]) conversationStore[sessionId] = [];
