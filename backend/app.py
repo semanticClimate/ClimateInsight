@@ -1,12 +1,14 @@
-from flask import Flask, jsonify, request, send_file, Response
-from flask_cors import CORS
+from fastapi import FastAPI, HTTPException, Request
+from fastapi.responses import FileResponse, HTMLResponse, StreamingResponse
+from fastapi.staticfiles import StaticFiles
+from fastapi.middleware.cors import CORSMiddleware
 
 import os
 import re
 import sys
 import uuid
 import requests as http_requests
-from pathlib import Path          # ← add this line near the other imports
+from pathlib import Path
 
 # tomllib is stdlib in Python 3.11+; fall back to tomli for older versions
 if sys.version_info >= (3, 11):
@@ -30,9 +32,16 @@ from services import (
     message_response,
 )
 
-app = Flask(__name__)
+app = FastAPI()
 
-CORS(app)
+# Enable CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # -------------------------
 # Config
@@ -46,13 +55,13 @@ _CONFIG_PATH = os.path.abspath(
 def get_config():
     """Reads config.toml from the project root and returns it as JSON."""
     if tomllib is None:
-        return jsonify({"error": "tomllib/tomli not available"}), 500
+        raise HTTPException(status_code=500, detail="tomllib/tomli not available")
     try:
         with open(_CONFIG_PATH, "rb") as f:
             data = tomllib.load(f)
-        return jsonify(data)
+        return data
     except FileNotFoundError:
-        return jsonify({"error": "config.toml not found"}), 404
+        raise HTTPException(status_code=404, detail="config.toml not found")
 
 # -------------------------
 # Health
@@ -60,15 +69,13 @@ def get_config():
 
 @app.get("/api/health")
 def health():
-    return jsonify(
-        health_response()
-    )
+    return health_response()
 
 # -------------------------
 # Reference HTML
 # -------------------------
 
-@app.get("/ipcc-reference")
+@app.get("/ipcc-reference", response_class=HTMLResponse)
 def ipcc_reference():
     """
     Serves ipcc_reference.html with all ipcc.ch image URLs rewritten to
@@ -100,15 +107,17 @@ def ipcc_reference():
         html,
     )
 
-    return Response(html, mimetype="text/html")
+    return html
 
-@app.get("/paper/<pmcid>")
-def serve_paper(pmcid):
-    from flask import send_from_directory
+@app.get("/paper/{pmcid}")
+def serve_paper(pmcid: str):
     rendered = Path(__file__).parent.parent / "data" / "raw" / "ocean_heatwaves_2026"
     if not re.match(r'^\w+$', pmcid):
-        return "Not found", 404
-    return send_from_directory(rendered, f"{pmcid}.html")
+        raise HTTPException(status_code=404, detail="Not found")
+    paper_path = rendered / f"{pmcid}.html"
+    if not paper_path.exists():
+        raise HTTPException(status_code=404, detail="Not found")
+    return FileResponse(paper_path)
 
 @app.get("/climate-wiki-js")
 def climate_wiki_js():
@@ -122,17 +131,12 @@ def climate_wiki_js():
         )
     )
     
-    try:
-        return send_file(js_path, mimetype="application/javascript")
-    except FileNotFoundError:
-        return Response(
-            "console.error('climate-wiki.js not found');",
-            status=404,
-            mimetype="application/javascript"
-        )
+    if not os.path.exists(js_path):
+        return "console.error('climate-wiki.js not found');"
+    return FileResponse(js_path, media_type="application/javascript")
 
-@app.get("/ipcc-image-proxy/<path:image_path>")
-def ipcc_image_proxy(image_path):
+@app.get("/ipcc-image-proxy/{image_path:path}")
+async def ipcc_image_proxy(image_path: str):
     """
     Fetches images from https://www.ipcc.ch server-side and streams them back.
 
@@ -152,14 +156,14 @@ def ipcc_image_proxy(image_path):
         )
         content_type = resp.headers.get("Content-Type", "image/png")
 
-        return Response(
+        return StreamingResponse(
             resp.iter_content(chunk_size=8192),
-            status=resp.status_code,
-            content_type=content_type,
+            status_code=resp.status_code,
+            media_type=content_type,
         )
 
     except http_requests.exceptions.RequestException:
-        return Response("Image unavailable", status=502)
+        raise HTTPException(status_code=502, detail="Image unavailable")
 
 
 @app.get("/report-styles")
@@ -167,7 +171,7 @@ def report_styles():
     """
     Serves frontend/css/report.css for the IPCC reference iframe.
 
-    The iframe is loaded at /ipcc-reference (a Flask URL with no path depth),
+    The iframe is loaded at /ipcc-reference (a FastAPI URL with no path depth),
     so relative CSS paths in ipcc_reference.html break. This route gives the
     iframe a stable absolute URL it can always resolve: /report-styles
     """
@@ -181,7 +185,7 @@ def report_styles():
         )
     )
 
-    return send_file(css_path, mimetype="text/css")
+    return FileResponse(css_path, media_type="text/css")
 
 
 # -------------------------
@@ -189,9 +193,11 @@ def report_styles():
 # -------------------------
 
 @app.post("/api/chat")
-def chat():
-
-    data = request.get_json(silent=True) or {}
+async def chat(request: Request):
+    try:
+        data = await request.json()
+    except Exception:
+        data = {}
 
     question = (data.get("question") or "").strip()
 
@@ -200,23 +206,25 @@ def chat():
         or str(uuid.uuid4())
     )
 
+    language = data.get("language", "en")  # e.g. "en", "es", "pt", "fr", "hi"
+
     if not question:
-        return jsonify(
-            error_response("question required")
-        ), 400
+        raise HTTPException(status_code=400, detail=error_response("question required"))
 
     result = answer_question(
         question,
         session_id,
+        language,
     )
 
     if result is None:
-        return jsonify(
-            chat_response(
-                answer="I couldn't find relevant information.",
-                citations=[],
-                session_id=session_id,
-            )
+        fallback = "I couldn't find relevant information."
+        add_to_history(session_id, "user", question)
+        add_to_history(session_id, "assistant", fallback)
+        return chat_response(
+            answer=fallback,
+            citations=[],
+            session_id=session_id,
         )
 
     add_to_history(
@@ -231,37 +239,29 @@ def chat():
         result["answer"],
     )
 
-    return jsonify(
-        chat_response(
-            answer=result["answer"],
-            citations=result["citations"],
-            session_id=session_id,
-        )
-)
+    return chat_response(
+        answer=result["answer"],
+        citations=result["citations"],
+        session_id=session_id,
+    )
 
 # -------------------------
 # Clear session
 # -------------------------
 
-@app.delete("/api/session/<session_id>")
-def clear(session_id):
-
+@app.delete("/api/session/{session_id}")
+def clear(session_id: str):
     clear_history(session_id)
-
-    return jsonify(
-        message_response(
-            "Session cleared"
-        )
-    )
+    return message_response("Session cleared")
 
 # -------------------------
 # Main
 # -------------------------
 
 if __name__ == "__main__":
-
-    app.run(
+    import uvicorn
+    uvicorn.run(
+        app,
         host="0.0.0.0",
         port=5000,
-        debug=True,
     )

@@ -4,13 +4,14 @@ from llm import (
     ask_ollama,
     build_chat_prompt,
 )
+from llm.translation import translate_response
 
 from .context_builder import build_context
 from .prompt_builder import build_prompt
 from .citation_parser import extract_citations
 
 
-def answer_question(question, session_id):
+def answer_question(question, session_id, language="en"):
 
     chunks = query_chunks(question, top_k=6)
 
@@ -32,7 +33,12 @@ def answer_question(question, session_id):
     # Pass chunks so each citation can carry its verbatim source text
     citations = extract_citations(answer, chunks)
 
+    # Translate the answer back to the user's selected language (no-op for English)
+    if language != "en":
+        answer = translate_response(answer, language)
+
     return {
         "answer": answer,
         "citations": citations,
+        "language": language,
     }

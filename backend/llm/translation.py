@@ -107,3 +107,55 @@ Text:
     except Exception:
         # Translation failure should never crash retrieval.
         return query
+
+
+# Language code → full name map used by both detection and translation
+_LANG_CODE_TO_NAME = {
+    "es": "Spanish",
+    "pt": "Portuguese",
+    "fr": "French",
+    "hi": "Hindi",
+    "de": "German",
+    "ar": "Arabic",
+    "zh": "Mandarin",
+}
+
+
+def translate_response(response: str, target_language: str) -> str:
+    """
+    Translate an English LLM answer into the user's target language.
+
+    - target_language: ISO 639-1 code (e.g. "es", "pt", "fr", "hi")
+      or a full language name ("Spanish", etc.).
+    - Citations in square brackets (e.g. [2.1], [introduction]) are
+      explicitly preserved — they must not be translated or modified.
+    - Returns original English on any failure so retrieval is never blocked.
+    """
+
+    if not target_language or target_language == "en":
+        return response
+
+    # Resolve code → full name (pass through if already a name)
+    lang_name = _LANG_CODE_TO_NAME.get(target_language, target_language)
+
+    prompt = f"""You are a professional translator specialising in climate science.
+
+Translate the following English response into {lang_name}.
+
+STRICT RULES:
+1. Preserve all citation markers in square brackets EXACTLY as they appear,
+   e.g. [2.1], [introduction], [SPM.3]. Do NOT translate or alter them.
+2. Preserve all numbers, percentages, and scientific units unchanged.
+3. Translate only the descriptive prose — maintain structure and formatting.
+4. Do NOT add explanations, notes, or commentary.
+5. Return ONLY the translated text.
+
+Text to translate:
+{response}
+"""
+
+    try:
+        return ask_ollama(prompt, temperature=0.0)
+    except Exception:
+        # Fall back to English if translation fails
+        return response
