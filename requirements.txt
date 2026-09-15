@@ -18,6 +18,7 @@ requests==2.32.3
 
 # Config
 python-dotenv==1.0.1
+tomli>=2.0.1; python_version < "3.11"
 
 # Numerics
 numpy==1.26.4

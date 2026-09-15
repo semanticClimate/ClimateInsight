@@ -89,8 +89,11 @@ def ipcc_reference():
         )
     )
 
-    with open(html_path, "r", encoding="utf-8") as f:
-        html = f.read()
+    try:
+        with open(html_path, "r", encoding="utf-8") as f:
+            html = f.read()
+    except FileNotFoundError:
+        return "IPCC reference HTML not found. Please place it in data/raw/ipcc_reference.html or run the ingest script.", 404
 
     # Rewrite all ipcc.ch image URLs to go through our proxy.
     # Matches src="https://www.ipcc.ch/..." and src='https://www.ipcc.ch/...'
@@ -139,7 +142,7 @@ def ipcc_image_proxy(image_path):
     The browser's Referer header is NOT forwarded, so IPCC's hotlink protection
     lets the request through. Without this proxy, images fail to load when the
     HTML is embedded in the chatbot's iframe because the browser sends
-    Referer: http://localhost:5000 which IPCC's CDN blocks.
+    Referer from the local frontend, which IPCC's CDN blocks.
     """
     upstream_url = f"https://www.ipcc.ch/{image_path}"
 
@@ -213,7 +216,10 @@ def chat():
     if result is None:
         return jsonify(
             chat_response(
-                answer="I couldn't find relevant information.",
+                answer=(
+                    "I don't have enough information in the indexed sources "
+                    "to answer that."
+                ),
                 citations=[],
                 session_id=session_id,
             )
@@ -262,6 +268,6 @@ if __name__ == "__main__":
 
     app.run(
         host="0.0.0.0",
-        port=5000,
+        port=int(os.environ.get("PORT", "5001")),
         debug=True,
     )
