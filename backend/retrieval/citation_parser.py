@@ -3,31 +3,37 @@ import re
 
 def extract_citations(answer: str, chunks: list[dict]) -> list[dict]:
     """
-    Parse inline [section] markers from the LLM answer and attach
-    the verbatim chunk text that corresponds to each cited section.
+    Parse inline [passage-id] markers from the LLM answer and attach
+    the verbatim chunk text that corresponds to each cited passage.
 
     Returns a deduplicated list preserving citation order.
-    Only includes citations whose section ID was actually in the
-    retrieved chunks — ghost citations (hallucinated section IDs)
+    Only includes citations whose passage ID was actually in the
+    retrieved chunks — ghost citations (hallucinated passage IDs)
     are silently dropped.
 
     Each entry: {"section": str, "title": str, "text": str}
     """
 
-    cited_sections = list(dict.fromkeys(re.findall(r"\[([^\]]+)\]", answer)))
+    cited_ids = list(dict.fromkeys(re.findall(r"\[([^\]]+)\]", answer)))
 
-    # Build a lookup: section_id -> chunk dict
-    chunk_map = {c["section"]: c for c in chunks}
+    # Chroma chunk IDs are globally unique across papers. Never fall back to
+    # section names here: doing so would recreate the cross-paper collision.
+    chunk_map = {
+        c["chunk_id"]: c
+        for c in chunks
+        if c.get("chunk_id")
+    }
 
     result = []
-    for section in cited_sections:
-        chunk = chunk_map.get(section)
+    for citation_id in cited_ids:
+        chunk = chunk_map.get(citation_id)
         if chunk is None:
-            # LLM cited a section that wasn't in the retrieved chunks —
+            # LLM cited a passage that wasn't in the retrieved chunks —
             # drop it entirely so no ghost citations appear in the UI
             continue
         entry = {
-            "section": section,
+            "citation_id": citation_id,
+            "section": chunk.get("section", ""),
             "title": chunk.get("section_title", ""),
             "text": chunk.get("text", ""),
         }
@@ -38,6 +44,10 @@ def extract_citations(answer: str, chunks: list[dict]) -> list[dict]:
             entry["doi"] = chunk["doi"]
         if chunk.get("pmcid"):
             entry["pmcid"] = chunk["pmcid"]
+        if chunk.get("source_type"):
+            entry["source_type"] = chunk["source_type"]
+        if chunk.get("document_title"):
+            entry["document_title"] = chunk["document_title"]
         result.append(entry)
 
     return result

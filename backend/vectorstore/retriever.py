@@ -34,13 +34,18 @@ def query_chunks(question: str, top_k: int = 5) -> list[dict]:
 
     output = []
 
-    for doc, meta, dist in zip(
+    for chunk_id, doc, meta, dist in zip(
+        results["ids"][0],
         results["documents"][0],
         results["metadatas"][0],
         results["distances"][0],
     ):
         output.append(
             {
+                # Chroma's document ID is globally unique and therefore safe
+                # to use as the citation key. Section names alone are not:
+                # every paper can contain an "introduction" or "results".
+                "chunk_id": chunk_id,
                 "text": doc,
                 "section": meta.get("section", ""),
                 "section_title": meta.get("section_title", ""),

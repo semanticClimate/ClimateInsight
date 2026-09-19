@@ -139,6 +139,8 @@ def main(argv: list | None = None) -> None:
     parser.add_argument(
         "--xml-dir",
         type=str,
+        nargs="?",
+        const=str(XML_DIR),
         default=None,
         dest="xml_dir",
         help=(
