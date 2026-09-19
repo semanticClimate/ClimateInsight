@@ -24,8 +24,8 @@ status        = "development"          # development | beta | stable
 release_date  = "2026-07-08"
 
 [backend]
-framework     = "Flask"
-llm_provider  = "Google Gemini"
+framework     = "FastAPI"
+llm_provider  = "Groq / Ollama"
 vector_store  = "ChromaDB"
 embedding     = "sentence-transformers"
 

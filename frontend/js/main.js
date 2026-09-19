@@ -1,6 +1,17 @@
 /* main.js — app init: wires up DOM events to Chat/Sidebar/Api */
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
+  // ── i18n: init first so all translated strings are ready ─────────────────
+  await I18n.init();
+
+  // Restore language from session (survives page refresh within same tab)
+  const savedLang = sessionStorage.getItem("ci_lang") || "en";
+  const langSelect = document.getElementById("lang-select");
+  if (langSelect && savedLang !== "en") {
+    langSelect.value = savedLang;
+  }
+  I18n.setLang(savedLang);
+
   const sendBtn = document.getElementById("send-btn");
   const input = document.getElementById("question-input");
   const newChatBtn = document.getElementById("btn-new-chat");
@@ -43,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (newChatBtn) {
     newChatBtn.addEventListener("click", () => {
       Chat.clear();
-      showToast("Started new conversation");
+      showToast(I18n.t("toast_new_chat"));
     });
   }
 
@@ -58,13 +69,13 @@ document.addEventListener("DOMContentLoaded", () => {
   if (clearChatBtn) {
     clearChatBtn.addEventListener("click", () => {
       Chat.clear();
-      showToast("Chat history cleared");
+      showToast(I18n.t("toast_clear_chat"));
     });
   }
   if (downloadChatBtn) {
     downloadChatBtn.addEventListener("click", () => {
       Chat.download();
-      showToast("Chat log downloaded");
+      showToast(I18n.t("toast_download"));
     });
   }
 
@@ -84,13 +95,12 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ── Language Dropdown Selector ────────────────────────────────────────────
-  const langSelect = document.getElementById("lang-select");
   if (langSelect) {
     langSelect.addEventListener("change", () => {
-      const selectedText = langSelect.options[langSelect.selectedIndex].text;
-      // Strip off the emoji prefix
-      const cleanLang = selectedText.replace(/^[^\s]+\s+/, "");
-      showToast(`Language changed to ${cleanLang}`);
+      const code = langSelect.value;
+      I18n.setLang(code);
+      const langName = I18n.getLangName(code);
+      showToast(I18n.t("toast_lang_changed", { lang: langName }));
     });
   }
 
@@ -148,7 +158,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // ── Help button → launch tour ─────────────────────────────────────────────
-  const helpBtn = document.querySelector('.topbar-icon-btn[title="Help"]');
+  const helpBtn = document.getElementById("btn-help");
   if (helpBtn) {
     helpBtn.addEventListener("click", () => Tour.start());
   }
@@ -160,10 +170,10 @@ document.addEventListener("DOMContentLoaded", () => {
   Api.health()
     .then(() => {
       if (statusDot) statusDot.classList.add("ok");
-      if (statusLabel) statusLabel.textContent = "READY";
+      if (statusLabel) statusLabel.textContent = I18n.t("status_ready");
     })
     .catch(() => {
       if (statusDot) statusDot.classList.remove("ok");
-      if (statusLabel) statusLabel.textContent = "OFFLINE";
+      if (statusLabel) statusLabel.textContent = I18n.t("status_offline");
     });
 });

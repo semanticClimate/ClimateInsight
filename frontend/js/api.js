@@ -1,6 +1,6 @@
 /* api.js — all backend calls in one place */
 
-const API_BASE = "https://beneath-suite-awarded-him.trycloudflare.com/api";
+const API_BASE = "https://provisions-tire-tap-parking.trycloudflare.com/api"; // overwritten at runtime by scripts/inject-tunnel.py
 const apiLogs = [];
 
 function logRequest(method, url, status) {
@@ -32,17 +32,17 @@ const Api = {
     }
   },
 
-  async chat(question, sessionId) {
+  async chat(question, sessionId, language = "en") {
     try {
       const res = await fetch(`${API_BASE}/chat`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ question, session_id: sessionId }),
+        body: JSON.stringify({ question, session_id: sessionId, language }),
       });
       logRequest("POST", "/chat", res.status);
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Request failed");
-      return data; // { answer, citations, session_id }
+      return data; // { answer, citations, session_id, language }
     } catch (err) {
       if (err.message !== "Request failed") {
         logRequest("POST", "/chat", "FAILED");
