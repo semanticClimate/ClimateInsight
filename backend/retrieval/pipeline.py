@@ -4,7 +4,7 @@ from llm import (
     ask_ollama,
     build_chat_prompt,
 )
-from llm.translation import translate_response
+from llm.translation import translate_response, translate_to_english
 
 from .context_builder import build_context
 from .prompt_builder import build_prompt
@@ -13,7 +13,11 @@ from .citation_parser import extract_citations
 
 def answer_question(question, session_id, language="en"):
 
-    chunks = query_chunks(question, top_k=6)
+    # Translate non-English queries to English before embedding so they
+    # match the English IPCC/research corpus correctly.
+    retrieval_question = translate_to_english(question) if language != "en" else question
+
+    chunks = query_chunks(retrieval_question, top_k=6)
 
     if not chunks:
         return None

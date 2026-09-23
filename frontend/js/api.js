@@ -1,6 +1,16 @@
 /* api.js — all backend calls in one place */
 
-const API_BASE = "https://provisions-tire-tap-parking.trycloudflare.com/api"; // overwritten at runtime by scripts/inject-tunnel.py
+// Resolve the API base dynamically from the current origin so local dev,
+// Cloudflare tunnels, and production all work without editing this file.
+// scripts/inject-tunnel.py may override CLIMATEINSIGHT_CONFIG.apiBase at
+// deploy time (e.g. "https://provisions-tire-tap-parking.trycloudflare.com/api").
+function resolveApiBase() {
+  const configured = window.CLIMATEINSIGHT_CONFIG?.apiBase?.trim();
+  const base = (configured || window.location.origin).replace(/\/+$/, "");
+  return base.endsWith("/api") ? base : `${base}/api`;
+}
+
+const API_BASE = resolveApiBase();
 const apiLogs = [];
 
 function logRequest(method, url, status) {

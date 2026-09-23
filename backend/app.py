@@ -221,15 +221,13 @@ async def chat(request: Request):
     )
 
     if result is None:
-        return jsonify(
-            chat_response(
-                answer=(
-                    "I don't have enough information in the indexed sources "
-                    "to answer that."
-                ),
-                citations=[],
-                session_id=session_id,
-            )
+        return chat_response(
+            answer=(
+                "I don't have enough information in the indexed sources "
+                "to answer that."
+            ),
+            citations=[],
+            session_id=session_id,
         )
 
     add_to_history(
@@ -266,8 +264,9 @@ def clear(session_id: str):
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(
-        app,
+        "app:app",
         host="0.0.0.0",
         port=int(os.environ.get("PORT", "5001")),
-        debug=True,
+        reload=True,
+        log_level="debug",
     )
