@@ -24,7 +24,8 @@
     "sq_greenhouse":      "How do greenhouse gases warm the Earth?",
     "sq_carbon":          "Explain the carbon cycle.",
     "about_close":        "Close",
-    "error_backend_unreachable": "Could not reach the backend."
+    "error_backend_unreachable": "Could not reach the backend.",
+    "concept_map_btn":    "📊 View Concept Map"
   },
   "es": {
     "new_chat":           "Nuevo Chat",
@@ -51,7 +52,8 @@
     "sq_greenhouse":      "¿Cómo calientan los gases de efecto invernadero la Tierra?",
     "sq_carbon":          "Explica el ciclo del carbono.",
     "about_close":        "Cerrar",
-    "error_backend_unreachable": "No se pudo conectar con el servidor."
+    "error_backend_unreachable": "No se pudo conectar con el servidor.",
+    "concept_map_btn":    "📊 Ver mapa de conceptos"
   },
   "pt": {
     "new_chat":           "Novo Chat",
@@ -74,11 +76,12 @@
     "divider_try":        "Experimente uma destas",
     "sq_global_warming":  "O que é o aquecimento global?",
     "sq_paris":           "O que é o Acordo de Paris?",
-    "sq_ssp":             "O que é uma Via Socioeconómica Partilhada (SSP)?",
+    "sq_ssp":             "O que é uma Via Socioeconémica Partilhada (SSP)?",
     "sq_greenhouse":      "Como os gases de efeito estufa aquecem a Terra?",
     "sq_carbon":          "Explique o ciclo do carbono.",
     "about_close":        "Fechar",
-    "error_backend_unreachable": "Não foi possível conectar ao servidor."
+    "error_backend_unreachable": "Não foi possível conectar ao servidor.",
+    "concept_map_btn":    "📊 Ver mapa de conceitos"
   },
   "fr": {
     "new_chat":           "Nouvelle Discussion",
@@ -105,7 +108,8 @@
     "sq_greenhouse":      "Comment les gaz à effet de serre réchauffent-ils la Terre ?",
     "sq_carbon":          "Expliquez le cycle du carbone.",
     "about_close":        "Fermer",
-    "error_backend_unreachable": "Impossible de contacter le serveur."
+    "error_backend_unreachable": "Impossible de contacter le serveur.",
+    "concept_map_btn":    "📊 Voir la carte conceptuelle"
   },
   "hi": {
     "new_chat":           "नई चैट",
@@ -132,6 +136,7 @@
     "sq_greenhouse":      "ग्रीनहाउस गैसें पृथ्वी को कैसे गर्म करती हैं?",
     "sq_carbon":          "कार्बन चक्र समझाइए।",
     "about_close":        "बंद करें",
-    "error_backend_unreachable": "सर्वर से कनेक्ट करने में असमर्थ।"
+    "error_backend_unreachable": "सर्वर से कनेक्ट करने में असमर्थ।",
+    "concept_map_btn":    "📊 अवधारणा मानचित्र देखें"
   }
 }

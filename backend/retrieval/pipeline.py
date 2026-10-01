@@ -65,6 +65,10 @@ def answer_question(question, session_id, language="en"):
     citations = extract_citations(answer, chunks)
     answer = strip_source_aliases(answer)
 
+    # Generate dynamic Mermaid concept flowchart
+    from .concept_map import generate_concept_map
+    concept_map = generate_concept_map(question, answer)
+
     # Translate the answer back to the user's selected language (no-op for English)
     if language != "en":
         answer = translate_response(answer, language)
@@ -72,5 +76,6 @@ def answer_question(question, session_id, language="en"):
     return {
         "answer": answer,
         "citations": citations,
+        "concept_map": concept_map,
         "language": language,
     }

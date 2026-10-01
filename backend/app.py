@@ -250,6 +250,7 @@ async def chat(request: Request):
         answer=result["answer"],
         citations=result["citations"],
         session_id=session_id,
+        concept_map=result.get("concept_map"),
     )
 
 # -------------------------

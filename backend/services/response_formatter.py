@@ -40,16 +40,20 @@ def chat_response(
     answer: str,
     citations: list,
     session_id: str,
+    concept_map: str | None = None,
 ) -> dict:
     """
     Standard successful chatbot response.
-    Includes a references list for manifest-ingested paper citations.
+    Includes a references list for manifest-ingested paper citations,
+    and optional concept_map Mermaid diagram.
     """
     response = {
         "answer": answer,
         "citations": citations,
         "session_id": session_id,
     }
+    if concept_map:
+        response["concept_map"] = concept_map
     references = _build_references(citations)
     if references:
         response["references"] = references

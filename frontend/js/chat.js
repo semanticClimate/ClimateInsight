@@ -110,7 +110,7 @@ const Chat = (() => {
       conversationStore[sessionId].push({ role: "assistant", text: data.answer, citations: data.citations || [] });
 
       typing.remove();
-      appendMessage("assistant", data.answer, data.citations || []);
+      appendMessage("assistant", data.answer, data.citations || [], data.concept_map);
 
       if (!sessionRegistered) {
         window.sidebarController?.addConversation(question, sessionId);
@@ -156,7 +156,7 @@ const Chat = (() => {
   }
 
   // ── DOM builders ──────────────────────────────────────────────────────────
-  function appendMessage(role, text, citations = []) {
+  function appendMessage(role, text, citations = [], conceptMap = null) {
     const el = document.createElement("div");
     el.className = `msg ${role}`;
 
@@ -164,6 +164,44 @@ const Chat = (() => {
     textEl.className = "msg-text";
     textEl.textContent = text;
     el.appendChild(textEl);
+
+    if (conceptMap) {
+      const btn = document.createElement("button");
+      btn.className = "btn-concept-map";
+      btn.textContent = typeof I18n !== "undefined" ? I18n.t("concept_map_btn") : "📊 View Concept Map";
+      
+      const mapContainer = document.createElement("div");
+      mapContainer.className = "concept-map-card";
+      mapContainer.style.display = "none";
+      mapContainer.style.marginTop = "10px";
+      mapContainer.style.padding = "12px";
+      mapContainer.style.background = "#0f172a";
+      mapContainer.style.borderRadius = "8px";
+      mapContainer.style.border = "1px solid #334155";
+
+      const mermaidDiv = document.createElement("div");
+      mermaidDiv.className = "mermaid";
+      mermaidDiv.textContent = conceptMap;
+      mapContainer.appendChild(mermaidDiv);
+
+      let rendered = false;
+      btn.addEventListener("click", () => {
+        const isHidden = mapContainer.style.display === "none";
+        mapContainer.style.display = isHidden ? "block" : "none";
+        if (isHidden && !rendered && window.mermaid) {
+          try {
+            mermaid.initialize({ startOnLoad: false, theme: "dark" });
+            mermaid.run({ nodes: [mermaidDiv] });
+            rendered = true;
+          } catch (e) {
+            console.warn("Mermaid rendering failed:", e);
+          }
+        }
+      });
+
+      el.appendChild(btn);
+      el.appendChild(mapContainer);
+    }
 
     if (citations.length > 0) {
       const row = document.createElement("div");
