@@ -23,6 +23,7 @@ from retrieval import answer_question
 from sessions import (
     add_to_history,
     clear_history,
+    get_history,
 )
 
 from services import (
@@ -214,11 +215,14 @@ async def chat(request: Request):
     if not question:
         raise HTTPException(status_code=400, detail=error_response("question required"))
 
-    result = answer_question(
-        question,
-        session_id,
-        language,
-    )
+    try:
+        result = answer_question(
+            question,
+            session_id,
+            language,
+        )
+    except RuntimeError as e:
+        raise HTTPException(status_code=503, detail=str(e))
 
     if result is None:
         return chat_response(
@@ -249,8 +253,16 @@ async def chat(request: Request):
     )
 
 # -------------------------
-# Clear session
+# Session management
 # -------------------------
+
+@app.get("/api/session/{session_id}")
+def get_session_history(session_id: str):
+    """Returns stored conversation history for a session."""
+    return {
+        "session_id": session_id,
+        "history": get_history(session_id),
+    }
 
 @app.delete("/api/session/{session_id}")
 def clear(session_id: str):

@@ -61,6 +61,19 @@ const Api = {
     }
   },
 
+  async getSession(sessionId) {
+    if (!sessionId) return null;
+    try {
+      const res = await fetch(`${API_BASE}/session/${sessionId}`);
+      logRequest("GET", `/session/${sessionId}`, res.status);
+      if (!res.ok) return null;
+      return await res.json();
+    } catch (err) {
+      logRequest("GET", `/session/${sessionId}`, "FAILED");
+      return null;
+    }
+  },
+
   async clearSession(sessionId) {
     if (!sessionId) return;
     try {

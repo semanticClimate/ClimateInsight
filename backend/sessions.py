@@ -60,17 +60,21 @@ def get_history(session_id: str) -> list[dict]:
 
 
 def add_to_history(session_id: str, role: str, content: str) -> None:
-    """Append a message to a session's history, capped at MAX_HISTORY."""
+    """Append a message to a session's history, capped at MAX_HISTORY while preserving role alternation."""
     if _redis:
         history = _redis_get(session_id)
         history.append({"role": role, "content": content})
         if len(history) > MAX_HISTORY:
             history = history[-MAX_HISTORY:]
+            if history and history[0].get("role") != "user":
+                history = history[1:]
         _redis_set(session_id, history)
     else:
         _fallback[session_id].append({"role": role, "content": content})
         if len(_fallback[session_id]) > MAX_HISTORY:
             _fallback[session_id] = _fallback[session_id][-MAX_HISTORY:]
+            if _fallback[session_id] and _fallback[session_id][0].get("role") != "user":
+                _fallback[session_id] = _fallback[session_id][1:]
 
 
 def clear_history(session_id: str) -> None:

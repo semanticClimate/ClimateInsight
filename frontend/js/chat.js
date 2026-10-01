@@ -103,6 +103,7 @@ const Chat = (() => {
       const selectedLang = langSelect?.value || "en";
       const data = await Api.chat(question, sessionId, selectedLang);
       sessionId = data.session_id;
+      try { localStorage.setItem("ci_session_id", sessionId); } catch (_) {}
 
       if (!conversationStore[sessionId]) conversationStore[sessionId] = [];
       conversationStore[sessionId].push({ role: "user", text: question, citations: [] });
@@ -118,7 +119,8 @@ const Chat = (() => {
 
     } catch (err) {
       typing.remove();
-      appendError(err.message || "Could not reach the backend.");
+      const fallbackError = typeof I18n !== "undefined" ? I18n.t("error_backend_unreachable") : "Could not reach the backend.";
+      appendError(err.message || fallbackError);
     }
 
     sendBtnEl().disabled = false;
@@ -126,12 +128,24 @@ const Chat = (() => {
   }
 
   // ── Restore a previous conversation ──────────────────────────────────────
-  function restore(storedSessionId) {
-    const messages = conversationStore[storedSessionId];
+  async function restore(storedSessionId) {
+    let messages = conversationStore[storedSessionId];
+    if (!messages) {
+      const remoteData = await Api.getSession(storedSessionId);
+      if (remoteData && remoteData.history && remoteData.history.length > 0) {
+        messages = remoteData.history.map(item => ({
+          role: item.role,
+          text: item.content,
+          citations: []
+        }));
+        conversationStore[storedSessionId] = messages;
+      }
+    }
     if (!messages) return;
 
     sessionId = storedSessionId;
     sessionRegistered = true;
+    try { localStorage.setItem("ci_session_id", sessionId); } catch (_) {}
     messagesEl().innerHTML = "";
     resetPassage();
 
