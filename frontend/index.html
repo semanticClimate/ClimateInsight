@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>PaperInsight</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand">PaperInsight</div>
+    <button id="newChat" class="new-chat">+ New chat</button>
+    <div class="side-title">12 RESEARCH PAPERS</div>
+    <div id="papers" class="papers"></div>
+    <div class="side-note">Answers are grounded only in the indexed Europe PMC papers.</div>
+  </aside>
+
+  <main class="app">
+    <header class="topbar">
+      <div>
+        <div class="title">PaperInsight Chatbot</div>
+        <div class="subtitle">Read 12 marine-heatwave research papers with source-backed answers.</div>
+      </div>
+      <button id="clearChat" class="ghost">Clear</button>
+    </header>
+
+    <section id="messages" class="messages">
+      <div class="welcome">
+        <div class="welcome-badge">12 papers · Europe PMC · JATS XML</div>
+        <h1>Ask questions across the research papers.</h1>
+        <p>Every answer is restricted to the indexed papers. Citation chips below each answer open the exact retrieved passage.</p>
+        <div class="examples">
+          <button data-q="What are the main drivers of marine heatwaves?">What are the main drivers of marine heatwaves?</button>
+          <button data-q="How long did the most intense Bay of Bengal event last?">How long did the most intense Bay of Bengal event last?</button>
+          <button data-q="What evidence links marine heatwaves to ecological impacts?">What evidence links marine heatwaves to ecological impacts?</button>
+        </div>
+      </div>
+    </section>
+
+    <footer class="composer">
+      <textarea id="question" rows="1" placeholder="Ask about the 12 indexed papers…"></textarea>
+      <button id="send">Send</button>
+      <div class="hint">Enter to send · Shift+Enter for a new line</div>
+    </footer>
+  </main>
+
+  <aside class="source-panel">
+    <div class="source-head">Source passage</div>
+    <div id="sourceEmpty" class="source-empty">Click a citation chip to inspect the exact evidence passage.</div>
+    <article id="source" class="source-card" hidden>
+      <div id="sourceSection" class="source-section"></div>
+      <h2 id="sourceTitle"></h2>
+      <div id="sourceMeta" class="source-meta"></div>
+      <p id="sourceText"></p>
+      <div class="source-actions">
+        <a id="pmcLink" target="_blank" rel="noreferrer">Open in Europe PMC</a>
+        <a id="doiLink" target="_blank" rel="noreferrer" hidden>Open DOI</a>
+      </div>
+    </article>
+  </aside>
+
+<script src="/static/app.js"></script>
+</body>
+</html>
