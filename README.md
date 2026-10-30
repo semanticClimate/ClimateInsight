@@ -1,8 +1,58 @@
 # ClimateInsight
 
-ClimateInsight is an AI-powered chatbot designed to make information from the Intergovernmental Panel on Climate Change (IPCC) more accessible through natural language conversations. Instead of manually searching through lengthy reports, users can ask questions in plain English and receive context-aware responses grounded in the indexed IPCC reference material.
+ClimateInsight is an AI-powered chatbot designed to make information from the Intergovernmental Panel on Climate Change (IPCC) more accessible through natural language conversations. Instead of manually searching through lengthy reports, users can ask questions in plain English and receive context-aware responses grounded in the indexed IPCC reference material, with every claim linked back to the section it came from. A **knowledge graph** connects every climate concept found in the sources, and any answer can be shown on it.
 
 The project was developed to demonstrate how Retrieval-Augmented Generation (RAG), semantic search, and locally hosted Large Language Models (LLMs) can be combined to create an interpretable, privacy-friendly question-answering system. Rather than relying on cloud-hosted AI services, ClimateInsight performs retrieval and inference locally using Ollama and ChromaDB, making it suitable for experimentation, education, and offline development.
+
+---
+
+# 🌍 How It Works
+
+```text
+IPCC AR6 HTML report ─┐
+Research papers (XML) ┴─► parse into sections ─► split into chunks ─► embed ─► ChromaDB
+                                                                                  │
+Question ─► embed ─► retrieve the 6 most similar chunks ◄─────────────────────────┘
+                              │
+                              ├─► Chat:       local LLM answers using ONLY those chunks,
+                              │               citing them as [2.1] (IPCC) or [P1] (paper)
+                              │
+                              └─► Knowledge graph: highlight the question's concepts on
+                                                   the corpus-wide concept graph + cited explanation
+
+Encyclopedia terms (encyclopedia/climate-wiki.js) ─► find concepts in every chunk ─► link concepts
+                                                     that share a passage ─► clusters (networkx)
+```
+
+1. **Ingest** (`backend/ingest/`): the IPCC HTML report is split into its numbered sections (1, 2.1, 2.1.1 …); research-paper JATS XML is split into abstract / introduction / results … Each section is cut into overlapping ~400-word chunks.
+2. **Index** (`backend/vectorstore/`): chunks are embedded with `all-MiniLM-L6-v2` and stored in a local ChromaDB database.
+3. **Answer** (`backend/retrieval/`): the question is embedded, the closest chunks are retrieved, and the local Ollama model answers from them only. Citations are mapped back to the exact passage, and clicking one scrolls the IPCC report to that section.
+4. **Knowledge graph** (`backend/knowledge_graph.py`): every concept from the climate term list in `encyclopedia/climate-wiki.js` (term → Wikipedia article) found in the indexed passages becomes a node; two concepts are linked when they occur in the same passage, weighted by how often. Clusters come from Louvain community detection. This step is deliberately AI-free, so every link can be traced to its passages. Concepts that never share a passage with the rest are joined through their source section (dashed link), so the whole graph is connected.
+5. **Question view** (`backend/concept_graph.py`): a question highlights the concepts in its retrieved passages, shows every link between them, and the local model writes a cited explanation. If Ollama is not running, the graph still works and the sources are listed instead.
+
+False positives are filtered before linking: short acronyms such as `NO` or `CO` only count when written in capitals (not the words "no"/"co"), flattened chemical formulas like "CO 2" are read as CO₂, and IPCC likelihood language ("very likely") is not treated as a topic.
+
+---
+
+# 🔓 Fully Open Source
+
+Every component runs locally. No hosted AI service or API key is used.
+
+| Part | Tool | Licence |
+|---|---|---|
+| LLM runtime | [Ollama](https://github.com/ollama/ollama) | MIT |
+| Default model | Llama 3.2 (`llama3.2:latest`) — any Ollama model can be used | Llama 3.2 Community Licence (open weights) |
+| Embeddings | [sentence-transformers](https://github.com/UKPLab/sentence-transformers) `all-MiniLM-L6-v2` | Apache-2.0 |
+| Vector database | [ChromaDB](https://github.com/chroma-core/chroma) | Apache-2.0 |
+| Backend | [Flask](https://github.com/pallets/flask) | BSD-3 |
+| Graph analysis | [networkx](https://github.com/networkx/networkx) | BSD-3 |
+| Graph renderer | [vis-network](https://github.com/visjs/vis-network) | Apache-2.0 / MIT |
+| Font | Jost | SIL Open Font Licence |
+| Encyclopedia tooltips | Wikipedia | CC BY-SA |
+| Tunnel (optional) | [cloudflared](https://github.com/cloudflare/cloudflared) | Apache-2.0 |
+| ClimateInsight itself | this repository | MIT |
+
+> If you need a fully open-*source* model licence (rather than open weights), use an Apache-2.0 model such as Mistral: `ollama pull mistral` and set `OLLAMA_MODEL=mistral`.
 
 ---
 
@@ -10,163 +60,56 @@ The project was developed to demonstrate how Retrieval-Augmented Generation (RAG
 
 ## Prerequisites
 
-Before starting, ensure you have the following installed:
-
 - Python **3.10 or later**
 - Git
 - Ollama
-- (Optional) Cloudflared, if you plan to expose the application externally
-
----
+- (Optional) Cloudflared, if you plan to share the application externally
 
 ## 1. Clone the Repository
 
-Clone the repository to your local machine.
-
 ```bash
 git clone https://github.com/semanticClimate/ClimateInsight.git
-```
-
----
-
-## 2. Navigate into the Project
-
-```bash
 cd ClimateInsight
 ```
 
-Replace `ClimateInsight` with the repository name if different.
+## 2. Create and Activate a Virtual Environment
 
----
-
-## 3. Create a Python Virtual Environment
-
-Creating a virtual environment keeps this project's Python packages isolated from packages installed globally on your computer. This prevents dependency conflicts between different Python projects and makes the project easier to reproduce across different machines.
-
-The virtual environment is created inside a folder named `.venv`.
+A virtual environment keeps this project's Python packages isolated from the rest of your computer.
 
 ### Windows (PowerShell)
 
 ```powershell
 python -m venv .venv
-```
-
-### macOS / Linux
-
-```bash
-python3 -m venv .venv
-```
-
----
-
-## 4. Activate the Virtual Environment
-
-After creating the virtual environment, activate it before installing any dependencies.
-
-When activated, all Python packages installed using `pip` will be placed inside `.venv` rather than your global Python installation.
-
-### Windows (PowerShell)
-
-```powershell
 .\.venv\Scripts\Activate.ps1
 ```
 
 ### macOS / Linux
 
 ```bash
+python3 -m venv .venv
 source .venv/bin/activate
 ```
 
-Once activated, your terminal should display something similar to:
+Your prompt should now start with `(.venv)`.
 
-```text
-(.venv)
-```
-
-at the beginning of the command prompt.
-
----
-
-## 5. Install Project Dependencies
-
-Once the virtual environment is active, install all required Python libraries.
-
-These dependencies include:
-
-- Flask
-- ChromaDB
-- Sentence Transformers
-- LangChain components
-- Ollama integration
-- Other libraries required by the chatbot
-
-### Windows (PowerShell)
-
-```powershell
-pip install -r requirements.txt
-```
-
-### macOS / Linux
+## 3. Install Project Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Installing packages while the virtual environment is active ensures that they are stored inside `.venv` instead of your system-wide Python installation.
+## 4. Install Ollama and Download the Model
 
----
-
-## 6. Install and Configure Ollama
-
-ClimateInsight uses a locally hosted Large Language Model (LLM) through Ollama for response generation.
-
-### Download Ollama
-
-Download and install Ollama from:
-
-https://ollama.com/
-
----
-
-### Start the Ollama Server
-
-#### Windows (PowerShell)
-
-```powershell
-ollama serve
-```
-
-#### macOS / Linux
+Download Ollama from https://ollama.com/, then start it and pull the model (once):
 
 ```bash
 ollama serve
-```
-
-Keep this terminal running while using the chatbot.
-
----
-
-### Download the Required Model
-
-ClimateInsight expects the `llama3.2` model.
-
-#### Windows (PowerShell)
-
-```powershell
 ollama pull llama3.2:latest
 ```
 
-#### macOS / Linux
+Keep `ollama serve` running while using the chatbot. (On macOS the Ollama app starts the server for you.)
 
-```bash
-ollama pull llama3.2:latest
-```
-
-This only needs to be done once.
-
----
-
-## 7. Prepare the IPCC Reference Data
+## 5. Prepare the Data
 
 Place the IPCC HTML reference document at:
 
@@ -174,202 +117,65 @@ Place the IPCC HTML reference document at:
 data/raw/ipcc_reference.html
 ```
 
-This document serves as the chatbot's knowledge base.
+Optional: put research papers (JATS `.xml`, e.g. from Europe PMC) in a folder such as `data/raw/ocean_heatwaves_2026/`. If a folder holds both `PMC123.xml` and a rendered `123.html` of the same paper, only the XML is ingested.
 
----
+## 6. Build the Vector Database
 
-## 8. Build the Vector Database
-
-ClimateInsight uses a Retrieval-Augmented Generation (RAG) pipeline.
-
-During ingestion, the project will:
-
-- Parse the IPCC document
-- Clean the extracted text
-- Split the document into semantic chunks
-- Generate embeddings
-- Store the embeddings inside ChromaDB
-
-Run the ingestion pipeline from the `backend` directory.
-
-### Windows (PowerShell)
-
-```powershell
-cd backend
-python -m ingest.ingest
-```
-
-### macOS /Linux
+Run the ingestion from the `backend` directory:
 
 ```bash
 cd backend
-python3 -m ingest.ingest
+python -m ingest.ingest                                    # IPCC report
+python -m ingest.ingest --dir ../data/raw/ocean_heatwaves_2026   # optional: papers
 ```
 
-> **Note:** During the first ingestion, the embedding model (`all-MiniLM-L6-v2`) will automatically be downloaded. This may take several minutes depending on your internet connection.
+Re-running is safe: unchanged chunks are skipped, and chunks from a re-ingested file that no longer exist are removed.
+
+> **Note:** The first ingestion downloads the embedding model (`all-MiniLM-L6-v2`). This may take a few minutes.
 
 ---
 
 # 🚀 Running the Application
 
-There are two supported ways to run ClimateInsight during development.
+The Flask backend serves both the API and the web interface, so there is only one server to start.
 
----
-
-# Option A — Local Development (Localhost)
-
-Use this option if you only need to access the chatbot from your own computer.
-
----
-
-## 1. Start the Backend
-
-Open a terminal.
-
-### Windows (PowerShell)
-
-```powershell
+```bash
 cd backend
 python app.py
 ```
 
-### macOS / Linux
+Open http://localhost:5001 in your browser.
+
+- **Chat**: ask a question; click a citation chip to see the source passage.
+- **Knowledge graph**: click **Knowledge graph** under any answer, or open http://localhost:5001/concept-graph to explore the whole graph: ask a question to highlight its concepts, click a concept for its Wikipedia link, connections and sources, filter by cluster, or download the graph as JSON.
+
+> Port 5000 is used by AirPlay Receiver on macOS, so ClimateInsight uses **5001**. Change it with `PORT=8080 python app.py`.
+
+## Configuration (environment variables)
+
+| Variable | Default | Purpose |
+|---|---|---|
+| `PORT` | `5001` | Backend port |
+| `OLLAMA_MODEL` | `llama3.2:latest` | Model used for chat and mind maps |
+| `OLLAMA_BASE_URL` | `http://localhost:11434` | Ollama server |
+| `OLLAMA_TIMEOUT` | `120` | Seconds to wait for the model |
+| `REDIS_URL` | `redis://localhost:6379/0` | Optional session store (falls back to memory) |
+| `FLASK_DEBUG` | `0` | Set to `1` for the Flask debugger (binds to 127.0.0.1 only) |
+
+---
+
+# 🌐 Sharing the App (Cloudflare Tunnel)
+
+To share the chatbot with others or use it from another device without deploying a server:
+
+1. Install `cloudflared` and make sure it is on your `PATH`.
+2. Start the app as above (`python app.py`).
+3. From the project root, run:
 
 ```bash
-cd backend
-python3 app.py
-```
-
-The backend will run at:
-
-```text
-http://localhost:5000
-```
-
----
-
-## 2. Configure the Frontend
-
-Before starting the frontend, create a file named:
-
-```text
-frontend/tunnel-base.txt
-```
-
-The file should contain exactly:
-
-```text
-https://localhost:5000
-```
-
-The frontend reads this file to determine which backend endpoint it should communicate with.
-
-For local development, this should point to the localhost backend.
-
----
-
-## 3. Start the Frontend
-
-Open a second terminal.
-
-### Windows (PowerShell)
-
-```powershell
-cd frontend
-python -m http.server 3000
-```
-
-### macOS / Linux
-
-```bash
-cd frontend
-python3 -m http.server 3000
-```
-
-Open your browser and visit:
-
-```text
-http://localhost:3000
-```
-
----
-
-# Option B — External Development (Cloudflare Tunnel)
-
-If you want to share the chatbot with others or access it from another device without deploying it to a server, ClimateInsight includes support for Cloudflare Quick Tunnels.
-
-This is the recommended method for external development and testing.
-
----
-
-## 1. Install Cloudflared
-
-Install the Cloudflare CLI and ensure it is available from your system `PATH`.
-
----
-
-## 2. Start the Backend
-
-Run the backend as described in Option A.
-
----
-
-## 3. Start the Frontend
-
-Run the frontend as described in Option A.
-
----
-
-## 4. Launch the Tunnel Utility
-
-From the project root:
-
-### Windows (PowerShell)
-
-```powershell
 python scripts/inject-tunnel.py
 ```
 
-### macOS / Linux
+The script creates a temporary public URL for the app and prints it. Anyone with the link can use the app while the script runs. Press `Ctrl + C` to close the tunnel.
 
-```bash
-python3 scripts/inject-tunnel.py
-```
-
----
-
-## 5. What the Script Does
-
-The tunnel utility automatically:
-
-- Creates temporary Cloudflare Quick Tunnels
-- Generates a public URL for the frontend
-- Generates a public URL for the backend
-- Updates the frontend configuration with the active backend tunnel
-- Displays both URLs in the terminal
-
-No manual editing of configuration files is required.
-
----
-
-## 6. Open the Application
-
-Open the generated frontend URL in your browser.
-
-The frontend will automatically communicate with the backend through the generated Cloudflare tunnel.
-
----
-
-## 7. Closing the Tunnels
-
-When finished, press:
-
-```text
-Ctrl + C
-```
-
-The tunnel utility will:
-
-- Close both Cloudflare tunnels
-- Restore the frontend configuration back to localhost
-- Clean up temporary configuration changes
+> Never run the tunnel with `FLASK_DEBUG=1`: the debugger allows anyone with the link to run code on your computer.

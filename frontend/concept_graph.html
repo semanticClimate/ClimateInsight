@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ClimateInsight — Knowledge Graph</title>
+
+  <!-- Fonts — same as the main app (Jost, SIL Open Font Licence) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Shared design tokens from the main app -->
+  <link rel="stylesheet" href="/css/tokens.css" />
+
+  <!--
+    Open-source CDN dep:
+    • vis-network 9.1.9 — Apache-2.0 / MIT  https://github.com/visjs/vis-network
+  -->
+  <script src="https://cdn.jsdelivr.net/npm/vis-network@9.1.9/standalone/umd/vis-network.min.js"></script>
+
+  <style>
+    /* ── Page ────────────────────────────────────────────────── */
+    body {
+      display: block;        /* override tokens.css flex/100vh for this page */
+      height: auto;
+      min-height: 100vh;
+      overflow: auto;
+      padding: 20px 16px 32px;
+      background: var(--bg);
+      font-family: var(--font-body);
+      color: var(--text);
+    }
+    .page { max-width: 1440px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
+
+    h1 { font-size: 1.4rem; font-weight: 700; }
+    .intro { font-size: .9rem; color: var(--text-muted); margin-top: 4px; max-width: 900px; line-height: 1.5; }
+
+    .card {
+      background: var(--bg-white);
+      border: 1.5px solid var(--panel-border);
+      border-radius: var(--radius);
+      padding: 14px 16px;
+    }
+
+    /* ── Controls ────────────────────────────────────────────── */
+    .controls { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) auto; gap: 14px; align-items: end; }
+    @media (max-width: 900px) { .controls { grid-template-columns: 1fr; } }
+    .field label { display: block; font-size: .8rem; font-weight: 600; margin-bottom: 5px; }
+    .field-row { display: flex; gap: 8px; }
+    input[type="text"] {
+      flex: 1; min-width: 0;
+      padding: 10px 12px;
+      border-radius: var(--radius-sm);
+      border: 1.5px solid var(--panel-border);
+      background: var(--bg);
+      font-family: var(--font-body);
+      font-size: .9rem;
+      color: var(--text);
+    }
+    input[type="text"]:focus { outline: none; border-color: var(--green); }
+    button {
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      border: 1.5px solid var(--panel-border);
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: .85rem;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    button:hover { border-color: var(--green); }
+    button.primary { background: var(--green); border-color: var(--green); color: #fff; }
+    button.primary:hover { background: #15803d; }
+    button:disabled { opacity: .5; cursor: default; }
+    .actions { display: flex; gap: 8px; flex-wrap: wrap; }
+    .status { font-size: .8rem; color: var(--text-muted); margin-top: 10px; }
+    .error { color: #b91c1c; font-size: .85rem; margin-top: 8px; display: none; }
+
+    /* ── Main area ───────────────────────────────────────────── */
+    .main { display: grid; grid-template-columns: minmax(0, 1fr) 400px; gap: 14px; align-items: start; }
+    @media (max-width: 1000px) { .main { grid-template-columns: 1fr; } }
+
+    .graph-card { padding: 0; position: relative; overflow: hidden; }
+    #graph { height: 78vh; min-height: 460px; background: #fbfcfb; }
+    .graph-message {
+      position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+      font-size: .95rem; color: var(--text-muted); pointer-events: none; padding: 16px; text-align: center;
+    }
+    .zoom { position: absolute; top: 10px; right: 10px; display: flex; gap: 6px; }
+    .zoom button { padding: 6px 10px; font-size: .78rem; background: var(--bg-white); }
+
+    /* ── Details panel ───────────────────────────────────────── */
+    .details { max-height: 78vh; overflow-y: auto; }
+    .details h2 { font-size: 1.15rem; font-weight: 700; margin-bottom: 4px; line-height: 1.3; }
+    .details h3 { font-size: .85rem; font-weight: 700; margin: 16px 0 8px; }
+    .details p, .details li { font-size: .88rem; line-height: 1.55; }
+    .details ol, .details ul { margin-left: 18px; }
+    .details a { color: var(--blue-mid); text-decoration: underline; }
+    .muted { color: var(--text-muted); }
+    .back { margin-bottom: 10px; padding: 6px 10px; font-size: .78rem; }
+    .facts { list-style: none; margin: 8px 0 0 !important; display: flex; flex-direction: column; gap: 3px; }
+    .facts li { font-size: .85rem; }
+    .facts strong { font-weight: 600; }
+    .tag {
+      display: inline-block; font-size: .78rem; font-weight: 600; padding: 3px 10px;
+      border-radius: 12px; background: var(--green-light); color: var(--green); margin: 6px 0;
+    }
+
+    .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+    .chip {
+      padding: 4px 10px; font-size: .78rem; font-weight: 500; border-radius: 14px;
+      background: var(--bg); text-align: left;
+    }
+
+    .key { display: flex; flex-direction: column; gap: 6px; }
+    .key-row { display: flex; align-items: center; gap: 10px; font-size: .85rem; }
+    .key button { padding: 4px 8px; font-weight: 500; display: flex; align-items: center; gap: 10px; border-color: transparent; background: none; }
+    .key button:hover { border-color: var(--panel-border); background: var(--bg); }
+    .swatch { width: 14px; height: 14px; border-radius: 50%; flex-shrink: 0; }
+    .line-solid, .line-dashed { width: 28px; flex-shrink: 0; border-top: 3px solid #9ca3af; }
+    .line-dashed { border-top-style: dashed; }
+    .size-small, .size-big { border-radius: 50%; background: #9ca3af; flex-shrink: 0; }
+    .size-small { width: 8px; height: 8px; margin: 0 3px; }
+    .size-big { width: 14px; height: 14px; }
+
+    .passage { border: 1.5px solid var(--panel-border); border-radius: var(--radius-sm); padding: 10px 12px; margin-bottom: 8px; background: var(--bg); }
+    .passage-source { font-size: .82rem; font-weight: 600; line-height: 1.35; }
+    .passage-part { font-size: .75rem; color: var(--text-muted); margin-top: 2px; }
+    .passage-text { font-size: .85rem; line-height: 1.55; margin: 6px 0; }
+    .passage-text mark { background: #fde68a; color: inherit; padding: 0 2px; border-radius: 3px; }
+    .passage-links { display: flex; gap: 12px; flex-wrap: wrap; font-size: .78rem; }
+    .type-label { font-size: .68rem; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: var(--text-muted); }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <h1>Climate Knowledge Graph</h1>
+    <p class="intro">
+      Each circle is a climate concept found in the IPCC AR6 Synthesis Report and the indexed research papers.
+      A line joins two concepts when they are mentioned in the same passage. Click any circle or line to read the passages behind it.
+    </p>
+  </header>
+
+  <!-- ── Controls ──────────────────────────────────────────── -->
+  <section class="card">
+    <div class="controls">
+      <div class="field">
+        <label for="q-input">Ask a question</label>
+        <div class="field-row">
+          <input id="q-input" type="text" placeholder="For example: How do marine heatwaves affect fisheries?" />
+          <button id="ask-btn" class="primary">Show on graph</button>
+        </div>
+      </div>
+      <div class="field">
+        <label for="search-input">Find a concept</label>
+        <div class="field-row">
+          <input id="search-input" type="text" list="concept-list" placeholder="Start typing a concept name" />
+          <datalist id="concept-list"></datalist>
+          <button id="search-btn">Go</button>
+        </div>
+      </div>
+      <div class="actions">
+        <button id="reset-btn">Reset view</button>
+        <button id="download-btn">Download data (JSON)</button>
+      </div>
+    </div>
+    <div id="status" class="status">Loading the knowledge graph…</div>
+    <div id="error" class="error" role="alert"></div>
+  </section>
+
+  <!-- ── Graph + details ───────────────────────────────────── -->
+  <div class="main">
+    <section class="card graph-card" aria-label="Knowledge graph">
+      <div id="graph"></div>
+      <div id="graph-message" class="graph-message">Arranging the concepts…</div>
+      <div class="zoom">
+        <button id="zoom-in">Zoom in</button>
+        <button id="zoom-out">Zoom out</button>
+        <button id="zoom-fit">Fit all</button>
+      </div>
+    </section>
+
+    <aside id="details" class="card details" aria-live="polite"></aside>
+  </div>
+
+</div>
+
+<script>
+(() => {
+  const API = (window.location.protocol === 'file:' ? 'http://localhost:5001' : window.location.origin) + '/api';
+
+  const PALETTE = ['#16A34A', '#2563EB', '#D97706', '#9333EA', '#DC2626',
+                   '#0891B2', '#65A30D', '#DB2777', '#4B5563', '#B45309'];
+  const DIM = '#E5E7EB', DIM_TEXT = '#C9CFCC', EDGE = '#B6C2BC', TEXT = '#1F2937';
+  const LABEL_FONT = { face: 'Jost, sans-serif', size: 16, color: TEXT, strokeWidth: 4, strokeColor: '#ffffff' };
+  const READABLE_SCALE = 0.8;   // zoom at which every label can be read
+  const SCREEN_LABEL_PX = 14;   // on-screen size of highlighted labels
+  const SCREEN_HUB_PX = 20;     // on-screen size of the main topic's label
+
+  const $ = id => document.getElementById(id);
+  let graph = null, network = null, nodesDS = null, edgesDS = null, byId = {};
+  let extraEdgeIds = [];
+  let homePositions = {};   // layout positions, restored when leaving a focused view
+  let movedIds = [];
+  const colorOf = g => PALETTE[g % PALETTE.length];
+
+  // ── Small DOM helpers (all text is set with textContent) ──────────────────
+  function el(tag, attrs = {}, ...children) {
+    const e = document.createElement(tag);
+    Object.entries(attrs).forEach(([k, v]) => {
+      if (k === 'class') e.className = v;
+      else if (k === 'onclick') e.addEventListener('click', v);
+      else e.setAttribute(k, v);
+    });
+    children.flat().forEach(c => { if (c != null) e.appendChild(typeof c === 'string' ? document.createTextNode(c) : c); });
+    return e;
+  }
+  const link = (text, href) => el('a', { href, target: '_blank', rel: 'noopener' }, text);
+  const plural = (n, word) => `${n} ${word}${n === 1 ? '' : 's'}`;
+  function showError(msg) { $('error').textContent = msg; $('error').style.display = 'block'; }
+  function clearError() { $('error').style.display = 'none'; }
+  function setDetails(...children) { const d = $('details'); d.innerHTML = ''; children.flat().forEach(c => c && d.appendChild(c)); d.scrollTop = 0; }
+
+  function conceptChip(id, suffix = '') {
+    return el('button', { class: 'chip', onclick: () => showConcept(id) }, id + suffix);
+  }
+
+  // A passage card: source, section, the sentence(s) with terms marked, links
+  function passageCard(p) {
+    const text = el('p', { class: 'passage-text' });
+    let pos = 0;
+    [...p.highlights].sort((a, b) => a[0] - b[0]).forEach(([s, e]) => {
+      if (s < pos) return;
+      text.appendChild(document.createTextNode(p.snippet.slice(pos, s)));
+      text.appendChild(el('mark', {}, p.snippet.slice(s, e)));
+      pos = e;
+    });
+    text.appendChild(document.createTextNode(p.snippet.slice(pos)));
+
+    const links = el('div', { class: 'passage-links' });
+    if (p.link) links.appendChild(link(p.type === 'ipcc' ? 'Open this section of the report' : 'Open the paper', p.link));
+    if (p.doi) links.appendChild(link('DOI ' + p.doi, 'https://doi.org/' + p.doi));
+
+    return el('div', { class: 'passage' },
+      el('div', { class: 'type-label' }, p.type === 'ipcc' ? 'IPCC AR6 report' : 'Research paper'),
+      el('div', { class: 'passage-source' }, p.source),
+      p.part ? el('div', { class: 'passage-part' }, 'Section: ' + p.part) : null,
+      text,
+      links);
+  }
+
+  function sourcesSection(title, data) {
+    const shown = data.passages.length;
+    return [
+      el('h3', {}, `${title} (${data.total})`),
+      shown < data.total ? el('p', { class: 'muted' }, `Showing the ${shown} passages with the most mentions.`) : null,
+      ...data.passages.map(passageCard),
+    ];
+  }
+
+  async function getJSON(url, options) {
+    const r = await fetch(url, options);
+    const data = await r.json().catch(() => ({}));
+    if (!r.ok) throw new Error(data.error || `Server error (${r.status})`);
+    return data;
+  }
+
+  // ── Highlighting ──────────────────────────────────────────────────────────
+  // ids: concepts to keep coloured (null = everything normal)
+  // hubs: the concept(s) in focus — largest node, dark ring, glow, big label,
+  //       thickest lines in its colour, and labelled lines
+  function highlight(ids, hubs = []) {
+    const keep = ids ? new Set([...ids, ...hubs]) : null;
+    const hubSet = new Set(hubs);
+    const maxCount = Math.max(...graph.nodes.map(n => n.count));
+
+    nodesDS.update(graph.nodes.map(n => {
+      const on = !keep || keep.has(n.id);
+      const hub = hubSet.has(n.id);
+      const c = colorOf(n.group);
+      return {
+        id: n.id,
+        value: hub ? maxCount * 1.6 : n.count,
+        borderWidth: hub ? 5 : 1,
+        borderWidthSelected: hub ? 5 : 1,
+        color: hub ? { background: c, border: '#111827' } : on ? { background: c, border: c } : { background: DIM, border: DIM },
+        shadow: hub ? { enabled: true, color: c, size: 30, x: 0, y: 0 } : { enabled: false },
+        font: { ...LABEL_FONT, size: hub ? 30 : (keep && on ? 20 : 16), color: on ? TEXT : DIM_TEXT },
+      };
+    }));
+
+    const maxW = Math.max(...edgesDS.get().map(e => e.w));
+    edgesDS.update(edgesDS.get().map(e => {
+      const on = !keep || (keep.has(e.from) && keep.has(e.to));
+      const hubEdge = keep && on && (hubSet.has(e.from) || hubSet.has(e.to));
+      // One main topic: label its lines. Several: label only the lines
+      // between the main topics, so the centre stays readable.
+      const labelled = hubEdge && (hubSet.size === 1 || (hubSet.has(e.from) && hubSet.has(e.to)));
+      return {
+        id: e.id,
+        value: hubEdge ? maxW * 1.5 : e.w,
+        color: (() => {
+          const c = hubEdge ? colorOf(byId[hubSet.has(e.from) ? e.from : e.to].group) : (on ? EDGE : DIM);
+          // In a focused view, lines that do not touch a main topic are faint
+          const opacity = hubEdge ? 1 : !on ? 0.3 : hubSet.size ? 0.25 : 0.9;
+          return { color: c, highlight: c, hover: c, opacity };
+        })(),
+        label: labelled ? (e.kind === 'source' ? 'same section' : plural(e.w, 'passage')) : '',
+      };
+    }));
+  }
+
+  // Highlight, fit the highlighted concepts on screen, then enlarge their
+  // labels so they stay readable however far the view had to zoom out.
+  function focusView(ids, hubs = []) {
+    highlight(ids, hubs);
+    if (hubs.length) starLayout([...new Set([...ids, ...hubs])], hubs);
+    fitTo([...new Set([...ids, ...hubs])]);
+    const scale = network.getScale();
+    const keep = new Set([...ids, ...hubs]);
+    nodesDS.update([...keep].map(id => ({
+      id,
+      font: { ...LABEL_FONT, size: hubs.includes(id)
+        ? Math.max(30, SCREEN_HUB_PX / scale) : Math.max(20, SCREEN_LABEL_PX / scale) },
+    })));
+    edgesDS.update(edgesDS.get().filter(e => e.label).map(e => ({
+      id: e.id, font: { size: Math.max(12, 12 / scale) },
+    })));
+  }
+
+  // Fit the camera to these concepts using their current positions (the
+  // library's fit() uses boxes from the last drawn frame, which are stale
+  // right after nodes move), leaving room on screen for the labels.
+  function fitTo(ids) {
+    const pos = Object.values(network.getPositions(ids));
+    if (!pos.length) return;
+    const xs = pos.map(p => p.x), ys = pos.map(p => p.y);
+    const minX = Math.min(...xs), maxX = Math.max(...xs), minY = Math.min(...ys), maxY = Math.max(...ys);
+    const w = $('graph').clientWidth, h = $('graph').clientHeight;
+    const MARGIN_X = 120, MARGIN_Y = 60;   // screen pixels for labels
+    const scale = Math.min(
+      (w - 2 * MARGIN_X) / Math.max(maxX - minX, 1),
+      (h - 2 * MARGIN_Y) / Math.max(maxY - minY, 1),
+      1.2);
+    network.moveTo({ position: { x: (minX + maxX) / 2, y: (minY + maxY) / 2 }, scale, animation: false });
+  }
+
+  // Focused view: show only the selected concepts, the main topic(s) in the
+  // centre and the others evenly spaced in a ring, so no label overlaps.
+  function starLayout(ids, hubs) {
+    restoreLayout();
+    const keep = new Set(ids);
+    nodesDS.update(graph.nodes.filter(n => !keep.has(n.id)).map(n => ({ id: n.id, hidden: true })));
+
+    // Strongest links to the main topic first, placed clockwise from the top
+    const weightTo = id => Math.max(0, ...edgesDS.get().filter(e =>
+      (e.from === id && hubs.includes(e.to)) || (e.to === id && hubs.includes(e.from))).map(e => e.w));
+    const others = ids.filter(id => !hubs.includes(id)).sort((a, b) => weightTo(b) - weightTo(a));
+    const R = Math.max(hubs.length > 1 ? 700 : 380, (others.length * 190) / (2 * Math.PI));
+
+    // Main topics in the centre; several are stacked in a column so their
+    // labels (drawn under each circle) never overlap
+    const gap = R * 0.42;
+    hubs.forEach((id, i) => network.moveNode(id, 0, (i - (hubs.length - 1) / 2) * gap));
+    others.forEach((id, i) => {
+      const a = -Math.PI / 2 + (2 * Math.PI * i) / Math.max(others.length, 1);
+      const r = others.length > 10 && i % 2 ? R * 1.22 : R;   // stagger crowded rings
+      network.moveNode(id, r * Math.cos(a), r * Math.sin(a));
+    });
+    movedIds = ids;
+  }
+
+  function restoreLayout() {
+    if (!movedIds.length && !nodesDS.get({ filter: n => n.hidden }).length) return;
+    nodesDS.update(graph.nodes.map(n => ({ id: n.id, hidden: false })));
+    movedIds.forEach(id => {
+      const p = homePositions[id];
+      if (p) network.moveNode(id, p.x, p.y);
+    });
+    movedIds = [];
+  }
+
+  function removeExtraEdges() {
+    if (extraEdgeIds.length) edgesDS.remove(extraEdgeIds);
+    extraEdgeIds = [];
+  }
+
+  // Draw links that exist between these concepts but are not in the overview
+  function addMissingEdges(edges) {
+    removeExtraEdges();
+    const have = new Set(edgesDS.get().map(e => [e.from, e.to].sort().join('|')));
+    const extra = edges
+      .filter(e => !have.has([e.from, e.to].sort().join('|')))
+      .map((e, i) => edgeItem(e, 'x' + i));
+    edgesDS.add(extra);
+    extraEdgeIds = extra.map(e => e.id);
+  }
+
+  function edgeItem(e, id) {
+    return {
+      id, from: e.from, to: e.to, value: e.weight, w: e.weight, kind: e.kind,
+      dashes: e.kind === 'source',
+      title: e.kind === 'source'
+        ? `${e.from} and ${e.to}: linked through the same section. Click to see it.`
+        : `${e.from} and ${e.to}: mentioned together in ${plural(e.weight, 'passage')}. Click to read them.`,
+    };
+  }
+
+  // ── Overview (default details panel) ──────────────────────────────────────
+  function showOverview() {
+    const key = el('div', { class: 'key' });
+    graph.groups.forEach(g => {
+      const b = el('button', {}, el('span', { class: 'swatch', style: `background:${colorOf(g.id)}` }),
+                   `${g.label} (${plural(g.size, 'concept')})`);
+      b.addEventListener('click', () => {
+        const ids = graph.nodes.filter(n => n.group === g.id).map(n => n.id);
+        removeExtraEdges();
+        restoreLayout();
+        focusView(ids);
+      });
+      key.appendChild(b);
+    });
+
+    setDetails(
+      el('h2', {}, 'How to use this graph'),
+      el('ol', {},
+        el('li', {}, 'Click a circle to see that concept and every passage it appears in.'),
+        el('li', {}, 'Click a line to see the passages where the two concepts appear together.'),
+        el('li', {}, 'Ask a question to highlight the concepts it is about. The main topic is shown largest.'),
+        el('li', {}, 'Drag the graph to move around. Use Fit all to see every concept at once, and Zoom in to read the labels again.')),
+      el('h3', {}, 'Topic groups (click one to show only that group)'),
+      key,
+      el('h3', {}, 'How to read it'),
+      el('div', { class: 'key' },
+        el('div', { class: 'key-row' }, el('span', { class: 'size-small' }), el('span', { class: 'size-big' }),
+           'Bigger circle: the concept is mentioned in more passages'),
+        el('div', { class: 'key-row' }, el('span', { class: 'line-solid' }),
+           'Line: the two concepts are mentioned in the same passage. Thicker means more often.'),
+        el('div', { class: 'key-row' }, el('span', { class: 'line-dashed' }),
+           'Dashed line: never in the same passage, but in the same report section or paper')),
+    );
+  }
+
+  // ── Concept details ───────────────────────────────────────────────────────
+  async function showConcept(id) {
+    const n = byId[id];
+    if (!n) { showError(`"${id}" is not a concept in the graph.`); return; }
+    clearError();
+    removeExtraEdges();
+    focusView(n.neighbors.map(m => m.id), [id]);
+
+    const group = graph.groups[n.group];
+    const where = n.kinds.map(k => k === 'ipcc' ? 'the IPCC report' : 'research papers').join(' and ');
+    const header = [
+      el('button', { class: 'back', onclick: () => resetView() }, 'Back to overview'),
+      el('div', { class: 'type-label' }, 'Concept'),
+      el('h2', {}, n.label),
+      link('Read about it on Wikipedia', 'https://en.wikipedia.org/wiki/' + encodeURIComponent(n.wiki)),
+      el('ul', { class: 'facts' },
+        el('li', {}, el('strong', {}, 'Mentioned in: '), plural(n.count, 'passage')),
+        el('li', {}, el('strong', {}, 'Found in: '), where),
+        el('li', {}, el('strong', {}, 'Topic group: '), group ? group.label : 'none'),
+        el('li', {}, el('strong', {}, 'Linked to: '), plural(n.degree, 'other concept'))),
+      el('h3', {}, 'Most often mentioned with'),
+      el('div', { class: 'chips' }, n.neighbors.map(m =>
+        conceptChip(m.id, m.kind === 'source' ? ' (same section)' : ` (${m.weight})`))),
+    ];
+    setDetails(...header, el('p', { class: 'muted', style: 'margin-top:14px' }, 'Loading sources…'));
+
+    try {
+      const data = await getJSON(`${API}/knowledge-graph/concept?id=${encodeURIComponent(id)}`);
+      setDetails(...header, ...sourcesSection('Sources that mention ' + n.label, data));
+    } catch (e) {
+      setDetails(...header, el('p', { class: 'error', style: 'display:block' }, 'Could not load sources: ' + e.message));
+    }
+  }
+
+  // ── Link details ──────────────────────────────────────────────────────────
+  async function showLink(edgeId) {
+    const e = edgesDS.get(edgeId);
+    if (!e) return;
+    clearError();
+    focusView([e.from, e.to], [e.from, e.to]);
+
+    const header = [
+      el('button', { class: 'back', onclick: () => resetView() }, 'Back to overview'),
+      el('div', { class: 'type-label' }, 'Link between two concepts'),
+      el('h2', {}, `${e.from} and ${e.to}`),
+      el('p', { class: 'muted' }, e.kind === 'source'
+        ? 'These concepts are never mentioned in the same passage, but appear in the same report section or paper.'
+        : `Mentioned together in ${plural(e.w, 'passage')}.`),
+      el('div', { class: 'chips', style: 'margin-top:8px' }, conceptChip(e.from), conceptChip(e.to)),
+    ];
+    setDetails(...header, el('p', { class: 'muted', style: 'margin-top:14px' }, 'Loading sources…'));
+
+    try {
+      const data = await getJSON(`${API}/knowledge-graph/link?a=${encodeURIComponent(e.from)}&b=${encodeURIComponent(e.to)}`);
+      setDetails(...header, ...sourcesSection(
+        e.kind === 'source' ? 'Passages from the shared source' : 'Passages that mention both', data));
+    } catch (err) {
+      setDetails(...header, el('p', { class: 'error', style: 'display:block' }, 'Could not load sources: ' + err.message));
+    }
+  }
+
+  // ── Question ──────────────────────────────────────────────────────────────
+  async function ask() {
+    const q = $('q-input').value.trim();
+    if (!q || !network) return;
+    clearError();
+    $('ask-btn').disabled = true; $('ask-btn').textContent = 'Working…';
+    setDetails(el('div', { class: 'type-label' }, 'Question'), el('h2', {}, q),
+               el('p', { class: 'muted' }, 'Finding the concepts and writing an explanation. This can take up to a minute.'));
+    try {
+      const data = await getJSON(`${API}/concept-graph`, {
+        method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ question: q }),
+      });
+      const main = data.main || [];
+      addMissingEdges(data.subgraph.edges);
+      if (data.focus.length) focusView(data.focus, main);
+
+      setDetails(
+        el('button', { class: 'back', onclick: () => resetView() }, 'Back to overview'),
+        el('div', { class: 'type-label' }, 'Question'),
+        el('h2', {}, q),
+        main.length ? el('span', { class: 'tag' }, 'Main topic: ' + main.join(', ')) : null,
+        el('h3', {}, 'Answer'),
+        el('p', {}, data.explanation),
+        el('p', { class: 'muted', style: 'font-size:.75rem;margin-top:6px' }, 'Written by ' + (data.source || 'the local model')),
+        el('h3', {}, 'Concepts in this answer (click one for its sources)'),
+        el('div', { class: 'chips' }, data.focus.map(id => conceptChip(id))),
+        el('h3', {}, 'Sources used'),
+        el('ul', {}, (data.sources || []).map(s =>
+          el('li', {}, `[${s.ref}] `, s.doi ? link(s.label, 'https://doi.org/' + s.doi) : s.label))),
+      );
+      if (!data.focus.length) showError('No concepts from the encyclopedia were found for this question.');
+    } catch (e) {
+      showError(e instanceof TypeError ? 'Cannot reach the ClimateInsight server. Is app.py running?' : e.message);
+      showOverview();
+    } finally {
+      $('ask-btn').disabled = false; $('ask-btn').textContent = 'Show on graph';
+    }
+  }
+
+  // Start zoomed in far enough to read the labels, centred on the most
+  // mentioned concept; "Fit all" shows the whole graph.
+  function readableView(animate) {
+    const biggest = graph.nodes.reduce((a, b) => (b.count > a.count ? b : a));
+    network.moveTo({
+      position: network.getPositions([biggest.id])[biggest.id],
+      scale: READABLE_SCALE,
+      animation: animate ? { duration: 500 } : false,
+    });
+  }
+
+  function resetView() {
+    removeExtraEdges();
+    restoreLayout();
+    highlight(null);
+    network.unselectAll();
+    readableView(true);
+    clearError();
+    showOverview();
+  }
+
+  // ── Build the network ─────────────────────────────────────────────────────
+  function render() {
+    const s = graph.stats;
+    $('status').textContent =
+      `${s.concepts} concepts and ${s.links.toLocaleString()} connections, found in ${s.passages} passages. ` +
+      (s.components === 1 ? 'Every concept is connected. ' : '') +
+      `The ${s.links_shown} strongest connections are drawn.`;
+
+    graph.nodes.forEach(n => { byId[n.id] = n; });
+    graph.nodes.map(n => n.id).sort().forEach(id => $('concept-list').appendChild(el('option', { value: id })));
+
+    nodesDS = new vis.DataSet(graph.nodes.map(n => ({
+      id: n.id, label: n.label, value: n.count,
+      color: { background: colorOf(n.group), border: colorOf(n.group) },
+      font: LABEL_FONT,
+      title: `${n.label}: mentioned in ${plural(n.count, 'passage')}. Click to see them.`,
+    })));
+    edgesDS = new vis.DataSet(graph.edges.map((e, i) => edgeItem(e, 'e' + i)));
+
+    network = new vis.Network($('graph'), { nodes: nodesDS, edges: edgesDS }, {
+      nodes: {
+        shape: 'dot',
+        scaling: { min: 8, max: 42, label: { enabled: false } },   // labels always drawn
+        borderWidth: 1,
+      },
+      edges: {
+        color: { color: EDGE, opacity: 0.9 },
+        scaling: { min: 1, max: 7, label: { enabled: false } },
+        font: { face: 'Jost, sans-serif', size: 12, color: '#374151', strokeWidth: 4, strokeColor: '#ffffff', align: 'middle' },
+        smooth: false,
+        hoverWidth: 1.5,
+        selectionWidth: 2,
+      },
+      physics: {
+        solver: 'forceAtlas2Based',
+        forceAtlas2Based: { gravitationalConstant: -160, springLength: 170, centralGravity: 0.008, avoidOverlap: 1 },
+        stabilization: { iterations: 300, updateInterval: 25 },
+      },
+      // Our own highlighting shows the selection, so the library's
+      // selection styling (grey lines, bold borders) is switched off.
+      interaction: { hover: true, tooltipDelay: 120, hideEdgesOnDrag: true, selectConnectedEdges: false },
+    });
+
+    network.on('stabilizationProgress', p => {
+      $('graph-message').textContent = `Arranging the concepts… ${Math.round((100 * p.iterations) / p.total)}%`;
+    });
+    network.once('stabilizationIterationsDone', () => {
+      network.setOptions({ physics: false });
+      $('graph-message').style.display = 'none';
+      homePositions = network.getPositions();
+      readableView(false);
+      const params = new URLSearchParams(window.location.search);
+      const q = params.get('q'), concept = params.get('concept');
+      if (concept && byId[concept]) showConcept(concept);
+      else if (q && q.trim()) { $('q-input').value = q.trim(); ask(); }
+    });
+
+    network.on('click', p => {
+      if (p.nodes.length) showConcept(p.nodes[0]);
+      else if (p.edges.length) showLink(p.edges[0]);
+    });
+
+    showOverview();
+  }
+
+  async function load() {
+    if (typeof vis === 'undefined') {
+      $('graph-message').textContent = 'The graph library could not be loaded. Check your internet connection and reload.';
+      return;
+    }
+    try {
+      graph = await getJSON(`${API}/knowledge-graph`);
+      render();
+    } catch (e) {
+      $('graph-message').textContent = '';
+      $('status').textContent = '';
+      showError(e instanceof TypeError ? 'Cannot reach the ClimateInsight server. Is app.py running?' : e.message);
+    }
+  }
+
+  // ── Controls ──────────────────────────────────────────────────────────────
+  function findConcept() {
+    const typed = $('search-input').value.trim().toLowerCase();
+    if (!typed || !graph) return;
+    const match = graph.nodes.find(n => n.id.toLowerCase() === typed)
+               || graph.nodes.find(n => n.id.toLowerCase().includes(typed));
+    if (match) showConcept(match.id);
+    else showError(`No concept matching "${$('search-input').value.trim()}".`);
+  }
+
+  $('ask-btn').addEventListener('click', ask);
+  $('q-input').addEventListener('keydown', e => { if (e.key === 'Enter') ask(); });
+  $('search-btn').addEventListener('click', findConcept);
+  $('search-input').addEventListener('keydown', e => { if (e.key === 'Enter') findConcept(); });
+  $('search-input').addEventListener('change', findConcept);
+  $('reset-btn').addEventListener('click', () => network && resetView());
+  $('zoom-in').addEventListener('click', () => network && network.moveTo({ scale: network.getScale() * 1.4 }));
+  $('zoom-out').addEventListener('click', () => network && network.moveTo({ scale: network.getScale() / 1.4 }));
+  $('zoom-fit').addEventListener('click', () => network && network.fit({ animation: true }));
+  $('download-btn').addEventListener('click', () => {
+    if (!graph) return;
+    const blob = new Blob([JSON.stringify(graph, null, 2)], { type: 'application/json' });
+    const a = el('a', { href: URL.createObjectURL(blob), download: 'climateinsight-knowledge-graph.json' });
+    a.click(); URL.revokeObjectURL(a.href);
+  });
+
+  load();
+})();
+</script>
+</body>
+</html>

@@ -5,9 +5,9 @@ from llm import (
     build_chat_prompt,
 )
 
-from .context_builder import build_context
-from .prompt_builder import build_prompt
-from .citation_parser import extract_citations
+from .context_builder import assign_citation_keys, build_context
+from .prompt_builder import format_history
+from .citation_parser import extract_citations, strip_ghost_citations
 
 
 def answer_question(question, session_id):
@@ -17,9 +17,11 @@ def answer_question(question, session_id):
     if not chunks:
         return None
 
+    # Unique [ref] per chunk so citations can't collide across papers
+    assign_citation_keys(chunks)
     context = build_context(chunks)
 
-    history = get_history(session_id)
+    history = format_history(get_history(session_id))
 
     prompt = build_chat_prompt(
         context,
@@ -27,7 +29,7 @@ def answer_question(question, session_id):
         question,
     )
 
-    answer = ask_ollama(prompt)
+    answer = strip_ghost_citations(ask_ollama(prompt), chunks)
 
     # Pass chunks so each citation can carry its verbatim source text
     citations = extract_citations(answer, chunks)

@@ -3,9 +3,8 @@ translation.py
 ---------------
 Language detection and optional translation to English.
 
-Currently uses the local Ollama model.
-The structure is intentionally modular so other providers
-(OpenAI, Bedrock, Grok, etc.) can be added later.
+Uses the local Ollama model, like the rest of ClimateInsight
+(fully open source, no hosted APIs).
 """
 
 import re

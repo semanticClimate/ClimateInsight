@@ -159,7 +159,7 @@ const Chat = (() => {
         // Show number + short label: [1] for IPCC sections, paper title for XML
         const isXml = !!c.pmcid || (c.source_type === "research_article");
         chip.innerHTML = isXml
-          ? `<span class="cite-num">[${i + 1}]</span><span class="cite-label">${c.title || c.section}</span>`
+          ? `<span class="cite-num">[${c.ref || i + 1}]</span><span class="cite-label">${c.document_title || c.title || c.section}</span>`
           : `<span class="cite-num">[${i + 1}]</span><span class="cite-label">${c.section}</span>`;
         chip.dataset.sourceType = isXml ? "xml" : "html";
         chip.addEventListener("click", () => showPassage(c, isXml));
@@ -206,7 +206,9 @@ const Chat = (() => {
 
       let meta = "";
       if (citation.doi) meta += `<a href="https://doi.org/${citation.doi}" target="_blank" class="paper-doi-link">doi: ${citation.doi}</a>  `;
-      if (citation.pmcid) meta += `<span class="paper-pmcid">PMC${citation.pmcid}</span>`;
+      // pmcid may arrive as "PMC11427463" (XML ingest) or "11427463"; normalise
+      const pmcidNum = String(citation.pmcid || "").replace(/^PMC/i, "");
+      if (pmcidNum) meta += `<span class="paper-pmcid">PMC${pmcidNum}</span>`;
 
       passageTextEl().innerHTML =
         (meta ? `<div class="passage-meta">${meta}</div>` : "") +
@@ -214,8 +216,7 @@ const Chat = (() => {
 
       // Switch the doc navigator to the matching XML paper (if known)
       const docs = window.SOURCE_DOCS || [];
-      const pmcid = citation.pmcid || "";
-      const idx = docs.findIndex(d => d.pmcid === pmcid);
+      const idx = pmcidNum ? docs.findIndex(d => d.pmcid === pmcidNum) : -1;
       if (idx !== -1 && idx !== currentDocIndex) {
         currentDocIndex = idx;
         updateDocNav();
