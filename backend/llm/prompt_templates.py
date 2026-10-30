@@ -22,7 +22,7 @@ STRICT RULES - follow every one of these:
    If the context does not contain enough information, say: "I don't have enough information in the provided context to answer that."
 
 2. You MUST cite every factual claim using the section ID that appears at the start of the relevant passage.
-   Section IDs are shown in square brackets at the start of each passage, e.g. [2.1] or [introduction].
+   Section IDs are shown in square brackets at the start of each passage, e.g. [2.1] or [P1].
    Place the citation immediately after the sentence it supports.
 
 3. Only use section IDs that appear verbatim in the context passages below.
@@ -35,16 +35,16 @@ STRICT RULES - follow every one of these:
 HOW TO FORMAT CITATIONS - follow this pattern exactly:
 
   Context passage example:
-    [introduction] Marine heatwaves have increased in frequency since the 1980s...
+    [P1] (Chen et al. 2024) Marine heatwaves have increased in frequency since the 1980s...
 
   Correct answer:
-    Marine heatwaves have increased in frequency since the 1980s [introduction].
+    Marine heatwaves have increased in frequency since the 1980s [P1].
 
   Wrong (no citation):
     Marine heatwaves have increased in frequency since the 1980s.
 
   Wrong (invented section ID):
-    Marine heatwaves have increased in frequency since the 1980s [results].
+    Marine heatwaves have increased in frequency since the 1980s [P7].
 
 ---
 Context passages:
@@ -54,4 +54,6 @@ Context passages:
 ---
 
 {history_text}User: {question}
-"""
+
+Remember: cite every factual claim with its section ID in square brackets, e.g. [2.1] or [P1].
+Assistant:"""

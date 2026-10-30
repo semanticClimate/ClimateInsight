@@ -25,9 +25,11 @@ release_date  = "2026-07-08"
 
 [backend]
 framework     = "Flask"
-llm_provider  = "Google Gemini"
+llm_provider  = "Ollama (local, open source)"
+llm_model     = "llama3.2:latest"
 vector_store  = "ChromaDB"
-embedding     = "sentence-transformers"
+embedding     = "sentence-transformers (all-MiniLM-L6-v2)"
+mind_map      = "Mermaid.js"
 
 [frontend]
 framework     = "Vanilla HTML/CSS/JS"

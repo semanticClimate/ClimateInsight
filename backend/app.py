@@ -22,6 +22,8 @@ from sessions import (
     add_to_history,
     clear_history,
 )
+from concept_graph import handle_concept_graph_request
+from knowledge_graph import concept_resources, get_graph, link_resources
 
 from services import (
     chat_response,
@@ -30,9 +32,20 @@ from services import (
     message_response,
 )
 
-app = Flask(__name__)
+_FRONTEND_DIR = os.path.abspath(
+    os.path.join(os.path.dirname(__file__), "..", "frontend")
+)
+
+# Serve the frontend from the same origin as the API, so api.js can resolve
+# /api from window.location and a single tunnel exposes the whole app.
+app = Flask(__name__, static_folder=_FRONTEND_DIR, static_url_path="")
 
 CORS(app)
+
+
+@app.get("/")
+def index():
+    return send_file(os.path.join(_FRONTEND_DIR, "index.html"))
 
 # -------------------------
 # Config
@@ -63,6 +76,27 @@ def health():
     return jsonify(
         health_response()
     )
+
+# -------------------------
+# Concept Graph page
+# -------------------------
+
+@app.get("/concept-graph")
+def concept_graph_page():
+    """Serves the standalone Concept Graph UI."""
+    html_path = os.path.abspath(
+        os.path.join(os.path.dirname(__file__), "..", "frontend", "concept_graph.html")
+    )
+    return send_file(html_path)
+
+@app.get("/frontend/<path:filepath>")
+def frontend_static(filepath):
+    """Serves frontend static assets (css, js, images) for the concept-graph page."""
+    from flask import send_from_directory
+    frontend_dir = os.path.abspath(
+        os.path.join(os.path.dirname(__file__), "..", "frontend")
+    )
+    return send_from_directory(frontend_dir, filepath)
 
 # -------------------------
 # Reference HTML
@@ -205,10 +239,15 @@ def chat():
             error_response("question required")
         ), 400
 
-    result = answer_question(
-        question,
-        session_id,
-    )
+    try:
+        result = answer_question(
+            question,
+            session_id,
+        )
+    except RuntimeError as e:
+        # Ollama down, model missing, or empty ChromaDB — readable for the UI
+        app.logger.error("chat error: %s", e)
+        return jsonify(error_response(str(e))), 503
 
     if result is None:
         return jsonify(
@@ -240,6 +279,85 @@ def chat():
 )
 
 # -------------------------
+# Knowledge Graph
+# -------------------------
+
+@app.get("/api/knowledge-graph")
+def knowledge_graph_data():
+    """
+    The corpus-wide concept knowledge graph (see knowledge_graph.py).
+
+    Response JSON: { "nodes": [...], "edges": [...], "groups": [...],
+                     "sources": {...}, "stats": {...} }
+
+    Nodes are encyclopedia concepts found in the indexed sources; edges link
+    concepts that share passages. AI-free and cached until re-ingest.
+    """
+    try:
+        return jsonify(get_graph())
+    except Exception as e:
+        app.logger.error("knowledge-graph error: %s", e)
+        return jsonify({"error": "Could not build the knowledge graph"}), 500
+
+
+@app.get("/api/knowledge-graph/concept")
+def knowledge_graph_concept():
+    """
+    Sources for one concept: every passage that mentions it.
+
+    Query: ?id=Ocean%20heat%20content
+    Response JSON: { "concept", "total", "passages": [{ source, type, part,
+                     link, doi, snippet, highlights, mentions }] }
+    """
+    try:
+        return jsonify(concept_resources(request.args.get("id", "")))
+    except KeyError:
+        return jsonify({"error": "Unknown concept"}), 404
+
+
+@app.get("/api/knowledge-graph/link")
+def knowledge_graph_link():
+    """
+    Sources for one link: the passages where both concepts appear.
+
+    Query: ?a=Marine%20heatwave&b=Ocean%20heat%20content
+    Response JSON: { "from", "to", "kind", "total", "note", "passages": [...] }
+    """
+    try:
+        return jsonify(link_resources(request.args.get("a", ""), request.args.get("b", "")))
+    except KeyError:
+        return jsonify({"error": "These concepts are not linked"}), 404
+
+
+@app.post("/api/concept-graph")
+def concept_graph():
+    """
+    Place a climate question on the knowledge graph.
+
+    Request  JSON: { "question": "How does sea level rise affect ecosystems?" }
+    Response JSON: { "explanation": "...", "source": "Ollama / llama3.2:latest",
+                     "focus": [concept ids], "subgraph": {nodes, edges},
+                     "sources": [...], "citations": [...] }
+
+    Grounded in the same retrieved IPCC / paper passages as /api/chat; the
+    explanation is written by the local Ollama model and lists the sources
+    instead when Ollama is unavailable. Fully open source.
+    """
+    body = request.get_json(force=True, silent=True) or {}
+    question = body.get("question", "")
+    try:
+        return jsonify(handle_concept_graph_request(question))
+    except ValueError as e:
+        return jsonify({"error": str(e)}), 400
+    except RuntimeError as e:
+        app.logger.error("concept-graph error: %s", e)
+        return jsonify({"error": str(e)}), 503
+    except Exception as e:
+        app.logger.error("concept-graph error: %s", e)
+        return jsonify({"error": "Internal server error"}), 500
+
+
+# -------------------------
 # Clear session
 # -------------------------
 
@@ -260,8 +378,16 @@ def clear(session_id):
 
 if __name__ == "__main__":
 
+    # Port 5000 is taken by the AirPlay Receiver on macOS, hence 5001.
+    port = int(os.getenv("PORT", "5001"))
+
+    # Never enable the Werkzeug debugger by default: it allows arbitrary code
+    # execution, and the app is often exposed through a public tunnel.
+    debug = os.getenv("FLASK_DEBUG", "0") == "1"
+    host = "127.0.0.1" if debug else os.getenv("HOST", "0.0.0.0")
+
     app.run(
-        host="0.0.0.0",
-        port=5000,
-        debug=True,
+        host=host,
+        port=port,
+        debug=debug,
     )
