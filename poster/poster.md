@@ -4,7 +4,7 @@
 
 # **Marine Heatwaves in the Bay of Bengal: Fisheries, Food Security and IPCC AR6**
 
-**Authors:** Shweata Hedge, Renu Kumari, Larisa Beni, Neel Kumar, Aleena Harold Peter, Anusha Garg, Peter Murray-Rust, Simon Worthington
+**Authors:** Shweata Hedge, Renu Kumari, Larisa Beni, Neel Kumar, Aleena Harold Peter, Anusha, Peter Murray-Rust, Simon Worthington
 
 </div>
 
