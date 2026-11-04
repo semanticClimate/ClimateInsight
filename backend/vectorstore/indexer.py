@@ -13,16 +13,37 @@ def ingest_chunks(chunks: list[dict], batch_size: int = 64):
     Store chunks inside ChromaDB.
 
     Safe to run multiple times.
-    Existing chunks are skipped.
+    Existing chunks are skipped, and chunks previously stored for a
+    re-ingested file that are no longer produced by it are deleted.
     """
 
     collection = get_collection()
 
-    existing_ids = (
-        set(collection.get(include=[])["ids"])
+    # Identical text in the same section yields the same ID; keep one copy
+    # (Chroma rejects duplicate IDs within a single add call).
+    chunks = list({c["chunk_id"]: c for c in chunks}.values())
+    incoming_ids = {c["chunk_id"] for c in chunks}
+
+    existing = (
+        collection.get(include=["metadatas"])
         if collection.count() > 0
-        else set()
+        else {"ids": [], "metadatas": []}
     )
+
+    # ── Prune stale chunks from files being re-ingested ──────────────────────
+    reingested_paths = {c.get("source_path") for c in chunks} - {"", None}
+    stale_ids = [
+        cid
+        for cid, meta in zip(existing["ids"], existing["metadatas"])
+        if (meta or {}).get("source_path") in reingested_paths
+        and cid not in incoming_ids
+    ]
+    if stale_ids:
+        print(f"Removing {len(stale_ids)} stale chunk(s) from re-ingested files...")
+        for i in range(0, len(stale_ids), 5000):
+            collection.delete(ids=stale_ids[i:i + 5000])
+
+    existing_ids = set(existing["ids"]) - set(stale_ids)
 
     new_chunks = [
         c for c in chunks

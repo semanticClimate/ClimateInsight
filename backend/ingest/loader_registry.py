@@ -73,9 +73,19 @@ def get_loader(path: Path) -> LoaderFn:
     return LOADERS[ext]
 
 
+def _paper_key(path: Path) -> str:
+    """Normalise a filename stem so "PMC10011364.xml" and "10011364.html" match."""
+    stem = path.stem.lower()
+    return stem[3:] if stem.startswith("pmc") else stem
+
+
 def discover_documents(root: Path) -> List[Path]:
     """
     Recursively discover all supported documents under *root*.
+
+    When a paper exists as both XML and HTML (e.g. "PMC10011364.xml" plus a
+    rendered "10011364.html"), only the XML is kept: it has the structured
+    JATS sections, and ingesting both would duplicate every chunk.
 
     Returns a sorted list so processing order is deterministic and
     newly added files are automatically included on the next run.
@@ -84,4 +94,13 @@ def discover_documents(root: Path) -> List[Path]:
     found: List[Path] = []
     for ext in SUPPORTED_EXTENSIONS:
         found.extend(root.rglob(f"*{ext}"))
-    return sorted(set(found))
+
+    xml_keys = {_paper_key(p) for p in found if p.suffix.lower() == ".xml"}
+    skipped = [
+        p for p in found
+        if p.suffix.lower() in (".html", ".htm") and _paper_key(p) in xml_keys
+    ]
+    if skipped:
+        print(f"Skipping {len(skipped)} HTML file(s) that duplicate an XML paper.")
+
+    return sorted(set(found) - set(skipped))

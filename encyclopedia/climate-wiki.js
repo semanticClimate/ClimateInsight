@@ -1218,6 +1218,31 @@
     "gi"
   );
 
+  // Short keys are mostly acronyms / chemical formulas ("no" → NO, "co" → CO).
+  // Matched case-insensitively they hit ordinary words ("no", "No"), so they
+  // only count when written as an acronym: all capitals or at least two
+  // (NO, CO₂, NDCs) — except these real words / units.
+  // Keep in sync with backend/knowledge_graph.py.
+  const LOWERCASE_OK = new Set(["coal", "oil", "firn", "buoy", "ppm", "ppb", "2°c", "2 c"]);
+  const ACRONYMS = new Set(["afolu", "beccs", "hcfcs", "llghg", "nmvoc", "slcps"]);
+  function requiresCapital(key) {
+    return ACRONYMS.has(key) || (key.length <= 4 && !LOWERCASE_OK.has(key));
+  }
+  function looksLikeAcronym(matched) {
+    const letters = matched.replace(/[^A-Za-z]/g, "");
+    const capitals = letters.replace(/[^A-Z]/g, "").length;
+    return capitals >= 2 || (letters.length > 0 && capitals === letters.length);
+  }
+  // Text that follows a match, even across tags: the report's InDesign HTML
+  // puts the "2" of CO₂ in the next <span>, not in a <sub>.
+  function followingText(textNode, endIndex) {
+    const rest = textNode.nodeValue.slice(endIndex);
+    if (rest) return rest;
+    let node = textNode;
+    while (node && !node.nextSibling) node = node.parentNode;
+    return node && node.nextSibling ? node.nextSibling.textContent || "" : "";
+  }
+
   // Tags we skip entirely (don't touch their text content)
   const SKIP_TAGS = new Set(["SCRIPT", "STYLE", "NOSCRIPT", "TEXTAREA", "CODE", "PRE", "A", "BUTTON", "INPUT", "SELECT"]);
 
@@ -1236,7 +1261,12 @@
       }
       const matched = m[0];
       const key = matched.toLowerCase();
-      const wikiTitle = WIKI_MAP[key];
+      // "CO" directly followed by a subscript digit is CO₂, not carbon monoxide
+      const beforeSubscript =
+        key.length <= 3 && /^\s?[2-6₂-₆]/.test(followingText(textNode, m.index + matched.length));
+      const falsePositive =
+        (requiresCapital(key) && !looksLikeAcronym(matched)) || beforeSubscript;
+      const wikiTitle = falsePositive ? null : WIKI_MAP[key];
       if (!wikiTitle) {
         frag.appendChild(document.createTextNode(matched));
       } else {
