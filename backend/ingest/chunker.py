@@ -17,10 +17,22 @@ Strategy
 
 from __future__ import annotations
 
+import hashlib
 import json
 from pathlib import Path
 
 from .models import Chunk, Section
+
+
+def _chunk_id(prefix: str, text: str) -> str:
+    """
+    Content-addressed chunk ID: the same text in the same document section
+    always gets the same ID, regardless of how many sections came before it.
+    A running counter would shift every later ID whenever a parser change
+    added or removed a section, defeating the indexer's dedup.
+    """
+    digest = hashlib.sha1(text.encode("utf-8")).hexdigest()[:12]
+    return f"{prefix}__{digest}"
 
 
 def chunk_records(
@@ -44,7 +56,6 @@ def chunk_records(
         Chunks ready to be embedded and stored in ChromaDB.
     """
     chunks: list[Chunk] = []
-    chunk_index = 0
 
     for record in records:
         words = record.text.split()
@@ -63,6 +74,7 @@ def chunk_records(
             or Path(record.source_path).stem
             or "doc"
         )
+        id_prefix = f"{doc_prefix}__{record.section or 'nosec'}"
 
         # ── Common keyword args shared by every Chunk from this Section ──────
         common = dict(
@@ -81,12 +93,11 @@ def chunk_records(
             # Section fits in a single chunk — no splitting needed.
             chunks.append(
                 Chunk(
-                    chunk_id=f"{doc_prefix}__{record.section or 'nosec'}__chunk_{chunk_index}",
+                    chunk_id=_chunk_id(id_prefix, record.text),
                     text=record.text,
                     **common,
                 )
             )
-            chunk_index += 1
             continue
 
         # ── Sliding-window split for long sections ───────────────────────────
@@ -96,12 +107,11 @@ def chunk_records(
             chunk_text = " ".join(words[start:end])
             chunks.append(
                 Chunk(
-                    chunk_id=f"{doc_prefix}__{record.section or 'nosec'}__chunk_{chunk_index}",
+                    chunk_id=_chunk_id(id_prefix, chunk_text),
                     text=chunk_text,
                     **common,
                 )
             )
-            chunk_index += 1
             start += chunk_size - overlap
 
     print(f"Created {len(chunks)} chunks from {len(records)} sections.")

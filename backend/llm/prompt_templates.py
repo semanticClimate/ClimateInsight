@@ -21,12 +21,12 @@ STRICT RULES - follow every one of these:
 1. Use ONLY the context passages below to answer. Do not use any outside knowledge.
    If the context does not contain enough information, say: "I don't have enough information in the provided context to answer that."
 
-2. You MUST cite every factual claim using the passage ID that appears at the start of the relevant passage.
-   Passage IDs are shown in square brackets at the start of each passage.
+2. You MUST cite every factual claim using the section ID that appears at the start of the relevant passage.
+   Section IDs are shown in square brackets at the start of each passage, e.g. [2.1] or [P1].
    Place the citation immediately after the sentence it supports.
 
-3. Only use passage IDs that appear verbatim in the context passages below.
-   Never guess, invent, or reformat a passage ID.
+3. Only use section IDs that appear verbatim in the context passages below.
+   Never guess, invent, or reformat a section ID.
 
 4. Never mention "context", "passage", or "provided text" in your answer.
 
@@ -35,16 +35,16 @@ STRICT RULES - follow every one of these:
 HOW TO FORMAT CITATIONS - follow this pattern exactly:
 
   Context passage example:
-    [PMC123__introduction__chunk_0] Marine heatwaves have increased in frequency since the 1980s...
+    [P1] (Chen et al. 2024) Marine heatwaves have increased in frequency since the 1980s...
 
   Correct answer:
-    Marine heatwaves have increased in frequency since the 1980s [PMC123__introduction__chunk_0].
+    Marine heatwaves have increased in frequency since the 1980s [P1].
 
   Wrong (no citation):
     Marine heatwaves have increased in frequency since the 1980s.
 
   Wrong (invented section ID):
-    Marine heatwaves have increased in frequency since the 1980s [PMC999__results__chunk_4].
+    Marine heatwaves have increased in frequency since the 1980s [P7].
 
 ---
 Context passages:
@@ -54,4 +54,6 @@ Context passages:
 ---
 
 {history_text}User: {question}
-"""
+
+Remember: cite every factual claim with its section ID in square brackets, e.g. [2.1] or [P1].
+Assistant:"""

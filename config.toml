@@ -25,9 +25,11 @@ release_date  = "2026-07-08"
 
 [backend]
 framework     = "FastAPI"
-llm_provider  = "Groq / Ollama"
+llm_provider  = "Ollama (local, open source)"
+llm_model     = "llama3.2:latest"
 vector_store  = "ChromaDB"
-embedding     = "sentence-transformers"
+embedding     = "sentence-transformers (all-MiniLM-L6-v2)"
+knowledge_graph = "networkx + vis-network"
 
 [frontend]
 framework     = "Vanilla HTML/CSS/JS"
