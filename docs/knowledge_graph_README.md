@@ -113,7 +113,7 @@ The same is done for all 418 passages, and the counts add up. *Climate change ad
 
 This gives **5,286 connections**.
 
-**The one exception: a dashed connection.** *Social cost of carbon* never shares a passage with any other concept, so it would be left on its own. It appears in only one passage, in the paper `PMC10808424`. A fixed rule joins it to the concept that appears in that same paper and is mentioned in the most passages overall: *Climate change* (90 passages, 2 of them in that paper). It gets a low weight of 0.5 and is drawn dashed, so it's never confused with a real shared passage.
+**The one exception: a dashed connection.** *Social cost of carbon* is the only concept that never shares a passage with another concept, so it would float on its own. To keep the graph in one piece, a fixed rule links it to *Climate change*: of all the concepts in the same paper, it is the one mentioned most across all sources. This link is drawn dashed and given a low weight (0.5), so it's never mistaken for a real shared passage.
 
 ### Step 6: Find clusters (the colours)
 
