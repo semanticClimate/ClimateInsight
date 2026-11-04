@@ -37,4 +37,3 @@ flowchart LR
 
 Example from the graph: `Marine heatwave` and `Food security` sit in different clusters with no direct link. `Fisheries` would join them but is missing from the term list.
 
-**Next step:** Add the IPCC glossary to the term list, run a Bay of Bengal Europe PMC query, rebuild the graph and merge the branch with `main` (which has moved to FastAPI).
