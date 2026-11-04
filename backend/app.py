@@ -1,8 +1,9 @@
 from fastapi import FastAPI, HTTPException, Request
-from fastapi.responses import FileResponse, HTMLResponse, StreamingResponse
+from fastapi.responses import FileResponse, HTMLResponse, JSONResponse, StreamingResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 
+import logging
 import os
 import re
 import sys
@@ -25,6 +26,8 @@ from sessions import (
     clear_history,
     get_history,
 )
+from concept_graph import handle_concept_graph_request
+from knowledge_graph import concept_resources, get_graph, link_resources
 
 from services import (
     chat_response,
@@ -32,6 +35,12 @@ from services import (
     health_response,
     message_response,
 )
+
+_FRONTEND_DIR = os.path.abspath(
+    os.path.join(os.path.dirname(__file__), "..", "frontend")
+)
+
+log = logging.getLogger(__name__)
 
 app = FastAPI()
 
@@ -43,6 +52,12 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
+@app.get("/")
+def index():
+    """Serves the chat UI, so the frontend and /api share one origin."""
+    return FileResponse(os.path.join(_FRONTEND_DIR, "index.html"))
 
 # -------------------------
 # Config
@@ -71,6 +86,15 @@ def get_config():
 @app.get("/api/health")
 def health():
     return health_response()
+
+# -------------------------
+# Concept Graph page
+# -------------------------
+
+@app.get("/concept-graph")
+def concept_graph_page():
+    """Serves the standalone knowledge graph page."""
+    return FileResponse(os.path.join(_FRONTEND_DIR, "concept_graph.html"))
 
 # -------------------------
 # Reference HTML
@@ -222,6 +246,7 @@ async def chat(request: Request):
             language,
         )
     except RuntimeError as e:
+        # Ollama down, model missing, or empty ChromaDB — readable for the UI
         raise HTTPException(status_code=503, detail=str(e))
 
     if result is None:
@@ -253,6 +278,88 @@ async def chat(request: Request):
     )
 
 # -------------------------
+# Knowledge Graph
+# -------------------------
+
+@app.get("/api/knowledge-graph")
+def knowledge_graph_data():
+    """
+    The corpus-wide concept knowledge graph (see knowledge_graph.py).
+
+    Response JSON: { "nodes": [...], "edges": [...], "groups": [...],
+                     "sources": {...}, "stats": {...} }
+
+    Nodes are encyclopedia concepts found in the indexed sources; edges link
+    concepts that share passages. AI-free and cached until re-ingest.
+    """
+    try:
+        return get_graph()
+    except Exception as e:
+        log.error("knowledge-graph error: %s", e)
+        return JSONResponse({"error": "Could not build the knowledge graph"}, status_code=500)
+
+
+@app.get("/api/knowledge-graph/concept")
+def knowledge_graph_concept(id: str = ""):
+    """
+    Sources for one concept: every passage that mentions it.
+
+    Query: ?id=Ocean%20heat%20content
+    Response JSON: { "concept", "total", "passages": [{ source, type, part,
+                     link, doi, snippet, highlights, mentions }] }
+    """
+    try:
+        return concept_resources(id)
+    except KeyError:
+        return JSONResponse({"error": "Unknown concept"}, status_code=404)
+
+
+@app.get("/api/knowledge-graph/link")
+def knowledge_graph_link(a: str = "", b: str = ""):
+    """
+    Sources for one link: the passages where both concepts appear.
+
+    Query: ?a=Marine%20heatwave&b=Ocean%20heat%20content
+    Response JSON: { "from", "to", "kind", "total", "note", "passages": [...] }
+    """
+    try:
+        return link_resources(a, b)
+    except KeyError:
+        return JSONResponse({"error": "These concepts are not linked"}, status_code=404)
+
+
+@app.post("/api/concept-graph")
+async def concept_graph(request: Request):
+    """
+    Place a climate question on the knowledge graph.
+
+    Request  JSON: { "question": "How does sea level rise affect ecosystems?" }
+    Response JSON: { "explanation": "...", "source": "Ollama / llama3.2:latest",
+                     "main": [...], "focus": [concept ids],
+                     "subgraph": {nodes, edges}, "sources": [...],
+                     "citations": [...] }
+
+    Grounded in the same retrieved IPCC / paper passages as /api/chat; the
+    explanation is written by the local Ollama model and lists the sources
+    instead when Ollama is unavailable.
+    """
+    try:
+        body = await request.json()
+    except Exception:
+        body = {}
+    question = (body or {}).get("question", "")
+    try:
+        return handle_concept_graph_request(question)
+    except ValueError as e:
+        return JSONResponse({"error": str(e)}, status_code=400)
+    except RuntimeError as e:
+        log.error("concept-graph error: %s", e)
+        return JSONResponse({"error": str(e)}, status_code=503)
+    except Exception as e:
+        log.error("concept-graph error: %s", e)
+        return JSONResponse({"error": "Internal server error"}, status_code=500)
+
+# -------------------------
 # Session management
 # -------------------------
 
@@ -270,15 +377,26 @@ def clear(session_id: str):
     return message_response("Session cleared")
 
 # -------------------------
+# Frontend assets (css/, js/, images/ …) — mounted last so API routes win
+# -------------------------
+
+app.mount("/", StaticFiles(directory=_FRONTEND_DIR), name="frontend")
+
+# -------------------------
 # Main
 # -------------------------
 
 if __name__ == "__main__":
     import uvicorn
+
+    # Port 5000 is taken by the AirPlay Receiver on macOS, hence 5001.
+    # Reload and debug logging stay off unless asked for: the app is often
+    # exposed through a public tunnel.
+    dev = os.getenv("DEV", "0") == "1"
     uvicorn.run(
         "app:app",
-        host="0.0.0.0",
+        host="127.0.0.1" if dev else os.getenv("HOST", "0.0.0.0"),
         port=int(os.environ.get("PORT", "5001")),
-        reload=True,
-        log_level="debug",
+        reload=dev,
+        log_level="debug" if dev else "info",
     )
