@@ -48,6 +48,14 @@ flowchart LR
 
 ![Full knowledge graph visualization](images/kg.png)
 
+## Sources
+
+- **IPCC:** AR6 Synthesis Report (SYR), Longer Report, 2023, HTML version (https://www.ipcc.ch/report/ar6/syr/), stored as `data/raw/ipcc_reference.html`. Not the Working Group reports.
+- **Papers:** 12 open-access papers from Europe PMC, full-text XML in `data/raw/ocean_heatwaves_2026/`. The query is recorded in `backend/tests/fixtures/ocean_heatwaves_2026/review/review_table.edited.json`:
+  `("marine heatwave" OR "ocean heat wave" OR "ocean heatwave") AND ("ocean current" OR "ocean circulation" OR "Gulf Stream" OR "AMOC") AND (HAS_FT:Y)`
+- **Term list:** `encyclopedia/climate-wiki.js`:
+ Has 730 entries: 721 distinct terms (9 entries are repeated), mapped to 508 Wikipedia articles. **This is not the IPCC glossary.** The terms were chosen by hand.
+
 ## **Acknowledgements**
 
 <div align="center">
