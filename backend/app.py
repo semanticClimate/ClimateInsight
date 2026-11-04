@@ -24,6 +24,7 @@ from sessions import (
 )
 from concept_graph import handle_concept_graph_request
 from knowledge_graph import concept_resources, get_graph, link_resources
+from encyclopedia_service import render_report, render_glossary, render_viewer_script, settings
 
 from services import (
     chat_response,
@@ -134,6 +135,10 @@ def ipcc_reference():
         html,
     )
 
+    try:
+        html = render_report(html)
+    except (ImportError, OSError, ValueError) as exc:
+        app.logger.warning("Serving the original IPCC report: %s", exc)
     return Response(html, mimetype="text/html")
 
 @app.get("/paper/<pmcid>")
@@ -146,24 +151,28 @@ def serve_paper(pmcid):
 
 @app.get("/climate-wiki-js")
 def climate_wiki_js():
-    """Serves the climate-wiki.js script for the IPCC reference iframe."""
-    js_path = os.path.abspath(
-        os.path.join(
-            os.path.dirname(__file__),
-            "..",
-            "encyclopedia",
-            "climate-wiki.js",
-        )
-    )
-    
+    """The existing URL now serves the report-generated Encyclopedia viewer."""
+    directory = Path(__file__).resolve().parent.parent / "encyclopedia"
+    if settings()[0] == "legacy":
+        return send_file(directory / "climate-wiki.legacy.js", mimetype="application/javascript")
     try:
-        return send_file(js_path, mimetype="application/javascript")
-    except FileNotFoundError:
-        return Response(
-            "console.error('climate-wiki.js not found');",
-            status=404,
-            mimetype="application/javascript"
-        )
+        template = (directory / "climate-wiki.js").read_text(encoding="utf-8")
+        return Response(render_viewer_script(template), mimetype="application/javascript")
+    except (ImportError, OSError, ValueError) as exc:
+        app.logger.warning("Generated IPCC Encyclopedia unavailable: %s", exc)
+        return Response("console.error('IPCC Encyclopedia unavailable. Run backend/build_ipcc_encyclopedia.py.');",
+                        status=503, mimetype="application/javascript")
+
+@app.get("/ipcc-encyclopedia")
+def ipcc_encyclopedia():
+    """Term entries with Wikipedia descriptions and anchored IPCC examples."""
+    try:
+        report = (Path(__file__).resolve().parent.parent / "data/raw/ipcc_reference.html").read_text(encoding="utf-8")
+        return Response(render_glossary(report), mimetype="text/html")
+    except (ImportError, OSError, ValueError) as exc:
+        app.logger.warning("IPCC Encyclopedia unavailable: %s", exc)
+        return jsonify({"error": "The IPCC Encyclopedia is unavailable. Run backend/build_ipcc_encyclopedia.py; the original report remains available."}), 503
+
 
 @app.get("/ipcc-image-proxy/<path:image_path>")
 def ipcc_image_proxy(image_path):
@@ -371,6 +380,17 @@ def clear(session_id):
             "Session cleared"
         )
     )
+
+
+@app.errorhandler(404)
+def not_found(error):
+    """API callers must never receive Flask's HTML 404 page as if it were JSON."""
+    if request.path == "/api" or request.path.startswith("/api/"):
+        return jsonify({
+            "error": "API route not found",
+            "path": request.path,
+        }), 404
+    return error
 
 # -------------------------
 # Main

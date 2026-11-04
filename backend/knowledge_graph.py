@@ -5,9 +5,9 @@ Builds one graph that connects every encyclopedia concept found in the
 indexed sources (IPCC AR6 report + research papers):
 
   Nodes  : concepts from the Semantic Climate encyclopedia
-           (encyclopedia/climate-wiki.js — term → Wikipedia article).
+           (generated from data/raw/ipcc_reference.html).
            Synonyms ("sea-level rise", "sea level rise") merge into one
-           node, keyed by the Wikipedia article title.
+           node, keyed by the resolved article title or extracted term.
   Edges  : two concepts are linked when they occur in the same indexed
            passage (chunk); the weight is the number of shared passages.
   Groups : Louvain communities over the weighted graph (clusters of
@@ -37,11 +37,22 @@ from collections import Counter, defaultdict
 from pathlib import Path
 
 import networkx as nx
+from encyclopedia_importer import (
+    load_generated_concepts,
+    merge_manual_and_imported,
+)
 
-from vectorstore.chroma_client import get_collection
+from encyclopedia_service import source_concepts, vocabulary_signature, settings
+
+
+def get_collection():
+    # Vocabulary and glossary requests do not need to initialize the vector store.
+    from vectorstore.chroma_client import get_collection as collection
+    return collection()
 
 ROOT = Path(__file__).resolve().parent.parent
 ENCYCLOPEDIA_JS = ROOT / "encyclopedia" / "climate-wiki.js"
+GENERATED_ENCYCLOPEDIA_JSON = ROOT / "backend" / "data" / "generated" / "encyclopedia_concepts.json"
 
 TOP_K = 3          # strongest links kept per concept for display
 MAX_SOURCES = 8    # sources listed per concept
@@ -70,13 +81,35 @@ EXCLUDED_CONCEPTS = {"Likelihood"}
 # ── Encyclopedia ──────────────────────────────────────────────────────────────
 
 
-def load_encyclopedia(path: Path = ENCYCLOPEDIA_JS) -> dict[str, str]:
-    """Parse the WIKI_MAP object in climate-wiki.js → {lowercase term: title}."""
+def load_manual_encyclopedia(path: Path = ENCYCLOPEDIA_JS) -> dict[str, str]:
+    """Parse the archived manual WIKI_MAP → {lowercase term: title}."""
+    if path == ENCYCLOPEDIA_JS:
+        path = ROOT / "encyclopedia/climate-wiki.legacy.js"
     src = path.read_text(encoding="utf-8")
     start = src.index("const WIKI_MAP = {")
     end = src.index("\n  };", start)
     pairs = re.findall(r'^\s*"([^"]+)"\s*:\s*"([^"]+)"', src[start:end], re.M)
     return {term.lower(): title for term, title in pairs}
+
+
+_import_metadata: dict[str, dict] = {}
+_import_conflicts: list[dict] = []
+
+
+def load_encyclopedia(
+    path: Path = ENCYCLOPEDIA_JS,
+    generated_path: Path = GENERATED_ENCYCLOPEDIA_JSON,
+) -> dict[str, str]:
+    """Read report-extracted concepts; manual mappings are used only in legacy mode."""
+    global _import_metadata, _import_conflicts
+    manual_map = load_manual_encyclopedia(path) if settings()[0] == "legacy" else {}
+    concepts = source_concepts(generated_path)
+    merged, _import_metadata, _import_conflicts = merge_manual_and_imported(manual_map, concepts)
+    return merged
+
+
+def imported_concept_metadata(concept_name: str) -> dict | None:
+    return _import_metadata.get(concept_name)
 
 
 def _requires_capital(term: str) -> bool:
@@ -253,6 +286,7 @@ def _build() -> dict:
     nodes = []
     for n in G:
         neighbours = sorted(G[n].items(), key=lambda kv: -kv[1]["weight"])
+        imported = imported_concept_metadata(n)
         nodes.append({
             "id": n,
             "label": n,
@@ -269,6 +303,7 @@ def _build() -> dict:
                 {"key": k, "passages": c}
                 for k, c in concept_sources[n].most_common(MAX_SOURCES)
             ],
+            **({"encyclopedia": imported} if imported else {}),
         })
 
     edges = [
@@ -312,7 +347,17 @@ _lock = threading.Lock()
 
 def _state() -> dict:
     """Build once; rebuild when the collection or encyclopedia changes."""
-    key = (get_collection().count(), ENCYCLOPEDIA_JS.stat().st_mtime)
+    generated_mtime = (
+        GENERATED_ENCYCLOPEDIA_JSON.stat().st_mtime
+        if GENERATED_ENCYCLOPEDIA_JSON.is_file()
+        else None
+    )
+    key = (
+        get_collection().count(),
+        ENCYCLOPEDIA_JS.stat().st_mtime,
+        generated_mtime,
+        vocabulary_signature(),
+    )
     with _lock:
         if _cache.get("key") != key:
             _cache["state"] = _build()

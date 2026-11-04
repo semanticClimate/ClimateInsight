@@ -1,0 +1,816 @@
+{
+  "schema_version": 1,
+  "summary": {
+    "source_files_processed": 1,
+    "raw_entries_discovered": 99,
+    "unique_concepts_exported": 99,
+    "concepts_with_descriptions": 63,
+    "concepts_with_synonyms": 3,
+    "concepts_with_wikidata_ids": 99,
+    "skipped_or_conflicting_entries": 0,
+    "skipped": []
+  },
+  "concepts": [
+    {
+      "canonical_name": "CRDPs",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": "Q102116596",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/CRDPs",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "mitigation costs",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": "Q104282924",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Mitigation_costs",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "Climate Resilient Development",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": "Q104473833",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Climate_Resilient_Development",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "societal transformation",
+      "synonyms": [],
+      "description": "1800s: Martineau · Tocqueville · Marx · Spencer · Le Bon · Ward · Pareto · Tönnies · Veblen · Simmel · Durkheim · Addams · Mead · Weber · Du Bois · Mannheim · Elias",
+      "wikidata_id": "Q105038213",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Societal_transformation",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "transformative pathways",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": "Q1057",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Transformative_pathways",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "greenhouse gas emissions",
+      "synonyms": [],
+      "description": "Greenhouse gas emissions ( GHG emissions ) from human activities intensify the greenhouse effect which contributes to climate change . Carbon dioxide ( CO 2 ) from burning fossil fuels (such as coal , oil , and natural gas ) is the main cause of climate change. The largest annual emissions are from China followed by the United States , which has higher emissions per capita . The main producers fueling the emissions globally are large oil and gas companies . Emissions from human activities have increased atmospheric carbon dioxide by about 50% over pre-industrial levels. The growing levels of emissions have varied, but have been consistent among all greenhouse gases . Over 60 billion tons were emitted in 2025, higher than any year before. [ 2 ] Total cumulative emissions from 1870 to 2022 were 703 GtC (2575 GtCO 2 ), of which 484±20 GtC (1773±73 GtCO 2 ) from fossil fuels and industry, and 219±60 GtC (802±220 GtCO 2 ) from land use change . Land-use change , such as deforestation , caused about 31% of cumulative emissions over 1870–2022, coal 32%, oil 24%, and gas 10%. [ 3 ] [ 4 ]",
+      "wikidata_id": "Q106358009",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Greenhouse_gas_emissions",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "gender equality",
+      "synonyms": [],
+      "description": "Tractatus Theologico-Politicus (1670) Two Treatises of Government (1690) The Spirit of Law (1748) The Social Contract (1762) The Wealth of Nations (1776) Rights of Man (1791) A Vindication of the Rights of Woman (1792) Democracy in America (1835) On Liberty (1859) The Protestant Ethic (1905) The Revolt of the Masses (1929) The General Theory (1936) The Road to Serfdom (1944) Human Action (1949) Capitalism and Freedom (1962) A Theory of Justice (1971) Anarchy, State, and Utopia (1974)",
+      "wikidata_id": "Q113453",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Gender_equality",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "dryland regions",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": "Q114121559",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Dryland_regions",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "societal transitions",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": "Q125753460",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Societal_transitions",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "GDP",
+      "synonyms": [],
+      "description": "Gross domestic product ( GDP ) is a monetary measure of the total market value [ 1 ] of all of the final goods and services which are produced and rendered during a specific period of time (usually a year) by a country [ 2 ] or countries. [ 3 ] [ 4 ] GDP is often used to measure the economic activity of a country or region. [ 2 ] The major components of GDP are consumption, government spending, net exports (exports minus imports), and investment. Changing any of these factors can increase the size of the economy. For example, population growth through mass immigration can raise consumption and demand for public services, thereby contributing to GDP growth. However, GDP is not a measure of overall standard of living or well-being, as it does not account for how income is distributed among the population. A country may rank high in GDP but still experience jobless growth depending on its planned economic structure and strategies. Dividing total GDP by the population gives an idealized rough measure of GDP per capita . [ 5 ] [ 3 ] Several national and international economic organizations, such as the OECD and the International Monetary Fund , maintain their own definitions of GDP. [ 6 ] [ 7 ]",
+      "wikidata_id": "Q12638",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/GDP",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "renewable energy",
+      "synonyms": [],
+      "description": "Renewable energy (also called green energy ) is energy made from renewable natural resources that are replenished on a human timescale . The most widely used renewable energy types are solar energy , wind power , and hydropower . Bioenergy and geothermal power are also significant in some countries. Renewable energy installations can be large or small and are suited for both urban and rural areas. Renewable energy is often deployed together with further electrification . This has several benefits: electricity can move heat and vehicles efficiently and is clean at the point of consumption. [ 1 ] [ 2 ] Variable renewable energy sources are those that have a fluctuating nature, such as wind power and solar power. In contrast, controllable renewable energy sources include dammed hydroelectricity , bioenergy , or geothermal power .",
+      "wikidata_id": "Q12705",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Renewable_energy",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "Sustainable development",
+      "synonyms": [],
+      "description": "Sustainable development is an approach to growth and human development that aims to meet the needs of the present without compromising the ability of future generations to meet their own needs. [ 1 ] [ 2 ] The aim is to have a society where living conditions and resources meet human needs without undermining planetary integrity . [ 3 ] [ 4 ] Sustainable development aims to balance the needs of the economy , environment , and society ( Triple Bottom Line ). Equitable health access is a pillar of social sustainability. The Brundtland Commission Report , published in 1987, helped to make the concept of sustainable development better known.",
+      "wikidata_id": "Q131201",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Sustainable_development",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "global greenhouse gas emission pathways",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": "Q131757154",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Global_greenhouse_gas_emission_pathways",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "sustainability transitions",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": "Q134545539",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Sustainability_transitions",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "Climate Resilient Development Pathways",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": "Q135391237",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Climate_Resilient_Development_Pathways",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "Indigenous knowledge",
+      "synonyms": [
+        "local knowledge"
+      ],
+      "description": "Traditional knowledge ( TK ), indigenous knowledge ( IK ), folk knowledge , and local knowledge generally refers to knowledge systems embedded in the cultural traditions of regional , indigenous , or local communities . [ 1 ]",
+      "wikidata_id": "Q1428168",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Indigenous_knowledge",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "collective action",
+      "synonyms": [],
+      "description": "1800s: Martineau · Tocqueville · Marx · Spencer · Le Bon · Ward · Pareto · Tönnies · Veblen · Simmel · Durkheim · Addams · Mead · Weber · Du Bois · Mannheim · Elias",
+      "wikidata_id": "Q1471594",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Collective_action",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "intergenerational equity",
+      "synonyms": [],
+      "description": "Intergenerational equity in economic, psychological, and sociological contexts, is the notion of fairness or justice between generations . The concept can be applied to fairness in dynamics between children , youth , adults , and seniors . It can also be applied to fairness between generations currently living and future generations . [ 1 ]",
+      "wikidata_id": "Q1502025",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Intergenerational_equity",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "social change",
+      "synonyms": [],
+      "description": "1800s: Martineau · Tocqueville · Marx · Spencer · Le Bon · Ward · Pareto · Tönnies · Veblen · Simmel · Durkheim · Addams · Mead · Weber · Du Bois · Mannheim · Elias",
+      "wikidata_id": "Q1510761",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Social_change",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "transparency",
+      "synonyms": [],
+      "description": "Transparency , transparence or transparent most often refer to:",
+      "wikidata_id": "Q16104096",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Transparency",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "ICZM",
+      "synonyms": [],
+      "description": "Integrated Coastal Zone Management (ICZM ), also known as Integrated Coastal Management (ICM) or Integrated Coastal Planning , is a coastal management process that considers geographical and political boundaries and focuses on sustainability . The concept was developed in 1992 during the Earth Summit in Rio de Janeiro and outlined in the proceedings of Agenda 21 , Chapter 17 . [ 1 ]",
+      "wikidata_id": "Q1619791",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/ICZM",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "SSPs",
+      "synonyms": [],
+      "description": "SSPS or SSpS or 'ssps' may refer to:",
+      "wikidata_id": "Q16795988",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/SSPS",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "media",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": "Q1727518",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Media",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "innovation",
+      "synonyms": [],
+      "description": "Innovation is the practical implementation of ideas that result in the creation or improvements of goods or services . [ 1 ] ISO TC 279 in the standard ISO 56000:2020 defines innovation as \"a new or changed entity, realizing or redistributing value \". [ 2 ] Others have different definitions; a common element in the definitions is a focus on newness, improvement, and spread of ideas or technologies (see diffusion of innovation ).",
+      "wikidata_id": "Q174165",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Innovation",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "climate policy",
+      "synonyms": [],
+      "description": "The politics of climate change results from different perspectives on how to respond to climate change . Global warming is driven largely by the emissions of greenhouse gases due to human activity, especially the burning of fossil fuels , [ 1 ] certain industries like cement and steel production, and land use for agriculture and forestry . Since the Industrial Revolution , fossil fuels have provided the main source of energy for economic and technological development. The centrality of fossil fuels and other carbon-intensive industries has resulted in much resistance to climate policy, despite widespread scientific consensus that such policy is necessary.",
+      "wikidata_id": "Q1774427",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Climate_policy",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "civil society",
+      "synonyms": [],
+      "description": "Prescriptive and policy",
+      "wikidata_id": "Q181865",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Civil_society",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "social choices",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": "Q189603",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Social_choices",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "economic growth",
+      "synonyms": [],
+      "description": "In economics , economic growth is an increase in the quantity and quality of the economic goods and services that a society produces . It can be measured as the increase in the inflation-adjusted output of an economy in a given year or over a period of time. [ 2 ]",
+      "wikidata_id": "Q189833",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Economic_growth",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "subsidies",
+      "synonyms": [],
+      "description": "A subsidy , subvention or government incentive is a type of government expenditure which redistributes from tax payers to individuals, households, or businesses. [ 1 ] Subsidies take various forms, such as direct government expenditures, tax incentives , soft loans , price support , and government provision of goods and services. [ 2 ] For instance, the government may distribute direct payment subsidies to individuals and households during an economic downturn in order to help its citizens pay their bills and to stimulate economic activity.",
+      "wikidata_id": "Q193219",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Subsidies",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "values",
+      "synonyms": [],
+      "description": "In ethics and social sciences , value denotes the degree of importance of something or an action, with the aim of determining which actions are best to do or what way is best to live ( normative ethics ), or to describe the significance of different actions. Value systems are proscriptive and prescriptive beliefs ; they affect the ethical behavior of a person or are the basis of their intentional activities. Often primary values are strong and secondary values are more susceptible to changes. What makes an action valuable may in turn depend on the ethical values of the objects it increases, decreases, or alters. An object with \"ethic value\" may be termed an \"ethic or philosophic good\" ( noun sense). [ 1 ]",
+      "wikidata_id": "Q194112",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Values",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "energy systems",
+      "synonyms": [],
+      "description": "Energy system may refer to:",
+      "wikidata_id": "Q19922568",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Energy_systems",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "carbon pricing",
+      "synonyms": [],
+      "description": "Carbon pricing (or CO 2 pricing ) is a method for governments to mitigate climate change , in which a monetary cost is applied to greenhouse gas emissions . This is done to encourage polluters to reduce fossil fuel combustion, the main driver of climate change . A carbon price usually takes the form of a carbon tax , or an emissions trading scheme (ETS) that requires firms to purchase allowances to emit. [ 1 ] The method is widely agreed to be an efficient policy for reducing greenhouse gas emissions. Carbon pricing seeks to address the economic problem that emissions of CO 2 and other greenhouse gases are a negative externality – a detrimental product that is not charged for by any market.",
+      "wikidata_id": "Q20681009",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Carbon_pricing",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "societal systems",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": "Q211606",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Societal_systems",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "sustainability",
+      "synonyms": [],
+      "description": "Sustainability or being sustainable (from the Latin sustinere – hold up, hold upright; furnish with means of support; bear, undergo, endure) is the ability to continue over a long period of time. [ 1 ] [ 2 ] In modern usage it generally refers to a state in which the environment, economy, and society will continue to exist over a long period of time. [ 3 ] Many definitions emphasize the environmental dimension. [ 4 ] [ 5 ] This can include addressing key environmental problems , such as climate change and biodiversity loss . The idea of sustainability can guide decisions at the global, national, organizational, and individual levels. [ 6 ] A related concept is that of sustainable development , and the terms are often used to mean the same thing. \" Sustainability is often thought of as a long-term goal (i.e. a more sustainable world), while sustainable development refers to the many processes and pathways to achieve it.\" [ 7 ]",
+      "wikidata_id": "Q219416",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Sustainability",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "change",
+      "synonyms": [],
+      "description": "Change , Changed or Changing may refer to the below. Other forms are listed at § See also",
+      "wikidata_id": "Q226455",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Change",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "climate action",
+      "synonyms": [],
+      "description": "Climate action (or climate change action ) refers to a range of activities, mechanisms, policy instruments, and so forth that aim at reducing the severity of human-induced climate change and its impacts . \"More climate action\" is a central demand of the climate movement . [ 1 ] Climate inaction is the absence of climate action.",
+      "wikidata_id": "Q22661680",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Climate_action",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "IEA",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": "Q235633",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/IEA",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "CRD pathways",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": "Q24299786",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/CRD_pathways",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "greenhouse gas mitigation",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": "Q24657103",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Greenhouse_gas_mitigation",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "Green GDP",
+      "synonyms": [],
+      "description": "The green gross domestic product ( green GDP or GGDP ) is an index of economic growth with the environmental consequences of that growth factored into a country's conventional GDP . Green GDP monetizes the loss of biodiversity , and accounts for costs caused by climate change . Some environmental experts prefer physical indicators (such as \" waste per capita \" or \" carbon dioxide emissions per year\"), which may be aggregated to indices such as the \" Sustainable Development Index \".",
+      "wikidata_id": "Q2634570",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Green_GDP",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "social justice",
+      "synonyms": [],
+      "description": "Social justice is justice in relation to the distribution of wealth , opportunities , and privileges within a society where individuals' rights are recognized and protected. [ 1 ] [ 2 ] [ 3 ] In Western and Asian cultures , the concept of social justice has often referred to the process of ensuring that individuals fulfill their societal roles and receive their due from society. [ 4 ] [ 5 ] [ 6 ] In the current movements for social justice , the emphasis has been on the breaking of barriers for social mobility , the creation of safety nets , and economic justice . [ 7 ] [ 8 ] [ 9 ] [ 10 ] [ 11 ] [ excessive citations ] Social justice assigns rights and duties in the institutions of society, which enables people to receive the basic benefits and burdens of cooperation. The relevant institutions often include taxation , social insurance , public health , public school , public services , labor law and regulation of markets , to ensure distribution of wealth , and equal opportunity . [ 12 ] [ 13 ]",
+      "wikidata_id": "Q264892",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Social_justice",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "industrial systems",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": "Q28210515",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Industrial_systems",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "carbon tax",
+      "synonyms": [],
+      "description": "A carbon tax is a tax levied on the carbon emissions from producing goods and services. Carbon taxes are intended to make visible the hidden social costs of carbon emissions . They are designed to reduce greenhouse gas emissions by essentially increasing the price of fossil fuels . This both decreases demand for goods and services that produce high emissions and incentivizes making them less carbon-intensive . [ 1 ] When a fossil fuel such as coal , petroleum , or natural gas is burned, most or all of its carbon is converted to CO 2 . Greenhouse gas emissions cause climate change . This negative externality can be reduced by taxing carbon content at any point in the product cycle. [ 2 ] [ 3 ] [ 4 ] [ 5 ]",
+      "wikidata_id": "Q288401",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Carbon_tax",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "institutional barriers",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": "Q30384514",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Institutional_barriers",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "institutional arrangements",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": "Q30389384",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Institutional_arrangements",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "sustainable aquaculture",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": "Q30393213",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Sustainable_aquaculture",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "institutional capacity",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": "Q30581269",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Institutional_capacity",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "planetary health",
+      "synonyms": [],
+      "description": "Planetary Health refers to the interdependence of human and environmental health. [ 1 ] It is an interdisciplinary research field and global movement that explores the consequences of environmental change on human health. [ 2 ] Planetary health refers to \"the health of human civilization and the state of the natural systems on which it depends.\" In 2015, the Rockefeller Foundation–Lancet Commission on Planetary Health launched the concept which is [ 3 ] currently being developed towards a new health science with over 25 areas of expertise. [ 4 ]",
+      "wikidata_id": "Q30589121",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Planetary_health",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "Working Group III",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": "Q31149485",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Working_Group_III",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "humanity",
+      "synonyms": [],
+      "description": "Humanity most commonly refers to:",
+      "wikidata_id": "Q3143163",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Humanity",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "mitigation options",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": "Q33719079",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Mitigation_options",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "development",
+      "synonyms": [],
+      "description": "Development or developing may refer to:",
+      "wikidata_id": "Q340724",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Development",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "green infrastructure",
+      "synonyms": [],
+      "description": "Green infrastructure or blue-green infrastructure refers to a network that provides the \"ingredients\" for solving urban and climatic challenges by building with nature. [ 1 ] The main components of this approach include stormwater management, climate adaptation , the reduction of heat stress , increasing biodiversity , food production , better air quality , sustainable energy production, clean water, and healthy soils , as well as more human centered functions, such as increased quality of life through recreation and the provision of shade and shelter in and around towns and cities. [ 2 ] [ 3 ] Green infrastructure also serves to provide an ecological framework for social, economic, and environmental health of the surroundings. [ 4 ] More recently scholars and activists have also called for green infrastructure that promotes social inclusion and equity rather than reinforcing pre-existing structures of unequal access to nature-based services. [ 5 ]",
+      "wikidata_id": "Q3427027",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Green_infrastructure",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "community resilience",
+      "synonyms": [],
+      "description": "Community resilience is the sustained ability of a community to use available resources ( energy , communication , transportation , food , etc.) to respond to, withstand, and recover from adverse situations (e.g. economic collapse to global catastrophic risks ). [ 1 ] This allows for the adaptation and growth of a community after disaster strikes. [ 2 ] Communities that are resilient are able to minimize any disaster , making the return to normal life as effortless as possible. By implementing a community resilience plan, a community can come together and overcome any disaster, while rebuilding physically and economically. [ 3 ] [ 4 ]",
+      "wikidata_id": "Q3457767",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Community_resilience",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "societal choices",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": "Q35287159",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Societal_choices",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "CRD",
+      "synonyms": [],
+      "description": "CRD or crd may refer to:",
+      "wikidata_id": "Q353237",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/CRD",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "equity",
+      "synonyms": [],
+      "description": "The word equity is also used in the names of the following companies and organizations:",
+      "wikidata_id": "Q353342",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Equity",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "adaptation gaps",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": "Q36594555",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Adaptation_gaps",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "feasibility assessment",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": "Q37041814",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Feasibility_assessment",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "ecosystem connectivity",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": "Q37149518",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Ecosystem_connectivity",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "system transitions",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": "Q40096985",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/System_transitions",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "conservation agriculture",
+      "synonyms": [],
+      "description": "Conservation agriculture ( CA ) can be defined by a statement given by the Food and Agriculture Organization of the United Nations as \"Conservation Agriculture (CA) is a farming system that can prevent losses of arable land while regenerating degraded lands. It promotes minimum soil disturbance (i.e. no-till farming ), maintenance of a permanent soil cover, and diversification of plant species. It enhances biodiversity and natural biological processes above and below the ground surface, which contribute to increased water and nutrient use efficiency and to improved and sustained crop production.\" [ 1 ]",
+      "wikidata_id": "Q4439388",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Conservation_agriculture",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "economic development",
+      "synonyms": [],
+      "description": "Prescriptive and policy",
+      "wikidata_id": "Q4530482",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Economic_development",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "environmental quality",
+      "synonyms": [],
+      "description": "Environmental quality is a general term that refers to the overall condition of an environment and its impacts on the physical and mental well-being of living organisms. Properties and characteristics of the environment can be assessed at either a general or local level and can include both natural features and built surroundings. [ 1 ] Environmental quality assessments of indoor and outdoor environments can examine factors such as air pollution, water pollution, human activities, climate change, and availability of health care. [ 2 ]",
+      "wikidata_id": "Q4575211",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Environmental_quality",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "biodiversity management",
+      "synonyms": [],
+      "description": "Biodiversity is the variability of life on Earth . It can be measured on various levels, for example, genetic variability , species diversity , ecosystem diversity , and phylogenetic diversity. [ 1 ] Diversity is not distributed evenly on Earth — it is greater in the tropics as a result of the warm climate and high primary productivity in the region near the equator . Tropical forest ecosystem s cover less than one-fifth of Earth's terrestrial area and contain about 50% of the world's species. [ 2 ] There are latitudinal gradients in species diversity for both marine and terrestrial taxa . [ 3 ]",
+      "wikidata_id": "Q47041",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Biodiversity_management",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "political economy",
+      "synonyms": [],
+      "description": "Prescriptive and policy",
+      "wikidata_id": "Q47555",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Political_economy",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "gender",
+      "synonyms": [],
+      "description": "Gender is the range of social, psychological, cultural, and behavioral aspects of being a man (or boy ), woman (or girl ), or portraying a third gender . [ 1 ] [ 2 ] Although gender often corresponds to sex , a transgender person may identify with a gender other than their sex assigned at birth . Most cultures have a gender binary , in which gender is divided into two categories, and people are considered part of one or the other; [ 3 ] [ 4 ] [ 5 ] those who are outside these groups may fall under the umbrella term non-binary . Some societies have third genders (and fourth genders , etc.) such as the hijras of South Asia and two-spirit persons native to North America . Most scholars agree that gender is a central characteristic for social organization ; [ 6 ] this may include social constructs (i.e. gender roles ) as well as gender expression . [ 7 ] [ 8 ] [ 9 ]",
+      "wikidata_id": "Q48277",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Gender",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "worldviews",
+      "synonyms": [],
+      "description": "A worldview (also world-view or world view ) or Weltanschauung is a fundamental cognitive orientation of an individual or society towards the world around them and its workings, encompassing an essential part of the individual's or society's knowledge , culture , and point-of-view . [ 1 ] When two parties observe the same real-world phenomenon, if their worldviews differ, one party may perceive elements or make assumptions that the other does not, leading to differing conclusions, despite the shared empirical point of reference.",
+      "wikidata_id": "Q49447",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Worldviews",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "social movements",
+      "synonyms": [],
+      "description": "1800s: Martineau · Tocqueville · Marx · Spencer · Le Bon · Ward · Pareto · Tönnies · Veblen · Simmel · Durkheim · Addams · Mead · Weber · Du Bois · Mannheim · Elias",
+      "wikidata_id": "Q49773",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Social_movements",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "SDG 5",
+      "synonyms": [],
+      "description": "Sustainable Development Goal 5 ( SDG 5 or Global Goal 5 ) concerns gender equality and is fifth of the 17 Sustainable Development Goals established by United Nations in 2015. Through the pledge to \"Leave No One Behind\", countries have committed to fast-track progress for those furthest behind first. [ 1 ] : 54 SDG 5 aims to grant women and girls equal rights and opportunities to live free of violence and discrimination, including in the workplace .",
+      "wikidata_id": "Q53581210",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/SDG_5",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "synergies",
+      "synonyms": [],
+      "description": "Synergy is the concept that a combined effect of two or more entities is greater than the sum of their individual effects. The term synergy comes from the Attic Greek word συνεργία synergia [ 1 ] from synergos , συνεργός , meaning \"working together\". Synergy is similar in concept to emergence .",
+      "wikidata_id": "Q540614",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Synergies",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "social inequalities",
+      "synonyms": [],
+      "description": "1800s: Martineau · Tocqueville · Marx · Spencer · Le Bon · Ward · Pareto · Tönnies · Veblen · Simmel · Durkheim · Addams · Mead · Weber · Du Bois · Mannheim · Elias",
+      "wikidata_id": "Q5431887",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Social_inequalities",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "Geoforum",
+      "synonyms": [],
+      "description": "Geoforum is a peer-reviewed academic journal of geography which focuses on social , political , economic , and environmental activities that occur around the globe within the context of geographical space and time. It was originally published by Pergamon Press and is now published by Elsevier . The editors-in-chief are Rob Fletcher ( Wageningen University & Research ) and Sarah Hall ( University of Nottingham ). According to the Journal Citation Reports , the journal has a 2023 impact factor of 3.4. [ 1 ]",
+      "wikidata_id": "Q5535018",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Geoforum",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "oral histories",
+      "synonyms": [],
+      "description": "Oral history is the collection and study of historical information from people, families, important events, or everyday life using audiotapes , videotapes , or transcriptions of planned interviews . These interviews are conducted with people who participated in or observed past events and whose memories and perceptions of these are to be preserved as an aural record for future generations. Oral history strives to obtain information from different perspectives and most of these cannot be found in written sources. Oral history also refers to information gathered in this manner and to a written work (published or unpublished) based on such data, often preserved in archives and large libraries . [ 1 ] [ 2 ] [ 3 ] [ 4 ] Knowledge presented by oral history is unique in that it shares the tacit perspective, thoughts, opinions and understanding of the interviewee in its primary form. [ 5 ]",
+      "wikidata_id": "Q558929",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Oral_histories",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "green growth",
+      "synonyms": [],
+      "description": "Green growth is a concept in economic theory and policymaking used to describe paths of economic growth that are environmentally sustainable. [ 1 ] [ 2 ] [ 3 ] The term was coined in 2005 by the South Korean Rae Kwon Chung [ de ] , a director at UNESCAP . [ 4 ] It is based on the understanding that as long as economic growth remains a predominant goal, a decoupling of economic growth from resource use and adverse environmental impacts is required. As such, green growth is closely related to the concepts of green economy and low-carbon or sustainable development . A main driver for green growth is the transition towards sustainable energy systems. Advocates of green growth policies argue that well-implemented green policies can create opportunities for employment in sectors such as renewable energy , green agriculture , or sustainable forestry . [ 5 ]",
+      "wikidata_id": "Q5603535",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Green_growth",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "IPCC Special Report",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": "Q57077013",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/IPCC_Special_Report",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "Urban green infrastructure",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": "Q57498230",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Urban_green_infrastructure",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "planned relocation",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": "Q57935469",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Planned_relocation",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "GHG mitigation",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": "Q58105687",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/GHG_mitigation",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "systems",
+      "synonyms": [],
+      "description": "A system is a group of interacting or interrelated elements that act according to a set of rules or set of constraints to form a unified whole. [ 1 ] A system, surrounded and influenced by its environment , is described by its boundaries, structure and purpose and is expressed in its functioning. Systems are the subjects of study of systems theory and other systems sciences .",
+      "wikidata_id": "Q58778",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Systems",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "sustainable development priorities",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": "Q59128682",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Sustainable_development_priorities",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "IISD",
+      "synonyms": [],
+      "description": "IISD is an acronym that may refer to:",
+      "wikidata_id": "Q5971371",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/IISD",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "LAPSSET",
+      "synonyms": [],
+      "description": "The Lamu Port-South Sudan-Ethiopia-Transport (LAPSSET) Corridor project, also known as Lamu corridor is a transport and infrastructure project in Kenya that, [ 1 ] when complete, will be the country's second transport corridor . Kenya's other transport corridor is the Northern Corridor , which links Mombasa to Uganda , passing through Nairobi and much of the Northern Rift . Some basic LAPSSET infrastructure has been built (a police station and harbor office in Lamu and lengthening of the Lamu airport runway). The construction of LAPSSET's main components (ports, pipelines, roads, railways) is currently ongoing with construction of the first berth at Lamu Port completed in October 2019. [ 2 ] Although the project is not formally stalled, its short to medium term goals are uncertain. Insecurity and political instability in Kenya are mostly to blame, as is the consideration of more commercially viable alternative pipeline options through Tanzania or Ethiopia . The low oil prices since 2015 also affect LAPSSET's commercial prospects. [ 3 ]",
+      "wikidata_id": "Q6482734",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/LAPSSET",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "accountability potential",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": "Q64923167",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Accountability_potential",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "local institutions",
+      "synonyms": [],
+      "description": "Local government is a generic term for the lowest tiers of governance or public administration within a particular sovereign state . A municipal council or local council is the legislative body of a municipality or local government area . Depending on the location and classification of the municipality it may be known as a city council , town council , town board , community council , borough council , rural council , village council , board of aldermen , or board of selectmen .",
+      "wikidata_id": "Q6501447",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Local_institutions",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "government",
+      "synonyms": [],
+      "description": "A government is the system or group of people governing a country and its administrative divisions which is generally called as a state and as such the term is a metonym for it in governmental topics.",
+      "wikidata_id": "Q7188",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Government",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "economic feasibility",
+      "synonyms": [],
+      "description": "A feasibility study is an assessment of the practicality of a project or system. A feasibility study aims to objectively and rationally uncover the strengths and weaknesses of an existing business or proposed venture, opportunities and threats present in the natural environment , the resources required to carry through, and ultimately the prospects for success. [ 1 ] [ 2 ] [ 3 ] In its simplest terms, the two criteria to judge feasibility are cost required and value to be attained. [ 4 ]",
+      "wikidata_id": "Q755009",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Economic_feasibility",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "SDGs",
+      "synonyms": [
+        "2030 Agenda",
+        "Agenda 2030",
+        "SDG",
+        "sustainable development goals"
+      ],
+      "description": "Sustainable Development Goals ( abbr. SDGs ) were adopted in 2015 by all United Nations (UN) members for the 2030 Agenda for Sustainable Development. The aim of the 17 global goals is \"peace and prosperity for people and the planet\", [ 1 ] [ 2 ] tackling climate change , and working to preserve oceans and forests. The SDGs also include 169 measurable targets.",
+      "wikidata_id": "Q7649586",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/SDG",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "Millennium Ecosystem Assessment",
+      "synonyms": [],
+      "description": "The Millennium Ecosystem Assessment ( MA ) is a major assessment of the human impact on the environment , called for by the United Nations Secretary-General Kofi Annan in 2000, launched in 2001 and published in 2005 with more than $14 million of grants. It popularized the term ecosystem services , the benefits gained by humans from ecosystems .",
+      "wikidata_id": "Q767869",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Millennium_Ecosystem_Assessment",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "International Monetary Fund",
+      "synonyms": [],
+      "description": "The International Monetary Fund ( IMF ) is an international financial institution and a specialized agency of the United Nations , headquartered in Washington, D.C. It consists of 191 member countries, and its stated mission is \"working to foster global monetary cooperation, secure financial stability, facilitate international trade , promote high employment and sustainable economic growth, and reduce poverty around the world\". [ 1 ] The IMF acts as a lender of last resort to its members experiencing actual or potential balance of payments crises. [ 9 ]",
+      "wikidata_id": "Q7804",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/International_Monetary_Fund",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "systems transitions",
+      "synonyms": [
+        "energy transitions"
+      ],
+      "description": "An energy transition (or energy system transformation ) is a major structural change to energy supply and consumption in an energy system . Currently, a transition to sustainable energy is underway to limit climate change . Most of the sustainable energy is renewable energy. Therefore, another term for energy transition is renewable energy transition . The current transition aims to reduce greenhouse gas emissions from energy quickly and sustainably, mostly by phasing-down fossil fuels and changing as many processes as possible to operate on low carbon electricity . [ 2 ] A previous energy transition perhaps took place during the Industrial Revolution from 1760 onwards, from wood and other biomass to coal , followed by oil and later natural gas . [ 3 ] [ 4 ]",
+      "wikidata_id": "Q795757",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Energy_transitions",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "solidarity",
+      "synonyms": [],
+      "description": "Solidarity or solidarism is the provision of mutual moral and material support among the members of a group in times of need. [ 1 ] [ 2 ]",
+      "wikidata_id": "Q815726",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Solidarity",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "shared socioeconomic pathways",
+      "synonyms": [],
+      "description": "Shared Socioeconomic Pathways ( SSPs ) are climate change scenarios of projected socioeconomic global changes up to 2100 as defined in the IPCC Sixth Assessment Report on climate change in 2021. [ 2 ] They are used to derive greenhouse gas emissions scenarios with different climate policies . [ 3 ] [ 4 ] [ 5 ] The SSPs provide narratives describing alternative socio-economic developments . These storylines are a qualitative description of logic relating elements of the narratives to each other. [ 3 ] In terms of quantitative elements, they provide data accompanying the scenarios on national population, urbanization and GDP (per capita). [ 6 ] The SSPs can be quantified with various Integrated Assessment Models (IAMs) to explore possible future pathways both with regard to socioeconomic and climate pathways. [ 4 ] [ 5 ] [ 6 ]",
+      "wikidata_id": "Q84021487",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Shared_socioeconomic_pathways",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "development trajectories",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": "Q88486930",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Development_trajectories",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "pastoralism",
+      "synonyms": [],
+      "description": "Pastoralism is a form of animal husbandry where domesticated animals (known as \" livestock \") are released onto large vegetated outdoor lands ( pastures ) for grazing , historically by nomadic people who moved around with their herds . [ 2 ] The animal species involved include cattle , camels , goats , yaks , llamas , reindeer , horses , and sheep . [ 3 ] Those who practice pastoralism are called \" pastoralists \".",
+      "wikidata_id": "Q9056738",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Pastoralism",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "Livelihood diversification",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": "Q92682668",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Livelihood_diversification",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "global regions",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": "Q93130524",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Global_regions",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "planetary boundaries",
+      "synonyms": [],
+      "description": "Planetary boundaries are a framework to describe limits to the impacts of human activities on the Earth system . Beyond these limits, the environment may not be able to continue to self-regulate. This would mean the Earth system would leave the period of stability of the Holocene , in which human society developed. [ 2 ] [ 3 ] [ 4 ]",
+      "wikidata_id": "Q961310",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Planetary_boundaries",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    },
+    {
+      "canonical_name": "s",
+      "synonyms": [],
+      "description": "S ( minuscule : s ) is the nineteenth letter of the Latin alphabet , used in the English alphabet , the alphabets of other western European languages and other latin alphabets worldwide. Its name in English is ess [ a ] (pronounced / ˈ ɛ s / ⓘ ), plural esses . [ 1 ]",
+      "wikidata_id": "Q9956",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/S",
+      "source_file": "Examples/ar6-wg2-ch18_encyclopedia.html"
+    }
+  ]
+}
