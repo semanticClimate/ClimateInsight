@@ -1,6 +1,6 @@
 # ClimateInsight knowledge graph: one-page summary
 
-**Author:** Anusha Garg · **Date:** 2026-11-04 · **Branch:** `anusha/knowledge-graph`, commit `069d61f`
+**Author:** Anusha  · **Date:** 2026-11-04 · **Branch:** `anusha/knowledge-graph`, commit `069d61f`
 
 **What I am trying to do:** Build a knowledge graph of the climate concepts in the ClimateInsight chatbot's source texts, so that every chatbot answer can be checked against the passages it came from.
 
