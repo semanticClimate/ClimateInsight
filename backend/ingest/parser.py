@@ -7,9 +7,10 @@ Groups all paragraphs under a heading into one Section,
 then lets the chunker split if needed.
 Preserves paragraph-level html_id for citation linking.
 
-This parser is registered in the LOADER_REGISTRY as the handler for
-.html / .htm files. It returns Section objects that share the same
-interface as the XML parser so the chunker is format-agnostic.
+``loader_registry.parse_html_document`` uses this for every .html / .htm
+file except AR6 chapters fetched from amilib (see ipcc_amilib_parser.py).
+It returns Section objects that share the same interface as the XML
+parser so the chunker is format-agnostic.
 """
 
 import re

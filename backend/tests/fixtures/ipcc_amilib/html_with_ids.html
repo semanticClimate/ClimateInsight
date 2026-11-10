@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<!--
+  Synthetic fixture in semanticClimate amilib's IPCC "html_with_ids" format
+  (see amilib test/resources/ipcc/cleaned_content/*/*/html_with_ids.html).
+  Text is invented; structure mirrors real AR6 chapters, including the
+  quirks the reader must handle:
+    * <title> that disagrees with the chapter heading (as in the SYR),
+    * a container id repeated for two different sections (SYR "2.2.3"),
+    * a box, a numbered h3 inside an h2,
+    * table-of-contents and reference paragraphs that also carry ids,
+    * a figure caption and a footnote with no paragraph id.
+-->
+<html lang="en">
+<head><title>Summary for Policymakers</title></head>
+<body>
+<h1 class="home-title">Test Longer Report</h1>
+<div class="chapter-authors"><p>Author One (Chair), Author Two, Author Three and many more named contributors.</p></div>
+<p class="Chapter-contents_level-2-numbered" id="toc_p1">1.1 Introduction to the Test Report</p>
+
+<div class="h1-container" id="1">
+  <h1>1 Introduction</h1>
+  <div class="h1-siblings">
+    <p class="Body" id="1_p1">The first introductory paragraph explains what this test report covers.</p>
+    <p class="Body" id="1_p2">The second introductory paragraph adds context.<span class="footnote-ref">1</span></p>
+
+    <div class="h2-container" id="1.1">
+      <h2>1.1 Observed Changes</h2>
+      <div class="h2-siblings">
+        <p class="Body" id="1.1_p1">Observed warming is described in this paragraph.</p>
+        <div class="figure-cont"><p>Figure 1.1: A caption that should not be indexed.</p></div>
+
+        <div class="h3-container" id="1.1.1">
+          <h3>1.1.1. Observed Warming</h3>
+          <div class="h3-siblings">
+            <p class="Body" id="1.1.1_p1">Global surface temperature rose in the test period.</p>
+          </div>
+        </div>
+
+        <div class="h3-container" id="1.2.3">
+          <h3>1.1.2. Observed Impacts</h3>
+          <div class="h3-siblings">
+            <p class="Body" id="1.2.3_p1">Impacts are reported here under a repeated container id.</p>
+          </div>
+        </div>
+
+        <div class="h3-container fshow" id="box-1.1">
+          <h3>Box 1.1: Key Terms</h3>
+          <div class="h3-siblings">
+            <p class="Box" id="box-1.1_p1">A box defines key terms used in the test report.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="h2-container" id="1.2">
+      <h2>1.2 Responses</h2>
+      <div class="h2-siblings">
+        <div class="h3-container" id="1.2.3">
+          <h3>1.2.3. Adaptation Actions</h3>
+          <div class="h3-siblings">
+            <p class="Body" id="1.2.3_p1">Adaptation actions are summarised in the real 1.2.3.</p>
+            <p class="Body" id="1.2.3_p2"> </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="h1-container" id="references">
+  <h1>References</h1>
+  <div class="h1-siblings">
+    <p class="References_body" id="references_p1">Author, A., 2020: A cited paper. Journal, 1, 1-10.</p>
+  </div>
+</div>
+
+<div class="_idFootnotes"><p>1 A footnote with no paragraph id.</p></div>
+</body>
+</html>

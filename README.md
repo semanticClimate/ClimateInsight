@@ -24,7 +24,7 @@ Encyclopedia terms (encyclopedia/climate-wiki.js) ─► find concepts in every 
                                                      that share a passage ─► clusters (networkx)
 ```
 
-1. **Ingest** (`backend/ingest/`): the IPCC HTML report is split into its numbered sections (1, 2.1, 2.1.1 …); research-paper JATS XML is split into abstract / introduction / results … Each section is cut into overlapping ~400-word chunks.
+1. **Ingest** (`backend/ingest/`): the IPCC HTML report is split into its numbered sections (1, 2.1, 2.1.1 …); more AR6 chapters can be added from semanticClimate's [amilib](https://github.com/semanticClimate/amilib) (see [docs/IPCC_READER.md](docs/IPCC_READER.md)); research-paper JATS XML is split into abstract / introduction / results … Each section is cut into overlapping ~400-word chunks.
 2. **Index** (`backend/vectorstore/`): chunks are embedded with `all-MiniLM-L6-v2` and stored in a local ChromaDB database.
 3. **Answer** (`backend/retrieval/`): the question is embedded, the closest chunks are retrieved, and the local Ollama model answers from them only. Citations are mapped back to the exact passage, and clicking one scrolls the IPCC report to that section.
 4. **Knowledge graph** (`backend/knowledge_graph.py`): every concept from the climate term list in `encyclopedia/climate-wiki.js` (term → Wikipedia article) found in the indexed passages becomes a node; two concepts are linked when they occur in the same passage, weighted by how often. Clusters come from Louvain community detection. This step is deliberately AI-free, so every link can be traced to its passages. Concepts that never share a passage with the rest are joined through their source section (dashed link), so the whole graph is connected.

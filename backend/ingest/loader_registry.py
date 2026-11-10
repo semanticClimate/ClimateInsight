@@ -30,6 +30,9 @@ ingest.py entry point.
 from pathlib import Path
 from typing import Callable, Dict, List
 
+from lxml import html as lxml_html
+
+from .ipcc_amilib_parser import is_amilib_ipcc_html, parse_root as parse_ipcc_root
 from .models import Section
 from .parser import parse_html
 from .xml_parser import parse_xml
@@ -38,9 +41,33 @@ from .xml_parser import parse_xml
 
 LoaderFn = Callable[[Path], List[Section]]
 
+
+AMILIB_SOURCES_FILE = "SOURCES.json"
+
+
+def parse_html_document(path: Path) -> List[Section]:
+    """
+    Route an HTML file to the right reader.
+
+    Chapters fetched from semanticClimate's amilib by
+    ``scripts/fetch_ipcc_from_amilib.py`` sit next to a ``SOURCES.json``
+    and are read by ``ipcc_amilib_parser``. Every other HTML file,
+    including the existing ``data/raw/ipcc_reference.html``, is read by
+    ``parser.py`` exactly as before.
+    """
+    path = Path(path)
+    if (path.parent / AMILIB_SOURCES_FILE).is_file():
+        root = lxml_html.parse(str(path)).getroot()
+        if root is not None and is_amilib_ipcc_html(root):
+            sections = parse_ipcc_root(root, path)
+            print(f"Parsed amilib IPCC HTML {path.name}: {len(sections)} sections.")
+            return sections
+    return parse_html(path)
+
+
 LOADERS: Dict[str, LoaderFn] = {
-    ".html": parse_html,
-    ".htm": parse_html,
+    ".html": parse_html_document,
+    ".htm": parse_html_document,
     ".xml": parse_xml,
     # Future:
     # ".md":  parse_markdown,
