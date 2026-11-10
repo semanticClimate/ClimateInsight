@@ -1,12 +1,11 @@
 """Tests for the reader of semanticClimate amilib IPCC HTML (html_with_ids).
 
 The synthetic fixture pins the amilib format this reader depends on. The
-later groups check that data/raw/ipcc_reference.html is still read by
-the previous reader, and run the real SYR (amilib's cleaned output)
-through the amilib reader as a fetched chapter would be.
+second group runs the real SYR Longer Report in data/raw (amilib's
+cleaned output), so a change in amilib's format or the IPCC source shows
+up here first.
 """
 
-import shutil
 from pathlib import Path
 
 import pytest
@@ -88,37 +87,21 @@ def test_registry_falls_back_for_other_html():
     assert get_loader(RESEARCH_HTML)(RESEARCH_HTML)
 
 
-# ─── Existing data must read exactly as before ───────────────────────────────
+# ─── Real AR6 data: the SYR Longer Report (amilib cleaned_content) ───────────
+
+needs_syr = pytest.mark.skipif(not SYR.exists(), reason="data/raw/ipcc_reference.html not present")
 
 
-@pytest.mark.skipif(not SYR.exists(), reason="data/raw/ipcc_reference.html not present")
-def test_existing_ipcc_reference_still_uses_previous_reader():
-    """No SOURCES.json beside it, so the chatbot's index is unchanged."""
-    assert get_loader(SYR)(SYR) == parse_html(SYR)
+@needs_syr
+def test_syr_routes_to_amilib_reader():
+    """ClimateInsight has no IPCC reader of its own: the SYR goes through amilib's format."""
+    assert get_loader(SYR)(SYR) == parse_ipcc_amilib(SYR)
 
 
-# ─── Real AR6 data through the amilib reader ──────────────────────────────────
-
-
-@pytest.fixture(scope="module")
-def fetched_syr(tmp_path_factory):
-    """The SYR Longer Report laid out as fetch_ipcc_from_amilib.py saves it."""
-    if not SYR.exists():
-        pytest.skip("data/raw/ipcc_reference.html not present")
-    d = tmp_path_factory.mktemp("ipcc")
-    target = d / "syr_longer-report.html"
-    shutil.copy(SYR, target)
-    (d / "SOURCES.json").write_text("{}")
-    return target
-
-
-def test_fetched_syr_routes_to_amilib_reader(fetched_syr):
-    assert get_loader(fetched_syr)(fetched_syr) == parse_ipcc_amilib(fetched_syr)
-
-
-def test_fetched_syr_keeps_every_amilib_paragraph(fetched_syr):
-    root = html.parse(str(fetched_syr)).getroot()
-    paragraphs = {p for s in parse_ipcc_amilib(fetched_syr) for p in s.text.split("\n\n")}
+@needs_syr
+def test_syr_keeps_every_amilib_paragraph():
+    root = html.parse(str(SYR)).getroot()
+    paragraphs = {p for s in parse_ipcc_amilib(SYR) for p in s.text.split("\n\n")}
     missing = [
         p.get("id") for p in root.xpath("//p[@id]")
         if (t := _element_text(p)) and t not in paragraphs
@@ -126,15 +109,17 @@ def test_fetched_syr_keeps_every_amilib_paragraph(fetched_syr):
     assert missing == []
 
 
-def test_fetched_syr_text_matches_previous_reader_format(fetched_syr):
-    """Same text form as parser.py (e.g. "CO 2"), so concept matching is unchanged."""
+@needs_syr
+def test_syr_prose_matches_generic_reader_text():
+    """Same text form as the generic reader (e.g. "CO 2"), so concept matching is unchanged."""
     old = {p for s in parse_html(SYR) for p in s.text.split("\n\n")}
-    new = [p for s in parse_ipcc_amilib(fetched_syr) for p in s.text.split("\n\n")]
+    new = [p for s in parse_ipcc_amilib(SYR) for p in s.text.split("\n\n")]
     assert sum(p in old for p in new) >= len(new) - 2
 
 
-def test_fetched_syr_sections_are_unique_and_titled(fetched_syr):
-    secs = parse_ipcc_amilib(fetched_syr)
+@needs_syr
+def test_syr_sections_are_unique_and_titled():
+    secs = parse_ipcc_amilib(SYR)
     labels = [s.section for s in secs]
     assert len(labels) == len(set(labels))
     assert {"1", "2.1", "2.1.2", "2.2.3", "4.9"} <= set(labels)

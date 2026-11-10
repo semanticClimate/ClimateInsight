@@ -31,17 +31,30 @@ All weights are still used for clustering, neighbours and subgraphs.
 from __future__ import annotations
 
 import itertools
+import json
+import os
 import re
 import threading
 from collections import Counter, defaultdict
 from pathlib import Path
+from urllib.parse import quote, unquote, urlparse
 
 import networkx as nx
+from lxml import html as lxml_html
 
 from vectorstore.chroma_client import get_collection
 
 ROOT = Path(__file__).resolve().parent.parent
 ENCYCLOPEDIA_JS = ROOT / "encyclopedia" / "climate-wiki.js"
+
+# The term list can be swapped without code changes: set
+# CLIMATEINSIGHT_ENCYCLOPEDIA, or [knowledge_graph] encyclopedia in
+# config.toml, to a climate-wiki.js file, a semanticClimate encyclopedia
+# HTML export (ami_entry elements) or a JSON file. See load_encyclopedia().
+ENCYCLOPEDIA_ENV = "CLIMATEINSIGHT_ENCYCLOPEDIA"
+
+# The IPCC file served at /ipcc-reference with no ?doc= parameter.
+DEFAULT_IPCC_DOC = "ipcc_reference"
 
 TOP_K = 3          # strongest links kept per concept for display
 MAX_SOURCES = 8    # sources listed per concept
@@ -56,8 +69,9 @@ SHORT_KEY_LEN = 4
 LOWERCASE_OK = {"coal", "oil", "firn", "buoy", "ppm", "ppb", "2°c", "2 c"}
 ACRONYMS = {"afolu", "beccs", "hcfcs", "llghg", "nmvoc", "slcps"}  # longer acronyms
 
-# HTML extraction flattens subscripts: "CO<sub>2</sub>" becomes "CO 2", whose
-# "CO" would then match carbon monoxide. Re-join formulas before matching.
+# HTML extraction may flatten subscripts: "CO<sub>2</sub>" can become "CO 2",
+# whose "CO" would then match carbon monoxide. Re-join formulas before
+# matching, so the graph is the same whichever form a reader produces.
 _FORMULA_N2O = re.compile(r"\bN\s?2\s?O\b")
 _FORMULA = re.compile(r"\b(CO|CH|SO|NO|NH|SF|NF|O)\s([2-6])\b")
 
@@ -70,13 +84,116 @@ EXCLUDED_CONCEPTS = {"Likelihood"}
 # ── Encyclopedia ──────────────────────────────────────────────────────────────
 
 
-def load_encyclopedia(path: Path = ENCYCLOPEDIA_JS) -> dict[str, str]:
-    """Parse the WIKI_MAP object in climate-wiki.js → {lowercase term: title}."""
+def encyclopedia_path() -> Path:
+    """The configured term list (env var > config.toml > climate-wiki.js)."""
+    configured = os.environ.get(ENCYCLOPEDIA_ENV)
+    if not configured:
+        try:
+            from config import _cfg
+            configured = _cfg.get("knowledge_graph", {}).get("encyclopedia")
+        except Exception:  # config.toml missing or unreadable: use the default
+            configured = None
+    if not configured:
+        return ENCYCLOPEDIA_JS
+    path = Path(configured)
+    return path if path.is_absolute() else ROOT / path
+
+
+def _title_from_wikipedia_url(url: str) -> str:
+    """'https://en.wikipedia.org/wiki/Ocean_heat_content' → 'Ocean heat content'."""
+    path = urlparse(url or "").path
+    if "/wiki/" not in path:
+        return ""
+    return unquote(path.rsplit("/wiki/", 1)[-1]).replace("_", " ").strip()
+
+
+def _load_climate_wiki_js(path: Path) -> dict[str, str]:
+    """The WIKI_MAP object in climate-wiki.js."""
     src = path.read_text(encoding="utf-8")
     start = src.index("const WIKI_MAP = {")
     end = src.index("\n  };", start)
     pairs = re.findall(r'^\s*"([^"]+)"\s*:\s*"([^"]+)"', src[start:end], re.M)
-    return {term.lower(): title for term, title in pairs}
+    return {term: title for term, title in pairs}
+
+
+def _load_ami_entries(path: Path) -> dict[str, str]:
+    """
+    A semanticClimate encyclopedia / amilib dictionary HTML export: every
+    ``[role=ami_entry]`` gives a term (its ``term`` or ``name`` attribute),
+    optional synonyms, and a Wikipedia link whose page title names the
+    concept (falling back to the term).
+    """
+    root = lxml_html.parse(str(path)).getroot()
+    out: dict[str, str] = {}
+    for entry in root.xpath("//*[@role='ami_entry']"):
+        term = (entry.get("term") or entry.get("name") or "").strip()
+        if not term:
+            continue
+        links = entry.xpath(".//a[contains(@href, 'wikipedia.org/wiki/')]/@href")
+        title = (_title_from_wikipedia_url(links[0]) if links else "") or term
+        synonyms = [
+            li.text_content()
+            for li in entry.xpath(
+                ".//li[contains(@class,'canonical_synonym')]"
+                " | .//ul[contains(@class,'synonym_list')]/li"
+            )
+        ]
+        for name in [term, *synonyms]:
+            name = " ".join(name.split())
+            if name:
+                out.setdefault(name, title)
+    return out
+
+
+def _load_json_terms(path: Path) -> dict[str, str]:
+    """
+    JSON term list, either ``{"term": "Wikipedia title", ...}`` or a list
+    (optionally under "concepts") of objects with a name (``term`` /
+    ``canonical_name`` / ``name``), optional ``synonyms`` / ``aliases`` and
+    an optional ``title`` or ``wikipedia_url``.
+    """
+    data = json.loads(path.read_text(encoding="utf-8"))
+    if isinstance(data, dict) and "concepts" not in data:
+        return {str(k): str(v) for k, v in data.items() if k and v}
+    items = data.get("concepts", []) if isinstance(data, dict) else data
+    out: dict[str, str] = {}
+    for item in items:
+        name = item.get("term") or item.get("canonical_name") or item.get("name") or ""
+        if not name:
+            continue
+        title = (
+            item.get("title")
+            or _title_from_wikipedia_url(item.get("wikipedia_url") or "")
+            or name
+        )
+        for alias in [name, *(item.get("synonyms") or []), *(item.get("aliases") or [])]:
+            if alias:
+                out.setdefault(str(alias), str(title))
+    return out
+
+
+_TERM_LOADERS = {
+    ".js": _load_climate_wiki_js,
+    ".html": _load_ami_entries,
+    ".htm": _load_ami_entries,
+    ".json": _load_json_terms,
+}
+
+
+def load_encyclopedia(path: Path | None = None) -> dict[str, str]:
+    """
+    Read the term list → {lowercase term: concept title}.
+
+    Supported formats, chosen by file extension:
+      .js    climate-wiki.js (WIKI_MAP)
+      .html  semanticClimate encyclopedia / amilib dictionary (ami_entry)
+      .json  term → title mapping, or a list of concept objects
+    """
+    path = Path(path) if path else encyclopedia_path()
+    loader = _TERM_LOADERS.get(path.suffix.lower())
+    if loader is None:
+        raise ValueError(f"Unsupported term list {path.name}; use one of {sorted(_TERM_LOADERS)}")
+    return {term.lower(): title for term, title in loader(path).items()}
 
 
 def _requires_capital(term: str) -> bool:
@@ -145,13 +262,26 @@ def _source_of(meta: dict) -> tuple[str, dict]:
             "pmcid": pmcid,
             "doi": meta.get("doi", ""),
         }
+    # IPCC: one source per document section. The document is part of the
+    # key so that section 1.1 of WG I and 1.1 of WG II stay separate; the
+    # default report keeps its original key and label.
     section = meta.get("section", "")
     title = meta.get("section_title", "")
-    return f"ipcc:{section}", {
+    doc = _ipcc_doc(meta)
+    key = f"ipcc:{section}" if doc == DEFAULT_IPCC_DOC else f"ipcc:{doc}:{section}"
+    report = "" if doc == DEFAULT_IPCC_DOC else (meta.get("document_title") or doc)
+    label = " ".join(p for p in ("IPCC AR6", report, section, title) if p)
+    return key, {
         "type": "ipcc",
-        "label": f"IPCC AR6 {section} {title}".strip(),
+        "label": label,
         "section": section,
+        "document": doc,
     }
+
+
+def _ipcc_doc(meta: dict) -> str:
+    """The IPCC file a chunk came from, by stem (e.g. 'wg1_Chapter01')."""
+    return Path(meta.get("source_path", "")).stem or DEFAULT_IPCC_DOC
 
 
 # ── Graph construction ───────────────────────────────────────────────────────
@@ -312,7 +442,8 @@ _lock = threading.Lock()
 
 def _state() -> dict:
     """Build once; rebuild when the collection or encyclopedia changes."""
-    key = (get_collection().count(), ENCYCLOPEDIA_JS.stat().st_mtime)
+    terms = encyclopedia_path()
+    key = (get_collection().count(), str(terms), terms.stat().st_mtime)
     with _lock:
         if _cache.get("key") != key:
             _cache["state"] = _build()
@@ -394,8 +525,16 @@ def _link_for(meta: dict) -> str:
         return f"/paper/{re.sub(r'^PMC', '', pmcid, flags=re.I)}"
     if meta.get("doi"):
         return f"https://doi.org/{meta['doi']}"
-    if meta.get("source_type") == "ipcc_report" and meta.get("section"):
-        return f"/ipcc-reference#{meta['section']}"
+    if meta.get("source_type") == "ipcc_report":
+        # Prefer amilib's paragraph id: it is an element id in the served
+        # file. Section numbers are not always (the SYR's 2.1.2 sits in a
+        # container with id 2.2.3).
+        anchor = meta.get("html_id") or meta.get("section")
+        if not anchor:
+            return ""
+        doc = _ipcc_doc(meta)
+        query = "" if doc == DEFAULT_IPCC_DOC else f"?doc={quote(doc)}"
+        return f"/ipcc-reference{query}#{quote(anchor)}"
     return ""
 
 

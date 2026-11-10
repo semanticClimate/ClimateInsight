@@ -15,9 +15,9 @@ chapter (49 AR6 chapters, including the SYR Longer Report, are in amilib's
 
 ClimateInsight should not re-clean those pages with its own heuristics.
 This module only *reads* amilib's format and maps it onto our ``Section``
-model. ``loader_registry`` uses it for chapters fetched by
-``scripts/fetch_ipcc_from_amilib.py`` (HTML next to a ``SOURCES.json``);
-``data/raw/ipcc_reference.html`` is still read by ``parser.py``.
+model. ``loader_registry`` uses it for every HTML file in amilib's IPCC
+format, including ``data/raw/ipcc_reference.html`` and chapters fetched
+by ``scripts/fetch_ipcc_from_amilib.py``.
 
 amilib format, as relied on here
 --------------------------------

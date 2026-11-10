@@ -5,6 +5,8 @@
 
 Every number below was counted twice: once with the project's own code, and once independently by reading the database and source files directly. Where the two differed, the reason is given.
 
+> **Update 2026-11-10: the IPCC report is now read through semanticClimate's amilib** (see [section 11](#11-when-the-sources-change) and [IPCC_READER.md](IPCC_READER.md)), not a ClimateInsight-specific parser. The counts below are from the 2026-11-04 check. After re-ingesting, the totals become: **415 passages (115 IPCC, 300 papers), 270 concepts, 5,218 links, 804 drawn, 68 concepts in only one passage**; *Climate change* is in 88 passages. *Marine heatwave* (56) and *Food security* (11) are unchanged, so the Bay of Bengal example still holds. Three concepts that only appeared in figure captions are gone: *Bioenergy with carbon capture and storage*, *Resource efficiency* and *Risk assessment*.
+
 ---
 
 ## 1. In one paragraph
@@ -35,10 +37,10 @@ So every node and every connection can be traced back to the passages behind it,
 
 ## 3. Sources
 
-- **IPCC:** AR6 Synthesis Report (SYR), Longer Report, 2023, HTML version (https://www.ipcc.ch/report/ar6/syr/), stored as `data/raw/ipcc_reference.html`. Not the Working Group reports.
+- **IPCC:** AR6 Synthesis Report (SYR), Longer Report, 2023, HTML version (https://www.ipcc.ch/report/ar6/syr/), stored as `data/raw/ipcc_reference.html`. This file is semanticClimate amilib's cleaned copy (`html_with_ids.html`). Working Group chapters can be added from amilib (section 11).
 - **Papers:** 12 open-access papers from Europe PMC, full-text XML in `data/raw/ocean_heatwaves_2026/`. The query is recorded in `backend/tests/fixtures/ocean_heatwaves_2026/review/review_table.edited.json`:
   `("marine heatwave" OR "ocean heat wave" OR "ocean heatwave") AND ("ocean current" OR "ocean circulation" OR "Gulf Stream" OR "AMOC") AND (HAS_FT:Y)`
-- **Term list:** `encyclopedia/climate-wiki.js`, made by Aleena Harold Peter for the chatbot's Wikipedia tooltips.
+- **Term list:** `encyclopedia/climate-wiki.js` by default, made by Aleena Harold Peter for the chatbot's Wikipedia tooltips. It can be replaced by a semanticClimate encyclopedia export without code changes (section 11).
   - It has 730 entries: 721 distinct terms (9 entries are repeated), mapped to 508 Wikipedia articles.
   - **This is not the IPCC glossary.** The terms were chosen by hand.
 
@@ -162,7 +164,7 @@ This section is for anyone who wants to check or rebuild the system. It names th
 
 This runs once, when the data is loaded (`backend/ingest/ingest.py`).
 
-1. **Parse the IPCC report.** `parse_html()` in `backend/ingest/parser.py` reads `ipcc_reference.html` with Beautiful Soup (`html.parser`). It walks the `h1`–`h4`, `p` and `li` tags to split the report into its numbered sections (1, 2.1, 2.1.1 …).
+1. **Parse the IPCC report.** `backend/ingest/loader_registry.py` recognises amilib's IPCC format and hands the file to `backend/ingest/ipcc_amilib_parser.py`. It uses amilib's own structure: one section per amilib `div.hN-container` (1, 2.1, 2.1.1 …), and amilib's paragraph ids (e.g. `2.1.1_p3`) as citation anchors. ClimateInsight has no IPCC cleaning rules of its own.
 2. **Parse the papers.** `backend/ingest/manifest_ingest/jats_to_sections.py` reads each paper's JATS XML with Beautiful Soup (`xml` parser) and takes its top-level `<sec>` sections (introduction, results …).
 3. **Cut into passages.** `chunk_records()` in `backend/ingest/chunker.py` splits each section's text on whitespace into words.
    - A section of 400 words or fewer stays as one passage.
@@ -177,11 +179,11 @@ This runs once, when the data is loaded (`backend/ingest/ingest.py`).
 All of this is in `backend/knowledge_graph.py`, function `_build()`. It uses no model.
 
 1. **Load the passages.** `get_collection().get(include=["documents", "metadatas"])` reads all 418 passages and their metadata from ChromaDB. The stored vectors are not used here.
-2. **Load the term list.** `load_encyclopedia()` reads `encyclopedia/climate-wiki.js` as text and pulls out every `"term": "Wikipedia title"` line inside `WIKI_MAP`, using the regular expression `^\s*"([^"]+)"\s*:\s*"([^"]+)"`. Terms are lower-cased into a Python dictionary {term → title}.
+2. **Load the term list.** `load_encyclopedia()` reads the configured term list (`encyclopedia_path()`: the `CLIMATEINSIGHT_ENCYCLOPEDIA` environment variable, else `[knowledge_graph] encyclopedia` in `config.toml`, else `encyclopedia/climate-wiki.js`). The format is chosen by file extension: `.js` pulls every `"term": "Wikipedia title"` line out of `WIKI_MAP`; `.html` reads a semanticClimate encyclopedia / amilib dictionary export (`[role=ami_entry]` elements with their synonyms and Wikipedia link); `.json` reads a {term → title} mapping or a list of concepts. Terms are lower-cased into a Python dictionary {term → title}.
 3. **Build one search pattern.** `ConceptMatcher` sorts all terms **longest first** and joins them into a single regular expression: `(?<![\w-])(term1|term2|…)(?![\w-])`, with `re.IGNORECASE`.
    - The `(?<![\w-])` and `(?![\w-])` parts mean a term must not be part of a longer word or hyphenated word. So "co" does not match inside "co-benefits".
    - Because longer terms come first in the pattern, "carbon dioxide removal" wins over "carbon dioxide".
-4. **Clean the text first.** `_normalise()` re-joins chemical formulas that HTML extraction split apart, using two regular expressions: "N 2 O" → "N2O", and "CO 2", "CH 4", "SO 2" etc. → "CO2", "CH4", "SO2".
+4. **Clean the text first.** `_normalise()` re-joins chemical formulas that HTML extraction may split apart (so matching is the same whether a reader writes "CO 2" or "CO2"), using two regular expressions: "N 2 O" → "N2O", and "CO 2", "CH 4", "SO 2" etc. → "CO2", "CH4", "SO2".
 5. **Filter false matches.** For each match:
    - `_requires_capital()` marks short terms: 4 letters or fewer, except real words such as "coal", "oil", "ppm", plus a few longer acronyms such as "BECCS".
    - These only count if `_looks_like_acronym()` is true: at least two capital letters, or all letters capitals.
@@ -208,7 +210,7 @@ All of this is in `backend/knowledge_graph.py`, function `_build()`. It uses no 
     - its 8 most frequent `sources`
 
     Each connection has `from`, `to`, `weight` and `kind`. The graph also carries `groups` (clusters) and `stats` (totals).
-13. **Cache.** `_state()` builds the graph once and keeps it in memory, behind a `threading.Lock`. It rebuilds only when the number of stored passages or the modification time of `climate-wiki.js` changes.
+13. **Cache.** `_state()` builds the graph once and keeps it in memory, behind a `threading.Lock`. It rebuilds only when the number of stored passages, the term-list file, or its modification time changes.
 
 ### C. Answer a question on the graph
 
@@ -286,3 +288,29 @@ This is `generate_concept_graph()` in `backend/concept_graph.py`. Questions long
 - The passages behind a link: `GET /api/knowledge-graph/link?a=Marine%20heatwave&b=Ocean%20heat%20content`
   - For two concepts that aren't linked, such as Marine heatwave and Food security, this returns "not linked".
 - Tests: `pytest backend/tests`
+
+## 11. When the sources change
+
+The graph has no source-specific code: it reads whatever passages are in ChromaDB and whatever term list is configured. To change sources:
+
+**The IPCC report changes, or more AR6 chapters are wanted**
+
+1. Get the chapter (re-)cleaned in semanticClimate's amilib. Do not add IPCC cleaning to ClimateInsight.
+2. Fetch it: `python scripts/fetch_ipcc_from_amilib.py wg1/Chapter01 --ref <amilib commit>` (`--list` shows the 49 available chapters). Files go to `data/raw/ipcc/` with their provenance in `SOURCES.json`.
+3. Run the tests: `cd backend && python -m pytest`.
+4. Re-ingest: `cd backend && python -m ingest.ingest --dir ../data/raw`. The graph rebuilds itself on the next request.
+
+Several IPCC documents can sit side by side: each section is a separate source (`ipcc:<file>:<section>`, while the original SYR keeps `ipcc:<section>`), and "Open this section" links go to `/ipcc-reference?doc=<file>#<amilib paragraph id>`.
+
+**The term list changes**
+
+Point `CLIMATEINSIGHT_ENCYCLOPEDIA` (or `[knowledge_graph] encyclopedia` in `config.toml`) at the new file: a `climate-wiki.js`, a semanticClimate encyclopedia HTML export, or JSON. No code change is needed, and the graph rebuilds when the file changes. For example, to try a generated encyclopedia:
+
+```bash
+cd backend && CLIMATEINSIGHT_ENCYCLOPEDIA=encyclopedia/generated/ipcc_encyclopedia.html python app.py
+```
+
+**What protects this**
+
+`backend/tests/test_knowledge_graph_sources.py` checks every term-list format, two IPCC chapters with the same section numbers, the links, and that "CO 2" and "CO2" match the same concepts. `backend/tests/test_ipcc_amilib_parser.py` checks amilib's IPCC format and that every amilib paragraph of the SYR is indexed.
+

@@ -100,26 +100,32 @@ def concept_graph_page():
 # Reference HTML
 # -------------------------
 
+_IPCC_DOC_NAME = re.compile(r"^[A-Za-z0-9_.-]+$")
+
+
 @app.get("/ipcc-reference", response_class=HTMLResponse)
-def ipcc_reference():
+def ipcc_reference(doc: str = ""):
     """
     Serves ipcc_reference.html with all ipcc.ch image URLs rewritten to
     go through our local /ipcc-image-proxy route.
+
+    ``?doc=wg1_Chapter01`` serves a chapter fetched from amilib into
+    data/raw/ipcc/ instead (see scripts/fetch_ipcc_from_amilib.py).
 
     Why: IPCC's CDN uses hotlink protection — it blocks image requests that
     carry a Referer header from localhost. The browser sends this Referer
     when loading images inside the iframe. By proxying server-side, we fetch
     the images without any Referer, so IPCC allows it.
     """
-    html_path = os.path.abspath(
-        os.path.join(
-            os.path.dirname(__file__),
-            "..",
-            "data",
-            "raw",
-            "ipcc_reference.html",
-        )
-    )
+    raw_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "data", "raw"))
+    if doc:
+        if not _IPCC_DOC_NAME.match(doc) or doc.startswith("."):
+            raise HTTPException(status_code=400, detail="Invalid document name")
+        html_path = os.path.join(raw_dir, "ipcc", f"{doc}.html")
+        if not os.path.isfile(html_path):
+            raise HTTPException(status_code=404, detail=f"IPCC document '{doc}' not found")
+    else:
+        html_path = os.path.join(raw_dir, "ipcc_reference.html")
 
     try:
         with open(html_path, "r", encoding="utf-8") as f:

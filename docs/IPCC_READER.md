@@ -14,45 +14,59 @@ ClimateInsight builds on that instead of cleaning IPCC pages itself.
 | What | File |
 |---|---|
 | Chooses the reader for each `.html` file | `backend/ingest/loader_registry.py` (`parse_html_document`) |
-| Reader for AR6 chapters fetched from amilib | `backend/ingest/ipcc_amilib_parser.py` |
-| Reader for all other HTML, including `data/raw/ipcc_reference.html` | `backend/ingest/parser.py` (unchanged) |
+| Reader for IPCC AR6 chapters in amilib's format, including `data/raw/ipcc_reference.html` | `backend/ingest/ipcc_amilib_parser.py` |
+| Reader for other HTML (not IPCC) | `backend/ingest/parser.py` |
 | Fetch AR6 chapters from amilib | `scripts/fetch_ipcc_from_amilib.py` |
-| Tests | `backend/tests/test_ipcc_amilib_parser.py`, `backend/tests/fixtures/ipcc_amilib/` |
+| Serve a fetched chapter in the browser | `GET /ipcc-reference?doc=<file>` in `backend/app.py` |
+| Tests | `backend/tests/test_ipcc_amilib_parser.py`, `backend/tests/fixtures/ipcc_amilib/`, `backend/tests/test_knowledge_graph_sources.py` |
 
-## Existing behaviour is unchanged
+ClimateInsight has no IPCC cleaning rules of its own. Any HTML file in
+amilib's IPCC format is read by `ipcc_amilib_parser.py`.
 
-`data/raw/ipcc_reference.html` (the SYR Longer Report the chatbot has
-always used) is amilib's file: its 195 paragraph ids and texts match amilib's
-`cleaned_content/syr/longer-report/html_with_ids.html`. It is still read by
-`parser.py`, so the knowledge base is exactly as before. Building every
-chunk from `data/raw` with this code and with `main` gives identical
-results (118 chunks for the default IPCC ingest, 418 for `--dir data/raw`),
-and `test_existing_ipcc_reference_still_uses_previous_reader` keeps it that
-way.
+## What the reader does
+
+* one `Section` per amilib container, numbered from its heading (the SYR
+  has two containers with id `2.2.3`; the heading numbers are right);
+* `html_id` is the first amilib paragraph id, which citations link to;
+* `section_hierarchy` lists the enclosing headings;
+* text is in the same form as the generic reader produces (e.g. "CO 2"),
+  so concept matching behaves the same;
+* body paragraphs and list items amilib left without an id (such as the
+  SYR's headline statements and risk lists) are kept;
+* reference lists, table of contents, figure captions, footnotes, author
+  lists and the recommended citation are left out.
+
+## Effect on the existing SYR index
+
+`data/raw/ipcc_reference.html` is amilib's file (its 195 paragraph ids and
+texts match amilib's `cleaned_content/syr/longer-report/html_with_ids.html`).
+Reading it through amilib's structure instead of the earlier
+ClimateInsight-specific parser, measured against `main`:
+
+* 115 IPCC passages instead of 118; the 300 research-paper passages are
+  identical;
+* every amilib paragraph is kept; what drops out is the author list, the
+  recommended citation, figure captions and footnotes;
+* section titles are complete (the earlier parser cut titles at a line
+  break, e.g. "Current Mitigation and Adaptation Actions and Policies are");
+* every section now has a citation anchor (6 had none);
+* knowledge graph: 270 concepts instead of 273 (3 appeared only in figure
+  captions) and 5,218 links instead of 5,286.
+
+Re-ingest after updating: `cd backend && python -m ingest.ingest`.
 
 ## Adding AR6 chapters from amilib
 
 ```bash
 python scripts/fetch_ipcc_from_amilib.py --list
 python scripts/fetch_ipcc_from_amilib.py wg1/Chapter01 wg2/Chapter05
-cd backend && python -m ingest.ingest --dir ../data/raw/ipcc
+cd backend && python -m ingest.ingest --dir ../data/raw
 ```
 
 The script saves chapters in `data/raw/ipcc/` from a pinned amilib commit
-and writes `SOURCES.json` (commit, path, checksum). HTML files next to a
-`SOURCES.json` are read by `ipcc_amilib_parser.py`:
-
-* one `Section` per amilib container, numbered from its heading;
-* `html_id` is the first amilib paragraph id, which citations link to;
-* `section_hierarchy` lists the enclosing headings;
-* text is in the same form as `parser.py` produces (e.g. "CO 2"), so
-  concept matching behaves the same;
-* body paragraphs and list items amilib left without an id (such as the
-  SYR's headline statements) are kept;
-* reference lists, table of contents, figure captions, footnotes, author
-  lists and the recommended citation are left out. The old reader would
-  index WG reference lists (about 1,000 entries per chapter), which is why
-  fetched chapters use this reader.
+and writes `SOURCES.json` (commit, path, checksum). The old reader would
+index WG reference lists (about 1,000 entries per chapter); the amilib
+reader skips them.
 
 ## When the IPCC documents (or amilib) change
 

@@ -1,16 +1,21 @@
 """
 parser.py
 ----------
-Extract logical sections from the IPCC HTML document.
+Generic heading-based reader for HTML that is NOT an IPCC chapter.
+
+IPCC AR6 chapters are read by ``ipcc_amilib_parser.py`` from
+semanticClimate amilib's cleaned HTML. Do not add IPCC-specific cleaning
+here; fix or extend amilib instead, so every semanticClimate project
+benefits.
 
 Groups all paragraphs under a heading into one Section,
 then lets the chunker split if needed.
 Preserves paragraph-level html_id for citation linking.
 
-``loader_registry.parse_html_document`` uses this for every .html / .htm
-file except AR6 chapters fetched from amilib (see ipcc_amilib_parser.py).
-It returns Section objects that share the same interface as the XML
-parser so the chunker is format-agnostic.
+``loader_registry.parse_html_document`` uses this only for .html / .htm
+files that are not in amilib's IPCC format. It returns Section objects that
+share the same interface as the XML parser so the chunker is
+format-agnostic.
 """
 
 import re
