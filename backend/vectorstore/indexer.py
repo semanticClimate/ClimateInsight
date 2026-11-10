@@ -72,6 +72,9 @@ def ingest_chunks(chunks: list[dict], batch_size: int = 64):
             {
                 "section": c.get("section", ""),
                 "section_title": c.get("section_title", ""),
+                # Paragraph anchor in the source HTML (amilib id for IPCC),
+                # used by the knowledge graph's "Open this section" links.
+                "html_id": c.get("html_id", ""),
                 "source_id": c.get("source_id", ""),
                 "citation_label": c.get("citation_label", ""),
                 "source_path": c.get("source_path", ""),

@@ -53,7 +53,10 @@ ClimateInsight-specific parser, measured against `main`:
 * knowledge graph: 270 concepts instead of 273 (3 appeared only in figure
   captions) and 5,218 links instead of 5,286.
 
-Re-ingest after updating: `cd backend && python -m ingest.ingest`.
+Rebuild the index after updating: delete `backend/chroma_db/`, then
+`cd backend && python -m ingest.ingest --dir ../data/raw` (415 passages).
+A fresh build is needed because passages now also store `html_id`, and
+the indexer skips passages it already has.
 
 ## Adding AR6 chapters from amilib
 

@@ -142,3 +142,28 @@ def test_graph_builds_across_several_ipcc_chapters(monkeypatch):
     graph = kg._build()["graph"]
     assert {n["id"] for n in graph["nodes"]} == {"Marine heatwave", "Ocean heat content"}
     assert set(graph["sources"]) == {"ipcc:wg1_Chapter09:9.2", "ipcc:wg2_Chapter03:3.2"}
+
+
+# ─── The index keeps what the graph's links need ──────────────────────────────
+
+
+def test_indexer_stores_paragraph_anchor(monkeypatch):
+    import vectorstore.indexer as indexer
+
+    stored = {}
+
+    class Collection:
+        def get(self, include=None):
+            return {"ids": [], "metadatas": []}
+
+        def add(self, ids, documents, embeddings, metadatas):
+            stored.update(zip(ids, metadatas))
+
+        def count(self):
+            return len(stored)
+
+    monkeypatch.setattr(indexer, "get_collection", lambda: Collection())
+    monkeypatch.setattr(indexer, "embed", lambda texts: [[0.0] for _ in texts])
+    indexer.ingest_chunks([{"chunk_id": "c1", "text": "t", "section": "2.1.2", "html_id": "2.2.3_p1",
+                            "source_path": "/x/ipcc_reference.html", "source_type": "ipcc_report"}])
+    assert stored["c1"]["html_id"] == "2.2.3_p1"

@@ -5,7 +5,7 @@
 
 Every number below was counted twice: once with the project's own code, and once independently by reading the database and source files directly. Where the two differed, the reason is given.
 
-> **Update 2026-11-10: the IPCC report is now read through semanticClimate's amilib** (see [section 11](#11-when-the-sources-change) and [IPCC_READER.md](IPCC_READER.md)), not a ClimateInsight-specific parser. The counts below are from the 2026-11-04 check. After re-ingesting, the totals become: **415 passages (115 IPCC, 300 papers), 270 concepts, 5,218 links, 804 drawn, 68 concepts in only one passage**; *Climate change* is in 88 passages. *Marine heatwave* (56) and *Food security* (11) are unchanged, so the Bay of Bengal example still holds. Three concepts that only appeared in figure captions are gone: *Bioenergy with carbon capture and storage*, *Resource efficiency* and *Risk assessment*.
+> **Update 2026-11-10: the IPCC report is now read through semanticClimate's amilib** (see [section 11](#11-when-the-sources-change) and [IPCC_READER.md](IPCC_READER.md)), not a ClimateInsight-specific parser. The counts below are from the 2026-11-04 check. After re-ingesting, the totals become: **415 passages (115 IPCC, 300 papers), 270 concepts, 5,218 links, 814 drawn, 68 concepts in only one passage**; *Climate change* is in 88 passages. *Marine heatwave* (56) and *Food security* (11) are unchanged, so the Bay of Bengal example still holds. Three concepts that only appeared in figure captions are gone: *Bioenergy with carbon capture and storage*, *Resource efficiency* and *Risk assessment*.
 
 ---
 
@@ -298,9 +298,9 @@ The graph has no source-specific code: it reads whatever passages are in ChromaD
 1. Get the chapter (re-)cleaned in semanticClimate's amilib. Do not add IPCC cleaning to ClimateInsight.
 2. Fetch it: `python scripts/fetch_ipcc_from_amilib.py wg1/Chapter01 --ref <amilib commit>` (`--list` shows the 49 available chapters). Files go to `data/raw/ipcc/` with their provenance in `SOURCES.json`.
 3. Run the tests: `cd backend && python -m pytest`.
-4. Re-ingest: `cd backend && python -m ingest.ingest --dir ../data/raw`. The graph rebuilds itself on the next request.
+4. Re-ingest: `cd backend && python -m ingest.ingest --dir ../data/raw`. The graph rebuilds itself on the next request. If the index was built before passages carried `html_id` (before 2026-11-10), delete `backend/chroma_db/` first, since unchanged passages are not re-stored.
 
-Several IPCC documents can sit side by side: each section is a separate source (`ipcc:<file>:<section>`, while the original SYR keeps `ipcc:<section>`), and "Open this section" links go to `/ipcc-reference?doc=<file>#<amilib paragraph id>`.
+Several IPCC documents can sit side by side: each section is a separate source (`ipcc:<file>:<section>`, while the original SYR keeps `ipcc:<section>`), and "Open this section" links go to `/ipcc-reference?doc=<file>#<amilib paragraph id>`. The paragraph id is stored with each passage (`html_id`). In the SYR, sections 2.1.2 and 2.2.3 share amilib's ids, so 2.2.3's link opens at 2.1.2; that needs fixing in amilib.
 
 **The term list changes**
 
