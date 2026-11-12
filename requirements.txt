@@ -1,6 +1,6 @@
 # Web framework
-flask==3.0.3
-flask-cors==4.0.1
+fastapi==0.162.0
+uvicorn==0.54.0
 
 # Vector store
 chromadb==0.4.24
@@ -27,13 +27,8 @@ networkx>=3.2
 numpy==1.26.4
 scipy==1.13.1
 scikit-learn==1.5.1
-# PDF
-pdf2docx==0.5.8
-python-docx==1.1.2
+# IPCC glossary PDF extraction
 pymupdf==1.24.5
 
 # Session store
 redis==5.0.8
-
-# Async queue (optional)
-# celery==5.4.0

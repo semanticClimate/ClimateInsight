@@ -1,5 +1,6 @@
 # Virtual environment
 .venv/
+.venv-encyclopedia/
 venv/
 env/
 
@@ -8,6 +9,11 @@ __pycache__/
 *.pyc
 *.pyo
 *.pyd
+.pytest_cache/
+
+# Local scratch files and generated debugging dumps
+/tmp/
+/backend/chunks.txt
 
 # ChromaDB (generated, can be rebuilt by running ingest.py)
 backend/chroma_db/
@@ -28,7 +34,6 @@ desktop.ini
 
 # Node (if you ever move to React)
 node_modules/
-# ChromaDB
 scripts/tunnel-url.txt
 **/chroma/
 # Tour seen flag is localStorage so nothing to ignore there

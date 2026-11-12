@@ -1,6 +1,6 @@
 # ── ClimateInsight Project Configuration ────────────────────────────────────
 # This file is the canonical metadata source for the project.
-# Frontend consumers should mirror relevant fields in frontend/js/config.js.
+# App metadata is served to frontend consumers through /api/config.
 
 [app]
 name        = "ClimateInsight"
@@ -24,7 +24,7 @@ status        = "development"          # development | beta | stable
 release_date  = "2026-07-08"
 
 [backend]
-framework     = "Flask"
+framework     = "FastAPI"
 llm_provider  = "Ollama (local, open source)"
 llm_model     = "llama3.2:latest"
 vector_store  = "ChromaDB"
@@ -34,3 +34,29 @@ mind_map      = "Mermaid.js"
 [frontend]
 framework     = "Vanilla HTML/CSS/JS"
 fonts         = ["Jost"]
+
+# Terms and scientific evidence come only from these documents.
+# Wikipedia enrichment remains enabled for supplementary descriptions and identities.
+[encyclopedia]
+mode = "generated"
+repository = "../encyclopedia"
+source = "data/raw/ipcc_reference.html"
+glossary = "data/raw/IPCC_AR6_SYR_Glossary.html"
+papers = [
+  "data/raw/ocean_heatwaves_2026/PMC10011364.xml",
+  "data/raw/ocean_heatwaves_2026/PMC10468509.xml",
+  "data/raw/ocean_heatwaves_2026/PMC10808424.xml",
+  "data/raw/ocean_heatwaves_2026/PMC11128013.xml",
+  "data/raw/ocean_heatwaves_2026/PMC11427463.xml",
+  "data/raw/ocean_heatwaves_2026/PMC11580339.xml",
+  "data/raw/ocean_heatwaves_2026/PMC11733174.xml",
+  "data/raw/ocean_heatwaves_2026/PMC12980662.xml",
+  "data/raw/ocean_heatwaves_2026/PMC7653907.xml",
+  "data/raw/ocean_heatwaves_2026/PMC8294506.xml",
+  "data/raw/ocean_heatwaves_2026/PMC9135278.xml",
+  "data/raw/ocean_heatwaves_2026/PMC9613989.xml",
+]
+top_n = 500
+max_terms = 300
+min_count = 2
+glossary_min_count = 1
