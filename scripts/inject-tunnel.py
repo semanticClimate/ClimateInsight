@@ -102,7 +102,7 @@ url = wait_for_url(bucket)
 if not url:
     say()
     say("ERROR: Could not get a tunnel URL.")
-    say(f"Make sure the app is running:  cd backend && python app.py  (port {PORT})")
+    say(f"Make sure the app is running:  python -m backend.app  (port {PORT})")
     proc.terminate()
     sys.exit(1)
 
