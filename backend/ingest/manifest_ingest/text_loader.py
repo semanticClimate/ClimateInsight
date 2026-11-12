@@ -6,7 +6,7 @@ Date: 2026-07-16 (system date of generation)
 from pathlib import Path
 from typing import Any, Dict, Tuple
 
-from ingest.manifest_ingest.jats_to_sections import jats_file_to_sections
+from backend.ingest.manifest_ingest.jats_to_sections import jats_file_to_sections
 
 
 class TextLoadError(Exception):

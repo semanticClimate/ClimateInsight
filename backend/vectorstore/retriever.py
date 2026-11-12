@@ -17,7 +17,7 @@ def query_chunks(question: str, top_k: int = 5) -> list[dict]:
 
     if collection.count() == 0:
         raise RuntimeError(
-            "ChromaDB is empty. Run ingest.py first."
+            "ChromaDB is empty. Run python -m backend.ingest.ingest first."
         )
 
     query_vector = embed([question])[0]
@@ -44,6 +44,7 @@ def query_chunks(question: str, top_k: int = 5) -> list[dict]:
                 "text": doc,
                 "section": meta.get("section", ""),
                 "section_title": meta.get("section_title", ""),
+                "html_id": meta.get("html_id", ""),
                 "source_id": meta.get("source_id", ""),
                 "citation_label": meta.get("citation_label", ""),
                 "source_path": meta.get("source_path", ""),

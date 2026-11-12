@@ -90,6 +90,12 @@ def build_chunks_from_directory(
     if failed:
         print(f"\n  Skipped {len(failed)} file(s) due to errors: {failed}")
 
+    if not all_chunks:
+        raise RuntimeError(
+            f"No usable text was extracted from '{directory}'. "
+            "Check the parsing warnings above."
+        )
+
     return all_chunks
 
 

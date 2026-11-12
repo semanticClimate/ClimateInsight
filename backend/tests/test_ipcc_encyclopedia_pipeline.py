@@ -5,7 +5,7 @@ from pathlib import Path
 
 import pytest
 
-import ipcc_encyclopedia_pipeline as report
+import backend.encyclopedia.pipeline as report
 
 
 def test_report_extraction_reads_source_folds_case_and_ranks_without_a_manual_map(tmp_path, monkeypatch):

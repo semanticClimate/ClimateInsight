@@ -9,7 +9,7 @@ from typing import List
 
 from bs4 import BeautifulSoup
 
-from ingest.models import Section
+from backend.ingest.models import Section
 
 
 def _slug(text: str, fallback: str) -> str:

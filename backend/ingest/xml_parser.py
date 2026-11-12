@@ -100,8 +100,9 @@ SKIP_HEADINGS = {
     "knowledge gaps",
 }
 
-# Tags whose text content to discard (in-line noise within paragraphs)
-INLINE_NOISE_TAGS = {"xref", "sup", "sub", "fn", "label"}
+# Cross references and footnotes are noise; scientific subscripts and
+# superscripts contain values that must remain in the indexed text.
+INLINE_NOISE_TAGS = {"xref", "fn", "label"}
 
 
 # ─── Helpers ──────────────────────────────────────────────────────────────────
@@ -126,6 +127,10 @@ def _clean_text(tag: Tag) -> str:
         return ""
     for noise in clone.find_all(INLINE_NOISE_TAGS):
         noise.decompose()
+    for script in clone.find_all(["sup", "sub"]):
+        script.unwrap()
+    # Join adjacent strings after unwrapping so CO<sub>2</sub> stays CO2.
+    clone.smooth()
     text = clone.get_text(separator=" ", strip=True)
     text = re.sub(r"\s{2,}", " ", text)
     return text.strip()
@@ -390,5 +395,8 @@ def parse_xml(path: Path) -> List[Section]:
                     )
                 )
 
-    print(f"→ {len(sections)} sections  ('{document_title[:55]}{'...' if len(document_title)>55 else ''}')")
+    preview = document_title[:55] + ("..." if len(document_title) > 55 else "")
+    # Redirected Windows consoles may use cp1252. Logging must not turn a
+    # successfully parsed article into a skipped file because of its title.
+    print(f"-> {len(sections)} sections ({ascii(preview)})")
     return sections

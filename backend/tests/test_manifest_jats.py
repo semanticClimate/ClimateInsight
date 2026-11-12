@@ -8,12 +8,12 @@ from pathlib import Path
 import pytest
 
 pytest.importorskip(
-    "ingest.manifest_ingest.jats_to_sections",
+    "backend.ingest.manifest_ingest.jats_to_sections",
     reason="manifest adapter not implemented yet",
 )
 
-from ingest.manifest_ingest.jats_to_sections import jats_file_to_sections  # noqa: E402
-from ingest.models import Section  # noqa: E402
+from backend.ingest.manifest_ingest.jats_to_sections import jats_file_to_sections  # noqa: E402
+from backend.ingest.models import Section  # noqa: E402
 
 
 def test_jats_to_sections_extracts_body_paragraphs(sample_xml_path: Path):

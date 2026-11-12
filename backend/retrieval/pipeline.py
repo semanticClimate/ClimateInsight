@@ -1,6 +1,6 @@
-from vectorstore import query_chunks
-from sessions import get_history
-from llm import (
+from backend.vectorstore import query_chunks
+from backend.core.sessions import get_history
+from backend.llm import (
     ask_ollama,
     build_chat_prompt,
 )

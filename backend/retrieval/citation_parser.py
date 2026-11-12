@@ -56,7 +56,7 @@ def extract_citations(answer: str, chunks: list[dict]) -> list[dict]:
             "text": chunk.get("text", ""),
         }
         # Attach paper-level metadata when available (research papers)
-        for key in ("citation_label", "document_title", "source_type", "doi", "pmcid"):
+        for key in ("citation_label", "document_title", "source_type", "doi", "pmcid", "html_id", "source_path"):
             if chunk.get(key):
                 entry[key] = chunk[key]
         result.append(entry)

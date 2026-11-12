@@ -8,11 +8,11 @@ from pathlib import Path
 import pytest
 
 pytest.importorskip(
-    "ingest.manifest_ingest.text_loader",
+    "backend.ingest.manifest_ingest.text_loader",
     reason="manifest adapter not implemented yet",
 )
 
-from ingest.manifest_ingest.text_loader import (  # noqa: E402
+from backend.ingest.manifest_ingest.text_loader import (  # noqa: E402
     TextLoadError,
     load_paper_text,
 )

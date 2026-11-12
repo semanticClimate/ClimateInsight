@@ -8,11 +8,11 @@ from pathlib import Path
 import pytest
 
 pytest.importorskip(
-    "ingest.manifest_ingest.build_from_manifest",
+    "backend.ingest.manifest_ingest.build_from_manifest",
     reason="manifest adapter not implemented yet",
 )
 
-from ingest.manifest_ingest.build_from_manifest import (  # noqa: E402
+from backend.ingest.manifest_ingest.build_from_manifest import (  # noqa: E402
     build_chunks_from_manifest,
 )
 

@@ -35,14 +35,9 @@ from .pipeline import (
     build_chunks_from_directory,
     build_chunks_from_manifest,
 )
+from backend.core.paths import PROJECT_ROOT as ROOT
 
 # ─── Paths ────────────────────────────────────────────────────────────────────
-
-# Anchor from this file's location: backend/ingest/ingest.py → go up two levels
-# to reach the project root regardless of what the checkout folder is named.
-# The old "while ROOT.name != 'ClimateInsight'" loop would crash if the repo
-# was cloned under any other name (e.g. CI_Claude).
-ROOT = Path(__file__).resolve().parent.parent.parent  # …/backend/ingest → project root
 
 HTML_FILE = ROOT / "data" / "raw" / "ipcc_reference.html"
 XML_DIR   = ROOT / "data" / "raw" / "ocean_heatwaves_2026"
@@ -104,7 +99,7 @@ def run(
     else:
         chunks = run_from_html(HTML_FILE)
 
-    from vectorstore import collection_size, ingest_chunks
+    from backend.vectorstore import collection_size, ingest_chunks
 
     ingest_chunks([_chunk_to_dict(c) for c in chunks])
     print(f"\nDone. ChromaDB now contains {collection_size()} chunks.")

@@ -5,12 +5,13 @@ from pathlib import Path
 
 import pytest
 
-from encyclopedia_importer import (
+from backend.encyclopedia.importer import (
     build_normalized_vocabulary,
     merge_manual_and_imported,
 )
-from knowledge_graph import ConceptMatcher, load_encyclopedia, load_manual_encyclopedia, ENCYCLOPEDIA_JS
-from retrieval.citation_parser import strip_ghost_citations
+from backend.knowledge_graph.engine import ConceptMatcher, load_encyclopedia, load_manual_encyclopedia, ENCYCLOPEDIA_JS
+from backend.retrieval.citation_parser import strip_ghost_citations
+import backend.knowledge_graph.engine as kg
 
 
 @pytest.fixture(scope="module")
@@ -175,3 +176,71 @@ def test_vocabulary_merge_does_not_change_passage_cooccurrence_weights():
     manual_weights = Counter(tuple(sorted(pair)) for pair in itertools.combinations(manual_concepts, 2))
     expanded_weights = Counter(tuple(sorted(pair)) for pair in itertools.combinations(expanded_concepts, 2))
     assert manual_weights == expanded_weights == Counter({("Carbon dioxide", "Climate change"): 1})
+
+
+def test_ipcc_sources_keep_identical_section_numbers_in_different_reports_separate():
+    common = {"source_type": "ipcc_report", "section": "1.1", "section_title": "Introduction"}
+    key, info = kg._source_of(common)
+    assert key == "ipcc:1.1"
+    assert info["label"] == "IPCC AR6 1.1 Introduction"
+    assert info["document"] == "ipcc_reference"
+    keys = {key}
+    for document in ("wg1_Chapter01", "wg2_Chapter01"):
+        key, info = kg._source_of({**common, "source_path": f"data/raw/{document}.html", "document_title": document})
+        keys.add(key)
+        assert document in info["label"]
+        assert info["document"] == document
+    assert len(keys) == 3
+
+
+@pytest.mark.parametrize("metadata,expected", [
+    ({"section": "2.1.2", "html_id": "paragraph-2.2.3-p1"}, "/ipcc-reference#paragraph-2.2.3-p1"),
+    ({"section": "2.1.2"}, "/ipcc-reference#2.1.2"),
+    ({"html_id": "paragraph with space"}, "/ipcc-reference#paragraph%20with%20space"),
+    ({"source_path": "data/raw/wg1_Chapter01.html", "html_id": "p1"}, "/ipcc-reference?doc=wg1_Chapter01#p1"),
+    ({}, ""),
+])
+def test_ipcc_links_prefer_real_paragraph_anchors(metadata, expected):
+    assert kg._link_for({"source_type": "ipcc_report", **metadata}) == expected
+
+
+def test_paper_links_are_preserved():
+    assert kg._link_for({"pmcid": "PMC123"}) == "/paper/123"
+    assert kg._link_for({"doi": "10.example/paper"}) == "https://doi.org/10.example/paper"
+
+
+def test_same_section_number_in_distinct_reports_does_not_create_a_source_bridge(monkeypatch):
+    from types import SimpleNamespace
+    vocabulary = {"ocean warming": "Ocean warming", "coral reefs": "Coral reefs", "flood risk": "Flood risk"}
+    monkeypatch.setattr(kg, "load_encyclopedia", lambda: vocabulary)
+    monkeypatch.setattr(kg, "get_collection", lambda: SimpleNamespace(get=lambda **kwargs: {
+        "documents": ["Ocean warming damages coral reefs.", "Flood risk increases."],
+        "metadatas": [
+            {"source_type": "ipcc_report", "section": "1.1", "source_path": "data/raw/wg1.html"},
+            {"source_type": "ipcc_report", "section": "1.1", "source_path": "data/raw/wg2.html"},
+        ],
+    }))
+    graph = kg._build()["graph"]
+    assert graph["stats"]["source_bridges"] == 0
+    assert graph["stats"]["components"] == 2
+
+
+def test_question_sources_keep_report_identity_and_paragraph_links_when_llm_is_unavailable(monkeypatch):
+    from backend.knowledge_graph import question
+    chunks = [
+        {"text": "Ocean warming is observed.", "source_type": "ipcc_report", "section": "1.1", "html_id": "syr-p1"},
+        {"text": "Ocean warming is observed.", "source_type": "ipcc_report", "section": "1.1", "html_id": "wg1-p1",
+         "source_path": "data/raw/wg1.html", "document_title": "Working Group I"},
+    ]
+    monkeypatch.setattr(question, "query_chunks", lambda *args, **kwargs: chunks)
+    monkeypatch.setattr(kg, "focus_concepts", lambda *args: [])
+    monkeypatch.setattr(kg, "main_concepts", lambda *args: [])
+    monkeypatch.setattr(kg, "subgraph", lambda *args: {"nodes": [], "edges": []})
+    def unavailable(*args, **kwargs):
+        raise RuntimeError("Ollama unavailable")
+    monkeypatch.setattr(question, "ask_llm", unavailable)
+    result = question.generate_concept_graph("Ocean warming?")
+    assert [source["ref"] for source in result["sources"]] == ["1.1", "wg1:1.1"]
+    assert [source["link"] for source in result["sources"]] == ["/ipcc-reference#syr-p1", "/ipcc-reference?doc=wg1#wg1-p1"]
+    assert "Working Group I" in result["sources"][1]["label"]
+    assert len(result["citations"]) == 2

@@ -11,11 +11,12 @@ import sys
 from types import ModuleType, SimpleNamespace
 
 from lxml import html
+from fastapi.testclient import TestClient
 import pytest
 
-import encyclopedia_service as service
-import knowledge_graph as kg
-from encyclopedia_importer import merge_manual_and_imported
+import backend.encyclopedia.service as service
+import backend.knowledge_graph.engine as kg
+from backend.encyclopedia.importer import merge_manual_and_imported
 
 
 CASES = [
@@ -129,36 +130,45 @@ def test_generated_vocabulary_does_not_read_manual_map(monkeypatch):
     provenance = json.loads(service.GENERATED.read_text(encoding="utf-8"))["provenance"]
     assert provenance["extractor"] == "txt2phrases"
     assert provenance["source_sha256"] == hashlib.sha256(service.source_path().read_bytes()).hexdigest()
-    with (service.ROOT / "encyclopedia/generated/wordlist.csv").open(encoding="utf-8") as stream:
+    with (service.ROOT / "encyclopedia_assets/generated/wordlist.csv").open(encoding="utf-8") as stream:
         selected = {r["term"].casefold() for r in csv.DictReader(stream) if r["selected"] == "Yes"}
     assert selected
-    # Canonical titles may be resolved by Wikipedia; every node has an extracted alias.
+    if provenance.get("glossary"):
+        from backend.encyclopedia.glossary import term_aliases
+        directory = service.ROOT / "encyclopedia_assets/generated/glossary"
+        with (directory / "wordlist.csv").open(encoding="utf-8") as stream:
+            selected.update(r["term"].casefold() for r in csv.DictReader(stream) if r["selected"] == "Yes")
+        entries = json.loads((directory / "entries.json").read_text(encoding="utf-8"))
+        selected.update(a.casefold() for entry in entries for a in term_aliases(entry["term"]))
+    if provenance.get("concept_cleanup"):
+        audit = json.loads((service.ROOT / "encyclopedia_assets/generated/concept_cleanup.json").read_text(encoding="utf-8"))
+        selected.update(value.casefold() for proof in audit["source_abbreviations"] for value in (proof["term"], proof["alias"]))
+    # Every node comes from extraction, a glossary heading or an explicit source abbreviation.
     for title in set(aliases.values()):
         assert any(alias in selected for alias, target in aliases.items() if target == title)
-    active = (service.ROOT / "encyclopedia/climate-wiki.js").read_text(encoding="utf-8")
+    active = (service.ROOT / "encyclopedia_assets/climate-wiki.js").read_text(encoding="utf-8")
     assert "/* ENCYCLOPEDIA_DATA */" in active and "const WIKI_MAP = {" not in active
 
 
 @pytest.fixture
 def client(monkeypatch):
-    # Import only Flask routing, without starting retrieval/Redis/model services.
+    # Import only HTTP routing, without starting retrieval/Redis/model services.
     names = {
-        "retrieval": ["answer_question"], "sessions": ["add_to_history", "clear_history"],
-        "concept_graph": ["handle_concept_graph_request"],
-        "services": ["chat_response", "error_response", "health_response", "message_response"],
+        "backend.retrieval": ["answer_question"], "backend.core.sessions": ["add_to_history", "clear_history"],
+        "backend.knowledge_graph.question": ["handle_concept_graph_request"],
+        "backend.api.responses": ["chat_response", "error_response", "health_response", "message_response"],
     }
     for name, attributes in names.items():
         module = ModuleType(name)
         for attribute in attributes:
             setattr(module, attribute, lambda *args, **kw: {})
         monkeypatch.setitem(sys.modules, name, module)
-    path = service.ROOT / "backend/app.py"
+    path = service.ROOT / "backend/api/routes.py"
     spec = importlib.util.spec_from_file_location("encyclopedia_test_app", path)
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
-    module.app.config["TESTING"] = True
     monkeypatch.setattr(kg, "get_collection", lambda: pytest.fail("Report routes must not open ChromaDB"))
-    return module.app.test_client()
+    return TestClient(module.app)
 
 
 def test_report_and_glossary_routes_have_real_entries_and_preserve_source_paragraphs(client):
@@ -167,7 +177,7 @@ def test_report_and_glossary_routes_have_real_entries_and_preserve_source_paragr
     raw = html.fromstring(raw_path.read_text(encoding="utf-8"))
     response = client.get("/ipcc-reference")
     assert response.status_code == 200
-    rendered = html.fromstring(response.data)
+    rendered = html.fromstring(response.content)
     assert rendered.xpath("//*[@role='ami_encyclopedia']/*[@role='ami_entry']")
     original_paragraphs = [(p.get("id"), p.text_content()) for p in raw.xpath("//p[@id]")]
     original_ids = {identifier for identifier, text in original_paragraphs}
@@ -175,15 +185,36 @@ def test_report_and_glossary_routes_have_real_entries_and_preserve_source_paragr
     assert served_paragraphs == original_paragraphs
     glossary = client.get("/ipcc-encyclopedia")
     assert glossary.status_code == 200
-    assert b'role="ami_entry"' in glossary.data
-    assert b'Wikipedia' in glossary.data and b'Read the IPCC passage' in glossary.data
+    assert b'role="ami_entry"' in glossary.content
+    assert b'Wikipedia' in glossary.content and b'Read the IPCC passage' in glossary.content
     assert raw_path.read_bytes() == original
+
+
+def test_source_glossary_and_encyclopedia_keep_ipcc_definition_attribution(client):
+    source = client.get("/ipcc-glossary")
+    assert source.status_code == 200
+    converted = html.fromstring(source.content)
+    entries = converted.xpath("//section[@class='glossary-entry']")
+    assert len(entries) == 126
+    ids = {entry.get("id") for entry in entries}
+    response = client.get("/ipcc-encyclopedia")
+    encyclopedia = html.fromstring(response.content)
+    definitions = encyclopedia.xpath("//*[@role='ami_entry']/p[@class='definition-source']")
+    ipcc = [label for label in definitions if "IPCC AR6 SYR Glossary" in label.text_content()]
+    assert len(ipcc) == 126
+    for label in ipcc:
+        link = label.xpath("./a/@href")[0]
+        assert link.split("#", 1)[1] in ids
+    assert encyclopedia.xpath("//*[@term='Climate change']/p[contains(@class,'first_para')]")
+    # The standalone encyclopedia also includes terms absent from the report.
+    matcher, metadata, _ = service.vocabulary()
+    assert len(encyclopedia.xpath("//*[@role='ami_entry']")) == len(metadata)
 
 
 def test_shared_viewer_uses_package_descriptions_and_is_valid_javascript(client):
     response = client.get("/climate-wiki-js")
     assert response.status_code == 200
-    script = response.get_data(as_text=True)
+    script = response.text
     assert "const ENCYCLOPEDIA_CONCEPTS =" in script
     assert "if (imported && imported.description)" in script
     assert 'node.getAttribute("role") === "ami_encyclopedia"' in script
@@ -195,9 +226,9 @@ def test_shared_viewer_uses_package_descriptions_and_is_valid_javascript(client)
 def test_legacy_switch_restores_original_script_and_report(client, monkeypatch):
     monkeypatch.setenv("CLIMATEINSIGHT_ENCYCLOPEDIA_MODE", "legacy")
     script = client.get("/climate-wiki-js")
-    assert script.data == (service.ROOT / "encyclopedia/climate-wiki.legacy.js").read_bytes()
+    assert script.content == (service.ROOT / "encyclopedia_assets/climate-wiki.legacy.js").read_bytes()
     report = client.get("/ipcc-reference")
-    assert b'role="ami_entry"' not in report.data
+    assert b'role="ami_entry"' not in report.content
     assert client.get("/ipcc-encyclopedia").status_code == 503
 
 
@@ -206,14 +237,14 @@ def test_missing_package_reports_unavailability_without_reactivating_manual_term
     assert client.get("/ipcc-reference").status_code == 200
     script = client.get("/climate-wiki-js")
     assert script.status_code == 503
-    assert b"build_ipcc_encyclopedia.py" in script.data
+    assert b"backend.encyclopedia.build" in script.content
 
 
 def test_unknown_api_route_returns_json_instead_of_html(client):
     response = client.get("/api/route-that-does-not-exist")
     assert response.status_code == 404
-    assert response.is_json
-    assert response.get_json() == {
+    assert response.headers["content-type"].startswith("application/json")
+    assert response.json() == {
         "error": "API route not found",
         "path": "/api/route-that-does-not-exist",
     }

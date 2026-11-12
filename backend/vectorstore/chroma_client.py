@@ -4,11 +4,10 @@ chroma_client.py
 Creates and manages the ChromaDB client and collection.
 """
 
-from pathlib import Path
-
 import chromadb
+from backend.core.paths import CHROMA_DIR as _CHROMA_PATH
 
-CHROMA_DIR = str(Path(__file__).parent.parent / "chroma_db")
+CHROMA_DIR = str(_CHROMA_PATH)
 COLLECTION_NAME = "ipcc"
 
 _collection = None

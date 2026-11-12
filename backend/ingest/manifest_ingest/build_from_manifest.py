@@ -10,10 +10,10 @@ Date: 2026-07-20 (refactored)
 from pathlib import Path
 from typing import List, Union
 
-from ingest.chunker import chunk_records
-from ingest.xml_parser import parse_xml
-from ingest.manifest_ingest.load_manifest import load_manifest
-from ingest.models import Chunk, Section
+from backend.ingest.chunker import chunk_records
+from backend.ingest.xml_parser import parse_xml
+from backend.ingest.manifest_ingest.load_manifest import load_manifest
+from backend.ingest.models import Chunk, Section
 
 
 def build_chunks_from_manifest(

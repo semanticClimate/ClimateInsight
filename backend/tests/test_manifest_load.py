@@ -11,11 +11,11 @@ from pathlib import Path
 import pytest
 
 pytest.importorskip(
-    "ingest.manifest_ingest.load_manifest",
+    "backend.ingest.manifest_ingest.load_manifest",
     reason="manifest adapter not implemented yet",
 )
 
-from ingest.manifest_ingest.load_manifest import (  # noqa: E402
+from backend.ingest.manifest_ingest.load_manifest import (  # noqa: E402
     ManifestError,
     load_manifest,
 )
