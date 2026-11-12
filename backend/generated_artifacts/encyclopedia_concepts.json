@@ -32,7 +32,7 @@
       },
       {
         "source_file": "data/raw/ocean_heatwaves_2026/PMC10468509.xml",
-        "sha256": "26e5de29222a3877584066d929a5537bf82f197dd18ae404f6730e179f1fdfaa",
+        "sha256": "a4b73b5d0828e03dadeec659d1be4269936f21acf4b5411ca8f4daaa76f5dc3d",
         "title": "Analysis of marine heatwaves over the Bay of Bengal during 1982–2021",
         "kind": "research_article",
         "url": "/paper/PMC10468509",
@@ -138,7 +138,7 @@
     "top_n": 500,
     "max_terms": 300,
     "min_count": 2,
-    "generated_at": "2026-11-08T17:19:37.210123+00:00",
+    "generated_at": "2026-11-12T08:09:12.910305+00:00",
     "wikipedia_requested": true,
     "supplementary_sources": {
       "Wikipedia": "descriptions and article links",
@@ -153,7 +153,7 @@
     },
     "concept_cleanup": {
       "version": 1,
-      "input_concepts": 1376,
+      "input_concepts": 1354,
       "output_concepts": 1347
     },
     "vocabulary_conflicts": [
@@ -3189,10 +3189,10 @@
       "description": "The Arctic (/ˈɑːr(k)tɪk/;[1][Note 1] from Ancient Greek ἄρκτος (árktos) 'bear') is the polar region of Earth that surrounds the North Pole, lying north of the Arctic Circle. The Arctic region, from the IERS Reference Meridian travelling east, consists of parts of northern Norway (Nordland, Troms, Finnmark, Svalbard and Jan Mayen), northernmost Sweden (Västerbotten, Norrbotten and Lappland), northern Finland (North Ostrobothnia, Kainuu and Lappi), Russia (Murmansk, Siberia, Nenets Okrug, Novaya Zemlya), the United States (Alaska), Canada (Yukon, Northwest Territories, Nunavut), Danish Realm (Greenland), and northern Iceland (Grímsey and Kolbeinsey), along with the Arctic Ocean and adjacent seas.",
       "wikidata_id": "Q25322",
       "wikipedia_url": "https://en.wikipedia.org/wiki/Arctic",
-      "source_file": "data/raw/ocean_heatwaves_2026/PMC11427463.xml",
+      "source_file": "data/raw/ipcc_reference.html",
       "source_files": [
-        "data/raw/ocean_heatwaves_2026/PMC11427463.xml",
-        "data/raw/ipcc_reference.html"
+        "data/raw/ipcc_reference.html",
+        "data/raw/ocean_heatwaves_2026/PMC11427463.xml"
       ],
       "term_sources": [
         {
@@ -4997,14 +4997,14 @@
           "method": "txt2phrases"
         },
         {
-          "term": "Behavioural change",
-          "source_file": "data/raw/IPCC_AR6_SYR_Glossary.html",
-          "method": "glossary_heading"
-        },
-        {
           "term": "behavioural changes",
           "source_file": "data/raw/ipcc_reference.html",
           "method": "txt2phrases"
+        },
+        {
+          "term": "Behavioural change",
+          "source_file": "data/raw/IPCC_AR6_SYR_Glossary.html",
+          "method": "glossary_heading"
         }
       ],
       "description_source": "IPCC AR6 SYR Glossary",
@@ -7427,10 +7427,20 @@
       "source_file": "data/raw/IPCC_AR6_SYR_Glossary.html",
       "source_files": [
         "data/raw/IPCC_AR6_SYR_Glossary.html",
-        "data/raw/ocean_heatwaves_2026/PMC9135278.xml",
-        "data/raw/ocean_heatwaves_2026/PMC10011364.xml"
+        "data/raw/ocean_heatwaves_2026/PMC10011364.xml",
+        "data/raw/ocean_heatwaves_2026/PMC9135278.xml"
       ],
       "term_sources": [
+        {
+          "term": "California Current System",
+          "source_file": "data/raw/ocean_heatwaves_2026/PMC10011364.xml",
+          "method": "txt2phrases"
+        },
+        {
+          "term": "California Current System",
+          "source_file": "data/raw/ocean_heatwaves_2026/PMC9135278.xml",
+          "method": "txt2phrases"
+        },
         {
           "term": "Carbon Capture and Storage",
           "source_file": "data/raw/IPCC_AR6_SYR_Glossary.html",
@@ -7453,13 +7463,8 @@
         },
         {
           "term": "California Current System",
-          "source_file": "data/raw/ocean_heatwaves_2026/PMC10011364.xml",
-          "method": "txt2phrases"
-        },
-        {
-          "term": "California Current System",
           "source_file": "data/raw/ocean_heatwaves_2026/PMC9135278.xml",
-          "method": "txt2phrases"
+          "method": "source_abbreviation"
         },
         {
           "term": "carbon capture and storage",
@@ -7469,11 +7474,6 @@
         {
           "term": "Carbon dioxide capture and storage",
           "source_file": "data/raw/IPCC_AR6_SYR_Glossary.html",
-          "method": "source_abbreviation"
-        },
-        {
-          "term": "California Current System",
-          "source_file": "data/raw/ocean_heatwaves_2026/PMC9135278.xml",
           "method": "source_abbreviation"
         }
       ],
@@ -7488,14 +7488,14 @@
         "html_id": "term-3ebb7ebe0b3e",
         "term": "Carbon dioxide capture and storage (CCS)"
       },
-      "replaced_report_identities": [
-        {
-          "canonical_name": "CCS",
-          "wikidata_id": null,
-          "wikipedia_url": null
-        }
-      ],
       "alias_sources": [
+        {
+          "term": "California Current System",
+          "alias": "CCS",
+          "source_file": "data/raw/ocean_heatwaves_2026/PMC9135278.xml",
+          "html_id": null,
+          "text": "California Current System (CCS)"
+        },
         {
           "term": "carbon capture and storage",
           "alias": "CCS",
@@ -7509,13 +7509,6 @@
           "source_file": "data/raw/IPCC_AR6_SYR_Glossary.html",
           "html_id": "term-0b46f556ea20",
           "text": "Carbon dioxide capture and storage (CCS)"
-        },
-        {
-          "term": "California Current System",
-          "alias": "CCS",
-          "source_file": "data/raw/ocean_heatwaves_2026/PMC9135278.xml",
-          "html_id": null,
-          "text": "California Current System (CCS)"
         }
       ],
       "graph_eligible": true,
@@ -7801,13 +7794,6 @@
         "html_id": "term-e6c1da031ee6",
         "term": "Carbon dioxide removal (CDR)"
       },
-      "replaced_report_identities": [
-        {
-          "canonical_name": "CDR",
-          "wikidata_id": null,
-          "wikipedia_url": null
-        }
-      ],
       "alias_sources": [
         {
           "term": "carbon dioxide removal",
@@ -8412,48 +8398,18 @@
       "description": "A chart datum is the water surface serving as origin (or coordinate surface) of depths displayed on a nautical chart and for reporting and predicting tide heights. A chart datum is generally derived from some tidal phase, in which case it is also known as a tidal datum.[1] Common chart datums are lowest astronomical tide (LAT)[1] and mean lower low water (MLLW). In non-tidal areas, e.g., the Baltic Sea, mean sea level (MSL) is used.[2]",
       "wikidata_id": "Q956736",
       "wikipedia_url": "https://en.wikipedia.org/wiki/Chart_datum",
-      "source_file": "data/raw/ocean_heatwaves_2026/PMC10468509.xml",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC10011364.xml",
       "source_files": [
+        "data/raw/ocean_heatwaves_2026/PMC10011364.xml",
         "data/raw/ocean_heatwaves_2026/PMC10468509.xml",
         "data/raw/ocean_heatwaves_2026/PMC10808424.xml",
         "data/raw/ocean_heatwaves_2026/PMC11427463.xml",
+        "data/raw/ocean_heatwaves_2026/PMC11580339.xml",
         "data/raw/ocean_heatwaves_2026/PMC12980662.xml",
         "data/raw/ocean_heatwaves_2026/PMC7653907.xml",
-        "data/raw/ocean_heatwaves_2026/PMC9613989.xml",
-        "data/raw/ocean_heatwaves_2026/PMC10011364.xml",
-        "data/raw/ocean_heatwaves_2026/PMC11580339.xml"
+        "data/raw/ocean_heatwaves_2026/PMC9613989.xml"
       ],
       "term_sources": [
-        {
-          "term": "MHWs",
-          "source_file": "data/raw/ocean_heatwaves_2026/PMC10468509.xml",
-          "method": "txt2phrases"
-        },
-        {
-          "term": "MHWs",
-          "source_file": "data/raw/ocean_heatwaves_2026/PMC10808424.xml",
-          "method": "txt2phrases"
-        },
-        {
-          "term": "MHWs",
-          "source_file": "data/raw/ocean_heatwaves_2026/PMC11427463.xml",
-          "method": "txt2phrases"
-        },
-        {
-          "term": "MHWs",
-          "source_file": "data/raw/ocean_heatwaves_2026/PMC12980662.xml",
-          "method": "txt2phrases"
-        },
-        {
-          "term": "MHWs",
-          "source_file": "data/raw/ocean_heatwaves_2026/PMC7653907.xml",
-          "method": "txt2phrases"
-        },
-        {
-          "term": "MHWs",
-          "source_file": "data/raw/ocean_heatwaves_2026/PMC9613989.xml",
-          "method": "txt2phrases"
-        },
         {
           "term": "MHW",
           "source_file": "data/raw/ocean_heatwaves_2026/PMC10011364.xml",
@@ -8495,6 +8451,36 @@
           "method": "txt2phrases"
         },
         {
+          "term": "MHWs",
+          "source_file": "data/raw/ocean_heatwaves_2026/PMC10468509.xml",
+          "method": "txt2phrases"
+        },
+        {
+          "term": "MHWs",
+          "source_file": "data/raw/ocean_heatwaves_2026/PMC10808424.xml",
+          "method": "txt2phrases"
+        },
+        {
+          "term": "MHWs",
+          "source_file": "data/raw/ocean_heatwaves_2026/PMC11427463.xml",
+          "method": "txt2phrases"
+        },
+        {
+          "term": "MHWs",
+          "source_file": "data/raw/ocean_heatwaves_2026/PMC12980662.xml",
+          "method": "txt2phrases"
+        },
+        {
+          "term": "MHWs",
+          "source_file": "data/raw/ocean_heatwaves_2026/PMC7653907.xml",
+          "method": "txt2phrases"
+        },
+        {
+          "term": "MHWs",
+          "source_file": "data/raw/ocean_heatwaves_2026/PMC9613989.xml",
+          "method": "txt2phrases"
+        },
+        {
           "term": "marine heat wave",
           "source_file": "data/raw/ocean_heatwaves_2026/PMC10468509.xml",
           "method": "source_abbreviation"
@@ -8520,14 +8506,6 @@
           "source_file": "data/raw/ocean_heatwaves_2026/PMC12980662.xml",
           "html_id": null,
           "text": "Marine heat waves (MHWs)"
-        }
-      ],
-      "replaced_report_identities": [
-        {
-          "canonical_name": "MHW",
-          "wikidata_id": "Q1881470",
-          "wikipedia_url": "https://en.wikipedia.org/wiki/MHW",
-          "reason": "source_abbreviation_disambiguation"
         }
       ],
       "wikipedia_description": null,
@@ -24680,17 +24658,17 @@
       ],
       "term_sources": [
         {
+          "term": "GOM",
+          "source_file": "data/raw/ocean_heatwaves_2026/PMC8294506.xml",
+          "method": "txt2phrases"
+        },
+        {
           "term": "Gulf of Maine",
           "source_file": "data/raw/ocean_heatwaves_2026/PMC10011364.xml",
           "method": "txt2phrases"
         },
         {
           "term": "Gulf of Maine",
-          "source_file": "data/raw/ocean_heatwaves_2026/PMC8294506.xml",
-          "method": "txt2phrases"
-        },
-        {
-          "term": "GOM",
           "source_file": "data/raw/ocean_heatwaves_2026/PMC8294506.xml",
           "method": "txt2phrases"
         },
@@ -30944,12 +30922,12 @@
       ],
       "term_sources": [
         {
-          "term": "Maria Island",
+          "term": "MAI",
           "source_file": "data/raw/ocean_heatwaves_2026/PMC10808424.xml",
           "method": "txt2phrases"
         },
         {
-          "term": "MAI",
+          "term": "Maria Island",
           "source_file": "data/raw/ocean_heatwaves_2026/PMC10808424.xml",
           "method": "txt2phrases"
         },
@@ -37170,6 +37148,11 @@
           "method": "txt2phrases"
         },
         {
+          "term": "OHC",
+          "source_file": "data/raw/ocean_heatwaves_2026/PMC11733174.xml",
+          "method": "txt2phrases"
+        },
+        {
           "term": "ocean heat content",
           "source_file": "data/raw/ocean_heatwaves_2026/PMC11733174.xml",
           "method": "source_abbreviation"
@@ -38580,14 +38563,6 @@
           "source_file": "data/raw/ocean_heatwaves_2026/PMC11733174.xml",
           "html_id": null,
           "text": "Pacific Decadal Oscillation (PDO)"
-        }
-      ],
-      "replaced_report_identities": [
-        {
-          "canonical_name": "PDO",
-          "wikidata_id": "Q442454",
-          "wikipedia_url": "https://en.wikipedia.org/wiki/PDO",
-          "reason": "source_abbreviation_disambiguation"
         }
       ],
       "wikipedia_description": null,
@@ -41281,13 +41256,13 @@
           "method": "txt2phrases"
         },
         {
-          "term": "radiative forcing",
-          "source_file": "data/raw/IPCC_AR6_SYR_Glossary.html",
+          "term": "external forcings",
+          "source_file": "data/raw/ocean_heatwaves_2026/PMC11128013.xml",
           "method": "txt2phrases"
         },
         {
-          "term": "external forcings",
-          "source_file": "data/raw/ocean_heatwaves_2026/PMC11128013.xml",
+          "term": "radiative forcing",
+          "source_file": "data/raw/IPCC_AR6_SYR_Glossary.html",
           "method": "txt2phrases"
         }
       ],
@@ -44537,13 +44512,13 @@
       "description": "Sea surface temperature (or ocean surface temperature) is the temperature of ocean water close to the surface. The exact meaning of surface varies in the literature and in practice. It is usually between 1 millimetre (0.04 in) and 20 metres (70 ft) below the sea surface. Sea surface temperatures greatly modify air masses in the Earth's atmosphere within a short distance of the shore. The thermohaline circulation has a major impact on average sea surface temperature throughout most of the world's oceans.[2]",
       "wikidata_id": "Q1507383",
       "wikipedia_url": "https://en.wikipedia.org/wiki/Sea_surface_temperature",
-      "source_file": "data/raw/ocean_heatwaves_2026/PMC10468509.xml",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC10011364.xml",
       "source_files": [
+        "data/raw/ocean_heatwaves_2026/PMC10011364.xml",
         "data/raw/ocean_heatwaves_2026/PMC10468509.xml",
         "data/raw/ocean_heatwaves_2026/PMC11128013.xml",
         "data/raw/ocean_heatwaves_2026/PMC11427463.xml",
         "data/raw/ocean_heatwaves_2026/PMC11580339.xml",
-        "data/raw/ocean_heatwaves_2026/PMC10011364.xml",
         "data/raw/ocean_heatwaves_2026/PMC12980662.xml",
         "data/raw/ocean_heatwaves_2026/PMC9135278.xml",
         "data/raw/ocean_heatwaves_2026/PMC9613989.xml"
@@ -55264,8 +55239,8 @@
       "source_file": "data/raw/ocean_heatwaves_2026/PMC11128013.xml",
       "source_files": [
         "data/raw/ocean_heatwaves_2026/PMC11128013.xml",
-        "data/raw/ocean_heatwaves_2026/PMC7653907.xml",
-        "data/raw/ocean_heatwaves_2026/PMC11733174.xml"
+        "data/raw/ocean_heatwaves_2026/PMC11733174.xml",
+        "data/raw/ocean_heatwaves_2026/PMC7653907.xml"
       ],
       "term_sources": [
         {
@@ -55274,13 +55249,13 @@
           "method": "txt2phrases"
         },
         {
-          "term": "winds",
-          "source_file": "data/raw/ocean_heatwaves_2026/PMC7653907.xml",
+          "term": "surface winds",
+          "source_file": "data/raw/ocean_heatwaves_2026/PMC11733174.xml",
           "method": "txt2phrases"
         },
         {
-          "term": "surface winds",
-          "source_file": "data/raw/ocean_heatwaves_2026/PMC11733174.xml",
+          "term": "winds",
+          "source_file": "data/raw/ocean_heatwaves_2026/PMC7653907.xml",
           "method": "txt2phrases"
         }
       ],

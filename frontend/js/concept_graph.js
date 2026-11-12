@@ -37,7 +37,7 @@ const ConceptGraph = (() => {
 
   // ── Render the question's concept subgraph into a container ───────────────
   // main: the asked-about concept(s) — pinned at the centre as the hub,
-  //       with a dark ring, glow, big label and weighted grey links
+  //       with a dark ring, glow, big label and thick links in its colour
   async function renderSubgraph(subgraph, container, main = []) {
     const nodes = subgraph?.nodes || [];
     if (!nodes.length) {
@@ -51,7 +51,9 @@ const ConceptGraph = (() => {
       return;
     }
     const hubs = new Set(main);
+    const colorOf = id => groupColor(nodes.find(n => n.id === id)?.group ?? 0);
     const maxCount = Math.max(...nodes.map(n => n.count));
+    const maxW = Math.max(1, ...subgraph.edges.map(e => e.weight));
     const data = {
       nodes: new vis.DataSet(nodes.map((n, i) => {
         const color = groupColor(n.group);
@@ -86,6 +88,9 @@ const ConceptGraph = (() => {
             : `${e.from} and ${e.to}: mentioned close together in ${passages}`,
         };
         if (hubEdge) {
+          const color = colorOf(hubs.has(e.from) ? e.from : e.to);
+          edge.value = maxW * 1.5;
+          edge.color = { color, highlight: color, hover: color, opacity: 1, inherit: false };
           edge.label = e.kind === "source" ? "same section" : passages;
         }
         return edge;
@@ -181,7 +186,7 @@ const ConceptGraph = (() => {
                     border-radius:var(--radius-sm);background:var(--bg);padding:12px;">
           <div class="cg-graph-out" style="height:300px"></div>
           <p style="font-size:.72rem;color:var(--text-muted);margin-top:6px">
-            The largest circle is the main topic. Thicker grey lines mean more shared passages. Click any concept to read its sources on the full graph.
+            The largest circle is the main topic. Its links are thick and match its colour. Click any concept to read its sources on the full graph.
           </p>
         </div>
       </div>

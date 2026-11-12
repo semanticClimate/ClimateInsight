@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "input_concepts": 1376,
+  "input_concepts": 1354,
   "output_concepts": 1347,
   "removed": [
     {
@@ -154,17 +154,6 @@
       ]
     },
     {
-      "term": "Overhead camshaft engine",
-      "reason": "no_retained_source_alias",
-      "source_terms": [
-        {
-          "term": "OHC",
-          "source_file": "data/raw/ocean_heatwaves_2026/PMC11733174.xml",
-          "method": "txt2phrases"
-        }
-      ]
-    },
-    {
       "term": "S",
       "reason": "no_retained_source_alias",
       "source_terms": [
@@ -236,13 +225,6 @@
       ]
     },
     {
-      "concept": "Arctic",
-      "terms": [
-        "Arctic",
-        "Arctic regions"
-      ]
-    },
-    {
       "concept": "Arctic MHW",
       "terms": [
         "Arctic MHW",
@@ -254,20 +236,6 @@
       "terms": [
         "ASVS",
         "Amplicon sequence variants"
-      ]
-    },
-    {
-      "concept": "Behavioural change theories",
-      "terms": [
-        "Behavioural change theories",
-        "behavioural changes"
-      ]
-    },
-    {
-      "concept": "Bluefin tuna",
-      "terms": [
-        "Bluefin tuna",
-        "bluefin tunas"
       ]
     },
     {
@@ -314,17 +282,9 @@
       ]
     },
     {
-      "concept": "Carbon capture and storage",
-      "terms": [
-        "California Current System",
-        "Carbon capture and storage"
-      ]
-    },
-    {
       "concept": "Chart datum",
       "terms": [
         "Chart datum",
-        "MHW",
         "Marine heat wave"
       ]
     },
@@ -370,13 +330,6 @@
       "terms": [
         "Complex regional pain syndrome",
         "Continuous Ranked Probability Score"
-      ]
-    },
-    {
-      "concept": "Correlation coefficient",
-      "terms": [
-        "Correlation coefficient",
-        "correlation coefficients"
       ]
     },
     {
@@ -465,13 +418,6 @@
       ]
     },
     {
-      "concept": "Radiative forcing",
-      "terms": [
-        "Radiative forcing",
-        "external forcings"
-      ]
-    },
-    {
       "concept": "extreme MHW",
       "terms": [
         "extreme MHW",
@@ -490,34 +436,6 @@
       "terms": [
         "GIC",
         "Global index of collocation"
-      ]
-    },
-    {
-      "concept": "Ocean",
-      "terms": [
-        "Ocean",
-        "global oceans"
-      ]
-    },
-    {
-      "concept": "Sea level",
-      "terms": [
-        "GMSL",
-        "Sea level"
-      ]
-    },
-    {
-      "concept": "Gulf of Maine",
-      "terms": [
-        "GOM",
-        "Gulf of Maine"
-      ]
-    },
-    {
-      "concept": "Heat flux",
-      "terms": [
-        "Heat flux",
-        "heat fluxes"
       ]
     },
     {
@@ -550,13 +468,6 @@
       ]
     },
     {
-      "concept": "Indian Ocean Dipole",
-      "terms": [
-        "IOD",
-        "Indian Ocean Dipole"
-      ]
-    },
-    {
       "concept": "Indonesian coast",
       "terms": [
         "Indonesian coast",
@@ -585,31 +496,10 @@
       ]
     },
     {
-      "concept": "Latent heat",
-      "terms": [
-        "Latent heat",
-        "latent heat fluxes"
-      ]
-    },
-    {
       "concept": "Livelihood",
       "terms": [
         "Livelihood",
         "livelihoods"
-      ]
-    },
-    {
-      "concept": "Machine learning",
-      "terms": [
-        "ML",
-        "Machine learning"
-      ]
-    },
-    {
-      "concept": "Maria Island",
-      "terms": [
-        "MAI",
-        "Maria Island"
       ]
     },
     {
@@ -690,13 +580,6 @@
       ]
     },
     {
-      "concept": "Pacific decadal oscillation",
-      "terms": [
-        "PDO",
-        "Pacific decadal oscillation"
-      ]
-    },
-    {
       "concept": "predicted probability",
       "terms": [
         "predicted probabilities",
@@ -723,21 +606,6 @@
       "terms": [
         "S2S",
         "Seasonal"
-      ]
-    },
-    {
-      "concept": "Sea surface temperature",
-      "terms": [
-        "SST",
-        "SSTs",
-        "Sea surface temperature"
-      ]
-    },
-    {
-      "concept": "String-searching algorithm",
-      "terms": [
-        "String-searching algorithm",
-        "search strings"
       ]
     },
     {
@@ -799,13 +667,6 @@
       ]
     },
     {
-      "concept": "Spatiotemporal pattern",
-      "terms": [
-        "Spatiotemporal pattern",
-        "spatial patterns"
-      ]
-    },
-    {
       "concept": "SST anomaly",
       "terms": [
         "SST anomalies",
@@ -825,13 +686,6 @@
       "terms": [
         "summer offshore survey",
         "summer offshore surveys"
-      ]
-    },
-    {
-      "concept": "Wind",
-      "terms": [
-        "Wind",
-        "surface winds"
       ]
     },
     {

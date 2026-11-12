@@ -31,7 +31,7 @@
       },
       {
         "source_file": "data/raw/ocean_heatwaves_2026/PMC10468509.xml",
-        "sha256": "26e5de29222a3877584066d929a5537bf82f197dd18ae404f6730e179f1fdfaa",
+        "sha256": "a4b73b5d0828e03dadeec659d1be4269936f21acf4b5411ca8f4daaa76f5dc3d",
         "title": "Analysis of marine heatwaves over the Bay of Bengal during 1982–2021",
         "kind": "research_article",
         "url": "/paper/PMC10468509",
@@ -137,7 +137,7 @@
     "top_n": 500,
     "max_terms": 300,
     "min_count": 2,
-    "generated_at": "2026-11-08T17:19:37.210123+00:00",
+    "generated_at": "2026-11-12T08:09:12.910305+00:00",
     "wikipedia_requested": true,
     "supplementary_sources": {
       "Wikipedia": "descriptions and article links",
@@ -152,7 +152,7 @@
     },
     "concept_cleanup": {
       "version": 1,
-      "input_concepts": 1376,
+      "input_concepts": 1354,
       "output_concepts": 1347
     },
     "vocabulary_conflicts": [

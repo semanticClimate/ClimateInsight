@@ -148,6 +148,40 @@ def test_model_terms_must_occur_in_the_document_and_cached_wordlists_are_validat
     assert len(calls) == 3
 
 
+def test_formatting_only_changes_reuse_extraction_but_text_and_settings_changes_do_not(approved_corpus, monkeypatch):
+    from backend.encyclopedia import pipeline
+
+    root = approved_corpus
+    cache = root / "tmp/formatting-extraction"
+    cache.mkdir(parents=True)
+    calls = []
+
+    def extract(source, output, **options):
+        calls.append(source)
+        prepared = pipeline.prepare_report(source, output / "prepared")
+        wordlist = output / "wordlist.csv"
+        wordlist.write_text('term,count,selected\nMarine heatwaves,3,Yes\n', encoding="utf-8")
+        return ["Marine heatwaves"], wordlist, prepared
+
+    monkeypatch.setattr(pipeline, "extract_report_wordlist", extract)
+    original = load_documents(root)[-1]
+    terms, directory = extract_document(original, root, cache, {})
+    paper = root / original.source_file
+    paper.write_bytes(paper.read_bytes().replace(b'><', b'>\r\n<'))
+    reformatted = load_documents(root)[-1]
+    assert reformatted.sha256 != original.sha256
+    assert extract_document(reformatted, root, cache, {})[0] == terms
+    assert len(calls) == 1
+    assert json.loads((directory / "source.json").read_text(encoding="utf-8"))["input"]["source_sha256"] == reformatted.sha256
+
+    paper.write_bytes(paper.read_bytes().replace(b'Marine heatwaves affect', b'Marine heatwaves increasingly affect'))
+    changed = load_documents(root)[-1]
+    extract_document(changed, root, cache, {})
+    assert len(calls) == 2
+    extract_document(changed, root, cache, {"top_n": 501})
+    assert len(calls) == 3
+
+
 def test_wikipedia_identity_normalization_retains_all_document_origins(approved_corpus, monkeypatch):
     root = approved_corpus
 

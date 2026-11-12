@@ -273,7 +273,7 @@
   // ── Highlighting ──────────────────────────────────────────────────────────
   // ids: concepts to keep coloured (null = everything normal)
   // hubs: the concept(s) in focus — largest node, dark ring, glow, big label,
-  //       and labelled grey lines whose thickness reflects their weight
+  //       and thick, labelled lines in its colour
   function highlight(ids, hubs = []) {
     const keep = ids ? new Set([...ids, ...hubs]) : null;
     const hubSet = new Set(hubs);
@@ -294,6 +294,7 @@
       };
     }));
 
+    const maxW = Math.max(1, ...edgesDS.get().map(e => e.w));
     edgesDS.update(edgesDS.get().map(e => {
       const on = !keep || (keep.has(e.from) && keep.has(e.to));
       const hubEdge = keep && on && (hubSet.has(e.from) || hubSet.has(e.to));
@@ -302,9 +303,9 @@
       const labelled = hubEdge && (hubSet.size === 1 || (hubSet.has(e.from) && hubSet.has(e.to)));
       return {
         id: e.id,
-        value: e.w,
+        value: hubEdge ? maxW * 1.5 : e.w,
         color: (() => {
-          const c = on ? EDGE : DIM;
+          const c = hubEdge ? colorOf(byId[hubSet.has(e.from) ? e.from : e.to].group) : (on ? EDGE : DIM);
           // In a focused view, lines that do not touch a main topic are faint
           const opacity = hubEdge ? 1 : !on ? 0.3 : hubSet.size ? 0.25 : 0.9;
           return { color: c, highlight: c, hover: c, opacity, inherit: false };
@@ -440,7 +441,7 @@
         el('div', { class: 'key-row' }, el('span', { class: 'size-small' }), el('span', { class: 'size-big' }),
            'Bigger circle: the concept is mentioned in more passages'),
         el('div', { class: 'key-row' }, el('span', { class: 'line-solid' }),
-           'Grey line: the concepts appear in the same sentence or a short stretch of text. Thicker means more passages.'),
+           'Line: the concepts appear in the same sentence or a short stretch of text. Main-topic links are thick and match its colour; other line widths reflect shared passage counts.'),
         el('div', { class: 'key-row' }, el('span', { class: 'line-dashed' }),
            'Dashed line: a weaker connection through the same report section or paper')),
     );

@@ -60,7 +60,7 @@ def _extract_corpus_keywords(inputs, output, top_n):
 
 
 def extract_document(document, root, cache, config):
-    from backend.encyclopedia.pipeline import extract_report_wordlist
+    from backend.encyclopedia.pipeline import extract_report_wordlist, prepare_report
 
     output = cache / Path(document.source_file).stem
     metadata = {"source_file": document.source_file, "source_sha256": document.sha256,
@@ -76,19 +76,32 @@ def extract_document(document, root, cache, config):
     published = root / "encyclopedia_assets/generated/extraction" / output.name
     if not marker.exists() and (published / "source.json").exists():
         shutil.copytree(published, output, dirs_exist_ok=True)
+    validated = None
     if marker.exists():
         saved = json.loads(marker.read_text(encoding="utf-8"))
-        if (saved.get("input") == metadata and (output / "wordlist.csv").is_file()
+        if ((output / "wordlist.csv").is_file()
                 and saved.get("wordlist_sha256") == digest(output / "wordlist.csv")
                 and all(is_literal(term) for term in saved["accepted_terms"])):
-            terms = saved["accepted_terms"]
-            print(f'Using validated extraction: {document.source_file} ({len(terms)} terms)', flush=True)
-            return terms, output
+            validated = saved
+            if saved.get("input") == metadata:
+                terms = saved["accepted_terms"]
+                print(f'Using validated extraction: {document.source_file} ({len(terms)} terms)', flush=True)
+                return terms, output
     output.parent.mkdir(parents=True, exist_ok=True)
     with tempfile.TemporaryDirectory(prefix="extract-", dir=cache) as scratch:
         scratch = Path(scratch)
         source = scratch / (Path(document.source_file).stem + ".html")
         source.write_text(_markup(document), encoding="utf-8")
+        if (validated and {**validated["input"], "source_sha256": document.sha256} == metadata
+                and (output / "source.txt").is_file()):
+            prepared = prepare_report(source, scratch / "prepared")
+            # XML formatting and metadata can change without changing the exact
+            # model input. Reuse only the same input, settings and intact wordlist.
+            if prepared.read_text(encoding="utf-8") == (output / "source.txt").read_text(encoding="utf-8"):
+                _save(marker, {**validated, "input": metadata})
+                terms = validated["accepted_terms"]
+                print(f'Using validated extraction (unchanged model input): {document.source_file} ({len(terms)} terms)', flush=True)
+                return terms, output
         terms, wordlist, prepared = extract_report_wordlist(source, scratch / "phrases",
             top_n=metadata["top_n"], max_terms=metadata["max_terms"], min_count=metadata["min_count"],
             extract_keywords=_extract_corpus_keywords)
