@@ -1,0 +1,2191 @@
+{
+  "version": 1,
+  "input_concepts": 1376,
+  "output_concepts": 1347,
+  "removed": [
+    {
+      "term": "2030",
+      "reason": "incomplete_expression"
+    },
+    {
+      "term": "5",
+      "reason": "incomplete_expression"
+    },
+    {
+      "term": "A",
+      "reason": "incomplete_expression"
+    },
+    {
+      "term": "AR 5",
+      "reason": "report_reference"
+    },
+    {
+      "term": "Analytic confidence",
+      "reason": "calibrated_uncertainty"
+    },
+    {
+      "term": "Change",
+      "reason": "generic_expression"
+    },
+    {
+      "term": "Classification",
+      "reason": "generic_expression"
+    },
+    {
+      "term": "Confidence",
+      "reason": "calibrated_uncertainty"
+    },
+    {
+      "term": "IPCC Fifth Assessment Report",
+      "reason": "report_reference"
+    },
+    {
+      "term": "IPCC Sixth Assessment Report",
+      "reason": "report_reference"
+    },
+    {
+      "term": "THE mean intensity",
+      "reason": "incomplete_expression"
+    },
+    {
+      "term": "The Marine Pollution Bulletin",
+      "reason": "incomplete_expression"
+    },
+    {
+      "term": "WGI Box",
+      "reason": "report_reference"
+    },
+    {
+      "term": "WGI SPM",
+      "reason": "report_reference"
+    },
+    {
+      "term": "WGII SPM",
+      "reason": "report_reference"
+    },
+    {
+      "term": "age",
+      "reason": "generic_expression"
+    },
+    {
+      "term": "changes",
+      "reason": "generic_expression"
+    },
+    {
+      "term": "global",
+      "reason": "generic_expression"
+    },
+    {
+      "term": "high",
+      "reason": "generic_expression"
+    },
+    {
+      "term": "in situ temperatures",
+      "reason": "incomplete_expression"
+    },
+    {
+      "term": "medium confidence",
+      "reason": "calibrated_uncertainty"
+    },
+    {
+      "term": "Box",
+      "reason": "no_retained_source_alias",
+      "source_terms": [
+        {
+          "term": "Box",
+          "source_file": "data/raw/ipcc_reference.html",
+          "method": "txt2phrases"
+        }
+      ]
+    },
+    {
+      "term": "G",
+      "reason": "no_retained_source_alias",
+      "source_terms": [
+        {
+          "term": "G",
+          "source_file": "data/raw/ipcc_reference.html",
+          "method": "txt2phrases"
+        }
+      ]
+    },
+    {
+      "term": "Heat",
+      "reason": "no_retained_source_alias",
+      "source_terms": [
+        {
+          "term": "heat",
+          "source_file": "data/raw/ocean_heatwaves_2026/PMC10468509.xml",
+          "method": "txt2phrases"
+        }
+      ]
+    },
+    {
+      "term": "Land use, land-use change, and forestry",
+      "reason": "no_retained_source_alias",
+      "source_terms": [
+        {
+          "term": "AFOLU",
+          "source_file": "data/raw/IPCC_AR6_SYR_Glossary.html",
+          "method": "txt2phrases"
+        }
+      ]
+    },
+    {
+      "term": "M",
+      "reason": "no_retained_source_alias",
+      "source_terms": [
+        {
+          "term": "M",
+          "source_file": "data/raw/ocean_heatwaves_2026/PMC11733174.xml",
+          "method": "txt2phrases"
+        }
+      ]
+    },
+    {
+      "term": "media",
+      "reason": "no_retained_source_alias",
+      "source_terms": [
+        {
+          "term": "media",
+          "source_file": "data/raw/ipcc_reference.html",
+          "method": "txt2phrases"
+        }
+      ]
+    },
+    {
+      "term": "Overhead camshaft engine",
+      "reason": "no_retained_source_alias",
+      "source_terms": [
+        {
+          "term": "OHC",
+          "source_file": "data/raw/ocean_heatwaves_2026/PMC11733174.xml",
+          "method": "txt2phrases"
+        }
+      ]
+    },
+    {
+      "term": "S",
+      "reason": "no_retained_source_alias",
+      "source_terms": [
+        {
+          "term": "s",
+          "source_file": "data/raw/ocean_heatwaves_2026/PMC11427463.xml",
+          "method": "txt2phrases"
+        },
+        {
+          "term": "S",
+          "source_file": "data/raw/ocean_heatwaves_2026/PMC9613989.xml",
+          "method": "txt2phrases"
+        }
+      ]
+    },
+    {
+      "term": "Temperature",
+      "reason": "no_retained_source_alias",
+      "source_terms": [
+        {
+          "term": "temperature",
+          "source_file": "data/raw/ocean_heatwaves_2026/PMC10011364.xml",
+          "method": "txt2phrases"
+        },
+        {
+          "term": "temperature",
+          "source_file": "data/raw/ocean_heatwaves_2026/PMC11128013.xml",
+          "method": "txt2phrases"
+        },
+        {
+          "term": "temperature",
+          "source_file": "data/raw/ocean_heatwaves_2026/PMC9613989.xml",
+          "method": "txt2phrases"
+        }
+      ]
+    },
+    {
+      "term": "Y",
+      "reason": "no_retained_source_alias",
+      "source_terms": [
+        {
+          "term": "y",
+          "source_file": "data/raw/ocean_heatwaves_2026/PMC10011364.xml",
+          "method": "txt2phrases"
+        }
+      ]
+    }
+  ],
+  "merged": [
+    {
+      "concept": "Anomaly correlation coefficient",
+      "terms": [
+        "ACC",
+        "Anomaly correlation coefficient"
+      ]
+    },
+    {
+      "concept": "Adaptation gap",
+      "terms": [
+        "Adaptation gap",
+        "adaptation gaps"
+      ]
+    },
+    {
+      "concept": "adaptive action",
+      "terms": [
+        "adaptive action",
+        "adaptive actions"
+      ]
+    },
+    {
+      "concept": "Arctic",
+      "terms": [
+        "Arctic",
+        "Arctic regions"
+      ]
+    },
+    {
+      "concept": "Arctic MHW",
+      "terms": [
+        "Arctic MHW",
+        "Arctic MHWs"
+      ]
+    },
+    {
+      "concept": "Amplicon sequence variants",
+      "terms": [
+        "ASVS",
+        "Amplicon sequence variants"
+      ]
+    },
+    {
+      "concept": "Behavioural change theories",
+      "terms": [
+        "Behavioural change theories",
+        "behavioural changes"
+      ]
+    },
+    {
+      "concept": "Bluefin tuna",
+      "terms": [
+        "Bluefin tuna",
+        "bluefin tunas"
+      ]
+    },
+    {
+      "concept": "bottom marine heatwaves",
+      "terms": [
+        "BMHW",
+        "BMHWs",
+        "bottom marine heatwaves"
+      ]
+    },
+    {
+      "concept": "BMHW event",
+      "terms": [
+        "BMHW event",
+        "BMHW events"
+      ]
+    },
+    {
+      "concept": "BMHW intensity",
+      "terms": [
+        "BMHW intensities",
+        "BMHW intensity"
+      ]
+    },
+    {
+      "concept": "bottom temperature",
+      "terms": [
+        "Bottom temperatures",
+        "bottom temperature"
+      ]
+    },
+    {
+      "concept": "Brier Skill Score",
+      "terms": [
+        "BSS",
+        "Brier Skill Score"
+      ]
+    },
+    {
+      "concept": "Bottom water temperature anomalies",
+      "terms": [
+        "BWTAs",
+        "Bottom water temperature anomalies"
+      ]
+    },
+    {
+      "concept": "Carbon capture and storage",
+      "terms": [
+        "California Current System",
+        "Carbon capture and storage"
+      ]
+    },
+    {
+      "concept": "Chart datum",
+      "terms": [
+        "Chart datum",
+        "MHW",
+        "Marine heat wave"
+      ]
+    },
+    {
+      "concept": "Compound Height-Heat EXtreme",
+      "terms": [
+        "CHHEX",
+        "CHHEXs",
+        "Compound Height-Heat EXtreme"
+      ]
+    },
+    {
+      "concept": "CHHEX event",
+      "terms": [
+        "CHHEX event",
+        "CHHEX events"
+      ]
+    },
+    {
+      "concept": "Climate extreme (extreme weather or climate event)",
+      "terms": [
+        "Climate extreme (extreme weather or climate event)",
+        "Extreme weather",
+        "extreme climate events"
+      ]
+    },
+    {
+      "concept": "Climatic impact-driver (CID)",
+      "terms": [
+        "Climatic impact-driver (CID)",
+        "Nucleoid"
+      ]
+    },
+    {
+      "concept": "community temperature index",
+      "terms": [
+        "CTI",
+        "community temperature index"
+      ]
+    },
+    {
+      "concept": "Complex regional pain syndrome",
+      "terms": [
+        "Complex regional pain syndrome",
+        "Continuous Ranked Probability Score"
+      ]
+    },
+    {
+      "concept": "Correlation coefficient",
+      "terms": [
+        "Correlation coefficient",
+        "correlation coefficients"
+      ]
+    },
+    {
+      "concept": "Control run",
+      "terms": [
+        "CTRL",
+        "Control run"
+      ]
+    },
+    {
+      "concept": "decadal timescale",
+      "terms": [
+        "decadal timescale",
+        "decadal timescales"
+      ]
+    },
+    {
+      "concept": "decadal variability",
+      "terms": [
+        "decadal variabilities",
+        "decadal variability"
+      ]
+    },
+    {
+      "concept": "degree heating week",
+      "terms": [
+        "degree heating week",
+        "degree heating weeks"
+      ]
+    },
+    {
+      "concept": "Dipole Mode Index",
+      "terms": [
+        "DMI",
+        "Dipole Mode Index"
+      ]
+    },
+    {
+      "concept": "Djiboutian franc",
+      "terms": [
+        "December–January–February",
+        "Djiboutian franc"
+      ]
+    },
+    {
+      "concept": "ECMWF forecast",
+      "terms": [
+        "ECMWF forecast",
+        "ECMWF forecasts"
+      ]
+    },
+    {
+      "concept": "Ecological drought",
+      "terms": [
+        "Ecological drought",
+        "ecological droughts"
+      ]
+    },
+    {
+      "concept": "emission",
+      "terms": [
+        "emission",
+        "emissions"
+      ]
+    },
+    {
+      "concept": "Emission scenario",
+      "terms": [
+        "Emission scenario",
+        "emission scenarios"
+      ]
+    },
+    {
+      "concept": "European Centre for Medium-Range Weather Forecasts",
+      "terms": [
+        "European Center for Medium-Range Weather Forecasts",
+        "European Centre for Medium-Range Weather Forecasting",
+        "European Centre for Medium-Range Weather Forecasts"
+      ]
+    },
+    {
+      "concept": "European Le Mans Series",
+      "terms": [
+        "European Le Mans Series",
+        "Large Marine Ecosystems"
+      ]
+    },
+    {
+      "concept": "Radiative forcing",
+      "terms": [
+        "Radiative forcing",
+        "external forcings"
+      ]
+    },
+    {
+      "concept": "extreme MHW",
+      "terms": [
+        "extreme MHW",
+        "extreme MHWs"
+      ]
+    },
+    {
+      "concept": "GHG emissions scenario",
+      "terms": [
+        "GHG emissions scenario",
+        "GHG emissions scenarios"
+      ]
+    },
+    {
+      "concept": "Global index of collocation",
+      "terms": [
+        "GIC",
+        "Global index of collocation"
+      ]
+    },
+    {
+      "concept": "Ocean",
+      "terms": [
+        "Ocean",
+        "global oceans"
+      ]
+    },
+    {
+      "concept": "Sea level",
+      "terms": [
+        "GMSL",
+        "Sea level"
+      ]
+    },
+    {
+      "concept": "Gulf of Maine",
+      "terms": [
+        "GOM",
+        "Gulf of Maine"
+      ]
+    },
+    {
+      "concept": "Heat flux",
+      "terms": [
+        "Heat flux",
+        "heat fluxes"
+      ]
+    },
+    {
+      "concept": "heatwave event",
+      "terms": [
+        "heatwave event",
+        "heatwave events"
+      ]
+    },
+    {
+      "concept": "Hex",
+      "terms": [
+        "HEXs",
+        "Height EXtreme",
+        "Hex"
+      ]
+    },
+    {
+      "concept": "Heat-flux run",
+      "terms": [
+        "HTFL",
+        "Heat-flux run"
+      ]
+    },
+    {
+      "concept": "HyCOM",
+      "terms": [
+        "HyCOM",
+        "Hybrid Coordinate Ocean Model"
+      ]
+    },
+    {
+      "concept": "Indian Ocean Dipole",
+      "terms": [
+        "IOD",
+        "Indian Ocean Dipole"
+      ]
+    },
+    {
+      "concept": "Indonesian coast",
+      "terms": [
+        "Indonesian coast",
+        "Indonesian coasts"
+      ]
+    },
+    {
+      "concept": "Informal settlement",
+      "terms": [
+        "Informal housing",
+        "Informal settlement"
+      ]
+    },
+    {
+      "concept": "interannual timescale",
+      "terms": [
+        "interannual timescale",
+        "interannual timescales"
+      ]
+    },
+    {
+      "concept": "Kuroshio extension",
+      "terms": [
+        "KE",
+        "Kuroshio extension"
+      ]
+    },
+    {
+      "concept": "Latent heat",
+      "terms": [
+        "Latent heat",
+        "latent heat fluxes"
+      ]
+    },
+    {
+      "concept": "Livelihood",
+      "terms": [
+        "Livelihood",
+        "livelihoods"
+      ]
+    },
+    {
+      "concept": "Machine learning",
+      "terms": [
+        "ML",
+        "Machine learning"
+      ]
+    },
+    {
+      "concept": "Maria Island",
+      "terms": [
+        "MAI",
+        "Maria Island"
+      ]
+    },
+    {
+      "concept": "maximum intensity",
+      "terms": [
+        "maximum intensities",
+        "maximum intensity"
+      ]
+    },
+    {
+      "concept": "Mixed layer depth",
+      "terms": [
+        "MLD",
+        "Mixed layer depth"
+      ]
+    },
+    {
+      "concept": "Multi-model mean",
+      "terms": [
+        "MMM",
+        "Multi-model mean"
+      ]
+    },
+    {
+      "concept": "Mid-latitude North Pacific",
+      "terms": [
+        "MNP",
+        "Mid-latitude North Pacific"
+      ]
+    },
+    {
+      "concept": "Ningaloo Niño index",
+      "terms": [
+        "NNI",
+        "Ningaloo Niño index"
+      ]
+    },
+    {
+      "concept": "northern shrimp catch",
+      "terms": [
+        "northern shrimp catch",
+        "northern shrimp catches"
+      ]
+    },
+    {
+      "concept": "northern shrimp population",
+      "terms": [
+        "northern shrimp population",
+        "northern shrimp populations"
+      ]
+    },
+    {
+      "concept": "Northwest Tropical Pacific",
+      "terms": [
+        "NWTP",
+        "Northwest Tropical Pacific"
+      ]
+    },
+    {
+      "concept": "ocean area",
+      "terms": [
+        "ocean area",
+        "ocean areas"
+      ]
+    },
+    {
+      "concept": "OHC change",
+      "terms": [
+        "OHC change",
+        "OHC changes"
+      ]
+    },
+    {
+      "concept": "Optimally Interpolated Sea Surface Temperature",
+      "terms": [
+        "OISST",
+        "Optimally Interpolated Sea Surface Temperature"
+      ]
+    },
+    {
+      "concept": "Pacific decadal oscillation",
+      "terms": [
+        "PDO",
+        "Pacific decadal oscillation"
+      ]
+    },
+    {
+      "concept": "predicted probability",
+      "terms": [
+        "predicted probabilities",
+        "predicted probability"
+      ]
+    },
+    {
+      "concept": "Regional Ocean Modeling System",
+      "terms": [
+        "ROMS",
+        "Regional Ocean Modeling System",
+        "Regional Ocean Modelling System"
+      ]
+    },
+    {
+      "concept": "Root mean square deviation",
+      "terms": [
+        "Root mean square deviation",
+        "Root mean squared error"
+      ]
+    },
+    {
+      "concept": "Seasonal",
+      "terms": [
+        "S2S",
+        "Seasonal"
+      ]
+    },
+    {
+      "concept": "Sea surface temperature",
+      "terms": [
+        "SST",
+        "SSTs",
+        "Sea surface temperature"
+      ]
+    },
+    {
+      "concept": "String-searching algorithm",
+      "terms": [
+        "String-searching algorithm",
+        "search strings"
+      ]
+    },
+    {
+      "concept": "seasonal cycle",
+      "terms": [
+        "seasonal cycle",
+        "seasonal cycles"
+      ]
+    },
+    {
+      "concept": "Secure Shell",
+      "terms": [
+        "Sea surface height",
+        "Secure Shell"
+      ]
+    },
+    {
+      "concept": "Symmetric Extremal Dependence Index",
+      "terms": [
+        "SEDI",
+        "Symmetric Extremal Dependence Index"
+      ]
+    },
+    {
+      "concept": "Sexually transmitted infection",
+      "terms": [
+        "Sexually transmitted infection",
+        "Species temperature index"
+      ]
+    },
+    {
+      "concept": "Shared socio-economic pathways (SSPs)",
+      "terms": [
+        "Shared Socioeconomic Pathway",
+        "Shared socio-economic pathways (SSPs)"
+      ]
+    },
+    {
+      "concept": "Shifting development pathways",
+      "terms": [
+        "Shifting development pathways",
+        "Shifting development pathways to sustainability"
+      ]
+    },
+    {
+      "concept": "Sea level anomalies",
+      "terms": [
+        "SLA",
+        "SLAs",
+        "Sea level anomalies"
+      ]
+    },
+    {
+      "concept": "surface MHW",
+      "terms": [
+        "SMHW",
+        "SMHWs",
+        "surface MHW"
+      ]
+    },
+    {
+      "concept": "Spatiotemporal pattern",
+      "terms": [
+        "Spatiotemporal pattern",
+        "spatial patterns"
+      ]
+    },
+    {
+      "concept": "SST anomaly",
+      "terms": [
+        "SST anomalies",
+        "SST anomaly"
+      ]
+    },
+    {
+      "concept": "Sea surface temperature anomalies",
+      "terms": [
+        "SSTA",
+        "SSTAs",
+        "Sea surface temperature anomalies"
+      ]
+    },
+    {
+      "concept": "summer offshore survey",
+      "terms": [
+        "summer offshore survey",
+        "summer offshore surveys"
+      ]
+    },
+    {
+      "concept": "Wind",
+      "terms": [
+        "Wind",
+        "surface winds"
+      ]
+    },
+    {
+      "concept": "Tropical Indian Ocean Global-Atmosphere",
+      "terms": [
+        "TIOGA",
+        "Tropical Indian Ocean Global-Atmosphere"
+      ]
+    },
+    {
+      "concept": "total heat exposure",
+      "terms": [
+        "total heat exposure",
+        "total heat exposures"
+      ]
+    },
+    {
+      "concept": "United Nations Economic and Social Council",
+      "terms": [
+        "Economic and Social Council of the United Nations",
+        "United Nations Economic and Social Council"
+      ]
+    },
+    {
+      "concept": "warming trend",
+      "terms": [
+        "warming trend",
+        "warming trends"
+      ]
+    },
+    {
+      "concept": "wind anomaly",
+      "terms": [
+        "wind anomalies",
+        "wind anomaly"
+      ]
+    },
+    {
+      "concept": "Wind stress run",
+      "terms": [
+        "WND",
+        "Wind stress run"
+      ]
+    },
+    {
+      "concept": "Carbon Capture and Utilisation",
+      "terms": [
+        "Carbon Capture and Utilisation",
+        "Carbon dioxide capture and utilisation"
+      ]
+    },
+    {
+      "concept": "Copernicus Marine Environmental Monitoring Service",
+      "terms": [
+        "Copernicus Marine Environmental Monitoring Service",
+        "Copernicus Marine and Environment Monitoring Service"
+      ]
+    },
+    {
+      "concept": "Institute of Atmospheric Physics",
+      "terms": [
+        "Institute of Atmospheric Physics",
+        "Institute of Atmospheric Physics ocean analysis"
+      ]
+    },
+    {
+      "concept": "National Oceanic Atmospheric Administration",
+      "terms": [
+        "National Oceanic Atmospheric Administration",
+        "National Oceanic and Atmospheric Administration"
+      ]
+    },
+    {
+      "concept": "Ocean Niño Index",
+      "terms": [
+        "Ocean Niño Index",
+        "Oceanic Niño Index"
+      ]
+    }
+  ],
+  "source_abbreviations": [
+    {
+      "term": "Advanced Very High-Resolution Radiometer",
+      "alias": "AVHRR",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC11427463.xml",
+      "html_id": null,
+      "text": "Advanced Very High-Resolution Radiometer (AVHRR)"
+    },
+    {
+      "term": "amplicon sequence variants",
+      "alias": "ASVs",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC10808424.xml",
+      "html_id": null,
+      "text": "amplicon sequence variants (ASVs)"
+    },
+    {
+      "term": "anomaly correlation coefficient",
+      "alias": "ACC",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC12980662.xml",
+      "html_id": null,
+      "text": "anomaly correlation coefficient (ACC)"
+    },
+    {
+      "term": "Atlantic States Marine Fisheries Commission",
+      "alias": "ASMFC",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC8294506.xml",
+      "html_id": null,
+      "text": "Atlantic States Marine Fisheries Commission (ASMFC)"
+    },
+    {
+      "term": "Bay of Bengal",
+      "alias": "BoB",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC10468509.xml",
+      "html_id": null,
+      "text": "Bay of Bengal (BoB)"
+    },
+    {
+      "term": "Bayesian Information Criterion",
+      "alias": "BIC",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC10808424.xml",
+      "html_id": null,
+      "text": "Bayesian Information Criterion (BIC)"
+    },
+    {
+      "term": "Bioenergy with carbon dioxide capture and storage",
+      "alias": "BECCS",
+      "source_file": "data/raw/IPCC_AR6_SYR_Glossary.html",
+      "html_id": "term-3ebb7ebe0b3e",
+      "text": "Bioenergy with carbon dioxide capture and storage (BECCS)"
+    },
+    {
+      "term": "black carbon",
+      "alias": "BC",
+      "source_file": "data/raw/IPCC_AR6_SYR_Glossary.html",
+      "html_id": "term-ca596b017c8f",
+      "text": "black carbon (BC)"
+    },
+    {
+      "term": "bottom marine heatwaves",
+      "alias": "BMHW",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC10011364.xml",
+      "html_id": null,
+      "text": "bottom marine heatwaves (BMHW)"
+    },
+    {
+      "term": "bottom temperature anomalies",
+      "alias": "BTA",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC8294506.xml",
+      "html_id": null,
+      "text": "bottom temperature anomalies (BTA)"
+    },
+    {
+      "term": "bottom water temperature anomalies",
+      "alias": "BWTA",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC10011364.xml",
+      "html_id": null,
+      "text": "bottom water temperature anomalies (BWTA)"
+    },
+    {
+      "term": "Brier Skill Score",
+      "alias": "BSS",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC12980662.xml",
+      "html_id": null,
+      "text": "Brier Skill Score (BSS)"
+    },
+    {
+      "term": "California Current System",
+      "alias": "CCS",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC9135278.xml",
+      "html_id": null,
+      "text": "California Current System (CCS)"
+    },
+    {
+      "term": "carapace length",
+      "alias": "CL",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC8294506.xml",
+      "html_id": null,
+      "text": "carapace length (CL)"
+    },
+    {
+      "term": "carbon capture and storage",
+      "alias": "CCS",
+      "source_file": "data/raw/ipcc_reference.html",
+      "html_id": "3.3.3_p2",
+      "text": "carbon capture and storage (CCS)"
+    },
+    {
+      "term": "Carbon Capture and Utilisation",
+      "alias": "CCU",
+      "source_file": "data/raw/ipcc_reference.html",
+      "html_id": "4.5.2_p1",
+      "text": "Carbon Capture and Utilisation (CCU)"
+    },
+    {
+      "term": "carbon dioxide",
+      "alias": "CO2",
+      "source_file": "data/raw/IPCC_AR6_SYR_Glossary.html",
+      "html_id": "term-9b2cabd811be",
+      "text": "carbon dioxide (CO2)"
+    },
+    {
+      "term": "Carbon dioxide capture and storage",
+      "alias": "CCS",
+      "source_file": "data/raw/IPCC_AR6_SYR_Glossary.html",
+      "html_id": "term-0b46f556ea20",
+      "text": "Carbon dioxide capture and storage (CCS)"
+    },
+    {
+      "term": "Carbon dioxide capture and utilisation",
+      "alias": "CCU",
+      "source_file": "data/raw/IPCC_AR6_SYR_Glossary.html",
+      "html_id": "term-3ebb7ebe0b3e",
+      "text": "Carbon dioxide capture and utilisation (CCU)"
+    },
+    {
+      "term": "carbon dioxide removal",
+      "alias": "CDR",
+      "source_file": "data/raw/ipcc_reference.html",
+      "html_id": "3.1.2_p9",
+      "text": "carbon dioxide removal (CDR)"
+    },
+    {
+      "term": "center of gravity",
+      "alias": "CG",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC8294506.xml",
+      "html_id": null,
+      "text": "center of gravity (CG)"
+    },
+    {
+      "term": "Change Service",
+      "alias": "C3S",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC9613989.xml",
+      "html_id": null,
+      "text": "Change Service (C3S)"
+    },
+    {
+      "term": "Chinese Academy of Sciences",
+      "alias": "CAS",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC11128013.xml",
+      "html_id": null,
+      "text": "Chinese Academy of Sciences (CAS)"
+    },
+    {
+      "term": "chlorofluorocarbons",
+      "alias": "CFCs",
+      "source_file": "data/raw/IPCC_AR6_SYR_Glossary.html",
+      "html_id": "term-f697d01d8efe",
+      "text": "chlorofluorocarbons (CFCs)"
+    },
+    {
+      "term": "community temperature index",
+      "alias": "CTI",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC10808424.xml",
+      "html_id": null,
+      "text": "community temperature index (CTI)"
+    },
+    {
+      "term": "Compound Height-Heat EXtreme",
+      "alias": "CHHEX",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC9613989.xml",
+      "html_id": null,
+      "text": "Compound Height-Heat EXtreme (CHHEX)"
+    },
+    {
+      "term": "Compound Height-Heat Extremes",
+      "alias": "CHHEXs",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC9613989.xml",
+      "html_id": null,
+      "text": "Compound Height-Heat Extremes (CHHEXs)"
+    },
+    {
+      "term": "Continuous Ranked Probability Score",
+      "alias": "CRPS",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC12980662.xml",
+      "html_id": null,
+      "text": "Continuous Ranked Probability Score (CRPS)"
+    },
+    {
+      "term": "control run",
+      "alias": "CTRL",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC11733174.xml",
+      "html_id": null,
+      "text": "control run (CTRL)"
+    },
+    {
+      "term": "Convolutional NNs",
+      "alias": "CNNs",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC12980662.xml",
+      "html_id": null,
+      "text": "Convolutional NNs (CNNs)"
+    },
+    {
+      "term": "Copernicus Marine and Environment Monitoring Service",
+      "alias": "CMEMS",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC11733174.xml",
+      "html_id": null,
+      "text": "Copernicus Marine and Environment Monitoring Service (CMEMS)"
+    },
+    {
+      "term": "Copernicus Marine Environmental Monitoring Service",
+      "alias": "CMEMS",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC10011364.xml",
+      "html_id": null,
+      "text": "Copernicus Marine Environmental Monitoring Service (CMEMS)"
+    },
+    {
+      "term": "Coriolis Ocean database ReAnalysis",
+      "alias": "CORA",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC10011364.xml",
+      "html_id": null,
+      "text": "Coriolis Ocean database ReAnalysis (CORA)"
+    },
+    {
+      "term": "Coupled Ocean–Atmosphere Response Experiment",
+      "alias": "COARE",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC10468509.xml",
+      "html_id": null,
+      "text": "Coupled Ocean–Atmosphere Response Experiment (COARE)"
+    },
+    {
+      "term": "Cross-Calibrated Multi-Platform",
+      "alias": "CCMP",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC9613989.xml",
+      "html_id": null,
+      "text": "Cross-Calibrated Multi-Platform (CCMP)"
+    },
+    {
+      "term": "cumulative distribution function",
+      "alias": "CDF",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC12980662.xml",
+      "html_id": null,
+      "text": "cumulative distribution function (CDF)"
+    },
+    {
+      "term": "datasets",
+      "alias": "EN4",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC11733174.xml",
+      "html_id": null,
+      "text": "datasets (EN4)"
+    },
+    {
+      "term": "day of year",
+      "alias": "DOY",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC8294506.xml",
+      "html_id": null,
+      "text": "day of year (DOY)"
+    },
+    {
+      "term": "December–January–February",
+      "alias": "DJF",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC11128013.xml",
+      "html_id": null,
+      "text": "December–January–February (DJF)"
+    },
+    {
+      "term": "degree heating weeks",
+      "alias": "DHW",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC11580339.xml",
+      "html_id": null,
+      "text": "degree heating weeks (DHW)"
+    },
+    {
+      "term": "Degree heating weeks",
+      "alias": "DHWs",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC11580339.xml",
+      "html_id": null,
+      "text": "Degree heating weeks (DHWs)"
+    },
+    {
+      "term": "Dipole mode Index",
+      "alias": "DMI",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC10468509.xml",
+      "html_id": null,
+      "text": "Dipole mode Index (DMI)"
+    },
+    {
+      "term": "direct air carbon dioxide capture and storage",
+      "alias": "DACCS",
+      "source_file": "data/raw/IPCC_AR6_SYR_Glossary.html",
+      "html_id": "term-e6c1da031ee6",
+      "text": "direct air carbon dioxide capture and storage (DACCS)"
+    },
+    {
+      "term": "dynamic linear model",
+      "alias": "DLM",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC9613989.xml",
+      "html_id": null,
+      "text": "dynamic linear model (DLM)"
+    },
+    {
+      "term": "East Australian Current",
+      "alias": "EAC",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC10808424.xml",
+      "html_id": null,
+      "text": "East Australian Current (EAC)"
+    },
+    {
+      "term": "Economic and Social Council of the United Nations",
+      "alias": "ECOSOC",
+      "source_file": "data/raw/IPCC_AR6_SYR_Glossary.html",
+      "html_id": "term-09775f4af3a8",
+      "text": "Economic and Social Council of the United Nations (ECOSOC)"
+    },
+    {
+      "term": "El Niño-Southern Oscillation",
+      "alias": "ENSO",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC10011364.xml",
+      "html_id": null,
+      "text": "El Niño-Southern Oscillation (ENSO)"
+    },
+    {
+      "term": "electric vehicles",
+      "alias": "EVs",
+      "source_file": "data/raw/ipcc_reference.html",
+      "html_id": "2.2.2_p3",
+      "text": "electric vehicles (EVs)"
+    },
+    {
+      "term": "empirical orthogonal function",
+      "alias": "EOF",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC11733174.xml",
+      "html_id": null,
+      "text": "empirical orthogonal function (EOF)"
+    },
+    {
+      "term": "Ensemble empirical mode decomposition",
+      "alias": "EEMD",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC11128013.xml",
+      "html_id": null,
+      "text": "Ensemble empirical mode decomposition (EEMD)"
+    },
+    {
+      "term": "European Center for Medium-Range Weather Forecasts",
+      "alias": "ECMWF",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC10011364.xml",
+      "html_id": null,
+      "text": "European Center for Medium-Range Weather Forecasts (ECMWF)"
+    },
+    {
+      "term": "European Centre for Medium-Range Weather Forecasts",
+      "alias": "ECMWF",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC11733174.xml",
+      "html_id": null,
+      "text": "European Centre for Medium-Range Weather Forecasts (ECMWF)"
+    },
+    {
+      "term": "European Centre for Medium-Range Weather Forecasting",
+      "alias": "ECMWF",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC12980662.xml",
+      "html_id": null,
+      "text": "European Centre for Medium-Range Weather Forecasting (ECMWF)"
+    },
+    {
+      "term": "fork length",
+      "alias": "FL",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC9135278.xml",
+      "html_id": null,
+      "text": "fork length (FL)"
+    },
+    {
+      "term": "Gaussian mixture model",
+      "alias": "GMM",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC10808424.xml",
+      "html_id": null,
+      "text": "Gaussian mixture model (GMM)"
+    },
+    {
+      "term": "Glacial Isostatic Adjustment",
+      "alias": "GIA",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC9613989.xml",
+      "html_id": null,
+      "text": "Glacial Isostatic Adjustment (GIA)"
+    },
+    {
+      "term": "global index of collocation",
+      "alias": "GIC",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC8294506.xml",
+      "html_id": null,
+      "text": "global index of collocation (GIC)"
+    },
+    {
+      "term": "global mean sea level",
+      "alias": "GMSL",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC9613989.xml",
+      "html_id": null,
+      "text": "global mean sea level (GMSL)"
+    },
+    {
+      "term": "Global Warming Levels",
+      "alias": "GWLs",
+      "source_file": "data/raw/ipcc_reference.html",
+      "html_id": "2.3.3_p11",
+      "text": "Global Warming Levels (GWLs)"
+    },
+    {
+      "term": "greenhouse gases",
+      "alias": "GHG",
+      "source_file": "data/raw/ipcc_reference.html",
+      "html_id": "2.1.1_p1",
+      "text": "greenhouse gases (GHG)"
+    },
+    {
+      "term": "greenhouse gases",
+      "alias": "GHGs",
+      "source_file": "data/raw/IPCC_AR6_SYR_Glossary.html",
+      "html_id": "term-74ab86fb9391",
+      "text": "greenhouse gases (GHGs)"
+    },
+    {
+      "term": "Gulf of Maine",
+      "alias": "GOM",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC8294506.xml",
+      "html_id": null,
+      "text": "Gulf of Maine (GOM)"
+    },
+    {
+      "term": "heat-flux run",
+      "alias": "HTFL",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC11733174.xml",
+      "html_id": null,
+      "text": "heat-flux run (HTFL)"
+    },
+    {
+      "term": "Height EXtreme",
+      "alias": "HEX",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC9613989.xml",
+      "html_id": null,
+      "text": "Height EXtreme (HEX)"
+    },
+    {
+      "term": "Height EXtremes",
+      "alias": "HEXs",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC9613989.xml",
+      "html_id": null,
+      "text": "Height EXtremes (HEXs)"
+    },
+    {
+      "term": "Human Development Index",
+      "alias": "HDI",
+      "source_file": "data/raw/IPCC_AR6_SYR_Glossary.html",
+      "html_id": "term-8210f6340587",
+      "text": "Human Development Index (HDI)"
+    },
+    {
+      "term": "Hybrid Coordinate Ocean Model",
+      "alias": "HYCOM",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC11733174.xml",
+      "html_id": null,
+      "text": "Hybrid Coordinate Ocean Model (HYCOM)"
+    },
+    {
+      "term": "hydrofluorocarbons",
+      "alias": "HFCs",
+      "source_file": "data/raw/IPCC_AR6_SYR_Glossary.html",
+      "html_id": "term-f697d01d8efe",
+      "text": "hydrofluorocarbons (HFCs)"
+    },
+    {
+      "term": "Indian Ocean Dipole",
+      "alias": "IOD",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC10468509.xml",
+      "html_id": null,
+      "text": "Indian Ocean Dipole (IOD)"
+    },
+    {
+      "term": "Indigenous knowledge",
+      "alias": "IK",
+      "source_file": "data/raw/IPCC_AR6_SYR_Glossary.html",
+      "html_id": "term-2d2af8a4f6e3",
+      "text": "Indigenous knowledge (IK)"
+    },
+    {
+      "term": "Indonesian Throughflow",
+      "alias": "ITF",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC9613989.xml",
+      "html_id": null,
+      "text": "Indonesian Throughflow (ITF)"
+    },
+    {
+      "term": "Institute of Atmospheric Physics",
+      "alias": "IAP",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC11128013.xml",
+      "html_id": null,
+      "text": "Institute of Atmospheric Physics (IAP)"
+    },
+    {
+      "term": "Institute of Atmospheric Physics ocean analysis",
+      "alias": "IAP",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC11733174.xml",
+      "html_id": null,
+      "text": "Institute of Atmospheric Physics ocean analysis (IAP)"
+    },
+    {
+      "term": "integrated complete-data likelihood criterion",
+      "alias": "ICL",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC10808424.xml",
+      "html_id": null,
+      "text": "integrated complete-data likelihood criterion (ICL)"
+    },
+    {
+      "term": "Integrated Marine Observing System",
+      "alias": "IMOS",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC10808424.xml",
+      "html_id": null,
+      "text": "Integrated Marine Observing System (IMOS)"
+    },
+    {
+      "term": "Interdecadal Pacific Oscillation",
+      "alias": "IPO",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC11128013.xml",
+      "html_id": null,
+      "text": "Interdecadal Pacific Oscillation (IPO)"
+    },
+    {
+      "term": "Intergovernmental Panel on Climate Change",
+      "alias": "IPCC",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC10468509.xml",
+      "html_id": null,
+      "text": "Intergovernmental Panel on Climate Change (IPCC)"
+    },
+    {
+      "term": "Inverted Barometer",
+      "alias": "IB",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC9613989.xml",
+      "html_id": null,
+      "text": "Inverted Barometer (IB)"
+    },
+    {
+      "term": "Kuroshio extension",
+      "alias": "KE",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC11733174.xml",
+      "html_id": null,
+      "text": "Kuroshio extension (KE)"
+    },
+    {
+      "term": "Land-use change",
+      "alias": "LUC",
+      "source_file": "data/raw/IPCC_AR6_SYR_Glossary.html",
+      "html_id": "term-9b2cabd811be",
+      "text": "Land-use change (LUC)"
+    },
+    {
+      "term": "Land Use, Land-Use Change and Forestry",
+      "alias": "LULUCF",
+      "source_file": "data/raw/IPCC_AR6_SYR_Glossary.html",
+      "html_id": "term-9b2cabd811be",
+      "text": "Land Use, Land-Use Change and Forestry (LULUCF)"
+    },
+    {
+      "term": "Large Marine Ecosystems",
+      "alias": "LMEs",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC10011364.xml",
+      "html_id": null,
+      "text": "Large Marine Ecosystems (LMEs)"
+    },
+    {
+      "term": "Least Developed Countries",
+      "alias": "LDCs",
+      "source_file": "data/raw/ipcc_reference.html",
+      "html_id": "2.1.1_p6",
+      "text": "Least Developed Countries (LDCs)"
+    },
+    {
+      "term": "Local knowledge",
+      "alias": "LK",
+      "source_file": "data/raw/IPCC_AR6_SYR_Glossary.html",
+      "html_id": "term-4c8c6ddbc668",
+      "text": "Local knowledge (LK)"
+    },
+    {
+      "term": "machine learning",
+      "alias": "ML",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC12980662.xml",
+      "html_id": null,
+      "text": "machine learning (ML)"
+    },
+    {
+      "term": "main run",
+      "alias": "MR",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC9613989.xml",
+      "html_id": null,
+      "text": "main run (MR)"
+    },
+    {
+      "term": "Maine",
+      "alias": "ME",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC8294506.xml",
+      "html_id": null,
+      "text": "Maine (ME)"
+    },
+    {
+      "term": "Maria Island",
+      "alias": "MAI",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC10808424.xml",
+      "html_id": null,
+      "text": "Maria Island (MAI)"
+    },
+    {
+      "term": "Marine Ecoregions of the World",
+      "alias": "MEOW",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC11580339.xml",
+      "html_id": null,
+      "text": "Marine Ecoregions of the World (MEOW)"
+    },
+    {
+      "term": "marine heat spike",
+      "alias": "MHS",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC10468509.xml",
+      "html_id": null,
+      "text": "marine heat spike (MHS)"
+    },
+    {
+      "term": "marine heat wave",
+      "alias": "MHW",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC10468509.xml",
+      "html_id": null,
+      "text": "marine heat wave (MHW)"
+    },
+    {
+      "term": "Marine heat waves",
+      "alias": "MHWs",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC12980662.xml",
+      "html_id": null,
+      "text": "Marine heat waves (MHWs)"
+    },
+    {
+      "term": "marine heatwaves",
+      "alias": "MHW",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC10011364.xml",
+      "html_id": null,
+      "text": "marine heatwaves (MHW)"
+    },
+    {
+      "term": "marine heatwaves",
+      "alias": "MHWs",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC10011364.xml",
+      "html_id": null,
+      "text": "marine heatwaves (MHWs)"
+    },
+    {
+      "term": "Max Planck Institute for Meteorology Grand Ensemble",
+      "alias": "MPI-GE",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC11128013.xml",
+      "html_id": null,
+      "text": "Max Planck Institute for Meteorology Grand Ensemble (MPI-GE)"
+    },
+    {
+      "term": "methane",
+      "alias": "CH4",
+      "source_file": "data/raw/ipcc_reference.html",
+      "html_id": "2.1.1_p1",
+      "text": "methane (CH4)"
+    },
+    {
+      "term": "mid-latitude North Pacific",
+      "alias": "MNP",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC11733174.xml",
+      "html_id": null,
+      "text": "mid-latitude North Pacific (MNP)"
+    },
+    {
+      "term": "mixed layer depth",
+      "alias": "MLD",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC10011364.xml",
+      "html_id": null,
+      "text": "mixed layer depth (MLD)"
+    },
+    {
+      "term": "multi-model mean",
+      "alias": "MMM",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC11427463.xml",
+      "html_id": null,
+      "text": "multi-model mean (MMM)"
+    },
+    {
+      "term": "National Center for Atmospheric Research",
+      "alias": "NCAR",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC9613989.xml",
+      "html_id": null,
+      "text": "National Center for Atmospheric Research (NCAR)"
+    },
+    {
+      "term": "National Climatic Data Center",
+      "alias": "NCDC",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC10468509.xml",
+      "html_id": null,
+      "text": "National Climatic Data Center (NCDC)"
+    },
+    {
+      "term": "National Collaborative Research Infrastructure Strategy",
+      "alias": "NCRIS",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC10808424.xml",
+      "html_id": null,
+      "text": "National Collaborative Research Infrastructure Strategy (NCRIS)"
+    },
+    {
+      "term": "National Oceanic and Atmospheric Administration",
+      "alias": "NOAA",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC10808424.xml",
+      "html_id": null,
+      "text": "National Oceanic and Atmospheric Administration (NOAA)"
+    },
+    {
+      "term": "National Oceanic Atmospheric Administration",
+      "alias": "NOAA",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC10468509.xml",
+      "html_id": null,
+      "text": "National Oceanic Atmospheric Administration (NOAA)"
+    },
+    {
+      "term": "National Reference Station",
+      "alias": "NRS",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC10808424.xml",
+      "html_id": null,
+      "text": "National Reference Station (NRS)"
+    },
+    {
+      "term": "Nationally Determined Contributions",
+      "alias": "NDCs",
+      "source_file": "data/raw/ipcc_reference.html",
+      "html_id": "2.2.1_p1",
+      "text": "Nationally Determined Contributions (NDCs)"
+    },
+    {
+      "term": "Nature-based solution",
+      "alias": "NbS",
+      "source_file": "data/raw/IPCC_AR6_SYR_Glossary.html",
+      "html_id": "term-0d7aa32b5e67",
+      "text": "Nature-based solution (NbS)"
+    },
+    {
+      "term": "Nature's contributions to people",
+      "alias": "NCP",
+      "source_file": "data/raw/IPCC_AR6_SYR_Glossary.html",
+      "html_id": "term-199416cb4d64",
+      "text": "Nature's contributions to people (NCP)"
+    },
+    {
+      "term": "neural networks",
+      "alias": "NNs",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC12980662.xml",
+      "html_id": null,
+      "text": "neural networks (NNs)"
+    },
+    {
+      "term": "New Hampshire",
+      "alias": "NH",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC8294506.xml",
+      "html_id": null,
+      "text": "New Hampshire (NH)"
+    },
+    {
+      "term": "Ningaloo Niño index",
+      "alias": "NNI",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC11128013.xml",
+      "html_id": null,
+      "text": "Ningaloo Niño index (NNI)"
+    },
+    {
+      "term": "nitrous oxide",
+      "alias": "N2O",
+      "source_file": "data/raw/ipcc_reference.html",
+      "html_id": "2.1.1_p2",
+      "text": "nitrous oxide (N2O)"
+    },
+    {
+      "term": "Non-metric multi-dimensional scaling",
+      "alias": "nMDS",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC10808424.xml",
+      "html_id": null,
+      "text": "Non-metric multi-dimensional scaling (nMDS)"
+    },
+    {
+      "term": "North Stradbroke Island",
+      "alias": "NSI",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC10808424.xml",
+      "html_id": null,
+      "text": "North Stradbroke Island (NSI)"
+    },
+    {
+      "term": "Northeast Fisheries Science Center",
+      "alias": "NEFSC",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC8294506.xml",
+      "html_id": null,
+      "text": "Northeast Fisheries Science Center (NEFSC)"
+    },
+    {
+      "term": "Northwest Tropical Pacific",
+      "alias": "NWTP",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC11733174.xml",
+      "html_id": null,
+      "text": "Northwest Tropical Pacific (NWTP)"
+    },
+    {
+      "term": "Nucleus for European Modeling of the Ocean",
+      "alias": "NEMO",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC10011364.xml",
+      "html_id": null,
+      "text": "Nucleus for European Modeling of the Ocean (NEMO)"
+    },
+    {
+      "term": "Ocean acidification",
+      "alias": "OA",
+      "source_file": "data/raw/IPCC_AR6_SYR_Glossary.html",
+      "html_id": "term-f28d567cf545",
+      "text": "Ocean acidification (OA)"
+    },
+    {
+      "term": "ocean general circulation model",
+      "alias": "OGCM",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC9613989.xml",
+      "html_id": null,
+      "text": "ocean general circulation model (OGCM)"
+    },
+    {
+      "term": "ocean heat content",
+      "alias": "OHC",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC11733174.xml",
+      "html_id": null,
+      "text": "ocean heat content (OHC)"
+    },
+    {
+      "term": "Ocean Niño Index",
+      "alias": "ONI",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC10468509.xml",
+      "html_id": null,
+      "text": "Ocean Niño Index (ONI)"
+    },
+    {
+      "term": "Ocean Station Papa",
+      "alias": "OSP",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC10808424.xml",
+      "html_id": null,
+      "text": "Ocean Station Papa (OSP)"
+    },
+    {
+      "term": "Oceanic Niño Index",
+      "alias": "ONI",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC11733174.xml",
+      "html_id": null,
+      "text": "Oceanic Niño Index (ONI)"
+    },
+    {
+      "term": "Open Access Theses and Dissertations",
+      "alias": "OATD",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC11580339.xml",
+      "html_id": null,
+      "text": "Open Access Theses and Dissertations (OATD)"
+    },
+    {
+      "term": "Optimally Interpolated Sea Surface Temperature",
+      "alias": "OISST",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC10808424.xml",
+      "html_id": null,
+      "text": "Optimally Interpolated Sea Surface Temperature (OISST)"
+    },
+    {
+      "term": "Pacific Decadal Oscillation",
+      "alias": "PDO",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC11733174.xml",
+      "html_id": null,
+      "text": "Pacific Decadal Oscillation (PDO)"
+    },
+    {
+      "term": "Pacific-North American",
+      "alias": "PNA",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC10011364.xml",
+      "html_id": null,
+      "text": "Pacific-North American (PNA)"
+    },
+    {
+      "term": "Particulate matter",
+      "alias": "PM",
+      "source_file": "data/raw/IPCC_AR6_SYR_Glossary.html",
+      "html_id": "term-ca596b017c8f",
+      "text": "Particulate matter (PM)"
+    },
+    {
+      "term": "percent of stomach content by weight",
+      "alias": "PW",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC8294506.xml",
+      "html_id": null,
+      "text": "percent of stomach content by weight (PW)"
+    },
+    {
+      "term": "perfluorocarbons",
+      "alias": "PFCs",
+      "source_file": "data/raw/IPCC_AR6_SYR_Glossary.html",
+      "html_id": "term-f697d01d8efe",
+      "text": "perfluorocarbons (PFCs)"
+    },
+    {
+      "term": "Permanent Service for Mean Sea Level",
+      "alias": "PSMSL",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC9613989.xml",
+      "html_id": null,
+      "text": "Permanent Service for Mean Sea Level (PSMSL)"
+    },
+    {
+      "term": "reanalysis",
+      "alias": "ERA5",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC11733174.xml",
+      "html_id": null,
+      "text": "reanalysis (ERA5)"
+    },
+    {
+      "term": "Reanalysis",
+      "alias": "JRA55",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC11128013.xml",
+      "html_id": null,
+      "text": "Reanalysis (JRA55)"
+    },
+    {
+      "term": "Reducing Emissions from Deforestation and Forest Degradation",
+      "alias": "REDD+",
+      "source_file": "data/raw/IPCC_AR6_SYR_Glossary.html",
+      "html_id": "term-5dc7ea4a2352",
+      "text": "Reducing Emissions from Deforestation and Forest Degradation (REDD+)"
+    },
+    {
+      "term": "Regional Ocean Modeling System",
+      "alias": "ROMS",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC9613989.xml",
+      "html_id": null,
+      "text": "Regional Ocean Modeling System (ROMS)"
+    },
+    {
+      "term": "Regional Ocean Modelling System",
+      "alias": "ROMS",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC9613989.xml",
+      "html_id": null,
+      "text": "Regional Ocean Modelling System (ROMS)"
+    },
+    {
+      "term": "remaining carbon budget",
+      "alias": "RCB",
+      "source_file": "data/raw/ipcc_reference.html",
+      "html_id": "3.3.1_p3",
+      "text": "remaining carbon budget (RCB)"
+    },
+    {
+      "term": "remotely operated vehicles",
+      "alias": "ROV",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC11580339.xml",
+      "html_id": null,
+      "text": "remotely operated vehicles (ROV)"
+    },
+    {
+      "term": "reporting standards for systematic evidence synthesis",
+      "alias": "ROSES",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC11580339.xml",
+      "html_id": null,
+      "text": "reporting standards for systematic evidence synthesis (ROSES)"
+    },
+    {
+      "term": "Representative Concentration Pathways",
+      "alias": "RCPs",
+      "source_file": "data/raw/ipcc_reference.html",
+      "html_id": "2.3.3_p9",
+      "text": "Representative Concentration Pathways (RCPs)"
+    },
+    {
+      "term": "root mean squared error",
+      "alias": "RMSE",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC12980662.xml",
+      "html_id": null,
+      "text": "root mean squared error (RMSE)"
+    },
+    {
+      "term": "sea ice concentration",
+      "alias": "SIC",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC11427463.xml",
+      "html_id": null,
+      "text": "sea ice concentration (SIC)"
+    },
+    {
+      "term": "sea level anomalies",
+      "alias": "SLAs",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC9613989.xml",
+      "html_id": null,
+      "text": "sea level anomalies (SLAs)"
+    },
+    {
+      "term": "sea-level pressure",
+      "alias": "SLP",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC11128013.xml",
+      "html_id": null,
+      "text": "sea-level pressure (SLP)"
+    },
+    {
+      "term": "sea surface height",
+      "alias": "SSH",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC10468509.xml",
+      "html_id": null,
+      "text": "sea surface height (SSH)"
+    },
+    {
+      "term": "sea surface temperature",
+      "alias": "SST",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC10011364.xml",
+      "html_id": null,
+      "text": "sea surface temperature (SST)"
+    },
+    {
+      "term": "sea-surface temperatures",
+      "alias": "SSTs",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC10808424.xml",
+      "html_id": null,
+      "text": "sea-surface temperatures (SSTs)"
+    },
+    {
+      "term": "sea surface temperature anomalies",
+      "alias": "SSTA",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC10011364.xml",
+      "html_id": null,
+      "text": "sea surface temperature anomalies (SSTA)"
+    },
+    {
+      "term": "seasonal",
+      "alias": "S2S",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC12980662.xml",
+      "html_id": null,
+      "text": "seasonal (S2S)"
+    },
+    {
+      "term": "shared policy assumptions",
+      "alias": "SPAs",
+      "source_file": "data/raw/IPCC_AR6_SYR_Glossary.html",
+      "html_id": "term-a73aa3422e11",
+      "text": "shared policy assumptions (SPAs)"
+    },
+    {
+      "term": "Shared socio-economic pathways",
+      "alias": "SSPs",
+      "source_file": "data/raw/IPCC_AR6_SYR_Glossary.html",
+      "html_id": "term-a73aa3422e11",
+      "text": "Shared socio-economic pathways (SSPs)"
+    },
+    {
+      "term": "Shared Socioeconomic Pathway",
+      "alias": "SSP",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC11427463.xml",
+      "html_id": null,
+      "text": "Shared Socioeconomic Pathway (SSP)"
+    },
+    {
+      "term": "Shifting development pathways",
+      "alias": "SDP",
+      "source_file": "data/raw/IPCC_AR6_SYR_Glossary.html",
+      "html_id": "term-b0de149ebdb4",
+      "text": "Shifting development pathways (SDP)"
+    },
+    {
+      "term": "Shifting development pathways to sustainability",
+      "alias": "SDPS",
+      "source_file": "data/raw/IPCC_AR6_SYR_Glossary.html",
+      "html_id": "term-b0de149ebdb4",
+      "text": "Shifting development pathways to sustainability (SDPS)"
+    },
+    {
+      "term": "short-lived climate forcers",
+      "alias": "SLCF",
+      "source_file": "data/raw/ipcc_reference.html",
+      "html_id": "3.1.1_p5",
+      "text": "short-lived climate forcers (SLCF)"
+    },
+    {
+      "term": "Short-lived climate forcers",
+      "alias": "SLCFs",
+      "source_file": "data/raw/IPCC_AR6_SYR_Glossary.html",
+      "html_id": "term-ca596b017c8f",
+      "text": "Short-lived climate forcers (SLCFs)"
+    },
+    {
+      "term": "signal-to-noise” ratio",
+      "alias": "SNR",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC11733174.xml",
+      "html_id": null,
+      "text": "signal-to-noise” ratio (SNR)"
+    },
+    {
+      "term": "singular value decomposition",
+      "alias": "SVD",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC11128013.xml",
+      "html_id": null,
+      "text": "singular value decomposition (SVD)"
+    },
+    {
+      "term": "Small Island Developing States",
+      "alias": "SIDS",
+      "source_file": "data/raw/ipcc_reference.html",
+      "html_id": "2.1.1_p6",
+      "text": "Small Island Developing States (SIDS)"
+    },
+    {
+      "term": "Soil carbon sequestration",
+      "alias": "SCS",
+      "source_file": "data/raw/IPCC_AR6_SYR_Glossary.html",
+      "html_id": "term-e6c1da031ee6",
+      "text": "Soil carbon sequestration (SCS)"
+    },
+    {
+      "term": "Solar Radiation Modification",
+      "alias": "SRM",
+      "source_file": "data/raw/ipcc_reference.html",
+      "html_id": "3.1.2_p10",
+      "text": "Solar Radiation Modification (SRM)"
+    },
+    {
+      "term": "Southern California Current",
+      "alias": "SCC",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC10808424.xml",
+      "html_id": null,
+      "text": "Southern California Current (SCC)"
+    },
+    {
+      "term": "species temperature index",
+      "alias": "STI",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC10808424.xml",
+      "html_id": null,
+      "text": "species temperature index (STI)"
+    },
+    {
+      "term": "standard deviations",
+      "alias": "SD",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC8294506.xml",
+      "html_id": null,
+      "text": "standard deviations (SD)"
+    },
+    {
+      "term": "standard deviations",
+      "alias": "STDs",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC11128013.xml",
+      "html_id": null,
+      "text": "standard deviations (STDs)"
+    },
+    {
+      "term": "sulphur hexafluoride",
+      "alias": "SF6",
+      "source_file": "data/raw/IPCC_AR6_SYR_Glossary.html",
+      "html_id": "term-f697d01d8efe",
+      "text": "sulphur hexafluoride (SF6)"
+    },
+    {
+      "term": "surface MHWs",
+      "alias": "SMHW",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC10011364.xml",
+      "html_id": null,
+      "text": "surface MHWs (SMHW)"
+    },
+    {
+      "term": "sustainable development",
+      "alias": "SD",
+      "source_file": "data/raw/IPCC_AR6_SYR_Glossary.html",
+      "html_id": "term-65e27407d235",
+      "text": "sustainable development (SD)"
+    },
+    {
+      "term": "Sustainable Development Goals",
+      "alias": "SDGs",
+      "source_file": "data/raw/ipcc_reference.html",
+      "html_id": "2.2.1_p3",
+      "text": "Sustainable Development Goals (SDGs)"
+    },
+    {
+      "term": "Symmetric Extremal Dependence Index",
+      "alias": "SEDI",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC12980662.xml",
+      "html_id": null,
+      "text": "Symmetric Extremal Dependence Index (SEDI)"
+    },
+    {
+      "term": "time of emergence",
+      "alias": "ToE",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC11733174.xml",
+      "html_id": null,
+      "text": "time of emergence (ToE)"
+    },
+    {
+      "term": "total heat exposures",
+      "alias": "THEs",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC11427463.xml",
+      "html_id": null,
+      "text": "total heat exposures (THEs)"
+    },
+    {
+      "term": "tropical Indian Ocean",
+      "alias": "TIO",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC10468509.xml",
+      "html_id": null,
+      "text": "tropical Indian Ocean (TIO)"
+    },
+    {
+      "term": "Tropical Indian Ocean Global-Atmosphere",
+      "alias": "TIOGA",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC11128013.xml",
+      "html_id": null,
+      "text": "Tropical Indian Ocean Global-Atmosphere (TIOGA)"
+    },
+    {
+      "term": "United Nations",
+      "alias": "UN",
+      "source_file": "data/raw/IPCC_AR6_SYR_Glossary.html",
+      "html_id": "term-8210f6340587",
+      "text": "United Nations (UN)"
+    },
+    {
+      "term": "United Nations Framework Convention on Climate Change",
+      "alias": "UNFCCC",
+      "source_file": "data/raw/IPCC_AR6_SYR_Glossary.html",
+      "html_id": "term-f28d567cf545",
+      "text": "United Nations Framework Convention on Climate Change (UNFCCC)"
+    },
+    {
+      "term": "Warsaw International Mechanism on Loss and Damage",
+      "alias": "WIM",
+      "source_file": "data/raw/ipcc_reference.html",
+      "html_id": "2.2.1_p2",
+      "text": "Warsaw International Mechanism on Loss and Damage (WIM)"
+    },
+    {
+      "term": "western boundary current",
+      "alias": "WBC",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC10808424.xml",
+      "html_id": null,
+      "text": "western boundary current (WBC)"
+    },
+    {
+      "term": "wind—evaporation—sea surface temperature",
+      "alias": "WES",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC11128013.xml",
+      "html_id": null,
+      "text": "wind—evaporation—sea surface temperature (WES)"
+    },
+    {
+      "term": "wind stress run",
+      "alias": "WND",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC11733174.xml",
+      "html_id": null,
+      "text": "wind stress run (WND)"
+    },
+    {
+      "term": "World Meteorological Organization",
+      "alias": "WMO",
+      "source_file": "data/raw/IPCC_AR6_SYR_Glossary.html",
+      "html_id": "term-10db699812d0",
+      "text": "World Meteorological Organization (WMO)"
+    },
+    {
+      "term": "World Ocean Atlas",
+      "alias": "WOA",
+      "source_file": "data/raw/ocean_heatwaves_2026/PMC11733174.xml",
+      "html_id": null,
+      "text": "World Ocean Atlas (WOA)"
+    }
+  ]
+}

@@ -1,0 +1,206 @@
+{
+  "before": {
+    "stats": {
+      "encyclopedia_concepts": 536,
+      "concepts": 352,
+      "links": 15724,
+      "links_shown": 1171,
+      "source_bridges": 0,
+      "passages": 118,
+      "components_by_passage": 1,
+      "components": 1,
+      "largest_component": 352,
+      "clusters": 4
+    },
+    "groups": [
+      {
+        "id": 0,
+        "label": "Analytic confidence",
+        "size": 92
+      },
+      {
+        "id": 1,
+        "label": "WGII SPM",
+        "size": 104
+      },
+      {
+        "id": 2,
+        "label": "Mitigation",
+        "size": 95
+      },
+      {
+        "id": 3,
+        "label": "Health",
+        "size": 61
+      }
+    ],
+    "density": 0.25453250453250453,
+    "modularity": 0.16578815377674283
+  },
+  "after": {
+    "stats": {
+      "encyclopedia_concepts": 526,
+      "concepts": 337,
+      "links": 3062,
+      "links_shown": 651,
+      "source_bridges": 4,
+      "passages": 118,
+      "components_by_passage": 5,
+      "components": 1,
+      "largest_component": 337,
+      "clusters": 13,
+      "relation_units": 1060,
+      "relation_scope": "sentence_or_60_word_window",
+      "clustering_weight": "frequency_adjusted_local_cooccurrence"
+    },
+    "groups": [
+      {
+        "id": 0,
+        "label": "Carbon dioxide / Greenhouse gas",
+        "topics": [
+          "Carbon dioxide",
+          "Greenhouse gas",
+          "Methane",
+          "CO2 emissions"
+        ],
+        "size": 84
+      },
+      {
+        "id": 1,
+        "label": "Developing country / Paris Agreement",
+        "topics": [
+          "Developing country",
+          "Paris Agreement",
+          "United Nations Framework Convention on Climate Change",
+          "policy design"
+        ],
+        "size": 34
+      },
+      {
+        "id": 2,
+        "label": "Livelihood / Biodiversity",
+        "topics": [
+          "Livelihood",
+          "Biodiversity",
+          "Well-being",
+          "Water security"
+        ],
+        "size": 40
+      },
+      {
+        "id": 3,
+        "label": "South America / Small Island Developing States",
+        "topics": [
+          "South America",
+          "Small Island Developing States",
+          "Africa",
+          "Least Developed Countries (LDCs)"
+        ],
+        "size": 38
+      },
+      {
+        "id": 4,
+        "label": "Restoration / Agroforestry",
+        "topics": [
+          "Restoration",
+          "Agroforestry",
+          "Deforestation",
+          "Reforestation"
+        ],
+        "size": 45
+      },
+      {
+        "id": 5,
+        "label": "Equity / Local community",
+        "topics": [
+          "equity",
+          "Local community",
+          "Indigenous peoples",
+          "Gender"
+        ],
+        "size": 37
+      },
+      {
+        "id": 6,
+        "label": "Green infrastructure / Wind power",
+        "topics": [
+          "Green infrastructure",
+          "Wind power",
+          "energy efficiency",
+          "Solar energy"
+        ],
+        "size": 26
+      },
+      {
+        "id": 7,
+        "label": "Early warning system / Disaster risk reduction",
+        "topics": [
+          "Early warning system",
+          "Disaster risk reduction",
+          "Drought",
+          "Fire weather"
+        ],
+        "size": 25
+      },
+      {
+        "id": 8,
+        "label": "South Africa / China",
+        "topics": [
+          "South Africa",
+          "China",
+          "India"
+        ],
+        "size": 3
+      },
+      {
+        "id": 9,
+        "label": "New Urban Agenda / Sendai Framework for Disaster Risk Reduction",
+        "topics": [
+          "New Urban Agenda",
+          "Sendai Framework for Disaster Risk Reduction"
+        ],
+        "size": 2
+      },
+      {
+        "id": 10,
+        "label": "Biosphere",
+        "topics": [
+          "biosphere"
+        ],
+        "size": 1
+      },
+      {
+        "id": 11,
+        "label": "Emission pathways",
+        "topics": [
+          "Emission pathways"
+        ],
+        "size": 1
+      },
+      {
+        "id": 12,
+        "label": "Equilibrium climate sensitivity (ECS)",
+        "topics": [
+          "Equilibrium climate sensitivity (ECS)"
+        ],
+        "size": 1
+      }
+    ],
+    "local_density": 0.05506104907302512
+  },
+  "indexed_passages_before": 118,
+  "indexed_passages_after": 118,
+  "indexed_content_sha256_before": "2c7f39512c1b4ecb263a3ddd39806811999085d243d5bc4d8d481f2ac7ea9011",
+  "indexed_content_sha256_after": "2c7f39512c1b4ecb263a3ddd39806811999085d243d5bc4d8d481f2ac7ea9011",
+  "vocabulary_cleanup": {
+    "version": 1,
+    "input_concepts": 544,
+    "output_concepts": 530,
+    "excluded_terms": 18,
+    "merged_groups": 25,
+    "source_abbreviations": 56
+  },
+  "official_glossary_definitions": 126,
+  "method": "Same indexed content. Source vocabulary cleanup; sentence/60-word co-occurrences; frequency-adjusted association; representative topic labels.",
+  "note": "These are automatically detected topic groups, including isolated concepts. Edge counts alone do not establish semantic correctness."
+}

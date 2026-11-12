@@ -1,0 +1,86 @@
+term,count,manual_delete,selected
+MHW,18,No,Yes
+climatology,14,No,Yes
+ECMWF,13,No,Yes
+RMSE,11,No,Yes
+SST,10,No,Yes
+MHWs,9,No,Yes
+ACC,7,No,Yes
+Indian Ocean,7,No,Yes
+predictability,7,No,Yes
+SEDI,7,No,Yes
+spatial distribution,7,No,Yes
+SSH,7,No,Yes
+Arabian Sea,5,No,Yes
+persistence,5,No,Yes
+planetary waves,5,No,Yes
+significance threshold,5,No,Yes
+training,5,No,Yes
+confidence intervals,4,No,Yes
+lead times,4,No,Yes
+Northern Indian Ocean,4,No,Yes
+predicted probability,4,No,Yes
+predictive skill,4,No,Yes
+seasonal cycle,4,No,Yes
+standard deviation,4,No,Yes
+training data,4,No,Yes
+binary MHW forecasts,3,No,Yes
+Brier Score,3,No,Yes
+cost function,3,No,Yes
+downsampling,3,No,Yes
+dynamical models,3,No,Yes
+ECMWF model,3,No,Yes
+fisheries,3,No,Yes
+hyperparameter tuning,3,No,Yes
+lead time,3,No,Yes
+predicted probabilities,3,No,Yes
+SEDI scores,3,No,Yes
+binary forecast,2,No,Yes
+binary predictions,2,No,Yes
+Boreal fall,2,No,Yes
+boreal summer,2,No,Yes
+Brier Skill Score,2,No,Yes
+BSS,2,No,Yes
+convolutional layers,2,No,Yes
+CRPS,2,No,Yes
+CRPS loss,2,No,Yes
+deterministic forecasts,2,No,Yes
+Deterministic metrics,2,No,Yes
+ECMWF forecast,2,No,Yes
+ECMWF forecasts,2,No,Yes
+equator,2,No,Yes
+equatorial waves,2,No,Yes
+explainable artificial intelligence,2,No,Yes
+extreme events,2,No,Yes
+forecast initialization time,2,No,Yes
+forecast metrics,2,No,Yes
+Forecast skill,2,No,Yes
+Forecast skill metrics,2,No,Yes
+forecast variance,2,No,Yes
+forecasted MHW,2,No,Yes
+grid spacing,2,No,Yes
+loss function,2,No,Yes
+Marine heatwaves,2,No,Yes
+MHW risk,2,No,Yes
+minimum duration,2,No,Yes
+ML,2,No,Yes
+ML forecast model,2,No,Yes
+ML model,2,No,Yes
+NN models,2,No,Yes
+population densities,2,No,Yes
+probabilistic forecasts,2,No,Yes
+probabilistic skill metrics,2,No,Yes
+reanalysis,2,No,Yes
+reference forecast,2,No,Yes
+resolution,2,No,Yes
+spatial patterns,2,No,Yes
+SST data,2,No,Yes
+SST forecasts,2,No,Yes
+SST predictions,2,No,Yes
+Symmetric Extremal Dependence Index,2,No,Yes
+teleconnections,2,No,Yes
+test dataset,2,No,Yes
+trained model,2,No,Yes
+training dataset,2,No,Yes
+uncertainty,2,No,Yes
+XAI techniques,2,No,Yes

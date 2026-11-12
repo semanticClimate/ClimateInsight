@@ -1,0 +1,2588 @@
+{
+  "schema_version": 1,
+  "summary": {
+    "source_files_processed": 1,
+    "raw_entries_discovered": 300,
+    "unique_concepts_exported": 288,
+    "concepts_with_descriptions": 157,
+    "concepts_with_synonyms": 75,
+    "concepts_with_wikidata_ids": 157,
+    "skipped_or_conflicting_entries": 0,
+    "skipped": []
+  },
+  "concepts": [
+    {
+      "canonical_name": "accelerated mitigation",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "adaptation costs",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "adaptation gaps",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "adaptation limits",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "adaptation options",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "adaptation planning",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "adaptation responses",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "air quality improvement",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "anthropogenic GHG emissions",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "AR6 WGI",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "attribution studies",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Balanced diets",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "behavioural changes",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "carbon budgets",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Carbon Capture",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "carbon cycle feedbacks",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "cascading effects",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "CCS",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "CDR",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "CDR deployment",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "CDR methods",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "climate emulators",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "climate impacts",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "climate literacy",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "climate resilient development",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "climate response",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "climate risks",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "climate system components",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "climatic hazards",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "CMIP",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "CO 2 emissions",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "coastal wetlands",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "compound extreme events",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "concurrent heatwaves",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "cultivar improvements",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "cumulative CO 2 emissions",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "cumulative emissions",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "cumulative net CO 2 emissions",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "digital technologies",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "distributional goals",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Earth system models",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "economic instruments",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "economic structure",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "economic vulnerability",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "ecosystem vulnerability",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "emissions",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "emissions pathways",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "emissions reductions",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "enabling conditions",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "energy efficiency",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "equity",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "extreme sea level events",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "feasibility risks",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "financial resources",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "fossil fuel infrastructure",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "fugitive methane emissions",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "GHG emission metrics",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "GHG emission reductions",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "GHG emissions scenario",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "GHG emissions scenarios",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "GI SPM",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Global",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Global mean sea level change",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "global mean sea level rise",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "global modelled pathways",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "global surface temperature change",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "global surface temperature increase",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "global warming levels",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "high",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "high overshoot",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "high risk",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "hot extremes",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Human influence",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "human mortality",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "human vulnerability",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "inclusion",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "industry",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "inequality",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "infrastructure",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "infrastructure use",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "inland flooding",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "institutional arrangements",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "institutional capacity",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "internal variability",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "investment needs",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "key infrastructure",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "key risks",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "labour",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "limited overshoot",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "livelihoods",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "local capital markets",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "lower",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "media",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "medium confidence",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "migration",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Mitigation Actions",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "mitigation investment flows",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "mitigation options",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "mitigation pathways",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "mitigation potential",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "modelled pathways",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "national circumstances",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "NDCs",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "net zero GHG emissions",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "observational constraints",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "ocean ecosystems",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "options",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Overshoot",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "pathways",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "planned relocation",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "policy design",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "population",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "projected risks",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "RCB",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "regulatory instruments",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "renewables",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "residual emissions",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "response systems",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Small Islands",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "smallholder farmers",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "social safety nets",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "SPM",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "SRM",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "SROCC SPM",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "SSPs",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "sustainability",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "sustainable development dimensions",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "sustainable healthy diets",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "transformational adaptation",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "WGI SPM",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "WGII SPM",
+      "synonyms": [],
+      "description": null,
+      "wikidata_id": null,
+      "wikipedia_url": null,
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Poverty",
+      "synonyms": [],
+      "description": "Poverty is a state or condition in which an individual lacks the financial resources and essentials for a basic standard of living. It can have diverse environmental, legal, social, economic, and political causes and effects.[1] When evaluating poverty in statistics or economics there are two main measures: absolute poverty which compares income against the amount needed to meet basic personal needs, such as food, clothing, and shelter;[2] secondly, relative poverty measures when a person cannot meet a minimum level of living standards, compared to others in the same time and place. The definition of relative poverty varies from one country to another, or from one society to another.[2]",
+      "wikidata_id": "Q10294",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Poverty",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Indigenous peoples",
+      "synonyms": [],
+      "description": "Indigenous peoples[a] are characterized by self-identification, cultural difference from other groups in a state, a special relationship with their traditional territory, and an experience of subjugation and discrimination under a dominant cultural model,[1] although there is no generally accepted definition of the concept.[2][3][4]",
+      "wikidata_id": "Q103817",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Indigenous_peoples",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "IPCC Sixth Assessment Report",
+      "synonyms": [
+        "AR6"
+      ],
+      "description": "The Sixth Assessment Report (AR6) of the United Nations (UN) Intergovernmental Panel on Climate Change (IPCC) is the sixth in a series of reports which assess the available scientific information on climate change. Three Working Groups (WGI, II, and III) covered the following topics: The Physical Science Basis (WGI); Impacts, Adaptation and Vulnerability (WGII); Mitigation of Climate Change (WGIII). Of these, the first study was published in 2021, the second report February 2022, and the third in April 2022. The final synthesis report was finished in March 2023. It served as the scientific foundation for the first Global Stocktake at the 2023 United Nations Climate Change Conference (COP28) and remains the primary baseline for international climate policy and the 2025–2026 revision of Nationally Determined Contributions.[1]",
+      "wikidata_id": "Q103843442",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/IPCC_Sixth_Assessment_Report",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Risk",
+      "synonyms": [
+        "risks"
+      ],
+      "description": "Risk is the possibility of something bad happening,[1] comprising a level of uncertainty about the effects and implications of an activity, particularly negative and undesirable consequences.[2][3]",
+      "wikidata_id": "Q104493",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Risk",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Greenhouse gas emissions",
+      "synonyms": [
+        "GHG emissions"
+      ],
+      "description": "Greenhouse gas emissions (GHG emissions) from human activities intensify the greenhouse effect which contributes to climate change. Carbon dioxide (CO2) from burning fossil fuels (such as coal, oil, and natural gas) is the main cause of climate change. The largest annual emissions are from China followed by the United States, which has higher emissions per capita. Emissions from human activities have increased atmospheric carbon dioxide by about 50% over pre-industrial levels. The growing levels of emissions have varied, but have been consistent among all greenhouse gases. Over 60 billion tons were emitted in 2025, higher than any year before.[2] Total cumulative emissions from 1870 to 2022 were 703 GtC (2575 GtCO2), of which 484±20 GtC (1773±73 GtCO2) from fossil fuels and industry, and 219±60 GtC (802±220 GtCO2) from land use change. Land-use change, such as deforestation, caused about 31% of cumulative emissions over 1870–2022, coal 32%, oil 24%, and gas 10%.[3][4]",
+      "wikidata_id": "Q106358009",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Greenhouse_gas_emissions",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Electrification",
+      "synonyms": [],
+      "description": "Electrification is the process of powering by electricity and, in many contexts, the introduction of such power by changing over from an earlier power source. In the context of history of technology and economic development, electrification refers to the build-out of the electricity generation and electric power distribution systems. In the context of sustainable energy, electrification refers to the build-out of super grids and smart grids with distributed energy resources (such as energy storage) to accommodate the energy transition to renewable energy and the switch of end-uses to electricity.[1][2]",
+      "wikidata_id": "Q1076056",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Electrification",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "World population",
+      "synonyms": [
+        "global population"
+      ],
+      "description": "In world demographics, the world population is the total number of humans currently alive. It was estimated by the United Nations to have exceeded 8 billion (8,000,000,000) on November 15, 2022. It took around 300,000 years of human prehistory and history for the human population to reach a billion and only 218 more years from there to reach 8 billion. As of 2026, the world population is approximately 8.3 billion.[2] However, this figure is only a very rough approximation (see § History).",
+      "wikidata_id": "Q11188",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/World_population",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Coral reef",
+      "synonyms": [
+        "coral reefs"
+      ],
+      "description": "A coral reef is an underwater ecosystem characterized by reef-building corals. Reefs are formed of colonies of coral polyps held together by calcium carbonate.[1] Most coral reefs are built from stony corals, whose polyps cluster in groups.",
+      "wikidata_id": "Q11292",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Coral_reef",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Hazard",
+      "synonyms": [
+        "climate hazards"
+      ],
+      "description": "A hazard is a potential source of harm. Substances, events, or circumstances can constitute hazards when their nature would potentially allow them to cause damage to health, life, property, or any other interest of value. The probability of that harm being realized in a specific incident, combined with the magnitude of potential harm, make up its risk. This term is often used synonymously in colloquial speech.",
+      "wikidata_id": "Q1132455",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Hazard",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Agriculture",
+      "synonyms": [],
+      "description": "Agriculture is the practice of cultivating the soil, planting, raising, and harvesting both food and non-food crops, as well as livestock production. Broader definitions also include forestry and aquaculture. Agriculture was a key factor in the rise of sedentary human civilization, whereby farming of domesticated plants and animals created food surpluses that enabled people to live in the cities. While humans started gathering grains at least 105,000 years ago, nascent farmers only began planting them around 11,500 years ago. Sheep, goats, pigs, and cattle were domesticated around 10,000 years ago. Plants were independently cultivated in at least 11 regions of the world. In the 20th century, industrial agriculture based on large-scale monocultures came to dominate agricultural output.",
+      "wikidata_id": "Q11451",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Agriculture",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Irrigation",
+      "synonyms": [],
+      "description": "Irrigation in agriculture is the practice of applying controlled amounts of water to land to help grow crops, landscape plants, and lawns. Irrigation has been a key aspect of agriculture for over 5,000 years and has been developed by many cultures worldwide. Irrigation helps to grow crops, maintain landscapes, and revegetate disturbed soils in dry areas and during times of below-average rainfall. In addition to these uses, irrigation is also employed to protect crops from frost,[1] suppress weed growth in grain fields, and prevent soil consolidation. It is also used to cool livestock, reduce dust, dispose of sewage, and support mining operations. Drainage, which involves the removal of surface and sub-surface water from a given location, is often studied in conjunction with irrigation. Irrigation and drainage improvements are not necessarily mutually exclusive. Often both may be required together to assure sustained high-level production of crops. For a discussion of the role of drainage practices in agriculture [2].",
+      "wikidata_id": "Q11453",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Irrigation",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Fundraising",
+      "synonyms": [
+        "public support"
+      ],
+      "description": "Fundraising or fund-raising is the process of seeking and gathering voluntary financial contributions by engaging individuals, businesses, charitable foundations, or governmental agencies. Although fundraising typically refers to efforts to gather money for nonprofit organizations, it is sometimes used to refer to the identification and solicitation of investors or other sources of capital for for-profit enterprises.",
+      "wikidata_id": "Q1161355",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Fundraising",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Land use",
+      "synonyms": [],
+      "description": "Land use, land cover, or land use/land cover (LU/LC) is a description of what happens on a parcel of land. It concerns the benefits derived from using the land, and also the land management actions that humans carry out there.[1] The following categories are used for land use: forest land, cropland (agricultural land), grassland, wetlands, settlements and other lands.[2] The way humans use land, and how land use is changing, has many impacts on the environment.[3][4] Effects of land use choices and changes by humans include, for example, urban sprawl, soil erosion, soil degradation, land degradation and desertification.[5] Land use and land management practices have a major impact on natural resources including water, soil, nutrients, plants and animals.[6][7]",
+      "wikidata_id": "Q1165944",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Land_use",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Index",
+      "synonyms": [
+        "indices"
+      ],
+      "description": "Index (pl.: indexes or indices) most commonly refers to:",
+      "wikidata_id": "Q11712088",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Index",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Climate information services",
+      "synonyms": [
+        "climate services"
+      ],
+      "description": "Climate information services (CIS) entail the dissemination of climate data in a way that aids people and organizations in making decisions. CIS helps its users foresee and control the hazards associated with a changing and unpredictable climate.[1] It encompasses a knowledge loop that includes targeted user communities' access to, interpretation of, communication of, and use of pertinent, accurate, and trustworthy climate information, as well as their feedback on that use. Climate information services involve the timely production, translation and delivery of useful climate data, information and knowledge.[2]",
+      "wikidata_id": "Q117424688",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Climate_information_services",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Vulnerability",
+      "synonyms": [],
+      "description": "Vulnerability refers to \"the quality or state of being exposed to the possibility of being attacked or harmed, either physically or emotionally.\"[1] The understanding of social and environmental vulnerability, as a methodological approach, involves the analysis of the risks and assets of disadvantaged groups, such as the elderly. The approach of vulnerability in itself brings great expectations of social policy and gerontological planning.[2][3] Types of vulnerability include social, cognitive, environmental, emotional or military.",
+      "wikidata_id": "Q1178984",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Vulnerability",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Scientific literature",
+      "synonyms": [],
+      "description": "Scientific literature encompasses a vast body of academic papers that spans various disciplines within the natural and social sciences. It primarily consists of academic papers that present original empirical research and theoretical contributions. These papers serve as essential sources of knowledge and are commonly referred to simply as \"the literature\" within specific research fields.",
+      "wikidata_id": "Q12042160",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Scientific_literature",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Health",
+      "synonyms": [
+        "human health"
+      ],
+      "description": "Health has a variety of definitions which have been used for different purposes over time and is a multidimensional concept. It commonly refers to physical and emotional well-being. Good health is associated with normal functioning of the human body in day to day life, absent of disease, pain (including mental pain), or injury.",
+      "wikidata_id": "Q12147",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Health",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Net-zero emissions",
+      "synonyms": [
+        "net zero emissions"
+      ],
+      "description": "Global net-zero emissions are reached when greenhouse gas emissions and removals due to human activities are in balance. Net-zero emissions is often shortened to net zero. Once global net zero is achieved, further global warming is expected to significantly slow down, but the effects of existing atmospheric greenhouse gases will still contribute to continued warming.[1]",
+      "wikidata_id": "Q121734997",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Net-zero_emissions",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Pandemic",
+      "synonyms": [
+        "pandemics"
+      ],
+      "description": "A pandemic (/pænˈdɛmɪk/ pan-DEM-ik) is an epidemic of an infectious disease that has a sudden increase in cases and spreads across a large region, for instance multiple continents or worldwide, affecting a substantial portion of the human population. Widespread endemic diseases with a stable number of infected individuals such as recurrences of seasonal influenza are generally excluded as they occur simultaneously in large regions of the globe rather than being spread worldwide.",
+      "wikidata_id": "Q12184",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Pandemic",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Food security",
+      "synonyms": [],
+      "description": "Food security is the state of having reliable access to a sufficient quantity of affordable, healthy food. The availability of food for people of any class, gender, status, ethnicity, or religion is another element of food protection. Similarly, household food security is considered to exist when all the members of a family have consistent access to enough food for an active, healthy life.[1] Food-secure individuals do not live in hunger or fear of starvation.[2] Food security includes resilience to future disruptions of food supply. Such a disruption could occur due to various risk factors such as droughts and floods,[3] shipping disruptions, fuel shortages, economic instability, and wars.[4] Food insecurity is the opposite of food security: a state where there is only limited or uncertain availability of suitable food.",
+      "wikidata_id": "Q1229911",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Food_security",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Sea level",
+      "synonyms": [
+        "global mean sea level"
+      ],
+      "description": "Mean sea level (MSL, often shortened to sea level) is an average surface level of one or more among Earth's coastal bodies of water from which heights such as elevation may be measured. The global MSL is a type of vertical datum – a standardised geodetic datum – that is used, for example, as a chart datum in cartography and marine navigation, or, in aviation, as the standard sea level at which atmospheric pressure is measured to calibrate altitude and, consequently, aircraft flight levels. A common and relatively straightforward mean sea-level standard is instead a long-term average of tide gauge readings at a particular reference location.[1]",
+      "wikidata_id": "Q125465",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Sea_level",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Latin America",
+      "synonyms": [],
+      "description": "Latin America (Spanish: América Latina or Latinoamérica; Portuguese: América Latina) is the cultural region of the Americas where Romance languages are predominantly spoken, primarily Spanish and Portuguese.[6][d]",
+      "wikidata_id": "Q12585",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Latin_America",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Climate change",
+      "synonyms": [
+        "global warming"
+      ],
+      "description": "Present-day climate change includes both global warming—the ongoing increase in global average temperature—and its wider effects on Earth's climate system. In a broader sense, climate change also includes previous long-term changes to Earth's climate. The modern-day rise in global temperatures is driven by human activities, especially fossil fuel (coal, oil and natural gas) burning since the Industrial Revolution.[4][5] Fossil fuel use, deforestation, and some agricultural and industrial practices release greenhouse gases.[6] These gases absorb some of the heat that the Earth radiates after it warms from sunlight, warming the lower atmosphere. Earth's atmosphere now has roughly 50% more carbon dioxide, the main gas driving global warming, than it did at the end of the pre-industrial era, reaching levels not seen for millions of years.[7]",
+      "wikidata_id": "Q125928",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Climate_change",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Renewable energy",
+      "synonyms": [],
+      "description": "Renewable energy (also called green energy) is energy made from renewable natural resources that are replenished on a human timescale. The most widely used renewable energy types are solar energy, wind power, bioenergy/biomass, and hydropower. Bioenergy and geothermal power are also significant in some countries. Renewable energy installations can be large or small and are suited for both urban and rural areas. Renewable energy is often deployed together with further electrification. This has several benefits: electricity can move heat and vehicles efficiently and is clean at the point of consumption.[1][2] Variable renewable energy sources are those that have a fluctuating nature, such as wind power and solar power. In contrast, controllable renewable energy sources include dammed hydroelectricity, bioenergy, or geothermal power.",
+      "wikidata_id": "Q12705",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Renewable_energy",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Fossil fuel",
+      "synonyms": [
+        "fossil fuels"
+      ],
+      "description": "A fossil fuel[a] is a flammable carbon compound- or hydrocarbon-containing material[2] formed naturally in the Earth's crust from the buried remains of prehistoric organisms (animals, plants or microplanktons), a process that occurs within geological formations. Reservoirs of such compound mixtures, such as coal, petroleum and natural gas, can be extracted and burnt as fuel for human consumption to provide energy for direct use (such as for cooking, heating or lighting), to power heat engines (such as steam or internal combustion engines) that can propel vehicles, or to generate electricity via steam turbine generators.[3] Some fossil fuels are further refined into derivatives such as kerosene, gasoline and diesel, or converted into petrochemicals such as polyolefins (plastics), aromatics and synthetic resins.",
+      "wikidata_id": "Q12748",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Fossil_fuel",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Extreme weather",
+      "synonyms": [
+        "extreme weather events"
+      ],
+      "description": "Extreme weather includes unexpected, unusual, severe, or unseasonal weather; weather at the extremes of the historical distribution—the range that has been seen in the past. Extreme events are based on a location's recorded weather history. The main types of extreme weather include heat waves, cold waves, droughts, and heavy precipitation or storm events, such as tropical cyclones. Extreme weather can have various effects, from natural hazards such as floods and landslides to social costs on human health and the economy. Severe weather is a particular type of extreme weather which poses risks to life and property.",
+      "wikidata_id": "Q1277161",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Extreme_weather",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "2030",
+      "synonyms": [],
+      "description": "2030 (MMXXX) will be a common year starting on Tuesday of the Gregorian calendar, the 2030th year of the Common Era (CE) and Anno Domini (AD) designations, the 30th year of the 3rd millennium and the 21st century, and the 1st year of the 2030s decade.",
+      "wikidata_id": "Q12799",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/2030",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Climate justice",
+      "synonyms": [],
+      "description": "Climate justice is a type of environmental justice[1] that focuses on the unequal impacts of climate change on marginalized or otherwise vulnerable populations.[2][3] Climate justice seeks to achieve an equitable distribution of both the burdens of climate change and the efforts to mitigate climate change through advocacy and policy change.[4][5] The economic burden of climate change mitigation is estimated by some at around 1% to 2% of GDP.[6][7] Climate justice examines concepts such as equality, human rights, collective rights, justice and the historical responsibilities for climate change.[8]",
+      "wikidata_id": "Q1291678",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Climate_justice",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Air pollution",
+      "synonyms": [
+        "air quality"
+      ],
+      "description": "Air pollution is the presence of substances in the air that are harmful to humans, other living beings or the environment. Pollutants can be gases, like ozone or nitrogen oxides, or small particles like soot and dust. Both outdoor and indoor air can be polluted.",
+      "wikidata_id": "Q131123",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Air_pollution",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Sustainable development",
+      "synonyms": [],
+      "description": "Sustainable development is an approach to growth and human development that aims to meet the needs of the present without compromising the ability of future generations to meet their own needs.[1][2] The aim is to have a society where living conditions and resources meet human needs without undermining planetary integrity.[3][4] Sustainable development aims to balance the needs of the economy, environment, and society (Triple Bottom Line). Equitable health access is a pillar of social sustainability. The Brundtland Commission Report, published in 1987, helped to make the concept of sustainable development better known.",
+      "wikidata_id": "Q131201",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Sustainable_development",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Justice",
+      "synonyms": [],
+      "description": "In its broadest sense, justice is the treatment of individuals fairly. According to the Stanford Encyclopedia of Philosophy, the most plausible candidate for a core definition comes from the Institutes of Justinian, a 6th-century codification of Roman law, where justice is defined as \"the constant and perpetual will to render to each his due\".[1]",
+      "wikidata_id": "Q13189320",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Justice",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Developed country",
+      "synonyms": [
+        "developed countries"
+      ],
+      "description": "A developed country, or advanced country,[1][2] is a country that has a high quality of life, developed economy, and advanced technological infrastructure relative to other less industrialized nations. Most commonly, the criteria for evaluating the degree of economic development are: gross domestic product (GDP), gross national income (GNI), per capita income, level of industrialization, amount of widespread infrastructure and general standard of living.[3] Which criteria are to be used and which countries can be classified as being developed are subjects of debate. Different definitions of developed countries are provided by the United Nations Department of Economic and Social Affairs (UNDESA), the World Bank, the Development Assistance Committee (DAC), the International Monetary Fund (IMF), the Paris Club and the United Nations Industrial Development Organization (UNIDO), while the Human Development Index is used to rank countries on the composite basis of life expectancy, education, and income per capita.",
+      "wikidata_id": "Q132453",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Developed_country",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Electric vehicle",
+      "synonyms": [
+        "electric vehicles"
+      ],
+      "description": "An electric vehicle (EV) is a vehicle propelled mostly by electric power. EVs encompass electric cars and other electric road vehicles (buses, trucks and personal transporters) as well as other types of land vehicles, such as electric rail vehicles (trains, trams and monorails). It also includes electric watercraft (boats and submersibles), aircraft (fixed-wing and multirotors), and spacecraft.",
+      "wikidata_id": "Q13629441",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Electric_vehicle",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Uncertainty",
+      "synonyms": [],
+      "description": "Uncertainty or incertitude refers to situations involving imperfect or unknown information. It applies to predictions of future events, to physical measurements that are already made, or to the unknown, and is particularly relevant for decision-making. Uncertainty arises in partially observable or stochastic or complex or dynamic environments, as well as due to ignorance, indolence, or both.[1] It arises in any number of fields, including insurance, philosophy, physics, statistics, economics, entrepreneurship, finance, medicine, psychology, sociology, engineering, metrology, meteorology, ecology and information science.",
+      "wikidata_id": "Q13649246",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Uncertainty",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Multilateralism",
+      "synonyms": [
+        "international cooperation"
+      ],
+      "description": "In international relations, multilateralism refers to an alliance of multiple countries pursuing a common goal. Multilateralism is based on the principles of inclusivity, equality, and cooperation, and aims to foster a more peaceful, prosperous, and sustainable world.[1] Middle powers play a crucial role in the international system by promoting multilateralism and internationalism.[2][3]",
+      "wikidata_id": "Q1413574",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Multilateralism",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Traditional knowledge",
+      "synonyms": [
+        "Indigenous Knowledge",
+        "local knowledge"
+      ],
+      "description": "Traditional knowledge (TK), indigenous knowledge (IK), folk knowledge, and local knowledge generally refers to knowledge systems embedded in the cultural traditions of regional, indigenous, or local communities.[1]",
+      "wikidata_id": "Q1428168",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Traditional_knowledge",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Effects of climate change",
+      "synonyms": [
+        "climate change impacts"
+      ],
+      "description": "Effects of climate change are well documented and growing for Earth's natural environment and human societies. Changes to the climate system include an overall warming trend, changes to precipitation patterns, and more extreme weather. As the climate changes it impacts the natural environment with effects such as more intense forest fires, thawing permafrost, and desertification. These changes impact ecosystems and societies, and can become irreversible once tipping points are crossed. Climate activists are engaged in a range of activities around the world that seek to ameliorate these issues or prevent them from happening.[1]",
+      "wikidata_id": "Q1430548",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Effects_of_climate_change",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Small Island Developing States",
+      "synonyms": [],
+      "description": "The Small Island Developing States (SIDS) are a grouping of developing countries which are small island countries and small states that tend to share similar sustainable development challenges. These include small but growing populations, limited resources, remoteness, susceptibility to natural disasters, vulnerability to external shocks, excessive dependence on international trade, and fragile environments. Their growth and development are also held back by high communication, energy and transportation costs, irregular international transport volumes, disproportionately expensive public administration and infrastructure due to their small size, and little to no opportunity to create economies of scale. They consist of some of the most vulnerable countries to anthropogenic climate change.",
+      "wikidata_id": "Q1434887",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Small_Island_Developing_States",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Radiative forcing",
+      "synonyms": [],
+      "description": "Radiative forcing (or climate forcing[2]) is a concept used to quantify a change to the balance of energy flowing through a planetary atmosphere. Various factors contribute to this change in energy balance, such as concentrations of greenhouse gases and aerosols, and changes in surface albedo and solar irradiance. In more technical terms, it is defined as \"the change in the net, downward minus upward, radiative flux (expressed in W/m2) due to a change in an external driver of climate change.\"[3]: 2245 These external drivers are distinguished from feedbacks and variability that are internal to the climate system, and that further influence the direction and magnitude of imbalance. Radiative forcing on Earth is meaningfully evaluated at the tropopause and at the stratopause. It is quantified in units of watts per square meter, and often summarized as an average over the total surface area of the globe.",
+      "wikidata_id": "Q1463606",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Radiative_forcing",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "China",
+      "synonyms": [],
+      "description": "China,[f] officially the People's Republic of China (PRC),[g] is a country in East Asia. It is divided into 33 province-level divisions, including two special administrative regions.[h] Beijing is the capital, while Shanghai is the most populous city by urban area. Its geography features the Central Plain, major rivers such as the Yangtze and Yellow River, deserts, subtropical and temperate forests, plateaus, and mountain ranges such as the Himalayas. It is the world's second-most populous country after India, with a population exceeding 1.4 billion (17% of the world's population). Covering 9.6 million square kilometers (3,700,000 sq mi), it is the third largest country by area.[i]",
+      "wikidata_id": "Q148",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/China",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Ocean heat content",
+      "synonyms": [
+        "Ocean warming"
+      ],
+      "description": "Ocean heat content (OHC) or ocean heat uptake (OHU) is the energy absorbed and stored by oceans.[2] It is an important indicator of global warming.[3] Ocean heat content is calculated by measuring ocean temperature at many different locations and depths, and integrating the areal density of a change in enthalpic energy over an ocean basin or entire ocean.[4]",
+      "wikidata_id": "Q14868764",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Ocean_heat_content",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Africa",
+      "synonyms": [],
+      "description": "Africa is the world's second-largest and second-most populous continent after Asia. At about 30.3 million km2 (11.7 million square miles), including adjacent islands, it covers around 20% of Earth's land area and 6% of its total surface area.[9] With nearly 1.4 billion of the world's population, Africa's population is the youngest among the continents;[10][11] the median age in 2012 was 19.7, when the worldwide median age was 30.4.[12] Based on 2024 projections, Africa's population will exceed 3.8 billion people by 2100.[13] Africa is the least wealthy inhabited continent per capita and second-least wealthy by total wealth, ahead of Oceania. Scholars have attributed this to various factors including geography, climate,[14] corruption,[14] colonialism, the Cold War,[15][16] and neocolonialism. Despite this low concentration of wealth, the African economy is home to many of the world's fastest-growing economies.",
+      "wikidata_id": "Q15",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Africa",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Carbon sequestration",
+      "synonyms": [
+        "soil carbon sequestration"
+      ],
+      "description": "Carbon sequestration is a natural process of storing carbon in a carbon pool.[2]: 2248 It plays a crucial role in effectively managing the global carbon cycle and limiting climate change by reducing the amount of carbon dioxide in the atmosphere. There are two main types of carbon sequestration: biologic (also called biosequestration) and geologic.[3]",
+      "wikidata_id": "Q15305550",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Carbon_sequestration",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Governance",
+      "synonyms": [],
+      "description": "Governance is the overall complex system or framework of processes, functions, structures, rules, laws and norms born out of the relationships, interactions, power dynamics and communication within an organized group of individuals. It sets the boundaries of acceptable conduct and practices of different actors of the group and controls their decision-making powers through the creation and enforcement of rules and regulations. Furthermore, it also manages, allocates and mobilizes relevant resources and capacities of different members and sets the overall direction of the group in order to effectively address its specific collective needs, problems and challenges.[1][2][3]",
+      "wikidata_id": "Q1553864",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Governance",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Standard deviation",
+      "synonyms": [],
+      "description": "In statistics, the standard deviation is a measure of the amount of variation of the values of a variable about its (arithmetic) average.[1] A low standard deviation indicates that the values of a set tend to be close to their average, while a high standard deviation indicates that the values are spread out over a wider range. Standard deviation may be abbreviated SD or std dev, and is most commonly represented in mathematical texts and equations by the lowercase Greek letter σ (sigma).",
+      "wikidata_id": "Q159375",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Standard_deviation",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Urbanization",
+      "synonyms": [
+        "urbanisation"
+      ],
+      "description": "(or urbanisation in British English) is the process by which human settlements are formed and become larger as more people live, recreate and work in cities and towns.[1] It describes the population shift from rural to urban areas, the corresponding decrease in the proportion of people living in rural areas, and the ways in which societies and culture adapt to this change.[2]",
+      "wikidata_id": "Q161078",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Urbanization",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "SIDS",
+      "synonyms": [],
+      "description": "Sudden infant death syndrome (SIDS), sometimes known as cot death or crib death, is the sudden, unexplained death of a child of less than one year of age. Diagnosis requires that the death remain unexplained even after a thorough autopsy and detailed death scene investigation.[2] SIDS usually occurs between the hours of midnight and 9:00 a.m.,[3] or when the baby is sleeping.[4] There is usually no noise or evidence of struggle.[5] SIDS remains one of the leading causes of infant mortality in Western countries, constituting almost 1/3 of all post-neonatal deaths.[6]",
+      "wikidata_id": "Q161801",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/SIDS",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Rebound effect",
+      "synonyms": [
+        "rebound effects"
+      ],
+      "description": "The rebound effect, also known as the rebound phenomenon, refers to the re-emergence of symptoms that were previously absent or controlled while on medication, which occur when the medication is discontinued or the dosage is reduced. In cases of re-emergence, the symptoms are often more severe than they were before treatment.",
+      "wikidata_id": "Q1640840",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Rebound_effect",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Carbon budget",
+      "synonyms": [],
+      "description": "A carbon budget is a concept used in politics of climate change to help set greenhouse gas emissions reduction targets in a fair and effective way. It examines the \"maximum amount of cumulative net global anthropogenic carbon dioxide (CO2) emissions that would result in limiting global warming to a given level\".[2]: 2220 It can be expressed relative to the pre-industrial period (the year 1750). In this case, it is the total carbon budget. Or it can be expressed from a recent specified date onwards. In that case it is the remaining carbon budget.[2]: 2220",
+      "wikidata_id": "Q16722080",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Carbon_budget",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Greenhouse gas",
+      "synonyms": [
+        "GHGs",
+        "greenhouse gases"
+      ],
+      "description": "Greenhouse gases (GHGs) are the gases in an atmosphere that trap heat, raising the surface temperature of astronomical bodies such as Earth. Unlike other gases, greenhouse gases absorb the radiations that a planet emits, resulting in the greenhouse effect.[1] The Earth is warmed by sunlight, causing its surface to radiate heat, which is then mostly absorbed by greenhouse gases. Without greenhouse gases in the atmosphere, the average temperature of Earth's surface would be about −18 °C (0 °F),[2] rather than the present average of 15 °C (59 °F).[3][4] Human-induced warming has been increasing at an unprecedented rate since it has started being measured, reaching 0.27±0.1 °C per decade over 2015–2024. This high rate of warming is caused by a combination of greenhouse gas emissions being at an all-time high of 53.6±5.2 Gt CO2e per year over the last decade (2014–2023), as well as reductions in the strength of aerosol cooling.[5]",
+      "wikidata_id": "Q167336",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Greenhouse_gas",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Deforestation",
+      "synonyms": [],
+      "description": "Deforestation or forest clearance is the removal and destruction of a forest or stand of trees from land that is then converted to non-forest use.[1] Deforestation can involve conversion of forest land to farms, ranches, or urban use. About 31% of Earth's land surface is covered by forests at present.[2] This is one-third less than the forest cover before the expansion of agriculture, with half of that loss occurring in the last century.[3] On average 2,400 trees are cut down each minute.[4] Estimates vary widely as to the extent of deforestation in the tropics.[5][6] In 2019, nearly a third of the overall tree cover loss, or 3.8 million hectares, occurred within humid tropical primary forests. These are areas of mature rainforest that are especially important for biodiversity and carbon storage.[7][8]",
+      "wikidata_id": "Q169940",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Deforestation",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Ecosystem health",
+      "synonyms": [],
+      "description": "Ecosystem health is a metaphor used to describe the condition of an ecosystem.[1][2] Ecosystem condition can vary as a result of fire, flooding, drought, extinctions, invasive species, climate change, mining, fishing, farming or logging, chemical spills, and a host of other reasons. There is no universally accepted benchmark for a healthy ecosystem,[3] rather the apparent health status of an ecosystem can vary depending upon which health metrics are employed in judging it[4] and which societal aspirations are driving the assessment. Advocates of the health metaphor argue for its simplicity as a communication tool. \"Policy-makers and the public need simple, understandable concepts like health.\"[5] Some critics[6] worry that ecosystem health, a \"value-laden construct\", can be \"passed off as science to unsuspecting policy makers and the public.\"[7] However, this term is often used in portraying the state of ecosystems worldwide and in conservation and management. For example, scientific journals and the UN often use the terms planetary and ecosystem health, such as the recent journal The Lancet Planetary Health.",
+      "wikidata_id": "Q17011699",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Ecosystem_health",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Wetland",
+      "synonyms": [
+        "wetlands"
+      ],
+      "description": "A wetland is a distinct semi-aquatic ecosystem whose groundcovers are flooded or saturated in water, either permanently, for years or decades, or only seasonally. Flooding results in oxygen-poor (anoxic) processes taking place, especially in the soils.[1] Wetlands form a transitional zone between waterbodies and dry lands, and are different from other terrestrial or aquatic ecosystems due to their vegetation's roots having adapted to oxygen-poor waterlogged soils.[2] They are considered among the most biologically diverse of all ecosystems, serving as habitats to a wide range of aquatic and semi-aquatic plants and animals, with often improved water quality due to plant removal of excess nutrients such as nitrates and phosphorus.",
+      "wikidata_id": "Q170321",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Wetland",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Developing country",
+      "synonyms": [
+        "developing countries",
+        "developing regions"
+      ],
+      "description": "A developing country is a country with a less-developed industrial base and a lower Human Development Index (HDI) relative to developed countries.[1] However, this definition is not universally agreed upon. There is also no clear agreement on which countries fit this category.[2][3] The terms low-and middle-income country (LMIC) and newly emerging economy (NEE) are often used interchangeably but they refer only to the economy of the countries. The World Bank classifies the world's economies into four groups, based on gross national income per capita: high-, upper-middle-, lower-middle-, and low-income countries. Least developed countries, landlocked developing countries, and small island developing states are all sub-groupings of developing countries. Countries on the other end of the spectrum are usually referred to as high-income countries or developed countries.",
+      "wikidata_id": "Q177323",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Developing_country",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Politics of climate change",
+      "synonyms": [
+        "climate policy"
+      ],
+      "description": "The politics of climate change results from different perspectives on how to respond to climate change. Global warming is driven largely by the emissions of greenhouse gases due to human activity, especially the burning of fossil fuels,[1] certain industries like cement and steel production, and land use for agriculture and forestry. Since the Industrial Revolution, fossil fuels have provided the main source of energy for economic and technological development. The centrality of fossil fuels and other carbon-intensive industries has resulted in much resistance to climate policy, despite widespread scientific consensus that such policy is necessary.",
+      "wikidata_id": "Q1774427",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Politics_of_climate_change",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "South America",
+      "synonyms": [],
+      "description": "South America is a continent[h] entirely in the Western Hemisphere[i] and mostly in the Southern Hemisphere, with a considerably smaller portion in the Northern Hemisphere. It can also be described as the southern subregion of the Americas.",
+      "wikidata_id": "Q18",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/South_America",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Fishery",
+      "synonyms": [
+        "fisheries"
+      ],
+      "description": "Fishery can mean either the enterprise of raising or harvesting fish and other aquatic life[1] or, more commonly, the site where such enterprise takes place (a.k.a., fishing grounds).[2] Commercial fisheries include wild fisheries and fish farms, both in freshwater waterbodies (about 10% of all catch) and the oceans (about 90%). About 500 million people worldwide are economically dependent on fisheries. 171 million tonnes of fish were produced in 2016, but overfishing is an increasing problem, causing declines in some populations.",
+      "wikidata_id": "Q180538",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Fishery",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Desertification",
+      "synonyms": [],
+      "description": "Desertification is a type of gradual land degradation of fertile land into arid desert due to a combination of natural processes and human activities.",
+      "wikidata_id": "Q183481",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Desertification",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Rare events",
+      "synonyms": [
+        "extreme events"
+      ],
+      "description": "Rare events or extreme events occur with very low frequency, often without a regular periodicity, while having a widespread impact which might destabilize systems (for example, stock markets,[2] ocean wave intensity[3] or optical fibers[4] or society[5]). Rare events encompass natural phenomena (major earthquakes, tsunamis, hurricanes, floods, asteroid impacts, solar flares, etc.), anthropogenic hazards (warfare and related forms of violent conflict, acts of terrorism, industrial accidents, financial and commodity market crashes, etc.), as well as phenomena for which natural and anthropogenic factors interact in complex ways (epidemic disease spread, global warming-related changes in climate and weather, etc.).",
+      "wikidata_id": "Q18393516",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Rare_events",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Biodiversity loss",
+      "synonyms": [],
+      "description": "Biodiversity loss happens when species disappear completely from Earth (extinction) or when there is a decrease or disappearance of species in a specific area. Biodiversity loss means that there is a reduction in biological diversity in a given area. The decrease can be temporary or permanent.[2] It is temporary if the damage that led to the loss is reversible in time, for example through ecological restoration.[2][3]If this is not possible, then the decrease is permanent. The cause of most of the biodiversity loss is, generally speaking, human activities that push the planetary boundaries too far.[1][4][5] These activities include habitat destruction[6] (for example deforestation) and land use intensification (for example monoculture farming).[7][8] Further problem areas are air and water pollution (including nutrient pollution), over-exploitation, invasive species[9] and climate change.[6]",
+      "wikidata_id": "Q18466271",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Biodiversity_loss",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Bioenergy",
+      "synonyms": [],
+      "description": "Bioenergy is the renewable energy obtained by using biomass as fuel. The fuel may be wood or crops grown for energy, or it may come from harvest residues and other organic waste.[1][2] Some households still cook and heat their homes by burning wood or other biomass in simple stoves or over open fires.[3] Modern biomass systems range from boilers that heat buildings or supply process heat to factories to power plants that generate electricity. It can also be converted into biogas or liquid biofuels.[4]",
+      "wikidata_id": "Q18556",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Bioenergy",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Youth",
+      "synonyms": [],
+      "description": "Youth is the time of life when one is young. The word, youth, can also mean the time between childhood and adulthood (maturity), but it can also refer to one's peak, in terms of health or the period of life known as being a young adult.[1][2] Youth is also defined as \"the appearance, freshness, vigor, spirit, etc., characteristic of one, who is young\".[3] Its definitions of a specific age range varies, as youth is not defined chronologically as a stage that can be tied to specific age ranges; nor can its end point be linked to specific activities, such as taking unpaid work, or having sexual relations.[4][5]",
+      "wikidata_id": "Q190007",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Youth",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Value (ethics)",
+      "synonyms": [
+        "cultural values"
+      ],
+      "description": "In ethics and social sciences, value denotes the degree of importance of something or an action, with the aim of determining which actions are best to do or what way is best to live (normative ethics), or to describe the significance of different actions. Value systems are proscriptive and prescriptive beliefs; they affect the ethical behavior of a person or are the basis of their intentional activities. Often primary values are strong and secondary values are more susceptible to changes. What makes an action valuable may in turn depend on the ethical values of the objects it increases, decreases, or alters. An object with \"ethic value\" may be termed an \"ethic or philosophic good\" (noun sense).[1]",
+      "wikidata_id": "Q194112",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Value_(ethics)",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Mangrove",
+      "synonyms": [
+        "mangroves"
+      ],
+      "description": "A mangrove is a shrub or tree that grows mainly in coastal saline or brackish water. Mangroves grow in an equatorial climate, typically along coastlines and tidal rivers. They have particular adaptations to take in extra oxygen and remove salt, allowing them to tolerate conditions that kill most plants. The term is also used for tropical coastal vegetation consisting of such species. Mangroves are taxonomically diverse due to convergent evolution in several plant families. They occur worldwide in tropical and subtropical coastal areas, mainly between latitudes 30° N and 30° S, with the greatest mangrove area within 5° of the equator.[1][2] Mangrove plant families first appeared during the Late Cretaceous to Paleocene epochs and became widely distributed in part due to the movement of tectonic plates. The oldest known fossils of mangrove palm date to 75 million years ago.[2]",
+      "wikidata_id": "Q19756",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Mangrove",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Land management",
+      "synonyms": [
+        "sustainable land management"
+      ],
+      "description": "Land management is the process of managing the use and development of land resources. Those resources are used for a variety of purposes for example agriculture, forestry, water resource management, human settlements and tourism. One aim of land management is to prevent or reverse land degradation. Another aim is to ensure water security by increasing soil moisture availability, decreasing surface runoff, and decreasing soil erosion.[1] Unsustainable land managements leads to land being over- or misused which in turn degrades the land, reduces productivity and disrupts natural equilibriums.[2]",
+      "wikidata_id": "Q2001056",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Land_management",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "United Nations Framework Convention on Climate Change",
+      "synonyms": [
+        "UNFCCC"
+      ],
+      "description": "The United Nations Framework Convention on Climate Change (UNFCCC) is the UN process for negotiating an agreement to limit dangerous climate change. It is an international treaty among countries to combat \"dangerous human interference with the climate system\". The main way to do this is limiting the increase in greenhouse gases in the atmosphere.[1] The Convention[2] established the principle of \"common but differentiated responsibilities,\" which asserts that all countries share responsibility for addressing climate change. However, developed countries are expected to assume a leading role because of their greater historical emissions. It was signed in 1992 by 154 states at the UN Conference on Environment and Development (UNCED), known as the Earth Summit. The treaty entered into force in 1994.[3] \"UNFCCC\" is also the name of the Secretariat charged with supporting the operation of the convention, with offices on the UN Campus in Bonn, Germany.[4]",
+      "wikidata_id": "Q208645",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/United_Nations_Framework_Convention_on_Climate_Change",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Nutrition",
+      "synonyms": [],
+      "description": "Nutrition is the biochemical and physiological process by which an organism uses food and water to support its life. The intake of these substances provides organisms with nutrients (divided into macro- and micro-) which can be metabolized to create energy and chemical structures; too much or too little of an essential nutrient can cause malnutrition. Nutritional science, the study of nutrition as a hard science, typically emphasizes human nutrition.",
+      "wikidata_id": "Q2138622",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Nutrition",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Heat wave",
+      "synonyms": [
+        "heatwaves"
+      ],
+      "description": "A heat wave or heatwave, sometimes described as extreme heat, is a period of abnormally hot weather[1] that lasts for multiple days. A heat wave is usually measured relative to the usual climate in the area and to normal temperatures for the season.[2] The main difficulties with this broad definition emerge when one must quantify what the 'normal' temperature state is, and what the spatial extent of the event may or must be. Temperatures that humans from a hotter climate consider normal can be regarded as a heat wave in a cooler area. This would be the case if the warm temperatures are outside the normal climate pattern for that area.",
+      "wikidata_id": "Q215864",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Heat_wave",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Paris Agreement",
+      "synonyms": [],
+      "description": "The Paris Agreement (also called the Paris Accords or Paris Climate Accords) is an international treaty on climate change that was signed in 2016.[3] The treaty covers climate change mitigation, adaptation, and finance. The Paris Agreement was negotiated by 196 parties at the 2015 United Nations Climate Change Conference near Paris, France. As of January 2026, 194 members of the United Nations Framework Convention on Climate Change (UNFCCC) are parties to the agreement. Of the three UNFCCC member states which have not ratified the agreement, the only major emitter is Iran. The United States, the second largest emitter, withdrew from the agreement in 2020,[4] rejoined in 2021,[5] and withdrew again in 2026.[6]",
+      "wikidata_id": "Q21707860",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Paris_Agreement",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "PM",
+      "synonyms": [],
+      "description": "PM or pm (also written P.M. or p.m.) is an abbreviation for Latin post meridiem, meaning \"after midday\" in the 12-hour clock.",
+      "wikidata_id": "Q217451",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/PM",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Climate action",
+      "synonyms": [],
+      "description": "Climate action (or climate change action) refers to a range of activities, mechanisms, policy instruments, and so forth that aim at reducing the severity of human-induced climate change and its impacts. \"More climate action\" is a central demand of the climate movement.[1] Climate inaction is the absence of climate action.",
+      "wikidata_id": "Q22661680",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Climate_action",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Afforestation",
+      "synonyms": [],
+      "description": "Afforestation is the establishment of a forest or stand of trees in an area where there was no recent tree cover.[1] There are three types of afforestation: natural regeneration, agroforestry and tree plantations.[2] In the context of climate change, afforestation can be helpful for climate change mitigation through the route of carbon sequestration. Afforestation can also improve the local climate through increased rainfall and by being a barrier against high winds. The additional trees can also prevent or reduce topsoil erosion (from water and wind), floods and landslides. Finally, additional trees can be a habitat for wildlife, and provide employment and wood products.[2]",
+      "wikidata_id": "Q2384419",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Afforestation",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Human body",
+      "synonyms": [
+        "human systems"
+      ],
+      "description": "The human body is composed of many different types of cells that together create tissues and subsequently organs and then organ systems.",
+      "wikidata_id": "Q23852",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Human_body",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Cost",
+      "synonyms": [
+        "costs"
+      ],
+      "description": "Cost is the value of money that has been used up to produce something or deliver a service, and hence is not available for use anymore. In business, the cost may be one of acquisition, in which case the amount of money expended to acquire it is counted as cost. In this case, money is the input that is gone in order to acquire the thing. This acquisition cost may be the sum of the cost of production as incurred by the original producer, and further costs of transaction as incurred by the acquirer over and above the price paid to the producer. Usually, the price also includes a mark-up for profit over the cost of production.",
+      "wikidata_id": "Q240673",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Cost",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Ecological restoration",
+      "synonyms": [
+        "ecosystem restoration"
+      ],
+      "description": "Ecological restoration, or ecosystem restoration, is the process of assisting the recovery of an ecosystem that has been degraded, damaged, destroyed[1] or transformed.[2] It is distinct from conservation in that it attempts to retroactively repair already damaged ecosystems rather than take preventative measures.[3][4] Ecological restoration can help to reverse biodiversity loss, combat climate change, support the provision of ecosystem services and support local economies.[5] The United Nations has named 2021–2030 the Decade on Ecosystem Restoration.[6]",
+      "wikidata_id": "Q2428433",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Ecological_restoration",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Precipitation",
+      "synonyms": [],
+      "description": "In meteorology, precipitation is any product of the condensation of atmospheric water vapor that falls from clouds due to gravitational pull.[1] The main forms of precipitation include drizzle, rain, rain and snow mixed (\"sleet\" in Commonwealth usage), snow, ice pellets, graupel and hail. Precipitation occurs when cloud particles become heavy enough that atmospheric motions are insufficient to keep them aloft, such that they \"precipitate\" or fall. Thus, fog and mist are not precipitation; their water vapor does not condense sufficiently to precipitate, so fog and mist do not fall. (Such a non-precipitating combination is a colloid.) Two processes, possibly acting together, can lead to air becoming saturated with water vapor: cooling the air or adding water vapor to the air. Precipitation forms as smaller droplets coalesce via collision with other rain drops or ice crystals within a cloud. Short, intense periods of rain in scattered locations are called showers.[2]",
+      "wikidata_id": "Q25257",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Precipitation",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Arctic",
+      "synonyms": [],
+      "description": "The Arctic (/ˈɑːr(k)tɪk/;[1][Note 1] from Ancient Greek ἄρκτος (árktos) 'bear') is the polar region of Earth that surrounds the North Pole, lying north of the Arctic Circle. The Arctic region, from the IERS Reference Meridian travelling east, consists of parts of northern Norway (Nordland, Troms, Finnmark, Svalbard and Jan Mayen), northernmost Sweden (Västerbotten, Norrbotten and Lappland), northern Finland (North Ostrobothnia, Kainuu and Lappi), Russia (Murmansk, Siberia, Nenets Okrug, Novaya Zemlya), the United States (Alaska), Canada (Yukon, Northwest Territories, Nunavut), Danish Realm (Greenland), and northern Iceland (Grímsey and Kolbeinsey), along with the Arctic Ocean and adjacent seas.",
+      "wikidata_id": "Q25322",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Arctic",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "South Africa",
+      "synonyms": [],
+      "description": "South Africa, officially the Republic of South Africa (RSA), is the southernmost country in Africa.[d] The country consists of nine provinces, and is bounded to the south by 2,798 kilometres (1,739 miles) of coastline that stretches along the South Atlantic and Indian Ocean;[16][17][18] to the north by the neighbouring countries of Namibia, Botswana, and Zimbabwe; and to the east and northeast by Mozambique and Eswatini. South Africa also encloses Lesotho.[19] Covering an area of 1,221,037 square kilometres (471,445 square miles), the country has a population of over 63 million people, making it the sixth-most populated country in Africa, and 24th-most in the world. Pretoria is the administrative capital, while Cape Town, as the seat of Parliament, is the legislative capital, and Bloemfontein is regarded as the judicial capital.[20] The largest and most populous city is Johannesburg, followed by Cape Town and Durban.[21]",
+      "wikidata_id": "Q258",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/South_Africa",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Climate change adaptation",
+      "synonyms": [
+        "climate adaptation"
+      ],
+      "description": "Climate change adaptation is the process of adjusting to the effects of climate change, both current and anticipated. Adaptation aims to moderate or avoid harm for people, and is usually done alongside climate change mitigation. It also aims to exploit opportunities. Adaptation can involve interventions to help natural systems cope with changes.[1]",
+      "wikidata_id": "Q260607",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Climate_change_adaptation",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Public finance",
+      "synonyms": [],
+      "description": "Public finance refers to the monetary resources available to governments and also to the study of finance within government and role of the government in the economy.[1] Within academic settings, public finance is a widely studied subject in many branches of political science, political economy and public economics. Research assesses the government revenue and government expenditure of the public authorities and the adjustment of one or the other to achieve desirable effects and avoid undesirable ones.[2] The purview of public finance is considered to be threefold, consisting of governmental effects on:[3]",
+      "wikidata_id": "Q274490",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Public_finance",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Water",
+      "synonyms": [],
+      "description": "Water is an inorganic compound with the chemical formula .mw-parser-output .template-chem2-su{display:inline-block;font-size:80%;line-height:1;vertical-align:-0.35em}.mw-parser-output .template-chem2-su&gt;span{display:block;text-align:left}.mw-parser-output sub.template-chem2-sub{font-size:80%;vertical-align:-0.35em}.mw-parser-output sup.template-chem2-sup{font-size:80%;vertical-align:0.65em}H2O. It is a transparent, tasteless, odorless,[c] and nearly colorless chemical substance. It is the main constituent of Earth's streams, lakes, and oceans. Water is also the fluid of all known living organisms, in which it acts as a solvent. Water, being a polar molecule, undergoes strong intermolecular hydrogen bonding which is a large contributor to its physical and chemical properties.[19] It is vital for all known forms of life, despite not providing food energy or being an organic micronutrient. Due to its presence in all organisms, its chemical stability, its worldwide abundance, and its strong polarity relative to its small molecular size, water is often referred to as the \"universal solvent\".[20]",
+      "wikidata_id": "Q283",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Water",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Carbon tax",
+      "synonyms": [
+        "carbon taxes"
+      ],
+      "description": "A carbon tax is a tax levied on the carbon emissions from producing goods and services. Carbon taxes are intended to make visible the hidden social costs of carbon emissions. They are designed to reduce greenhouse gas emissions by essentially increasing the price of fossil fuels. This both decreases demand for goods and services that produce high emissions and incentivizes making them less carbon-intensive.[1] When a fossil fuel such as coal, petroleum, or natural gas is burned, most or all of its carbon is converted to CO2. Greenhouse gas emissions cause climate change. This negative externality can be reduced by taxing carbon content at any point in the product cycle.[2][3][4][5]",
+      "wikidata_id": "Q288401",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Carbon_tax",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Ecosystem service",
+      "synonyms": [
+        "ecosystem services"
+      ],
+      "description": "Ecosystem services are the various benefits that humans derive from ecosystems. The interconnected living and non-living components of the natural environment offer benefits such as pollination of crops, clean air and water, decomposition of wastes, and flood control. Ecosystem services are vital for human well-being. They provide direct and indirect benefits from nature, such as clean water, food, and climate regulation.[1]",
+      "wikidata_id": "Q295865",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Ecosystem_service",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Life",
+      "synonyms": [],
+      "description": "Life is the capacity in matter, formed of one or more units called cells, for processes such as cell signalling, homeostasis, metabolism, cell growth, adaptation, response to stimuli, and reproduction. All life eventually reaches a state of death. Many philosophical definitions of living systems have been proposed, such as self-organising systems. Defining life is further complicated by viruses, which replicate only in host cells, and the possibility of extraterrestrial life, which could be very different from life on Earth. Life exists all over the Earth in air, water, and soil, with many ecosystems forming the biosphere. Some of these are harsh environments occupied only by extremophiles. The life in a particular ecosystem is called its biota.",
+      "wikidata_id": "Q3",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Life",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Planetary health",
+      "synonyms": [],
+      "description": "Planetary Health refers to the interdependence of human and environmental health.[1] It is an interdisciplinary research field and global movement that explores the consequences of environmental change on human health.[2] Planetary health refers to \"the health of human civilization and the state of the natural systems on which it depends.\" In 2015, the Rockefeller Foundation–Lancet Commission on Planetary Health launched the concept which is [3] currently being developed towards a new health science with over 25 areas of expertise.[4]",
+      "wikidata_id": "Q30589121",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Planetary_health",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Fluorinated gases",
+      "synonyms": [],
+      "description": "Fluorinated gases (F-gases) is a term used by regulators to refer to fluorinated greenhouse gases.[1] Major classes include hydrofluorocarbons (HFCs), perfluorocarbons (PFCs), and sulphur hexafluoride (.mw-parser-output .template-chem2-su{display:inline-block;font-size:80%;line-height:1;vertical-align:-0.35em}.mw-parser-output .template-chem2-su&gt;span{display:block;text-align:left}.mw-parser-output sub.template-chem2-sub{font-size:80%;vertical-align:-0.35em}.mw-parser-output sup.template-chem2-sup{font-size:80%;vertical-align:0.65em}SF6).[2] They are used in refrigeration, air conditioning, heat pumps, fire suppression, electronics, aerospace, magnesium industry, foam, and high voltage switchgear. Their use is regulated due to their strong global warming potential.[3]",
+      "wikidata_id": "Q3099705",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Fluorinated_gases",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Prefuse 73",
+      "synonyms": [
+        "immediate action"
+      ],
+      "description": "Guillermo Scott Herren is an American producer who has been based in Atlanta, Barcelona, and New York City. Herren releases music under the aliases Prefuse 73, Delarosa & Asora, Ahmad Szabo, and Piano Overlord, and is also part of the groups Savath y Savalas, Sons of the Morning, Fudge, Risil, and Diamond Watch Wrists.",
+      "wikidata_id": "Q3106145",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Prefuse_73",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Debt",
+      "synonyms": [
+        "indebtedness"
+      ],
+      "description": "Debt is an obligation that requires one party, the debtor, to pay money borrowed or otherwise withheld from another party, the creditor. Debt may be owed by a sovereign state or country, local government, company, or an individual. Commercial debt is generally subject to contractual terms regarding the amount and timing of repayments of principal and interest.[1] Loans, bonds, notes, and mortgages are all types of debt.",
+      "wikidata_id": "Q3196867",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Debt",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Surveillance",
+      "synonyms": [],
+      "description": "Surveillance is the systematic observation and monitoring of a person, population, or location, with the purpose of information-gathering, influencing, managing, or directing.[1][2]",
+      "wikidata_id": "Q334401",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Surveillance",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Climate risk",
+      "synonyms": [
+        "climate change risks"
+      ],
+      "description": "Climate risk is the potential for problems for societies or ecosystems from the impacts of climate change.[2] The assessment of climate risk is based on formal analysis of the consequences, likelihoods and responses to these impacts. Societal constraints can also shape adaptation options.[3][4] There are different values and preferences around risk, resulting in differences of risk perception.[5]: 149",
+      "wikidata_id": "Q3433166",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Climate_risk",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Land degradation",
+      "synonyms": [],
+      "description": "Land degradation is a process in which land becomes less healthy and productive due to a combination of human activities or natural conditions. The causes of land degradation are numerous and complex.[1] Human activities are often the main cause, such as unsustainable land management practices. Natural hazards are excluded as a cause; however human activities can indirectly affect events such as floods and wildfires.",
+      "wikidata_id": "Q3497778",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Land_degradation",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Climate system",
+      "synonyms": [],
+      "description": "Earth's climate system is a complex system with five interacting components: the atmosphere (air), the hydrosphere (water), the cryosphere (ice and permafrost), the lithosphere (earth's upper rocky layer) and the biosphere (living things).[1]: 1451 Climate is the statistical characterization of the climate system.[1]: 1450 It represents the average weather, typically over a period of 30 years, and is determined by a combination of processes, such as ocean currents and wind patterns.[2][3] Circulation in the atmosphere and oceans transports heat from the tropical regions to regions that receive less energy from the Sun. Solar radiation is the main driving force for this circulation. The water cycle also moves energy throughout the climate system. In addition, certain chemical elements are constantly moving between the components of the climate system. Two examples for these biochemical cycles are the carbon and nitrogen cycles.",
+      "wikidata_id": "Q3509184",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Climate_system",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Methane",
+      "synonyms": [],
+      "description": ".mw-parser-output .ib-chembox{border-collapse:collapse;text-align:left}.mw-parser-output .ib-chembox td,.mw-parser-output .ib-chembox th{border:1px solid #a2a9b1;width:40%}.mw-parser-output .ib-chembox td+td{width:60%}@media screen{html.skin-theme-clientpref-night .mw-parser-output .ib-chembox figure:not(.skin-invert-image):not(.skin-invert):not(.bg-transparent){background:var(--background-color-inverted,#f8f9fa)}}@media screen and (prefers-color-scheme:dark){html.skin-theme-clientpref-os .mw-parser-output .ib-chembox figure:not(.skin-invert-image):not(.skin-invert):not(.bg-transparent){background:var(--background-color-inverted,#f8f9fa)}}",
+      "wikidata_id": "Q37129",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Methane",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Terrestrial ecosystem",
+      "synonyms": [
+        "terrestrial ecosystems"
+      ],
+      "description": "Terrestrial ecosystems are ecosystems that are found on land. Examples include tundra, taiga, temperate deciduous forest, tropical rain forest, grassland, deserts.[1]",
+      "wikidata_id": "Q3718755",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Terrestrial_ecosystem",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Adaptive capacity",
+      "synonyms": [],
+      "description": "Adaptive capacity relates to the capacity of systems, institutions, humans and other organisms to adjust to potential damage, to take advantage of opportunities, or to respond to consequences.[1] In the context of ecosystems, adaptive capacity is the ability to maintain, recover, or adapt performance and function as climate conditions change. Species' adaptive capacity is generally characterized by phenotypic plasticity, dispersal ability, and genetic diversity,[2] which are foundational to the species' ability to acclimate in situ or track suitable climate across the landscape.[3] In the context of coupled socio-ecological social systems, adaptive capacity is commonly associated with the following characteristics: Firstly, the ability of institutions and networks to learn, and store knowledge and experience. Secondly, the creative flexibility in decision making, transitioning and problem solving. And thirdly, the existence of power structures that are responsive and consider the needs of all stakeholders.",
+      "wikidata_id": "Q3738275",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Adaptive_capacity",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Human behavior",
+      "synonyms": [
+        "human activities"
+      ],
+      "description": "1800s: Martineau · Tocqueville · Marx · Spencer · Le Bon · Ward · Pareto · Tönnies · Veblen · Simmel · Durkheim · Addams · Mead · Weber · Du Bois · Mannheim · Elias",
+      "wikidata_id": "Q3769299",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Human_behavior",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Ecosystem",
+      "synonyms": [
+        "ecosystems"
+      ],
+      "description": "An ecosystem (or ecological system) is a system formed by organisms in interaction with their environment,[2]: 458 where the biotic and abiotic components are linked together through nutrient cycles and energy flows.",
+      "wikidata_id": "Q37813",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Ecosystem",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Forestry",
+      "synonyms": [],
+      "description": "Forestry is the science and craft of creating, managing, planting, using, conserving and repairing forests and woodlands for associated resources for human and environmental benefits.[1] Forestry is practiced in plantations and natural stands.[2][3] The science of forestry has elements that belong to the biological, physical, social, political and managerial sciences.[4] Forest management plays an essential role in creating and modifying habitats, and affects ecosystem services provisioning.[5] A practitioner of forestry is a forester.",
+      "wikidata_id": "Q38112",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Forestry",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Agricultural productivity",
+      "synonyms": [],
+      "description": "Agricultural productivity is measured as the ratio of agricultural outputs to inputs.[1] While individual products are usually measured by weight, which is known as crop yield, varying products make measuring overall agricultural output difficult. Therefore, agricultural productivity is usually measured as the market value of the final output. This productivity can be compared to many different types of inputs such as labour or land. Such comparisons are called partial measures of productivity.[2]",
+      "wikidata_id": "Q3816336",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Agricultural_productivity",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Agroforestry",
+      "synonyms": [],
+      "description": "Agroforestry (also known as agro-sylviculture or forest farming) is a land use management system that integrates trees with crops or pasture. It combines agricultural and forestry technologies. As a polyculture system, an agroforestry system can produce timber and wood products, fruits, nuts, other edible plant products, edible mushrooms, medicinal plants, ornamental plants, animals and animal products, and other products from both domesticated and wild species.[1]",
+      "wikidata_id": "Q397350",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Agroforestry",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Solar energy",
+      "synonyms": [],
+      "description": "Solar energy is the radiant energy from the Sun's light and heat, which can be harnessed using a range of technologies such as solar electricity, solar thermal energy (including solar water heating) and solar architecture.[1][2][3] It is an essential source of renewable energy, and its technologies are broadly characterized as either passive solar or active solar depending on how they capture and distribute solar energy or convert it into solar power. Active solar techniques include the use of photovoltaic systems, concentrated solar power, and solar water heating to harness the energy. Passive solar techniques include designing a building for better daylighting, selecting materials with favorable thermal mass or light-dispersing properties, and organizing spaces that naturally circulate air.",
+      "wikidata_id": "Q40015",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Solar_energy",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Confidence",
+      "synonyms": [],
+      "description": "Confidence is the feeling of belief or trust that a person or thing is reliable.[1] Self-confidence is trust in oneself. Self-confidence involves a positive belief that one can generally accomplish what one wishes to do in the future.[2] Self-confidence is not the same as self-esteem, which is an evaluation of one's worth. Self-confidence is related to self-efficacy—belief in one's ability to accomplish a specific task or goal.[3][4] Confidence can be a self-fulfilling prophecy, as those without it may fail because they lack it, and those with it may succeed because they have it rather than because of an innate ability or skill.",
+      "wikidata_id": "Q4116378",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Confidence",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Carbon capture and storage",
+      "synonyms": [
+        "unabated fossil fuels"
+      ],
+      "description": "Carbon capture and storage (CCS) is a process by which carbon dioxide (CO2) from industrial installations or natural sources is separated before it is released into the atmosphere, then transported to a long-term storage location.[1]: 2221 The CO2 is captured from a large point source, such as a natural gas processing plant and is typically stored in a deep geological formation. Around 80% of the CO2 captured annually is used for enhanced oil recovery (EOR), a process by which CO2 is injected into partially depleted oil reservoirs in order to extract more oil and then is largely left underground.[2] Since EOR utilizes the CO2 in addition to storing it, CCS is also known as carbon capture, utilization, and storage (CCUS).[3]",
+      "wikidata_id": "Q41491",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Carbon_capture_and_storage",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Finance",
+      "synonyms": [],
+      "description": "Finance refers to the management, movement, investment, and raising of money.[1][2] \"Finance\" also refers to the academic discipline that studies these. Based on the scope of financial activities, the discipline can be divided into the three primary branches personal, corporate, and public finance.[3][a]",
+      "wikidata_id": "Q43015",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Finance",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Drought",
+      "synonyms": [
+        "droughts"
+      ],
+      "description": "A drought is a period of drier-than-normal conditions.[1]: 1157 A drought can last for days, months or years. Drought often has large impacts on the ecosystems and agriculture of affected regions, and causes harm to the local economy.[2][3] Annual dry seasons in the tropics significantly increase the chances of a drought developing, with subsequent increased wildfire risks.[4] Heat waves can significantly worsen drought conditions by increasing evapotranspiration.[5] This dries out forests and other vegetation, and increases the amount of fuel for wildfires.[4][6]",
+      "wikidata_id": "Q43059",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Drought",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Wind power",
+      "synonyms": [
+        "wind energy"
+      ],
+      "description": "Wind power is the use of wind energy to generate useful work. Historically, wind power was used by sails, windmills and windpumps, but today it is mostly used to generate electricity. This article deals only with wind power for electricity generation. Today, wind power is generated almost completely using wind turbines, generally grouped into wind farms and connected to the electrical grid.",
+      "wikidata_id": "Q43302",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Wind_power",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Europe",
+      "synonyms": [],
+      "description": "Europe is a continent[t] located entirely in the Northern Hemisphere and mostly in the Eastern Hemisphere. It is bordered by the Arctic Ocean to the north, the Atlantic Ocean to the west, the Mediterranean Sea to the south, and Asia to the east. Europe shares the landmass of Eurasia with Asia, and of Afro-Eurasia with both Africa and Asia.[9][10] Europe is commonly considered to be separated from Asia by the watershed of the Ural Mountains, the Ural River, the Caspian Sea, the Greater Caucasus, the Black Sea, and the Turkish straits.[11]",
+      "wikidata_id": "Q46",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Europe",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "AR 5",
+      "synonyms": [
+        "AR5"
+      ],
+      "description": "AR5, AR 5, or AR-5 can refer to:",
+      "wikidata_id": "Q4653985",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/AR_5",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Biodiversity",
+      "synonyms": [],
+      "description": "Biodiversity is the variability of life on Earth. It can be measured on various levels, for example, genetic variability, species diversity, ecosystem diversity, and phylogenetic diversity.[1] Diversity is not distributed evenly on Earth — it is greater in the tropics as a result of the warm climate and high primary productivity in the region near the equator. Tropical forest ecosystems cover less than one-fifth of Earth's terrestrial area and contain about 50% of the world's species.[2] There are latitudinal gradients in species diversity for both marine and terrestrial taxa.[3]",
+      "wikidata_id": "Q47041",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Biodiversity",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Kyoto Protocol",
+      "synonyms": [],
+      "description": "The Kyoto Protocol (Japanese: 京都議定書, Hepburn: Kyōto Giteisho) was an international treaty which extended the 1992 United Nations Framework Convention on Climate Change (UNFCCC) that commits state parties to reduce greenhouse gas emissions, based on the scientific consensus that global warming is occurring and that human-made CO2 emissions are driving it. The Kyoto Protocol was adopted in Kyoto, Japan, on 11 December 1997 and entered into force on 16 February 2005. There were 192 parties (Canada withdrew from the protocol, effective December 2012)[5] to the Protocol in 2020.",
+      "wikidata_id": "Q47359",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Kyoto_Protocol",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Analytic confidence",
+      "synonyms": [
+        "high confidence"
+      ],
+      "description": "Analytic confidence is a rating employed by intelligence analysts to convey doubt to decision makers about a statement of estimative probability. The need for analytic confidence ratings arise from analysts' imperfect knowledge of a conceptual model. An analytic confidence rating pairs with a statement using a word of estimative probability to form a complete analytic statement. Scientific methods for determining analytic confidence remain in infancy.",
+      "wikidata_id": "Q4751126",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Analytic_confidence",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Asia",
+      "synonyms": [],
+      "description": "Asia (/ˈeɪʒə/ ⓘ AY-zhə, .mw-parser-output .IPA-label-small{font-size:85%}.mw-parser-output .references .IPA-label-small,.mw-parser-output .infobox .IPA-label-small,.mw-parser-output .navbox .IPA-label-small{font-size:100%}UK also /ˈeɪʃə/ AY-shə) is the largest continent[note 1][10][11] in the world by both land area and population.[11] It covers an area of more than 44 million square kilometres,[note 2] about 30% of Earth's total land area and 8% of Earth's total surface area. The continent, which has long been home to the majority of the human population,[12] was the site of many of the first civilisations. Its 4.7 billion people constitute roughly 60% of the world's population.",
+      "wikidata_id": "Q48",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Asia",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Salinization",
+      "synonyms": [],
+      "description": "Salinization is the process of increasing:",
+      "wikidata_id": "Q48027521",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Salinization",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Gender",
+      "synonyms": [],
+      "description": "Gender is the range of social, psychological, cultural, and behavioral aspects of being a man (or boy), woman (or girl), or portraying a third gender.[1][2] Although gender often corresponds to sex, a transgender person may identify with a gender other than their sex assigned at birth. Most cultures have a gender binary, in which gender is divided into two categories, and people are considered part of one or the other;[3][4][5] those who are outside these groups may fall under the umbrella term non-binary. Some societies have third genders (and fourth genders, etc.) such as the hijras of South Asia and two-spirit persons native to North America. Most scholars agree that gender is a central characteristic for social organization;[6] this may include social constructs (i.e. gender roles) as well as gender expression.[7][8][9]",
+      "wikidata_id": "Q48277",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Gender",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Adaptation",
+      "synonyms": [],
+      "description": "Collective intelligence Collective action Self-organized criticality Herd mentality Phase transition Agent-based modelling Synchronization Ant colony optimization Particle swarm optimization Swarm behaviour",
+      "wikidata_id": "Q483921",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Adaptation",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Maladaptation",
+      "synonyms": [],
+      "description": "In evolution, a maladaptation (/ˌmælˌædəpˈteɪʃən/) is a trait that is (or has become) more harmful than helpful, in contrast with an adaptation, which is more helpful than harmful.[1] All organisms, from bacteria to humans, display maladaptive and adaptive traits. Like adaptation, maladaptation may be viewed as occurring over geological time, or within the lifetime of one individual or a group.",
+      "wikidata_id": "Q4864574",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Maladaptation",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "North America",
+      "synonyms": [],
+      "description": "North America is a continent[b] in the Northern and Western hemispheres.[c] It is bordered to the north by the Arctic Ocean, to the east by the Atlantic Ocean, to the southeast by South America and the Caribbean Sea, and to the south and west by the Pacific Ocean.",
+      "wikidata_id": "Q49",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/North_America",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Local community",
+      "synonyms": [
+        "local communities"
+      ],
+      "description": "A local community has been defined as a group of interacting people living in a common location. The word is often used to refer to a group that is organized around common values and is attributed with social cohesion within a shared geographical location, generally in social units larger than a household. The word can also refer to the national community or global community.",
+      "wikidata_id": "Q490933",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Local_community",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Surface temperature",
+      "synonyms": [],
+      "description": "Surface temperature is the temperature at a surface.",
+      "wikidata_id": "Q50767635",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Surface_temperature",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Climate change scenario",
+      "synonyms": [
+        "global warming level"
+      ],
+      "description": "A climate change scenario is a hypothetical future based on a \"set of key driving forces\" behind climate change.[1]: 1812 Scenarios explore the long-term effectiveness of climate change mitigation and adaptation.[2] Closely related to climate change scenarios are pathways, which are more concrete and action-oriented. However, in the literature, the terms scenarios and pathways are often used interchangeably.[3]: 9",
+      "wikidata_id": "Q5133509",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Climate_change_scenario",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Climate governance",
+      "synonyms": [],
+      "description": "Climate governance is the diplomacy, mechanisms and response measures \"aimed at steering social systems towards preventing, mitigating or adapting to the risks posed by climate change\".[1] A definitive interpretation is complicated by the wide range of political and social science traditions (including comparative politics, political economy and multilevel governance) that are engaged in conceiving and analysing climate governance at different levels and across different arenas. In academia, climate governance has become the concern of geographers, anthropologists, economists and business studies scholars.[2]",
+      "wikidata_id": "Q5133517",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Climate_governance",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Climate sensitivity",
+      "synonyms": [
+        "equilibrium climate sensitivity"
+      ],
+      "description": "Climate sensitivity is a key measure in climate science and describes how much Earth's surface will warm in response to a doubling of the atmospheric carbon dioxide (CO2) concentration.[1][2] Its formal definition is: \"The change in the surface temperature in response to a change in the atmospheric carbon dioxide (CO2) concentration or other radiative forcing.\"[3]: 2223 This concept helps scientists understand the extent and magnitude of the effects of climate change.",
+      "wikidata_id": "Q521783",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Climate_sensitivity",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Disaster risk reduction",
+      "synonyms": [
+        "disaster risk management"
+      ],
+      "description": "Disaster risk reduction aims to make disasters less likely to happen. The approach, also called DRR or disaster risk management, also aims to make disasters less damaging when they do occur. DRR aims to make communities stronger and better prepared to handle disasters. In technical terms, it aims to make them more resilient or less vulnerable. When DRR is successful, it makes communities less the vulnerable because it mitigates the effects of disasters.[2] This means DRR can make risky events fewer and less severe. Climate change can increase climate hazards. So development efforts often consider DRR and climate change adaptation together.[3]",
+      "wikidata_id": "Q5281359",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Disaster_risk_reduction",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Early warning system",
+      "synonyms": [
+        "early warning systems"
+      ],
+      "description": "An early warning system is a warning system that can be implemented as a chain of information communication systems and comprises sensors, event detection and decision subsystems for early identification of hazards. They work together to forecast and signal disturbances that adversely affect the stability of the physical world, providing time for the response system to prepare for the adverse event and to minimize its impact.[1]",
+      "wikidata_id": "Q5326904",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Early_warning_system",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Ethnicity",
+      "synonyms": [],
+      "description": "An ethnicity or ethnic group is a group of humans who identify with each other on the basis of perceived shared attributes that distinguish them from other groups. Attributes that ethnicities are believed to share include any of the following: language, culture, common sets of ancestry, traditions, society, religion, history, region, or social treatment.[1][2] Ethnic identities may have a narrow or broad spectrum of genetic ancestry, with some groups having mixed genetic ancestry.[3][4][5] Ethnicity is sometimes used interchangeably with nation. It is also sometimes used interchangeably with race, although not all ethnicities identify as racial groups.[6]",
+      "wikidata_id": "Q5404323",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Ethnicity",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Synergy",
+      "synonyms": [
+        "synergies"
+      ],
+      "description": "Synergy is the concept that a combined effect of two or more entities is greater than the sum of their individual effects. The term synergy comes from the Attic Greek word συνεργία synergia[1] from synergos, συνεργός, meaning \"working together\". Synergy is similar in concept to emergence.",
+      "wikidata_id": "Q540614",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Synergy",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Food system",
+      "synonyms": [
+        "food systems"
+      ],
+      "description": "A food system is made up of all the interconnected people, institutions, policies and infrastructure involved in feeding a population. It covers every stage from food production (sowing, growing, breeding and harvesting) to processing, packaging, distributing, marketing and consuming food, and disposing of food-related waste.[1][2]",
+      "wikidata_id": "Q5465532",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Food_system",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Marine heatwave",
+      "synonyms": [
+        "marine heatwaves"
+      ],
+      "description": "A marine heatwave is a period of abnormally high sea surface temperatures (SST) compared to typical temperatures for a particular season and locale.[1] Marine heatwaves are caused by a variety of drivers. These include short term weather events such as fronts, intraseasonal events (30 to 90 days), annual, and decadal (10-year) modes like El Niño events, and human-caused climate change.[2][3][4] Such heatwaves affect marine ecosystems.[5][6] For example, heatwaves can lead to events such as coral bleaching, sea star wasting disease,[7][8] harmful algal blooms,[9] and mass mortality of benthic communities.[10] Unlike heatwaves on land, marine heatwaves can extend over vast areas, persist for weeks to months to years, and extend to subsurface levels.[11][12][13][14]",
+      "wikidata_id": "Q56321065",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Marine_heatwave",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "GHG",
+      "synonyms": [],
+      "description": "GHG or ghg may stand for:",
+      "wikidata_id": "Q563814",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/GHG",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Funding",
+      "synonyms": [
+        "financing"
+      ],
+      "description": "Funding is the act of providing resources to finance a need, program, or project. While this is usually in the form of money, it can also take the form of effort or time from an organization or company. Generally, this word is used when a firm uses its internal reserves to satisfy its necessity for cash, while the term financing is used when the firm acquires capital from external sources.[1]",
+      "wikidata_id": "Q6055890",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Funding",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Land-use planning",
+      "synonyms": [
+        "land use planning"
+      ],
+      "description": "Land use planning or land-use regulation is the process of regulating the use of land by a central authority. Usually, this is done to promote more desirable social and environmental outcomes as well as a more efficient use of resources. More specifically, the goals of modern land use planning often include environmental conservation, restraint of urban sprawl, minimization of transport costs, prevention of land use conflicts, and a reduction in exposure to pollutants. In the pursuit of these goals, planners assume that regulating the use of land will change the patterns of human behavior, and that these changes are beneficial. The first assumption, that regulating land use changes the patterns of human behavior is widely accepted. However, the second assumption – that these changes are beneficial – is contested, and depends on the location and regulations being discussed.",
+      "wikidata_id": "Q60738778",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Land-use_planning",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Climate model",
+      "synonyms": [
+        "climate models"
+      ],
+      "description": "Numerical climate models (or climate system models, or earth system models) are mathematical models that can simulate the interactions of important drivers of climate. These drivers are the atmosphere, oceans, land surface and ice. Scientists use climate models to study the dynamics of the climate system and to make projections of future climate and of climate change. Climate models can also be qualitative (i.e. not numerical) models and contain narratives, largely descriptive, of possible futures.[1]",
+      "wikidata_id": "Q620920",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Climate_model",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Freight transport",
+      "synonyms": [
+        "shipping"
+      ],
+      "description": "Freight transport, also referred to as freight forwarding, is the physical process of transporting commercial products and merchandise goods and cargo.[1] This is by different transportation modes, including air, water, railways, pipelines, and road transports. Pipelines transport items that are liquid and gaseous in nature, while air, water, and roads are used to transport goods and passengers.[2][3]",
+      "wikidata_id": "Q651658",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Freight_transport",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Employment",
+      "synonyms": [],
+      "description": "Employment is a relationship between two parties regulating the provision of paid labour services. Usually based on a contract, one party, the employer, which might be a corporation, a not-for-profit organization, a co-operative, or any other entity, pays the other, the employee, in return for carrying out assigned work.[1] Employees work in return for wages, which can be paid on the basis of an hourly rate, by piecework or an annual salary, depending on the type of work an employee does, the prevailing conditions of the sector and the bargaining power between the parties. Employees in some sectors may receive gratuities, bonus payments or stock options. In some types of employment, employees may receive benefits in addition to payment. Benefits may include health insurance, housing, and disability insurance.",
+      "wikidata_id": "Q656365",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Employment",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "India",
+      "synonyms": [],
+      "description": "India, officially the Republic of India,[j][20] is a country in South Asia. It is the world's seventh-largest country by area and its most populous.[21] Bounded by the Indian Ocean on the south, the Arabian Sea on the southwest, and the Bay of Bengal on the southeast, it shares land borders with Pakistan to the west,[k] China, Nepal, and Bhutan to the north, and Bangladesh and Myanmar to the east. In the Indian Ocean, India is near Sri Lanka and the Maldives.[l]",
+      "wikidata_id": "Q668",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/India",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "2021 United Nations Climate Change Conference",
+      "synonyms": [
+        "COP26"
+      ],
+      "description": "The 2021 United Nations Climate Change Conference, more commonly referred to as COP26, was the 26th United Nations Climate Change conference, held from 31 October to 13 November 2021 at the SEC Centre in Glasgow, Scotland. The president of the conference was UK cabinet minister Alok Sharma.[1][2] Delayed for a year due to the COVID-19 pandemic,[3] it was the 26th Conference of the Parties (COP) to the United Nations Framework Convention on Climate Change (UNFCCC), the third meeting of the parties to the 2015 Paris Agreement (designated CMA1, CMA2, CMA3), and the 16th meeting of the parties to the Kyoto Protocol (CMP16).",
+      "wikidata_id": "Q68580968",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/2021_United_Nations_Climate_Change_Conference",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Mitigation",
+      "synonyms": [],
+      "description": "Mitigation is the reduction of something harmful that has occurred or the reduction of its harmful effects. It may refer to measures taken to reduce the harmful effects of hazards that remain in potentia, or to manage harmful incidents that have already occurred. It is a stage or component of emergency management and of risk management. The theory of mitigation is a frequently used element in criminal law and is often used by a judge to try cases such as murder, where a perpetrator is subject to varying degrees of responsibility as a result of one's actions.[1][2]",
+      "wikidata_id": "Q6881760",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Mitigation",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Urban area",
+      "synonyms": [
+        "urban areas"
+      ],
+      "description": "An urban area, also known as a built-up area or urban agglomeration, is a human settlement with a high population density and an infrastructure of built environment. Urban areas originate through urbanization, and researchers categorize them as cities, towns, conurbations or suburbs. In urbanism, the term \"urban area\" contrasts to rural areas such as villages and hamlets. In urban sociology or urban anthropology, it often contrasts with natural environment.",
+      "wikidata_id": "Q702492",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Urban_area",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Social protection",
+      "synonyms": [],
+      "description": "Social protection, as defined by the United Nations Research Institute for Social Development, is concerned with preventing, managing, and overcoming situations that adversely affect people's well-being.[1] Social protection consists of policies and programs designed to reduce poverty and vulnerability by promoting efficient labour markets, diminishing people's exposure to risks,[2] and enhancing their capacity to manage economic and social risks, such as unemployment, exclusion, sickness, disability, and old age.[3] An emerging approach within social protection frameworks is Adaptive Social Protection, which integrates disaster risk management and climate change adaptation to strengthen resilience against shocks.It is one of the targets of the United Nations Sustainable Development Goal 10 aimed at promoting greater equality.[4]",
+      "wikidata_id": "Q7551332",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Social_protection",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Stranded asset",
+      "synonyms": [
+        "stranded assets"
+      ],
+      "description": "Stranded assets are \"assets that have suffered from unanticipated or premature write-downs, devaluations or conversion to liabilities\".[1] Stranded assets can be caused by a variety of factors and are a phenomenon inherent in the 'creative destruction' of economic growth, transformation and innovation; as such they pose risks to individuals and firms and may have systemic implications.[2] Climate change is expected to cause a significant increase in stranded assets for carbon-intensive industries and investors, with a potential ripple effect throughout the world economy.[3][4]",
+      "wikidata_id": "Q7621275",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Stranded_asset",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Sustainable Development Goals",
+      "synonyms": [
+        "SDGs"
+      ],
+      "description": "Sustainable Development Goals (abbr. SDGs) were adopted in 2015 by all United Nations (UN) members for the 2030 Agenda for Sustainable Development. The aim of the 17 global goals is \"peace and prosperity for people and the planet\",[1][2] tackling climate change, and working to preserve oceans and forests. The SDGs also include 169 measurable targets.",
+      "wikidata_id": "Q7649586",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Sustainable_Development_Goals",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Levelized cost of electricity",
+      "synonyms": [
+        "LCOE"
+      ],
+      "description": "The levelized cost of electricity (LCOE) is a measure of the average net present cost of electricity generation for a generator over its lifetime. It is one of several cost metrics used for investment planning and to compare different methods of electricity generation on a consistent basis.",
+      "wikidata_id": "Q77896938",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Levelized_cost_of_electricity",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Water security",
+      "synonyms": [],
+      "description": "The aim of water security is to maximize the benefits of water for humans and ecosystems. The second aim is to limit the risks of destructive impacts of water to an acceptable level.[1][2] These risks include too much water (flood), too little water (drought and water scarcity), and poor quality (polluted) water.[1] People who live with a high level of water security always have access to \"an acceptable quantity and quality of water for health, livelihood, and production\".[2] For example, access to water, sanitation, and hygiene services is one part of water security.[3] Some organizations use the term \"water security\" more narrowly, referring only to water supply aspects.",
+      "wikidata_id": "Q7973735",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Water_security",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Flood",
+      "synonyms": [
+        "flood risk",
+        "flooding"
+      ],
+      "description": "A flood is an overflow of water (or rarely other fluids) that submerges land that is usually dry.[1] In the sense of \"flowing water\", the word may also be applied to the inflow of the tide. Floods are of significant concern in agriculture, civil engineering and public health. Human changes to the environment often increase the intensity and frequency of flooding. Examples for human changes are land use changes such as deforestation and removal of wetlands, changes in waterway course or flood controls such as with levees. Global environmental issues also influence causes of floods, namely climate change which causes an intensification of the water cycle and sea level rise.[2]: 1517 For example, climate change makes extreme weather events more frequent and stronger.[3] This leads to more intense floods and increased flood risk.[4][5]",
+      "wikidata_id": "Q8068",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Flood",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Tropical cyclone",
+      "synonyms": [
+        "tropical cyclones"
+      ],
+      "description": "A tropical cyclone is a rapidly rotating storm system with a low-pressure area, a closed low-level atmospheric circulation, strong winds, and a spiral arrangement of thunderstorms that produce heavy rain and squalls. Depending on its location and strength, a tropical cyclone is called a hurricane (/ˈhʌrɪkən, -keɪn/), typhoon (/taɪˈfuːn/), tropical storm, cyclonic storm, tropical depression, or simply cyclone. A hurricane is a strong tropical cyclone that occurs in the Atlantic Ocean or northeastern Pacific Ocean. A typhoon is the same thing which occurs in the northwestern Pacific Ocean. In the Indian Ocean and South Pacific, comparable storms are referred to as \"tropical cyclones\". In modern times, on average around 80 to 90 named tropical cyclones form each year around the world, over half of which develop hurricane-force winds of 65 kn (120 km/h; 75 mph) or more.[1]",
+      "wikidata_id": "Q8092",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Tropical_cyclone",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Reforestation",
+      "synonyms": [],
+      "description": "Reforestation is the practice of restoring previously existing forests and woodlands that have been destroyed or damaged. The prior forest destruction might have happened through deforestation, clearcutting or wildfires. Three important purposes of reforestation programs are for harvesting of wood, for climate change mitigation, and for ecosystem and habitat restoration purposes. One method of reforestation is to establish tree plantations, also called plantation forests. They cover about 131 million ha worldwide, which is 3% of the global forest area and 45% of the total area of planted forests.[1]",
+      "wikidata_id": "Q815818",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Reforestation",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Sea level rise",
+      "synonyms": [],
+      "description": "The sea level has generally been rising since the end of the Last Glacial Maximum, which was around 20,000 years ago.[3] Between 1901 and 2018, the global average sea level rose by 15–25 cm (6–10 in), with an increase of 2.3 mm (0.091 in) per year since the 1970s.[4]: 1216 This was faster than the sea level had ever risen over at least the past 3,000 years.[4]: 1216 The rate accelerated to 4.62 mm (0.182 in)/yr for the decade 2013–2022.[5] Climate change due to human activities is the main cause of this persistent acceleration.[6]: 5, 8 Between 1993 and 2018, melting ice sheets and glaciers accounted for 44% of sea level rise, with another 42% resulting from thermal expansion of water.[7]: 1576",
+      "wikidata_id": "Q841083",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Sea_level_rise",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Ocean acidification",
+      "synonyms": [],
+      "description": "Ocean acidification is the ongoing decrease in the pH of the Earth's ocean. Between 1950 and 2026, the average pH of the ocean surface fell from approximately 8.15 to 8.05.[2] Carbon dioxide emissions from human activities are the primary cause of ocean acidification, with atmospheric carbon dioxide (CO2) levels exceeding 422 ppm (as of 2024[update]).[3] CO2 from the atmosphere is absorbed by the oceans. This chemical reaction produces carbonic acid (.mw-parser-output .template-chem2-su{display:inline-block;font-size:80%;line-height:1;vertical-align:-0.35em}.mw-parser-output .template-chem2-su&gt;span{display:block;text-align:left}.mw-parser-output sub.template-chem2-sub{font-size:80%;vertical-align:-0.35em}.mw-parser-output sup.template-chem2-sup{font-size:80%;vertical-align:0.65em}H2CO3) which dissociates into a bicarbonate ion (HCO−3) and a hydrogen ion (H+). The presence of free hydrogen ions (H+) lowers the pH of the ocean, increasing acidity (this does not mean that seawater is acidic yet; It is still alkaline, with a pH higher than 8). Marine calcifying organisms, such as mollusks and corals, are especially vulnerable because they rely on calcium carbonate to build shells and skeletons.[4]",
+      "wikidata_id": "Q855711",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Ocean_acidification",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Global surface temperature",
+      "synonyms": [],
+      "description": "Global surface temperature (GST) is the average temperature of Earth's surface at a given time. It is a combination of sea surface temperature and the near-surface air temperature over land, weighted by their respective areas. Temperature data comes mainly from weather stations and satellites. To estimate data in the distant past, proxy data can be used for example from tree rings, corals, and ice cores.[1] Observing the rising GST over time is one of the many lines of evidence supporting the scientific consensus on climate change, which is that human activities are causing climate change. Alternative terms for the same concept are global mean surface temperature (GMST) or global average surface temperature.",
+      "wikidata_id": "Q85763713",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Global_surface_temperature",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Climate change mitigation",
+      "synonyms": [
+        "climate mitigation"
+      ],
+      "description": "Climate change mitigation, also called decarbonisation, is an action to limit the greenhouse gases in the atmosphere that cause climate change. Climate change mitigation actions include conserving energy and replacing fossil fuels with clean energy sources. Secondary mitigation strategies include changes to land use and removing carbon dioxide (CO2) from the atmosphere.[1][2] 2022 assessments emphasize that global greenhouse gas emissions must peak before 2025 and decline by about 43% by 2030 to limit warming to 1.5 °C, requiring rapid transitions in energy, transport, and land-use systems.[3]",
+      "wikidata_id": "Q898653",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Climate_change_mitigation",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Global warming potential",
+      "synonyms": [],
+      "description": "Global warming potential (GWP) is a measure of how much heat a greenhouse gas (GHG) traps in the atmosphere over a specific time period, relative to carbon dioxide (CO2).[1]: 2232 It is a dimensionless quantity expressed as a multiple of warming caused by the same mass of CO2. Therefore, by definition CO2 has a GWP of 1. For other gases, it depends on how strongly the gas absorbs thermal radiation, how quickly it leaves the atmosphere, and the time frame considered.",
+      "wikidata_id": "Q901028",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Global_warming_potential",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Nitrous oxide",
+      "synonyms": [],
+      "description": ".mw-parser-output .ib-chembox{border-collapse:collapse;text-align:left}.mw-parser-output .ib-chembox td,.mw-parser-output .ib-chembox th{border:1px solid #a2a9b1;width:40%}.mw-parser-output .ib-chembox td+td{width:60%}@media screen{html.skin-theme-clientpref-night .mw-parser-output .ib-chembox figure:not(.skin-invert-image):not(.skin-invert):not(.bg-transparent){background:var(--background-color-inverted,#f8f9fa)}}@media screen and (prefers-color-scheme:dark){html.skin-theme-clientpref-os .mw-parser-output .ib-chembox figure:not(.skin-invert-image):not(.skin-invert):not(.bg-transparent){background:var(--background-color-inverted,#f8f9fa)}}",
+      "wikidata_id": "Q905750",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Nitrous_oxide",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Sanitation",
+      "synonyms": [],
+      "description": "Sanitation refers to public health conditions related to clean drinking water and treatment and disposal of human excreta and sewage.[1] Preventing human contact with feces is part of sanitation, as is hand washing with soap. Sanitation systems aim to protect human health by providing a clean environment that will stop the transmission of disease, especially through the fecal–oral route.[2] For example, diarrhea, a main cause of malnutrition and stunted growth in children, can be reduced through adequate sanitation.[3] There are many other diseases which are easily transmitted in communities that have low levels of sanitation, such as ascariasis (a type of intestinal worm infection or helminthiasis), cholera, hepatitis, polio, schistosomiasis, and trachoma, to name just a few.",
+      "wikidata_id": "Q949149",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Sanitation",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Mexico",
+      "synonyms": [],
+      "description": "Mexico,[c][d] officially the United Mexican States,[11][e] is a country in North America.[12] It is the northernmost country in Latin America, bordering the United States of America to the north and Guatemala and Belize to the southeast, while having maritime boundaries with the Pacific Ocean to the west, the Caribbean Sea to the southeast, and the Gulf of Mexico to the east. Mexico covers 1,972,550 km2 (761,610 sq mi),[13] and is the thirteenth-largest country in the world by land area. With a population around 131 million as of 2025,[5] Mexico is the tenth-most populous country in the world and is home to the largest number of native Spanish speakers.[3] Mexico City is the capital and largest city in Mexico, which ranks among the most populous metropolitan areas in the world.",
+      "wikidata_id": "Q96",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Mexico",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "Informal housing",
+      "synonyms": [
+        "informal settlements"
+      ],
+      "description": "Informal housing or informal settlement can include any form of housing, shelter, or settlement (or lack thereof) which is illegal, falls outside of government control or regulation, or is not afforded protection by the state.[1] As such, the informal housing industry is part of the informal sector.[2]",
+      "wikidata_id": "Q96382144",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Informal_housing",
+      "source_file": "data/raw/ipcc_reference.html"
+    },
+    {
+      "canonical_name": "G",
+      "synonyms": [],
+      "description": "G (minuscule: g) is the seventh letter of the Latin alphabet, used in the modern English alphabet, the alphabets of other Western European languages, and others worldwide. Its name in English is gee (pronounced /ˈdʒiː/ ⓘ), plural gees.[1]",
+      "wikidata_id": "Q9739",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/G",
+      "source_file": "data/raw/ipcc_reference.html"
+    }
+  ],
+  "provenance": {
+    "source_file": "data/raw/ipcc_reference.html",
+    "source_sha256": "1ac583aa9e301c1fc4567c09ea6216fad2e15f39c93f4e26961aca805502e8e1",
+    "generated_at": "2026-11-05T12:42:03.242099+00:00",
+    "extractor": "txt2phrases",
+    "extractor_version": "1.0.6",
+    "model": "ml6team/keyphrase-extraction-kbir-inspec",
+    "top_n": 500,
+    "max_terms": 300,
+    "min_count": 2,
+    "wikipedia_requested": true,
+    "selected_keyphrases": 300,
+    "unresolved_entries": 131,
+    "vocabulary_conflicts": [
+      {
+        "alias": "Ag",
+        "reason": "ambiguous_common_or_short_term",
+        "canonical_name": "Ag"
+      },
+      {
+        "alias": "age",
+        "reason": "ambiguous_common_or_short_term",
+        "canonical_name": "age"
+      },
+      {
+        "alias": "als",
+        "reason": "ambiguous_common_or_short_term",
+        "canonical_name": "als"
+      },
+      {
+        "alias": "at",
+        "reason": "ambiguous_common_or_short_term",
+        "canonical_name": "at"
+      },
+      {
+        "alias": "change",
+        "reason": "ambiguous_common_or_short_term",
+        "canonical_name": "change"
+      },
+      {
+        "alias": "EbA",
+        "reason": "ambiguous_common_or_short_term",
+        "canonical_name": "Ecosystem-based adaptation (EbA)"
+      },
+      {
+        "alias": "Flood",
+        "reason": "ambiguous_common_or_short_term",
+        "canonical_name": "Flood"
+      },
+      {
+        "alias": "G",
+        "reason": "ambiguous_common_or_short_term",
+        "canonical_name": "G"
+      },
+      {
+        "alias": "GH",
+        "reason": "ambiguous_common_or_short_term",
+        "canonical_name": "GH"
+      },
+      {
+        "alias": "LK",
+        "reason": "ambiguous_common_or_short_term",
+        "canonical_name": "Local knowledge (LK)"
+      },
+      {
+        "alias": "media",
+        "reason": "ambiguous_common_or_short_term",
+        "canonical_name": "media"
+      },
+      {
+        "alias": "PM",
+        "reason": "ambiguous_common_or_short_term",
+        "canonical_name": "PM"
+      },
+      {
+        "alias": "Risk",
+        "reason": "ambiguous_common_or_short_term",
+        "canonical_name": "Risk"
+      },
+      {
+        "alias": "SIDS",
+        "reason": "manual_vocabulary_precedence",
+        "canonical_name": "Small Island Developing States (SIDS)",
+        "manual_title": "SIDS"
+      },
+      {
+        "alias": "Small Island Developing States",
+        "reason": "manual_vocabulary_precedence",
+        "canonical_name": "Small Island Developing States (SIDS)",
+        "manual_title": "Small Island Developing States"
+      },
+      {
+        "alias": "SD",
+        "reason": "ambiguous_common_or_short_term",
+        "canonical_name": "Sustainable development"
+      },
+      {
+        "alias": "temperature",
+        "reason": "ambiguous_common_or_short_term",
+        "canonical_name": "temperature"
+      },
+      {
+        "alias": "IK",
+        "reason": "ambiguous_common_or_short_term",
+        "canonical_name": "Traditional knowledge"
+      },
+      {
+        "alias": "Water",
+        "reason": "ambiguous_common_or_short_term",
+        "canonical_name": "Water"
+      }
+    ],
+    "wordlist_sha256": "426c6d485b67f7cc55823defe0274b077f8ed68ba211f31e086f62269f1c23ce",
+    "extracted_at": "2026-11-03T18:16:58.789293+00:00"
+  }
+}
