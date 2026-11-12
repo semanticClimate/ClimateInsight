@@ -18,6 +18,7 @@ const ConceptGraph = (() => {
   const VIS_URL = "https://cdn.jsdelivr.net/npm/vis-network@9.1.9/standalone/umd/vis-network.min.js";
   const PALETTE = ["#16A34A", "#2563EB", "#D97706", "#9333EA", "#DC2626",
                    "#0891B2", "#65A30D", "#DB2777", "#4B5563", "#B45309"];
+  const groupColor = group => PALETTE[group] || `hsl(${(group * 137.508) % 360}, 65%, 38%)`;
   let _visLoading = null;
 
   function ensureVis() {
@@ -36,7 +37,7 @@ const ConceptGraph = (() => {
 
   // ── Render the question's concept subgraph into a container ───────────────
   // main: the asked-about concept(s) — pinned at the centre as the hub,
-  //       with a dark ring, glow, big label and thick links in its colour
+  //       with a dark ring, glow, big label and weighted grey links
   async function renderSubgraph(subgraph, container, main = []) {
     const nodes = subgraph?.nodes || [];
     if (!nodes.length) {
@@ -50,12 +51,10 @@ const ConceptGraph = (() => {
       return;
     }
     const hubs = new Set(main);
-    const colorOf = id => PALETTE[(nodes.find(n => n.id === id)?.group || 0) % PALETTE.length];
     const maxCount = Math.max(...nodes.map(n => n.count));
-    const maxW = Math.max(1, ...subgraph.edges.map(e => e.weight));
     const data = {
       nodes: new vis.DataSet(nodes.map((n, i) => {
-        const color = PALETTE[n.group % PALETTE.length];
+        const color = groupColor(n.group);
         const hub = hubs.has(n.id);
         // Pin a single hub at the centre so the others arrange around it
         const pinned = hub && hubs.size === 1;
@@ -83,11 +82,10 @@ const ConceptGraph = (() => {
         const edge = {
           from: e.from, to: e.to, dashes: e.kind === "source",
           value: e.weight,
-          title: `${e.from} and ${e.to}: mentioned together in ${passages}`,
+          title: e.kind === "source" ? `${e.from} and ${e.to}: same source section`
+            : `${e.from} and ${e.to}: mentioned close together in ${passages}`,
         };
         if (hubEdge) {
-          edge.value = maxW * 1.5;   // hub links are the thickest
-          edge.color = { color: colorOf(hubs.has(e.from) ? e.from : e.to), opacity: 1 };
           edge.label = e.kind === "source" ? "same section" : passages;
         }
         return edge;
@@ -100,7 +98,8 @@ const ConceptGraph = (() => {
         font: { face: "Jost, sans-serif", size: 13, color: "#1F2937", strokeWidth: 4, strokeColor: "#ffffff" },
       },
       edges: {
-        color: { color: "#B6C2BC" }, scaling: { min: 0.5, max: 5, label: { enabled: false } }, smooth: false,
+        color: { color: "#9CA3AF", highlight: "#6B7280", hover: "#6B7280", inherit: false },
+        scaling: { min: 0.5, max: 5, label: { enabled: false } }, smooth: false,
         font: { face: "Jost, sans-serif", size: 11, color: "#374151", strokeWidth: 4, strokeColor: "#ffffff", align: "middle" },
       },
       physics: {
@@ -182,7 +181,7 @@ const ConceptGraph = (() => {
                     border-radius:var(--radius-sm);background:var(--bg);padding:12px;">
           <div class="cg-graph-out" style="height:300px"></div>
           <p style="font-size:.72rem;color:var(--text-muted);margin-top:6px">
-            The largest circle is the main topic. Click any concept to read its sources on the full graph.
+            The largest circle is the main topic. Thicker grey lines mean more shared passages. Click any concept to read its sources on the full graph.
           </p>
         </div>
       </div>
@@ -245,7 +244,17 @@ const ConceptGraph = (() => {
       list.style.cssText = "margin:8px 0 0 16px;font-size:.72rem;line-height:1.5;color:var(--text-muted)";
       data.sources.forEach(s => {
         const li = document.createElement("li");
-        li.textContent = `[${s.ref}] ${s.label}`;
+        li.appendChild(document.createTextNode(`[${s.ref}] `));
+        if (s.link) {
+          const link = document.createElement("a");
+          link.href = s.link;
+          link.textContent = s.label;
+          link.target = "_blank";
+          link.rel = "noopener";
+          li.appendChild(link);
+        } else {
+          li.appendChild(document.createTextNode(s.label));
+        }
         list.appendChild(li);
       });
       explainEl.after(list);

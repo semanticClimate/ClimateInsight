@@ -15,7 +15,6 @@
   <!-- <link rel="stylesheet" href="css/report.css"> -->
   <link rel="stylesheet" href="css/sidebar.css">
   <link rel="stylesheet" href="css/tokens.css">
-  <!-- <link rel="stylesheet" href="css/main.css"> -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet">
@@ -204,8 +203,8 @@
 
               How do greenhouse gases warm the Earth?
             </button>
-            <button class="sq-btn center-wide" data-q="Explain the carbon cycle.">
-              Explain the carbon cycle.
+            <button class="sq-btn center-wide" data-q="How have marine heatwaves in the Bay of Bengal between 1982 and 2021, linked to El Niño and the Indian Ocean Dipole, affected fisheries and the food security of India’s coastal fishing communities, and how does this compare with what the IPCC AR6 says about ocean warming and food security?">
+              How have marine heatwaves in the Bay of Bengal between 1982 and 2021, linked to El Niño and the Indian Ocean Dipole, affected fisheries and the food security of India’s coastal fishing communities, and how does this compare with what the IPCC AR6 says about ocean warming and food security?
             </button>
           </div>
 
@@ -330,26 +329,24 @@
   <script src="js/api.js"></script>
   <script>
     // Build the ordered document list for the navigator.
-    // Slot 0 is always the IPCC HTML report; slots 1-12 are the XML papers.
-    // The backend exposes pmcids via /api/sources (see note below), but we
-    // can also hardcode the known PMCIDs — change this list to match your
-    // actual data/raw/ocean_heatwaves_2026/ folder.
+    // Slot 0 is the IPCC report; the remaining slots display the paper HTML
+    // in data/raw/ocean_heatwaves_2026/. The matching XML is used for ingestion.
     const _base = API_BASE.replace(/\/api$/, "");
 
     window.SOURCE_DOCS = [
       { type: "html", label: "IPCC AR6 Report", url: _base + "/ipcc-reference", pmcid: "" },
-      { type: "html", label: "PMC7653907 — Pacific Bluefin Tuna", url: _base + "/paper/7653907", pmcid: "7653907" },
-      { type: "html", label: "PMC8294506 — Ocean Heatwaves", url: _base + "/paper/8294506", pmcid: "8294506" },
-      { type: "html", label: "PMC9135278 — Marine Heatwave Impacts", url: _base + "/paper/9135278", pmcid: "9135278" },
-      { type: "html", label: "PMC9613989 — SST Anomalies", url: _base + "/paper/9613989", pmcid: "9613989" },
-      { type: "html", label: "PMC10011364 — Heatwave Frequency", url: _base + "/paper/10011364", pmcid: "10011364" },
-      { type: "html", label: "PMC10468509 — Coral Bleaching", url: _base + "/paper/10468509", pmcid: "10468509" },
-      { type: "html", label: "PMC10808424 — Deep Ocean Warming", url: _base + "/paper/10808424", pmcid: "10808424" },
-      { type: "html", label: "PMC11128013 — MHW Attribution", url: _base + "/paper/11128013", pmcid: "11128013" },
-      { type: "html", label: "PMC11427463 — Species Distribution", url: _base + "/paper/11427463", pmcid: "11427463" },
-      { type: "html", label: "PMC11580339 — Ecosystem Response", url: _base + "/paper/11580339", pmcid: "11580339" },
-      { type: "html", label: "PMC11733174 — Thermal Stress", url: _base + "/paper/11733174", pmcid: "11733174" },
-      { type: "html", label: "PMC12980662 — Future Projections", url: _base + "/paper/12980662", pmcid: "12980662" },
+      { type: "html", label: "PMC7653907 — Extreme Marine Heatwaves", url: _base + "/paper/7653907", pmcid: "7653907" },
+      { type: "html", label: "PMC8294506 — Northern Shrimp Population Collapse", url: _base + "/paper/8294506", pmcid: "8294506" },
+      { type: "html", label: "PMC9135278 — Pacific Bluefin Tuna Reproduction", url: _base + "/paper/9135278", pmcid: "9135278" },
+      { type: "html", label: "PMC9613989 — Coastal Indonesia: Sea Level and Heatwaves", url: _base + "/paper/9613989", pmcid: "9613989" },
+      { type: "html", label: "PMC10011364 — Bottom Marine Heatwaves", url: _base + "/paper/10011364", pmcid: "10011364" },
+      { type: "html", label: "PMC10468509 — Bay of Bengal Heatwaves (1982–2021)", url: _base + "/paper/10468509", pmcid: "10468509" },
+      { type: "html", label: "PMC10808424 — Marine Heatwaves and Pelagic Microbiology", url: _base + "/paper/10808424", pmcid: "10808424" },
+      { type: "html", label: "PMC11128013 — Western Australia–Pacific Climate Linkage", url: _base + "/paper/11128013", pmcid: "11128013" },
+      { type: "html", label: "PMC11427463 — Arctic Marine Heatwaves", url: _base + "/paper/11427463", pmcid: "11427463" },
+      { type: "html", label: "PMC11580339 — Ocean Warming and Coral Reefs", url: _base + "/paper/11580339", pmcid: "11580339" },
+      { type: "html", label: "PMC11733174 — North Pacific Heat Storage", url: _base + "/paper/11733174", pmcid: "11733174" },
+      { type: "html", label: "PMC12980662 — Indian Ocean Heatwave Forecasts", url: _base + "/paper/12980662", pmcid: "12980662" },
     ];
 
     // Eager-load the IPCC HTML into the iframe immediately (no lazy load)

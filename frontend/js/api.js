@@ -21,6 +21,24 @@ function resolveApiBase() {
 const API_BASE = resolveApiBase();
 const apiLogs = [];
 
+async function readJsonResponse(res, endpoint) {
+  const contentType = (res.headers.get("content-type") || "").toLowerCase();
+  const body = await res.text();
+  if (!contentType.includes("application/json")) {
+    const looksLikeHtml = /^\s*<!doctype|^\s*<html/i.test(body);
+    const detail = looksLikeHtml ? "an HTML page" : (contentType || "an unknown response type");
+    throw new Error(
+      `Expected JSON from ${endpoint}, but received ${detail} (HTTP ${res.status}). ` +
+      `Check CLIMATEINSIGHT_CONFIG.apiBase and restart the ClimateInsight backend.`
+    );
+  }
+  try {
+    return body ? JSON.parse(body) : {};
+  } catch (err) {
+    throw new Error(`Invalid JSON from ${endpoint} (HTTP ${res.status}): ${err.message}`);
+  }
+}
+
 function logRequest(method, url, status) {
   apiLogs.push({
     timestamp: new Date().toLocaleTimeString(),
@@ -56,7 +74,7 @@ const Api = {
         body: JSON.stringify({ question, session_id: sessionId }),
       });
       logRequest("POST", "/chat", res.status);
-      const data = await res.json();
+      const data = await readJsonResponse(res, `${API_BASE}/chat`);
       if (!res.ok) throw new Error(data.error || "Request failed");
       return data; // { answer, citations, session_id }
     } catch (err) {
@@ -84,7 +102,7 @@ const Api = {
         body: JSON.stringify({ question }),
       });
       logRequest("POST", "/concept-graph", res.status);
-      const data = await res.json();
+      const data = await readJsonResponse(res, `${API_BASE}/concept-graph`);
       if (!res.ok) throw new Error(data.error || "concept-graph request failed");
       return data; // { explanation, mermaid, source, sources, citations }
     } catch (err) {

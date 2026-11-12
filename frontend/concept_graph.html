@@ -196,7 +196,7 @@
 
   const PALETTE = ['#16A34A', '#2563EB', '#D97706', '#9333EA', '#DC2626',
                    '#0891B2', '#65A30D', '#DB2777', '#4B5563', '#B45309'];
-  const DIM = '#E5E7EB', DIM_TEXT = '#C9CFCC', EDGE = '#B6C2BC', TEXT = '#1F2937';
+  const DIM = '#E5E7EB', DIM_TEXT = '#C9CFCC', EDGE = '#9CA3AF', TEXT = '#1F2937';
   const LABEL_FONT = { face: 'Jost, sans-serif', size: 16, color: TEXT, strokeWidth: 4, strokeColor: '#ffffff' };
   const READABLE_SCALE = 0.8;   // zoom at which every label can be read
   const SCREEN_LABEL_PX = 14;   // on-screen size of highlighted labels
@@ -207,7 +207,7 @@
   let extraEdgeIds = [];
   let homePositions = {};   // layout positions, restored when leaving a focused view
   let movedIds = [];
-  const colorOf = g => PALETTE[g % PALETTE.length];
+  const colorOf = g => PALETTE[g] || `hsl(${(g * 137.508) % 360}, 65%, 38%)`;
 
   // ── Small DOM helpers (all text is set with textContent) ──────────────────
   function el(tag, attrs = {}, ...children) {
@@ -273,7 +273,7 @@
   // ── Highlighting ──────────────────────────────────────────────────────────
   // ids: concepts to keep coloured (null = everything normal)
   // hubs: the concept(s) in focus — largest node, dark ring, glow, big label,
-  //       thickest lines in its colour, and labelled lines
+  //       and labelled grey lines whose thickness reflects their weight
   function highlight(ids, hubs = []) {
     const keep = ids ? new Set([...ids, ...hubs]) : null;
     const hubSet = new Set(hubs);
@@ -294,7 +294,6 @@
       };
     }));
 
-    const maxW = Math.max(...edgesDS.get().map(e => e.w));
     edgesDS.update(edgesDS.get().map(e => {
       const on = !keep || (keep.has(e.from) && keep.has(e.to));
       const hubEdge = keep && on && (hubSet.has(e.from) || hubSet.has(e.to));
@@ -303,12 +302,12 @@
       const labelled = hubEdge && (hubSet.size === 1 || (hubSet.has(e.from) && hubSet.has(e.to)));
       return {
         id: e.id,
-        value: hubEdge ? maxW * 1.5 : e.w,
+        value: e.w,
         color: (() => {
-          const c = hubEdge ? colorOf(byId[hubSet.has(e.from) ? e.from : e.to].group) : (on ? EDGE : DIM);
+          const c = on ? EDGE : DIM;
           // In a focused view, lines that do not touch a main topic are faint
           const opacity = hubEdge ? 1 : !on ? 0.3 : hubSet.size ? 0.25 : 0.9;
-          return { color: c, highlight: c, hover: c, opacity };
+          return { color: c, highlight: c, hover: c, opacity, inherit: false };
         })(),
         label: labelled ? (e.kind === 'source' ? 'same section' : plural(e.w, 'passage')) : '',
       };
@@ -407,7 +406,7 @@
       dashes: e.kind === 'source',
       title: e.kind === 'source'
         ? `${e.from} and ${e.to}: linked through the same section. Click to see it.`
-        : `${e.from} and ${e.to}: mentioned together in ${plural(e.weight, 'passage')}. Click to read them.`,
+        : `${e.from} and ${e.to}: mentioned close together in ${plural(e.weight, 'passage')}. Click to read them.`,
     };
   }
 
@@ -417,6 +416,7 @@
     graph.groups.forEach(g => {
       const b = el('button', {}, el('span', { class: 'swatch', style: `background:${colorOf(g.id)}` }),
                    `${g.label} (${plural(g.size, 'concept')})`);
+      b.title = (g.topics || []).join(', ');
       b.addEventListener('click', () => {
         const ids = graph.nodes.filter(n => n.group === g.id).map(n => n.id);
         removeExtraEdges();
@@ -440,9 +440,9 @@
         el('div', { class: 'key-row' }, el('span', { class: 'size-small' }), el('span', { class: 'size-big' }),
            'Bigger circle: the concept is mentioned in more passages'),
         el('div', { class: 'key-row' }, el('span', { class: 'line-solid' }),
-           'Line: the two concepts are mentioned in the same passage. Thicker means more often.'),
+           'Grey line: the concepts appear in the same sentence or a short stretch of text. Thicker means more passages.'),
         el('div', { class: 'key-row' }, el('span', { class: 'line-dashed' }),
-           'Dashed line: never in the same passage, but in the same report section or paper')),
+           'Dashed line: a weaker connection through the same report section or paper')),
     );
   }
 
@@ -455,18 +455,24 @@
     focusView(n.neighbors.map(m => m.id), [id]);
 
     const group = graph.groups[n.group];
+    const entry = n.encyclopedia || {};
+    const definitionLink = entry.definition_source
+      ? link('Read the IPCC glossary definition', '/ipcc-glossary#' + encodeURIComponent(entry.definition_source.html_id))
+      : entry.wikipedia_url ? link('Read about it on Wikipedia', entry.wikipedia_url)
+      : link('Read the source report', '/ipcc-reference');
     const where = n.kinds.map(k => k === 'ipcc' ? 'the IPCC report' : 'research papers').join(' and ');
     const header = [
       el('button', { class: 'back', onclick: () => resetView() }, 'Back to overview'),
       el('div', { class: 'type-label' }, 'Concept'),
       el('h2', {}, n.label),
-      link('Read about it on Wikipedia', 'https://en.wikipedia.org/wiki/' + encodeURIComponent(n.wiki)),
+      definitionLink,
+      ...(entry.description ? [el('p', {}, entry.description)] : []),
       el('ul', { class: 'facts' },
         el('li', {}, el('strong', {}, 'Mentioned in: '), plural(n.count, 'passage')),
         el('li', {}, el('strong', {}, 'Found in: '), where),
         el('li', {}, el('strong', {}, 'Topic group: '), group ? group.label : 'none'),
         el('li', {}, el('strong', {}, 'Linked to: '), plural(n.degree, 'other concept'))),
-      el('h3', {}, 'Most often mentioned with'),
+      el('h3', {}, 'Strongest related concepts'),
       el('div', { class: 'chips' }, n.neighbors.map(m =>
         conceptChip(m.id, m.kind === 'source' ? ' (same section)' : ` (${m.weight})`))),
     ];
@@ -492,8 +498,8 @@
       el('div', { class: 'type-label' }, 'Link between two concepts'),
       el('h2', {}, `${e.from} and ${e.to}`),
       el('p', { class: 'muted' }, e.kind === 'source'
-        ? 'These concepts are never mentioned in the same passage, but appear in the same report section or paper.'
-        : `Mentioned together in ${plural(e.w, 'passage')}.`),
+        ? 'These concepts share a source section or paper, with no shared sentence or short text window.'
+        : `Mentioned close together in ${plural(e.w, 'passage')}.`),
       el('div', { class: 'chips', style: 'margin-top:8px' }, conceptChip(e.from), conceptChip(e.to)),
     ];
     setDetails(...header, el('p', { class: 'muted', style: 'margin-top:14px' }, 'Loading sources…'));
@@ -535,7 +541,7 @@
         el('div', { class: 'chips' }, data.focus.map(id => conceptChip(id))),
         el('h3', {}, 'Sources used'),
         el('ul', {}, (data.sources || []).map(s =>
-          el('li', {}, `[${s.ref}] `, s.doi ? link(s.label, 'https://doi.org/' + s.doi) : s.label))),
+          el('li', {}, `[${s.ref}] `, s.link ? link(s.label, s.link) : s.doi ? link(s.label, 'https://doi.org/' + s.doi) : s.label))),
       );
       if (!data.focus.length) showError('No concepts from the encyclopedia were found for this question.');
     } catch (e) {
@@ -593,7 +599,7 @@
         borderWidth: 1,
       },
       edges: {
-        color: { color: EDGE, opacity: 0.9 },
+        color: { color: EDGE, highlight: '#6B7280', hover: '#6B7280', opacity: 0.9, inherit: false },
         scaling: { min: 1, max: 7, label: { enabled: false } },
         font: { face: 'Jost, sans-serif', size: 12, color: '#374151', strokeWidth: 4, strokeColor: '#ffffff', align: 'middle' },
         smooth: false,
