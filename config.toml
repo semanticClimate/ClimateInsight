@@ -39,7 +39,8 @@ fonts         = ["Jost"]
 # Wikipedia enrichment remains enabled for supplementary descriptions and identities.
 [encyclopedia]
 mode = "generated"
-repository = "../encyclopedia"
+# The compatible Encyclopedia helpers are bundled in this repository.
+repository = "."
 source = "data/raw/ipcc_reference.html"
 glossary = "data/raw/IPCC_AR6_SYR_Glossary.html"
 papers = [
