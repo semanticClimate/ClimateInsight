@@ -23,7 +23,7 @@
       },
       {
         "source_file": "data/raw/ocean_heatwaves_2026/PMC10011364.xml",
-        "sha256": "e61ced066743d99ad5a3a38e9c4131e863533aebcf2255c572d895c8e4ea34fa",
+        "sha256": "e072573209672f3e59c5e9882c8b84d6cf86719ea871dbac353f8567067e0d34",
         "title": "Bottom marine heatwaves along the continental shelves of North America",
         "kind": "research_article",
         "url": "/paper/PMC10011364",
@@ -32,7 +32,7 @@
       },
       {
         "source_file": "data/raw/ocean_heatwaves_2026/PMC10468509.xml",
-        "sha256": "a4b73b5d0828e03dadeec659d1be4269936f21acf4b5411ca8f4daaa76f5dc3d",
+        "sha256": "6d9a33adaee549dee6bfb573e3d02514e88a9c28780727af7efe9da6e766e101",
         "title": "Analysis of marine heatwaves over the Bay of Bengal during 1982–2021",
         "kind": "research_article",
         "url": "/paper/PMC10468509",
@@ -41,7 +41,7 @@
       },
       {
         "source_file": "data/raw/ocean_heatwaves_2026/PMC10808424.xml",
-        "sha256": "0fee6a6521bf07f094c5906b72e6752553209ff8cb2bc33f09d00a83e7c80756",
+        "sha256": "8e7a0010eadfffb249441ac136f832ea425db58d15673c7a0a2e464881871dfa",
         "title": "A marine heatwave drives significant shifts in pelagic microbiology",
         "kind": "research_article",
         "url": "/paper/PMC10808424",
@@ -50,7 +50,7 @@
       },
       {
         "source_file": "data/raw/ocean_heatwaves_2026/PMC11128013.xml",
-        "sha256": "3ea9940d359b00e5edcc4f7ada7f2a35d9aa7bb023082fadbc89f1dcf0f5b83d",
+        "sha256": "0f9fb5bd2b178294b3bed4dc89c27b50c7ad1545124b65f9f83ecb5f3aeb87fc",
         "title": "Emergence of decadal linkage between Western Australian coast and Western–central tropical Pacific",
         "kind": "research_article",
         "url": "/paper/PMC11128013",
@@ -59,7 +59,7 @@
       },
       {
         "source_file": "data/raw/ocean_heatwaves_2026/PMC11427463.xml",
-        "sha256": "57beffcc1dc22f87f89f4c0ff54fcb4ba26644ee147bbd0e207c23b613972a58",
+        "sha256": "7b454d34e97ef22e7b128667fc48853b645790e5f7b49398060c856fb8eaf012",
         "title": "Arctic Amplification of marine heatwaves under global warming",
         "kind": "research_article",
         "url": "/paper/PMC11427463",
@@ -68,7 +68,7 @@
       },
       {
         "source_file": "data/raw/ocean_heatwaves_2026/PMC11580339.xml",
-        "sha256": "1648c24389f4155f0a33c9b2db0e94fe21740787c559eee6830237d11480face",
+        "sha256": "3c435a130f580a5cf5fbf61120e527c65f759293d3300416715da9c4a7ef42b4",
         "title": "What is the evidence for the impact of ocean warming on subtropical and temperate corals and coral reefs? A systematic map",
         "kind": "research_article",
         "url": "/paper/PMC11580339",
@@ -77,7 +77,7 @@
       },
       {
         "source_file": "data/raw/ocean_heatwaves_2026/PMC11733174.xml",
-        "sha256": "91ebef6cd52efcf642f439a00cf5c9784759fe82d7f7bb743f70432e064e3f86",
+        "sha256": "7cf0f918e5b4671e675190d5cbc558aa801b71379848143dce7ee633aea03d6c",
         "title": "Emergence of the North Pacific heat storage pattern delayed by decadal wind-driven redistribution",
         "kind": "research_article",
         "url": "/paper/PMC11733174",
@@ -86,7 +86,7 @@
       },
       {
         "source_file": "data/raw/ocean_heatwaves_2026/PMC12980662.xml",
-        "sha256": "d4b9c02ae8fed4d17d10960f55197ab62f94b9ce4749aca0baf4e732028ce5bb",
+        "sha256": "1a4952474a739716cd8552f5ddcf778ed07daadddfd09fb363e76bb156372103",
         "title": "Skillful subseasonal Indian Ocean marine heatwave forecasts using a neural network",
         "kind": "research_article",
         "url": "/paper/PMC12980662",
@@ -95,7 +95,7 @@
       },
       {
         "source_file": "data/raw/ocean_heatwaves_2026/PMC7653907.xml",
-        "sha256": "9f625f8261f2971f42131220103cc7ddf3d5718cc97740afb95ca01fa3f62768",
+        "sha256": "f86aaa733b3ca950f09cb0cc990e43fbef02264044ff38df44f47c8ff11af9db",
         "title": "Drivers and impacts of the most extreme marine heatwaves events",
         "kind": "research_article",
         "url": "/paper/PMC7653907",
@@ -104,7 +104,7 @@
       },
       {
         "source_file": "data/raw/ocean_heatwaves_2026/PMC8294506.xml",
-        "sha256": "0c2633dcd7ec8ba92b0a5fd4b796aa4636c4ccba0d1f45f4d34288626b3a1f67",
+        "sha256": "f8cc5f96d285bb4cc57089f10a2c3c1083ca2fccb7409b2361444d6bdbbf85d4",
         "title": "Northern shrimp Pandalus borealis population collapse linked to climate-driven shifts in predator distribution",
         "kind": "research_article",
         "url": "/paper/PMC8294506",
@@ -113,7 +113,7 @@
       },
       {
         "source_file": "data/raw/ocean_heatwaves_2026/PMC9135278.xml",
-        "sha256": "434100d425bdf2bd9a3ca2142027a171b01b46df69bb81233f0c42ffa8566bc9",
+        "sha256": "d6531436e3c533f39730ae38f69a0848ede0830ec47ee147a3ef3dabaf0e6853",
         "title": "Recent and historical data show no evidence of Pacific bluefin tuna reproduction in the southern California Current system",
         "kind": "research_article",
         "url": "/paper/PMC9135278",
@@ -122,7 +122,7 @@
       },
       {
         "source_file": "data/raw/ocean_heatwaves_2026/PMC9613989.xml",
-        "sha256": "654378d18d251a927b62b99bcac35f5c058a784327ff8395bd67f4a4079c90d6",
+        "sha256": "bd209a16a247c2b0b8b7fa1ac303d41e1d4d6b0eab22f0c6090a679597f3b30e",
         "title": "Sea level extremes and compounding marine heatwaves in coastal Indonesia",
         "kind": "research_article",
         "url": "/paper/PMC9613989",
@@ -138,7 +138,7 @@
     "top_n": 500,
     "max_terms": 300,
     "min_count": 2,
-    "generated_at": "2026-11-12T08:09:12.910305+00:00",
+    "generated_at": "2026-11-13T09:55:20.372059+00:00",
     "wikipedia_requested": true,
     "supplementary_sources": {
       "Wikipedia": "descriptions and article links",

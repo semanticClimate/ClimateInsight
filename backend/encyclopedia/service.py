@@ -1,4 +1,4 @@
-"""Connect the sibling Encyclopedia package, graph vocabulary and report viewer.
+"""Connect the bundled Encyclopedia package, graph vocabulary and report viewer.
 
 Page requests only read the generated corpus vocabulary; extraction runs through
 backend.encyclopedia.build. No ChromaDB ingestion or graph construction occurs here.
@@ -34,7 +34,7 @@ def settings():
     path = ROOT / "config.toml"
     config = tomllib.loads(path.read_text(encoding="utf-8")).get("encyclopedia", {})
     mode = os.environ.get("CLIMATEINSIGHT_ENCYCLOPEDIA_MODE", config.get("mode", "generated"))
-    repo = Path(os.environ.get("CLIMATEINSIGHT_ENCYCLOPEDIA_REPO", config.get("repository", "../encyclopedia")))
+    repo = Path(os.environ.get("CLIMATEINSIGHT_ENCYCLOPEDIA_REPO", config.get("repository", ".")))
     repo = (ROOT / repo).resolve()
     sources = approved_paths(ROOT) if config.get("papers") else tuple((ROOT / name).resolve() for name in config.get("sources", []))
     return mode, repo, sources

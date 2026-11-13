@@ -14,7 +14,7 @@ from lxml import html
 
 from backend.encyclopedia.service import exchange_module
 
-# Resolve the configured sibling package before importing its existing helpers.
+# Resolve the configured package (bundled by default) before importing helpers.
 exchange_module()
 
 from encyclopedia.ipcc.cli import _extract_keywords_with_txt2phrases, _prepare_text_inputs
