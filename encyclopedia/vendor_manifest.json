@@ -1,0 +1,84 @@
+{
+    "source":  "https://github.com/semanticClimate/encyclopedia",
+    "base_commit":  "0ba0d13ba07c13e0e082dc42a2408e68fa256127",
+    "snapshot_date":  "2026-11-13",
+    "includes_local_integration_changes":  true,
+    "license":  "Apache-2.0",
+    "modules":  [
+                    {
+                        "path":  "encyclopedia/exchange.py",
+                        "source_sha256":  "46f901a60483f08ff166237e735efdb92db7a8871bcf460d2e16d54016bd3db7",
+                        "bundled_sha256":  "46f901a60483f08ff166237e735efdb92db7a8871bcf460d2e16d54016bd3db7"
+                    },
+                    {
+                        "path":  "encyclopedia/__init__.py",
+                        "source_sha256":  "7745e2937abf991c5a993a4a32bee5a24d7922238169724028cf62c2f8204885",
+                        "bundled_sha256":  "7745e2937abf991c5a993a4a32bee5a24d7922238169724028cf62c2f8204885"
+                    },
+                    {
+                        "path":  "encyclopedia/core/encyclopedia.py",
+                        "source_sha256":  "a39978dc54e75c6bff1ee62780a64c5d315ef9a369bf861639076872e6dcef3f",
+                        "bundled_sha256":  "a39978dc54e75c6bff1ee62780a64c5d315ef9a369bf861639076872e6dcef3f"
+                    },
+                    {
+                        "path":  "encyclopedia/core/html_fragments.py",
+                        "source_sha256":  "44d202bcbbbd74616e8fcc174742e8915a439fe970d1750e8a2d9ffb57b6d73d",
+                        "bundled_sha256":  "44d202bcbbbd74616e8fcc174742e8915a439fe970d1750e8a2d9ffb57b6d73d"
+                    },
+                    {
+                        "path":  "encyclopedia/core/html_reader.py",
+                        "source_sha256":  "496dfc9c864fe494510e87e667bbff4efcaa67eac881d0928aac310869d166b5",
+                        "bundled_sha256":  "496dfc9c864fe494510e87e667bbff4efcaa67eac881d0928aac310869d166b5"
+                    },
+                    {
+                        "path":  "encyclopedia/core/__init__.py",
+                        "source_sha256":  "b02897b403d9f71a36257140b8642cdb587ec937795e566c8dd32c46d46ee816",
+                        "bundled_sha256":  "b02897b403d9f71a36257140b8642cdb587ec937795e566c8dd32c46d46ee816"
+                    },
+                    {
+                        "path":  "encyclopedia/ipcc/cli.py",
+                        "source_sha256":  "a7c881d8a6fdcea2ebfe749c4eced6db08171f1c0f4fbcb950ca6038d00abbdb",
+                        "bundled_sha256":  "a7c881d8a6fdcea2ebfe749c4eced6db08171f1c0f4fbcb950ca6038d00abbdb"
+                    },
+                    {
+                        "path":  "encyclopedia/ipcc/phase1_wordlist.py",
+                        "source_sha256":  "e160ede1d5c7f967e5ac3621f8ac029690301c9f2b5f56ca874a2ca387b68cc8",
+                        "bundled_sha256":  "e160ede1d5c7f967e5ac3621f8ac029690301c9f2b5f56ca874a2ca387b68cc8"
+                    },
+                    {
+                        "path":  "encyclopedia/ipcc/__init__.py",
+                        "source_sha256":  "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6",
+                        "bundled_sha256":  "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6"
+                    },
+                    {
+                        "path":  "encyclopedia/pipeline/enrichment.py",
+                        "source_sha256":  "b1c1266687515d5ae783f1c712ab3449673cfc988c3bf86ff78ebf7e9bce0f5f",
+                        "bundled_sha256":  "b1c1266687515d5ae783f1c712ab3449673cfc988c3bf86ff78ebf7e9bce0f5f"
+                    },
+                    {
+                        "path":  "encyclopedia/pipeline/query_to_encyclopedia.py",
+                        "source_sha256":  "01b834a2e86d36e065039b11f3a738dda05d7d56a5849029419f2879f6cd0095",
+                        "bundled_sha256":  "01b834a2e86d36e065039b11f3a738dda05d7d56a5849029419f2879f6cd0095"
+                    },
+                    {
+                        "path":  "encyclopedia/pipeline/wikipedia_disambiguation.py",
+                        "source_sha256":  "f71ecf6825c0b73898b236f0a36709cce5a31bbee1702743fbb7f0df77b2e59a",
+                        "bundled_sha256":  "f71ecf6825c0b73898b236f0a36709cce5a31bbee1702743fbb7f0df77b2e59a"
+                    },
+                    {
+                        "path":  "encyclopedia/pipeline/__init__.py",
+                        "source_sha256":  "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6",
+                        "bundled_sha256":  "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6"
+                    },
+                    {
+                        "path":  "encyclopedia/utils/resources.py",
+                        "source_sha256":  "01f88ff0dc72de7999be31cdd222ee24a35e6d2f249a4107524381d61e751d7a",
+                        "bundled_sha256":  "64a71f71195fc32d97c1750f2310c93ac6133c3701f2bab24c3dba3f03037705"
+                    },
+                    {
+                        "path":  "encyclopedia/utils/__init__.py",
+                        "source_sha256":  "b02897b403d9f71a36257140b8642cdb587ec937795e566c8dd32c46d46ee816",
+                        "bundled_sha256":  "b02897b403d9f71a36257140b8642cdb587ec937795e566c8dd32c46d46ee816"
+                    }
+                ]
+}

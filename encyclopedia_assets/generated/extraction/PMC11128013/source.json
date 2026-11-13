@@ -1,7 +1,7 @@
 {
   "input": {
     "source_file": "data/raw/ocean_heatwaves_2026/PMC11128013.xml",
-    "source_sha256": "3ea9940d359b00e5edcc4f7ada7f2a35d9aa7bb023082fadbc89f1dcf0f5b83d",
+    "source_sha256": "0f9fb5bd2b178294b3bed4dc89c27b50c7ad1545124b65f9f83ecb5f3aeb87fc",
     "model": "ml6team/keyphrase-extraction-kbir-inspec",
     "preprocessor_version": 1,
     "top_n": 500,
