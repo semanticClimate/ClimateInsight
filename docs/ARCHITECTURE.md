@@ -118,6 +118,7 @@ ClimateInsight/
 │   ├── generated_artifacts/       # Installed vocabulary JSON artifacts
 │   └── chroma_db/                 # Local generated database, ignored by Git
 ├── data/raw/                      # Scientific source documents
+├── encyclopedia/                  # Bundled compatible Encyclopedia helpers
 ├── encyclopedia_assets/           # Browser scripts and generated publications
 ├── frontend/                      # HTML, CSS, JavaScript, and interface images
 ├── scripts/                       # Optional development/operating tools
@@ -140,18 +141,20 @@ vocabulary lives in `backend/generated_artifacts/`, so there is no second
 `data/` folder. These names distinguish the original documents, Python code,
 browser assets, and generated vocabulary.
 
-The separate [semanticClimate/encyclopedia](https://github.com/semanticClimate/encyclopedia)
-repository supplies the `encyclopedia.exchange` and extraction APIs. It is
-normally cloned alongside ClimateInsight as `../encyclopedia`. It must contain
-the compatible `encyclopedia/exchange.py` interface. `service.exchange_module()`
-checks its location before using it. The local Python package is explicitly
-named `backend.encyclopedia` so it does not take over that external namespace.
+The top-level `encyclopedia/` Python package bundles the compatible helpers from
+[semanticClimate/encyclopedia](https://github.com/semanticClimate/encyclopedia),
+including the `encyclopedia.exchange` viewer boundary, IPCC extraction adapters,
+wordlist aggregation, and Wikipedia entry generation. Its original license and
+source snapshot information are retained alongside the code. Only ClimateInsight
+needs to be cloned; no sibling checkout is required.
 
-At the 8 November 2026 verification, `exchange.py` was present locally but was
-not tracked in the sibling repository. Publishing this ClimateInsight checkout
-alone does not publish that integration file. A reproducible fresh setup needs
-the corresponding Encyclopedia changes supplied and versioned in its own
-checkout. This application continues to use that existing external interface.
+`[encyclopedia].repository = "."` resolves to the ClimateInsight root, independent
+of the current working directory. `service.exchange_module()` verifies the module
+location before use. Runtime serving imports only the lightweight exchange
+boundary; extraction and enrichment still require the separate build environment.
+An explicit repository path or `CLIMATEINSIGHT_ENCYCLOPEDIA_REPO` can select a
+compatible development checkout, but neither is needed for normal use. Remove a
+stale override when switching back to the bundled helpers.
 
 ### Paths and the server entry point
 
@@ -614,7 +617,7 @@ variables rather than the TOML `llm_model` field.
 | `REDIS_URL` | `redis://localhost:6379/0` | Session store |
 | `SESSION_TTL_SECONDS` | `86400` | Redis session expiry |
 | `CLIMATEINSIGHT_ENCYCLOPEDIA_MODE` | TOML mode, normally `generated` | Vocabulary/viewer selection |
-| `CLIMATEINSIGHT_ENCYCLOPEDIA_REPO` | TOML repository, normally `../encyclopedia` | External package location |
+| `CLIMATEINSIGHT_ENCYCLOPEDIA_REPO` | TOML repository, normally `.` | Optional override for the bundled package location |
 
 ## 12. Commands and maintenance
 
@@ -695,8 +698,9 @@ the document and database locations are unchanged.
   by its passage. The source viewer remains necessary for checking interpretation.
 - In-memory sessions and graph caches are process-local. Restarting clears them;
   Redis preserves supported session history, not the graph cache.
-- New environments need model downloads and a compatible external Encyclopedia
-  checkout. A successful health endpoint alone does not verify these dependencies.
+- New environments need model downloads and the separate Encyclopedia build
+  dependencies for extraction. Compatible Encyclopedia helpers are bundled.
+  A successful health endpoint alone does not verify model or index readiness.
 
 ## 14. Verification and extension
 
